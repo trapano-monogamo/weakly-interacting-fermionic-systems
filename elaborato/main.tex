@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage[a4paper, total={6in, 8.6in}]{geometry}
+% \usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{mathtools}
+
+% for feynman diagrams
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\usepackage{bbm} % blackboard bold '1'
+
+\usepackage{hyperref}
+
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcommand{\dx}{\mathrm{d}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\theoremstyle{remark}
+\newtheorem{example}{Example}
+
+% Bibliography setup
+\usepackage[backend=biber]{biblatex}
+\addbibresource{refs.bib}
+
+\title{Super interesting title on weakly interacting fermionic systems}
+\author{Filippo Cozzi}
+\date{???}
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\input{chapters/second-quantization.tex}
+\input{chapters/feynman-diagrams.tex}
+\input{chapters/second-order.tex}
+
+\section{Citation Test}
+\cite{test}
+
+\printbibliography
+
+\end{document}

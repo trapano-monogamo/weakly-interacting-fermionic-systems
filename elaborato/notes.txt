@@ -1,0 +1,11 @@
+consider going over problems 6.3, 6.4 and 7.5 from solovej's notes. you'll
+need to place them in the most natural order in the following paragraphs.
+
+you also have to put (later) the proof of existence and uniqueness of
+solutions to ode, and maybe you'll have to put the proof that unitary maps send dense subspaces
+to dense subspaces.
+
+also, add the definitions of derivatives and integrals of bounded operators and maybe even
+unbounded operators.
+
+rhen look up (blanchard?) properties of trace-class operators.
