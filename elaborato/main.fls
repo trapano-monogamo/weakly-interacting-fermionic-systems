@@ -388,8 +388,8 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr5.tfm
 OUTPUT main.toc
 INPUT ./chapters/second-quantization.tex
-INPUT /home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc
 INPUT /usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
@@ -411,6 +411,7 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT ./chapters/feynman-diagrams.tex
 INPUT ./chapters/second-order.tex
+INPUT ./chapters/appendix.tex
 INPUT ./main.aux
 INPUT ./main.run.xml
 OUTPUT main.run.xml

@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1777301308.8628 "main.bcf" "main.bbl" "main" 1779531275.4945 0
-  "main.bcf" 1779531275.34698 108604 0dfdebb7f977d280ff455b214448b678 "pdflatex"
+["biber main"] 1779711417.11441 "main.bcf" "main.bbl" "main" 1779727300.99773 0
+  "main.bcf" 1779727300.86521 108604 0dfdebb7f977d280ff455b214448b678 "pdflatex"
   "refs.bib" 1777301307.73719 109 3269a620b8345b2b90ddadb4767f9abb ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1779531273.62866 "main.tex" "main.pdf" "main" 1779531275.49471 0
+["pdflatex"] 1779727299.09837 "main.tex" "main.pdf" "main" 1779727300.99795 0
   "/home/chiara/.texlive/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1775842594.0631 6964 2b2f59d99251ed4e6e96b596248da6c9 ""
   "/home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1778698970.58931 128397 dc8cded2bbafe8195c86cdaea92e40b2 ""
   "/home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc" 1778698971.57619 136299 81dfec24bbf14622db1629e3fd551117 ""
@@ -27,7 +27,6 @@
   "/usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf" 1775415801 110400 d844cffffa1af59f9d2bb1bfdb6f1a2c ""
   "/usr/share/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf" 1775415801 110248 1d75fdc9dbe45e70de83ff6cc79a81c9 ""
   "/usr/share/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf" 1775415801 111872 0b5e13b31880d81af0a80d609d006699 ""
-  "/usr/share/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf" 1775415801 117960 0d66730bd21e5e084f11b2b3f18ea9e1 ""
   "/usr/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf" 1775415801 110792 5c4b6a3d7f194f073a529b5124a181af ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1775415801 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1775415801 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -397,15 +396,16 @@
   "/usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload.lua" 1775415801 13566 16df94dd2de231b2bca0aaa0190941fe ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778320036 5385779 47c0c393a77fd4a098bacfd57d66b88a ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1778319998 5657252 53fc5d012d2939323f3d9eca1ab96afc ""
-  "chapters/feynman-diagrams.tex" 1779526338.89867 15180 6573ce47ebbbb9dfe6bf3dab547d4b8e ""
-  "chapters/second-order.tex" 1779531271.53026 25267 14bb9dc480263835e004319fedd63beb ""
-  "chapters/second-quantization.tex" 1779526693.25012 58481 35151e87fba3f99d3d6f4e60645b20de ""
-  "main.aux" 1779531275.34698 3210 bbb7f4d919b5b0e3168ef15d31e7418e "pdflatex"
-  "main.bbl" 1777301309.26722 1513 61ef0bb6d60fbbf1e1515f4c00387fed "biber main"
-  "main.out" 1779531275.34698 3189 8af38c94b5322b9af24cb1cc6e67dcd9 "pdflatex"
-  "main.run.xml" 1779531275.34698 2334 495085e3091aac17e7ead29a73d4107a "pdflatex"
-  "main.tex" 1777018750.76166 1262 c357a6436feb71361262face0be8ef16 ""
-  "main.toc" 1779531275.34698 1472 a0c7968ca038c7819fb1dffdb81fb03a "pdflatex"
+  "chapters/appendix.tex" 1779713752.78686 1695 73d63297bd29552c276b44ce9dfe0fc0 ""
+  "chapters/feynman-diagrams.tex" 1779726596.05112 15216 1780f51c48c6384b91daddb00c02f77b ""
+  "chapters/second-order.tex" 1779727297.18855 25628 1f43f46c5385baa57de91e6c5ae33429 ""
+  "chapters/second-quantization.tex" 1779726343.41183 66175 0fc6a42e917ee96ed58b74d60be501a5 ""
+  "main.aux" 1779727300.86187 3840 d3a98601cc787b144eb6dbcfb9208686 "pdflatex"
+  "main.bbl" 1779711417.55503 1513 61ef0bb6d60fbbf1e1515f4c00387fed "biber main"
+  "main.out" 1779727300.86187 3793 74c243ada752fda07e4af848f04c3906 "pdflatex"
+  "main.run.xml" 1779727300.86521 2334 495085e3091aac17e7ead29a73d4107a "pdflatex"
+  "main.tex" 1779711411.41196 1255 b9a505861d1af0f075d17cf8c9b134c8 ""
+  "main.toc" 1779727300.86521 1741 54170e49f828c5f38f98a43838a90c16 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

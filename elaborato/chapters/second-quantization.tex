@@ -1144,4 +1144,162 @@ of the generalized creation and annihilation operators.
 	transformation}.
 \end{definition}
 
+We can characterize Bogolubov maps by writing them in block-matrix form and noting that each
+block must satisfy specific properties that come directly from the definition. We first notice
+that the conditions in the definition can be rewritten as
+\begin{align*}
+	\langle \mathcal{V}F_1,\mathcal{S}_\pm\mathcal{V}F_2\rangle
+	= \langle F_1,\mathcal{S}_\pm F_2\rangle
+	\quad\text{and}\quad\mathcal{JV}F=\mathcal{VJ}F
+\end{align*}
+for all $F,F_1,F_2\in\mathfrak{h}\oplus\mathfrak{h}^*$. Moreover, since we are assuming that
+$\mathcal{V}$ is invertible, we can also write
+\begin{align*}
+	\mathcal{V}^{-1} = \mathcal{S}_\pm\mathcal{V}^*\mathcal{S}_\pm.
+\end{align*}
+In particular, $\mathcal{V}^{-1}=\mathcal{V}^*$ in the fermionic case. With these properties
+we immediatly get to the following proposition, for which the proof can be read through what
+we just said:
+\begin{proposition}
+	A linear map $\mathcal{V}$ on $\mathfrak{h}\oplus\mathfrak{h}^*$ is a Bogolubov map if,
+	and only if, the following conditions hold:
+	\begin{align}
+		\label{bogolubov-map-conditions}
+		\mathcal{V}^*\mathcal{S}_\pm\mathcal{V} = \mathcal{S}_\pm ,\quad
+		\mathcal{VS}_\pm\mathcal{V}^* = \mathcal{S}_\pm ,\quad
+		\mathcal{JVJ} = \mathcal{V}.
+	\end{align}
+\end{proposition}
+
+If we take bounded linear maps $U : \mathfrak{h}\to\mathfrak{h}$ and $V : \mathfrak{h} \to\mathfrak{h}^*$
+we can finally write a Bogolubov map in block-matrix form
+\begin{align}
+	\label{bogolubov-block-matrix}
+	\mathcal{V} = \begin{pmatrix} U & J^* V J^* \\ V & JUJ^* \end{pmatrix}
+\end{align}
+and the conditions \ref{bogolubov-map-conditions} can then be read as
+\begin{align*}
+	\begin{cases}
+		U^*U = \mathbbm{1} \pm V^*V \\
+		UU^* = \mathbbm{1} \pm J^*vV^*J \\
+		JV^*JU = \pm JU^*J^*V
+	\end{cases}.
+\end{align*}
+
+Defining Bogolubov maps is not sufficient though, as such a map need not, in general,
+correspond to a unitary \textit{on the Fock space}. Thus we come to the following theorem
+which tells us when this is possible, and which we will use to define an important class of
+states in a Fock space for which Wick's theorem will hold in its most general form.
+
+\begin{theorem}[Unitary implementability of Bogolubov maps]
+	If $\mathcal{V} : \mathfrak{h}\oplus\mathfrak{h}^* \to \mathfrak{h}\oplus\mathfrak{h}^*$
+	is a Bogolubov map of the form \ref{bogolubov-block-matrix} then there exists a unitary
+	map
+	\begin{align*}
+		\mathbb{U}_\mathcal{V} : \mathcal{F}^{\mathrm{F,B}}(\mathfrak{h}) \to \mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})
+	\end{align*}
+	such that, for $F\in\mathfrak{h}\oplus\mathfrak{h}^*$,
+	\begin{align*}
+		\mathbb{U}_\mathcal{V} A_\pm(F)\mathbb{U}_\mathcal{V}^* = A_\pm(\mathcal{V}F)
+	\end{align*}
+	if, and only if, $V^*V$ is trace-class. This trace-class condition is also referred to as
+	the Shale-Stinespring condition.
+\end{theorem}
+
+What this means is that, under suitable conditions on the block-matrix form of a Bogolubov
+map, there exists a ``change of basis" on the Fock space that sends generalized annihilation
+and - by taking the adjoint - creation operators to operators that annihilate/create a
+superposition of states determined by the linear map $\mathcal{V}$.
+
+\begin{proof}
+	\textcolor{red}{AAAAAAHHHHHHH}
+\end{proof}
+
+We are finally ready to discuss the most important concept in this chapter: Wick's theorem.
+This is the result that, among other things, allows us to write perturbative series as they
+are described in the next chapter, and it is motivation behind the computational tools we will
+need to introduce. Thanks to the formalism of second quantization, Wick's theorem essentially
+states that the expectation value for any observable on a special class of states is
+completely determined by the 2-point function. Moreover, since the perturbative expansion of
+a physical quantity involves a series of products of creation/annihilation operators, this
+theorem also says that such a perturbative expansion is completely determined by the 2-point
+function as well.
+
+\begin{definition}[Quasi-free pure state]
+	A vector $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ is called a \textit{quasi-free
+	pure state} if there exists a unitarily implementable Bogolubov map $\mathcal{V}$ such
+	that $\Psi = \mathbb{U}_\mathcal{V}|0\rangle$, where $\mathbb{U}_\mathcal{V}$ is the
+	unitary implementation of $\mathcal{V}$.
+\end{definition}
+
+That is, a state is quasi-free if it is the vacuum state under an appropriate choice of
+physical modes.
+
+\begin{theorem}[Wick's theorem]
+	If $\Psi$ is a quasi-free pure state and $F_1,\ldots,F_{2m}\in\mathfrak{h}\oplus\mathfrak{h}^*$
+	for some $m\geq1$, then it holds that
+	\begin{align*}
+		&\langle\Psi,A_\pm(F_1)\cdots A_\pm(F_2m)\Psi\rangle =\\
+		&\quad\sum_{\sigma\in P_{2m}} (\pm 1)^\sigma
+		\langle\Psi, A_\pm(F_{\sigma(1)})A_\pm(F_{\sigma(2)})\Psi\rangle \cdots
+		\langle\Psi, A_\pm(F_{\sigma(2m-1)})A_\pm(F_{\sigma(2m)})\Psi\rangle
+	\end{align*}
+	and
+	\begin{align*}
+		\langle\Psi,A_\pm(F_1)\cdots A_\pm(F_{2m-1})\Psi\rangle = 0
+	\end{align*}
+	where $P_{2m}$ is the set of pairings of the indices $\{1,\ldots,2m\}$, i.e.
+	\begin{align*}
+		P_{2m} = \{
+			\sigma\in S_{2m} : \sigma(2j-1) < \sigma(2j+1),\; j=1,\ldots,m-1\;\mathrm{and}\\
+			\sigma(2j-1) < \sigma(2j),\; j=1,\ldots,m
+		\}.
+	\end{align*}
+\end{theorem}
+
+Despite dreaming of resisting the urge to characterize \textit{something}, the mathematician
+is ultimately doomed to fail. Let us then indulge in the characterization of generalized
+2-point functions of quasi-free pure states, since they appear to be so important.
+
+\begin{proposition}
+	If $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ is a quasi-free pure state then the
+	generalized 2-point function, $\Gamma = \Gamma_\Psi$, satisfies the condition
+	\begin{align}
+		\label{two-point-function-condition}
+		\Gamma\mathcal{S}_\pm\Gamma = \mp\Gamma.
+	\end{align}
+	In particular, $\Gamma$ is a projection in the fermionic case. Conversely, if
+	$\Gamma : \mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ is a
+	positive semi-definite operator satisfying \ref{two-point-function-condition} and of the
+	form
+	\begin{align*}
+		\Gamma = \begin{pmatrix} \gamma & \alpha \\
+		\pm J\alpha J & \mathbbm{1}\pm J\gamma J^* \end{pmatrix}
+	\end{align*}
+	with $\gamma$ a trace-class operator, then there exists a quasi-free pure state
+	$\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ such that $\Gamma_\Psi = \Gamma$.
+\end{proposition}
+\begin{proof}
+	\textcolor{red}{proof you have to write, if mathematician you want to become, mmh.}
+\end{proof}
+
 \subsection{Quadratic hamiltonians}
+
+Having introduced all the necessary results reguarding Bogolubov maps, we can now move onto
+the study of generic quadratic Hamiltonians. Their importance is partly due to the fact that
+if one can find a Bogolubov transformation that diagonalizes the quadratic part of the
+Hamiltonian, then the study of the kinetic (quadratic) part of that system is automatically
+done. This of course plays a crucial role in perturbative calculations, which are all about
+dealing with complicated interactions on top of an easy and well-defined ``free theory", i.e.
+a theory whose $n$-point functions satisfy Wick's theorem.
+
+\begin{definition}[Quadratic Hamiltonian]
+	Let $\mathcal{A}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ be a
+	self-adjoint, trace-class operator and assume morover in the bosonic case that it is
+	positive semi-definite. Given an orthonormal basis $\{F_1,\ldots,F_{2M}\}$ for
+	$\mathfrak{h}\oplus\mathfrak{h}^*$, the operator
+	\begin{align*}
+		H_{\mathcal{A}}^\pm = \sum_{i,j=1}^{2M} \langle F_i,\mathcal{A}F_j\rangle A^*_\pm(F_i)A_\pm(F_j),
+	\end{align*}
+	is called the \textit{quadratic Hamiltonian associated to $\mathcal{A}$}.
+\end{definition}

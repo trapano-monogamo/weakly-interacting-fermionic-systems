@@ -168,9 +168,9 @@ diagrams are going to be different.
 	\begin{equation}
 		G_{k,k'}(\tau,\tau')
 		= \langle a^*_k(\tau) a_{k'}(\tau') \rangle_{H_0}
-		= \delta_{k,k'} n_{\text{F}}(\epsilon_k) e^{-(\tau-\tau')\epsilon_{k}}
+		= \delta_{k,k'} n_{\mathrm{F}}(\epsilon_k) e^{-(\tau-\tau')\epsilon_{k}}
 	\end{equation}
-	where $n_\text{F}(\epsilon) = (e^{\beta\epsilon}+1)^{-1}$ is the Fermi-Dirac distribution.
+	where $n_\mathrm{F}(\epsilon) = (e^{\beta\epsilon}+1)^{-1}$ is the Fermi-Dirac distribution.
 \end{lemma}
 \begin{proof}
 	We are going to divide the proof in two parts: first we will find an expression for the
@@ -392,14 +392,17 @@ equation (\ref{eq:duhamel}), leads to the final expression of the free energy at
 	\Biggl).
 \end{align*}
 
-The relevant limits we are going to take, and for which we need to provide proof of
-convergence, are respectively: $\Lambda\to\infty$ to remove the UV cutoff, $\beta\to\infty$ to
-get to the ground state energy, and $L^3\to\infty$ for the thermodynamic limit
-(\textcolor{red}{check that you actually defined $L$ to be the sidelength of the volume occupied by the system}).
-(\textcolor{red}{check the appropriate factor $2\pi$ for $\mathbb{Z}^3$}).
+Now that the computation is complete, we need to prove that removing the UV cutoff, i.e.
+taking the limit $\Lambda\to\infty$, leads to a well-defined expression. Please note that this
+is not at all a trivial statement and what we are doing is deciding on the order in which
+to take different limits, as removing the cutoff starting from this expression means that the
+perturbative series is \textit{not} done in the case where the state space is
+infinite-dimensional. Physically, this does not pose any concern and we expect the two
+scenarios to be equivalent, but from the point of view of mathematical rigour it is worth
+pointing out this kind of subtleties.
 
 \begin{theorem}
-	With the regularity condition that, given $m\geq1$, $\partial^\alpha V\in L^1(\mathbb{T}^3)$,
+	With the regularity condition that, given $m\geq1$, $\partial^\alpha V\in L^1(\mathbb{T}^3)$
 	for all multi-indices $\alpha$ such that $\vert\alpha\vert=m$, and the assumption that
 	$\epsilon_p$ is a positive and monotonically increasing \textcolor{red}{polynomial} in
 	$\vert p\vert$, the above expression converges in the limit $\Lambda\to\infty$.
@@ -429,7 +432,7 @@ get to the ground state energy, and $L^3\to\infty$ for the thermodynamic limit
 	\end{align*}
 
 	By the positivity of the general terms for all $k\in\mathbb{Z}^3$ we can bound the sums by
-	the respective sum over $\mathbb{Z}^3$. Because the general terms of each of the above
+	the respective sum over $\mathbb{Z}^3$, and because the general terms of each of the above
 	sums only depends on the modulus of the index we can employ the following strategy. Define
 	$A_n = \{k\in\mathbb{Z}^3 : n \leq \vert k\vert < n+1\}$ and write
 	\begin{align*}
@@ -440,8 +443,8 @@ get to the ground state energy, and $L^3\to\infty$ for the thermodynamic limit
 	that the behaviour of $\sum_{k\in\mathbb{Z}^3} a_{\vert k\vert}$ and $\sum_{n=0}^\infty n^2 a_n$
 	is the same.
 
-	Now we can show that each term converges absolutely. Indeed $\sum_{k\in\mathbb{Z}^3}n_k$
-	converges if, and only if, the series $\sum_{\ell\in\mathbb{N}} \ell^2 e^{-\beta\epsilon_\ell}$
+	Now we can show that each term converges. Indeed $\sum_{k\in\mathbb{Z}^3}n_k$ converges
+	if, and only if, the series $\sum_{\ell\in\mathbb{N}} \ell^2 e^{-\beta\epsilon_\ell}$
 	converges, by the asymptotic comparison test. The latter does converge absolutely as shown by
 	the root test:
 	\begin{align*}
@@ -456,7 +459,7 @@ get to the ground state energy, and $L^3\to\infty$ for the thermodynamic limit
 		\leq \sum_{k\in\mathbb{Z}^3}\frac{C n_k}{\vert k\vert^m}
 		\leq \sum_{k\in\mathbb{Z}^3} C n_k.
 	\end{align*}
-	This shows that indeed the first order has, as a limit in $\Lambda\to\infty$, an
+	This shows that indeed the first order is, in the limit in $\Lambda\to\infty$, an
 	absolutely convergent series.
 
 	Very similar arguments can be used to show that the second order has an absolutely convergent
@@ -467,13 +470,14 @@ get to the ground state energy, and $L^3\to\infty$ for the thermodynamic limit
 		&\leq \sum_p \frac{4n_p}{\epsilon_p} \sum_q n_q \sum_k (\hat{V}(k))^2 n_{q+k}n_{p-k}
 		\left(\beta + \frac{1}{\epsilon_p}\right),
 	\end{align*}
-	which, once more turning sums over $\mathbb{Z}^3$ into normal series with an additional square
+	which, turning once more sums over $\mathbb{Z}^3$ into normal series with an additional square
 	in the general term, is an absolutely convergent series in the limit $\Lambda\to\infty$, as
 	the only true difference from the previous case is the additional factor $1/\epsilon_p$, which
 	is an inverse power and does not change the result of any of the comparison tests done before.
 	The exact same argument can be applied to the second term, and this concludes the proof.
 \end{proof}
 
+And with the convergence of the free energy under control, the next step is to look at the
+limit $\beta\to\infty$ to retrieve the ground state energy.
+
 \subsection{Mean field scaling limit}
-
-

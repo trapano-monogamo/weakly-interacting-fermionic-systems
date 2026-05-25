@@ -1,16 +1,19 @@
 \contentsline {section}{\numberline {1}Second Quantization}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Principles of quantum mechanics}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Canonical and grand canonical pictures}{7}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}One-particle density matrices}{13}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.2}Canonical and grand canonical pictures}{8}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}One-particle density matrices}{14}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Bogolubov transformations and quasi-free pure states}{17}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Quadratic hamiltonians}{17}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Perturbation Theory}{17}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Bosonic perturbation theory}{18}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Grassmann Algebras and Grassmann Integrals}{18}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Fermionic perturbation theory}{22}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Feynman diagrams}{22}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Explicit Calculation at Second Order}{22}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Duhamel's formula}{22}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Evaluating expectation values}{24}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Mean field scaling limit}{28}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Citation Test}{28}{section.4}%
+\contentsline {subsection}{\numberline {1.5}Quadratic hamiltonians}{19}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Perturbation Theory}{20}{section.2}%
+\contentsline {subsection}{\numberline {2.1}A toy model}{20}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Bosonic expectations}{20}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Grassmann Algebras and Grassmann Integrals}{20}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Fermionic expectations}{24}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Perturbative series and Feynman diagrams}{24}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Explicit Calculation at Second Order}{24}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Duhamel's formula}{24}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Evaluating expectation values}{26}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Mean field scaling limit}{31}{subsection.3.3}%
+\contentsline {section}{\numberline {A}More about operators on a Hilbert space}{31}{appendix.A}%
+\contentsline {section}{\numberline {B}On particle-hole excitations}{31}{appendix.B}%
+\contentsline {section}{\numberline {C}References}{32}{appendix.C}%
