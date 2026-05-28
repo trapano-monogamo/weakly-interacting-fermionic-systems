@@ -15,5 +15,5 @@
 \contentsline {subsection}{\numberline {3.2}Evaluating expectation values}{26}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Mean field scaling limit}{31}{subsection.3.3}%
 \contentsline {section}{\numberline {A}More about operators on a Hilbert space}{31}{appendix.A}%
-\contentsline {section}{\numberline {B}On particle-hole excitations}{31}{appendix.B}%
+\contentsline {section}{\numberline {B}On particle-hole excitations}{32}{appendix.B}%
 \contentsline {section}{\numberline {C}References}{32}{appendix.C}%

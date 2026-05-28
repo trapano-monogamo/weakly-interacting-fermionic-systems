@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1779711417.11441 "main.bcf" "main.bbl" "main" 1779727300.99773 0
-  "main.bcf" 1779727300.86521 108604 0dfdebb7f977d280ff455b214448b678 "pdflatex"
+["biber main"] 1779711417.11441 "main.bcf" "main.bbl" "main" 1779954717.15331 0
+  "main.bcf" 1779954717.01802 108604 0dfdebb7f977d280ff455b214448b678 "pdflatex"
   "refs.bib" 1777301307.73719 109 3269a620b8345b2b90ddadb4767f9abb ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1779727299.09837 "main.tex" "main.pdf" "main" 1779727300.99795 0
+["pdflatex"] 1779954715.28879 "main.tex" "main.pdf" "main" 1779954717.15356 0
   "/home/chiara/.texlive/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1775842594.0631 6964 2b2f59d99251ed4e6e96b596248da6c9 ""
   "/home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1778698970.58931 128397 dc8cded2bbafe8195c86cdaea92e40b2 ""
   "/home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc" 1778698971.57619 136299 81dfec24bbf14622db1629e3fd551117 ""
@@ -396,16 +396,16 @@
   "/usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload.lua" 1775415801 13566 16df94dd2de231b2bca0aaa0190941fe ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778320036 5385779 47c0c393a77fd4a098bacfd57d66b88a ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1778319998 5657252 53fc5d012d2939323f3d9eca1ab96afc ""
-  "chapters/appendix.tex" 1779713752.78686 1695 73d63297bd29552c276b44ce9dfe0fc0 ""
+  "chapters/appendix.tex" 1779742262.37014 2609 ebe4518f19186ea65c0c8394fc62cfa7 ""
   "chapters/feynman-diagrams.tex" 1779726596.05112 15216 1780f51c48c6384b91daddb00c02f77b ""
-  "chapters/second-order.tex" 1779727297.18855 25628 1f43f46c5385baa57de91e6c5ae33429 ""
+  "chapters/second-order.tex" 1779954714.46768 25622 26390fe9b3882782a8c9776280a3ce11 ""
   "chapters/second-quantization.tex" 1779726343.41183 66175 0fc6a42e917ee96ed58b74d60be501a5 ""
-  "main.aux" 1779727300.86187 3840 d3a98601cc787b144eb6dbcfb9208686 "pdflatex"
+  "main.aux" 1779954717.01802 3840 d06d8267e8aabe85db3962fcd62e5139 "pdflatex"
   "main.bbl" 1779711417.55503 1513 61ef0bb6d60fbbf1e1515f4c00387fed "biber main"
-  "main.out" 1779727300.86187 3793 74c243ada752fda07e4af848f04c3906 "pdflatex"
-  "main.run.xml" 1779727300.86521 2334 495085e3091aac17e7ead29a73d4107a "pdflatex"
+  "main.out" 1779954717.01802 3793 74c243ada752fda07e4af848f04c3906 "pdflatex"
+  "main.run.xml" 1779954717.01802 2334 495085e3091aac17e7ead29a73d4107a "pdflatex"
   "main.tex" 1779711411.41196 1255 b9a505861d1af0f075d17cf8c9b134c8 ""
-  "main.toc" 1779727300.86521 1741 54170e49f828c5f38f98a43838a90c16 "pdflatex"
+  "main.toc" 1779954717.01802 1741 0ca2c21e33cb0b2d5f6d84cc1c645291 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

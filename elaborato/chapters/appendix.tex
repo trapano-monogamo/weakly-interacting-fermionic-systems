@@ -6,18 +6,33 @@ We group in this appendix a series of definitions and theorems that are not nece
 of the basic foundations of quantum mechanics, but are still crucial in understanding how
 exactly some computations are carried out and why they hold true. Some of the results
 presented here go beyond the scope of our work as far as their proof is concerned, and only
-serve the purpose of giving a clearer picture of what some tools actually are without having
-to reference an entire course on functional analysis.
+serve the purpose of painting a clearer picture of what some tools actually are without just
+referencing an entire course on functional analysis.
 
-\textcolor{red}{TODO:}
+Recall that the dual of a complex Hilbert space $\mathcal{H}$ is the Hilbert space
+$\mathcal{H}^* = \{\varphi:\mathcal{H}\to\mathbb{C} : \varphi\;\text{is a continuous linear
+functional}\}$, where continuity is with respect to the norm topology on $\mathcal{H}$.
+
+\begin{theorem}[Riesz representation theorem]
+	Let $\mathcal{H}$ be a complex Hilbert space and $F:\mathcal{H}\to\mathbb{C}$ a linear
+	functional. Then $F\in\mathcal{H}^*$ if, and only if, there exists a unique $x_{\mathrm{F}}\in\mathcal{H}$
+	such that $F(x) = \langle x_{\mathrm{F}},x\rangle$ for all $x\in\mathcal{H}$. Moreover,
+	it holds that $\Vert x_{\mathrm{F}}\Vert_{\mathcal{H}} = \Vert F\Vert_{\mathcal{H}^*}$.
+\end{theorem}
+\begin{proof}
+	If $\ker(F)=\mathcal{H}$ then $x_{\mathrm{F}}=0$. Otherwise, let $y\in\ker(F)^\perp$ and
+	define \textcolor{red}{molinari potevi essere un po' meno stringato mannaggia santa}
+\end{proof}
+
+\textcolor{red}{TTOODDOO:}
 \begin{itemize}
 	\item introduce UNITARIES and ISOMETRIES (and talk more about self-adjoint operators?)
 	\item ORTHOGONAL COMPLEMENT theorem + RIESZ representation theorem
 	\item SPECTRAL theorem (which version?)
 	\item DIRECT SUMS and TENSOR PRODUCTS of hilbert spaces (and their uniqueness)\\
 		$\longrightarrow$ move N-fold tensor product state space definition/explanation here,
-		and move construction of (anti-)symmetric tensor products into the canonical/grand
-		canonical discussion, it makes more sense.
+		and move construction of (anti-)symmetric tensor products to the disucssion on
+		canonical/grand canonical pictures, it makes more sense.
 	\item INTEGRALS (and derivatives) of operator-valued functions
 	\item comments on and PROPERTIES of $e^{-\beta H_0}$ (with $H_0$ bounded and maybe even
 		unbounded)
