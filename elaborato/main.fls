@@ -398,7 +398,6 @@ INPUT /usr/share/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/bbm/bbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/bbm/bbm7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/bbm/bbm5.tfm
-INPUT /home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-italic.luc
 INPUT /home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmromandemi10-regular.luc
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
@@ -409,6 +408,7 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-italic.luc
 INPUT ./chapters/feynman-diagrams.tex
 INPUT ./chapters/second-order.tex
 INPUT ./chapters/appendix.tex

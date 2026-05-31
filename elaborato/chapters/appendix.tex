@@ -9,41 +9,382 @@ presented here go beyond the scope of our work as far as their proof is concerne
 serve the purpose of painting a clearer picture of what some tools actually are without just
 referencing an entire course on functional analysis.
 
+\subsection{Special operators}
+\label{appendix:special-operators}
+
+\begin{proposition}
+	The adjoint of a bounded operator is a bounded operator.
+\end{proposition}
+\begin{proof} \textcolor{red}{????} \end{proof}
+
+\begin{proposition}
+	$A$ is a symmetric operator if and only if $A^*$ is an extension of $A$, i.e. $A \subseteq A^*$.
+\end{proposition}
+\begin{proof} \textcolor{red}{????} \end{proof}
+
+\begin{definition}[Self-adjoint operators]
+	An operator on a Hilbert space $A:D(A)\subseteq\mathcal{H}\to\mathcal{H}$ is called
+	\textit{self-adjoint} if $A=A^*$. Note that this condition is stronger that being symmetric.
+\end{definition}
+
+\begin{definition}[Compact operators]
+	An operator on a Hilbert space $A:D(A)\subseteq\mathcal{H}\to\mathcal{H}$ is called
+	\textit{compact} if $D(A)=\mathcal{H}$ and there exist complete orthonormal systems
+	$\{u_i:i\in\mathbb{N}\}$ and $\{v_i:i\in\mathbb{N}\}$ for $\mathcal{H}$ and a sequence
+	$\{\lambda_i:i\in\mathbb{N}\}$ such that $\lambda_i \to 0$ such that
+	\begin{align*}
+		A\phi = \sum_{n=0}^\infty \lambda_n \langle v_n,\phi\rangle u_n
+	\end{align*}
+	for all $\phi\in\mathcal{H}$.
+\end{definition}
+
+\begin{definition}[Trace class and Hilbert-Schmidt operators]
+	A compact operator $A$ is said to be \textit{trace class} if $\sum_{n=1}^\infty |\lambda_n| < \infty$
+	and is said to be \textit{Hilbert-Schmidt} if $\sum_{n=1}^\infty |\lambda_n|^2 < \infty$.
+	For a trace class operator $A$ we define its \textit{trace} as
+	\begin{align*}
+		\mathrm{Tr}(A) \coloneq \sum_{n=1}^\infty \lambda_n \langle v_n,u_n \rangle.
+	\end{align*}
+\end{definition}
+
+\textcolor{red}{$Ve^{-\beta H_0}$ is traceclass}?
+
+\begin{proposition}
+	The trace of a trace class operator $A$ is finite, and given an orthonormal basis
+	$\{\phi_n\}_{n\in\mathbb{N}}$ for $\mathcal{H}$ the trace is
+	\begin{align*}
+		\mathrm{Tr}(A) = \sum_{n=1}^\infty \langle\phi_n,A\phi_n\rangle.
+	\end{align*}
+\end{proposition}
+\begin{proof} \textcolor{red}{????} \end{proof}
+
+\begin{definition}[Projection]
+	A bounded linear operator $P$ on a Hilbert space $\mathcal{H}$ which is symmetric, $P^*=P$,
+	and idempotent, $P^2=P$, is called a \textit{projection operator} or \textit{projector}.
+\end{definition}
+\begin{proposition}
+	Given a Hilbert space $\mathcal{H}$, projectors defined on $\mathcal{H}$ have the following
+	properties:
+	\begin{enumerate}
+		\item[a)] every projector $P$ is such that $P\neq0$ and $\Vert P\Vert = 1$;
+		\item[b)] $P$ is a projector if, and only if, $\mathbbm{1} - P$ is a projector;
+		\item[c)] if $P$ is a projector, then
+			\begin{align*}
+				\mathcal{H} = \mathrm{ran} P \oplus \ker P,
+				\quad P|_{\mathrm{ran}P} = \mathbbm{1},
+				\quad P|_{\mathrm{ker}P} = 0.
+			\end{align*}
+			In particular, the spectrum of $P$ is $\sigma(P)=\{0,1\}$;
+		\item[d)] there is a bijection between projectors defined on $\mathcal{H}$ and closed
+			subspaces of $\mathcal{H}$.
+		\item[e)] if $\{e_1,\ldots,e_N\}$ for $N\in\mathbb{N}$ or $N=\infty$ is an orthonormal
+			system in $\mathcal{H}$, then the projection $P_M$ on $M=\mathrm{span}\{e_1,\ldots,e_N\}$ is
+			\begin{align*}
+				P_M x = \sum_{n=1}^N \langle e_n,x\rangle e_n,\quad\forall x\in\mathcal{H}.
+			\end{align*}
+	\end{enumerate}
+\end{proposition}
+
+\begin{definition}[Isometry and Unitaries]
+	Given two Hilbert spaces $\mathcal{H}$ and $\mathcal{K}$, a linear map $U:\mathcal{H}\to\mathcal{K}$
+	with the property that
+	\begin{align*}
+		\Vert Ux\Vert_{\mathcal{K}} = \Vert x\Vert_{\mathcal{H}}\quad\forall x\in\mathcal{H}
+	\end{align*}
+	is called an \textit{isometry} between $\mathcal{H}$ and $\mathcal{K}$. A surjective
+	isometry is called a \textit{unitary operator}.
+\end{definition}
+
+Unitary operators are of particular interest in quantum mechanics, as the property of conserving
+the inner product means that these are the natural objects to describe operatotions that need
+to preserve probability amplitudes.
+
+\begin{proposition}
+	For a bounded linear operator between Hilbert spaces $U:\mathcal{H}\to\mathcal{K}$, the
+	following statements are equivalent:
+	\begin{enumerate}
+		\item[a)] $U$ is a unitary operator;
+		\item[b)] $U^*U = \mathbbm{1}_{\mathcal{K}}$ and $UU^* = \mathbbm{1}_{\mathcal{H}}$;
+		\item[c)] $U\mathcal{H}=\mathcal{K}$ and $\langle x,y\rangle_{\mathcal{H}}=\langle Ux,Uy\rangle_{\mathcal{K}}$, for all $x,y\in\mathcal{H}$.
+	\end{enumerate}
+\end{proposition}
+
 Recall that the dual of a complex Hilbert space $\mathcal{H}$ is the Hilbert space
 $\mathcal{H}^* = \{\varphi:\mathcal{H}\to\mathbb{C} : \varphi\;\text{is a continuous linear
 functional}\}$, where continuity is with respect to the norm topology on $\mathcal{H}$.
+
+To conclude this part of our discussion on the basics of operators on a Hilbert space, we give
+three more results whose importance we will not discuss further, as it goes beyond the scope
+of our work.
 
 \begin{theorem}[Riesz representation theorem]
 	Let $\mathcal{H}$ be a complex Hilbert space and $F:\mathcal{H}\to\mathbb{C}$ a linear
 	functional. Then $F\in\mathcal{H}^*$ if, and only if, there exists a unique $x_{\mathrm{F}}\in\mathcal{H}$
 	such that $F(x) = \langle x_{\mathrm{F}},x\rangle$ for all $x\in\mathcal{H}$. Moreover,
 	it holds that $\Vert x_{\mathrm{F}}\Vert_{\mathcal{H}} = \Vert F\Vert_{\mathcal{H}^*}$.
+	In particular, the map $x\mapsto x_{\mathrm{F}}$ defines a canonical isomorphism between
+	$\mathcal{H}$ and $\mathcal{H}^*$, i.e. Hilbert spaces are self-dual.
 \end{theorem}
-\begin{proof}
-	If $\ker(F)=\mathcal{H}$ then $x_{\mathrm{F}}=0$. Otherwise, let $y\in\ker(F)^\perp$ and
-	define \textcolor{red}{molinari potevi essere un po' meno stringato mannaggia santa}
-\end{proof}
+
+\begin{theorem}[Spectral theorem for self-adjoint operators]
+	Let $A : \mathcal{H}\to\mathcal{H}$ be a self-adjoint operator on the Hilbert space
+	$\mathcal{H}$ over the field $\mathbb{K}$. Then there exist a measure space
+	$(X,\Sigma,\mu)$, a unitary operator $U:L^2(X,\dx\mu)\to\mathcal{H}$ and a function
+	$f:X\to\mathbb{K}$ such that
+	\begin{align*}
+		A = U M_f U^*
+	\end{align*}
+	where $M_f$ is the multiplication by $f$, i.e. the operator defined by
+	$(M_f\psi)(x) = f(x)\psi(x)$.
+\end{theorem}
+
+\begin{remark}
+	In the case where $A$ is also compact, then the spectrum is discrete and the function $f$
+	would be the map that maps an index for the spectrum $\sigma(A)$ to an eigenvector, and we
+	could write $(M_\lambda\psi)_i = \lambda_i \psi_i$, which defines $\psi_i$ as an
+	eigenvector with eigenvalue $\lambda_i$. Another familiar case is that of the position
+	operator $X$, defined as the multiplication by the independent variable, which would read
+	as $(X\psi)(x) = x\psi(x)$. Here a value $x$ would be, with some abuse of terminology, the
+	eigenvalue of $\psi(x)$. Then, the value $\psi(x)$ is in some sense the coefficient of the
+	``vector" at position $x$.
+\end{remark}
+
+\begin{theorem}[C*-algebra of bounded operators]
+	Let $\mathcal{H}$ be a Hilbert space, the set
+	\begin{align*}
+		\mathfrak{B}(\mathcal{H}) = \left\{ A:\mathcal{H}\to\mathcal{H} : A \text{ is bounded } \right\}
+	\end{align*}
+	is a Banach space, i.e. a complete normed space, via the usual definition of addition
+	between operators (assuming the domain is the entire space $\mathcal{H}$) and
+	multiplication by a scalar. It is also a C*-algebra, i.e. a normed algebra with an
+	involution $*$, via the adjoint of a bounded operator.
+\end{theorem}
+
+\subsection{Integration of operator-valued functions}
+\label{appendix:bochner-integral}
+
+We want to define integration for functions of the type $f:X\to\mathcal{B}$, where $(X,\Sigma,\mu)$
+is a measure space and $\mathcal{B}$ is a Banach space (while differentiation is automatic if
+the measure space is $\mathbb{R}^n$ via the usual definition as limit of the incremental ratio).
+First we define \textit{simple functions}: let $\{E_1,\ldots,E_n\}$ be elements of the
+$\sigma$-algebra $\Sigma$ and $\{b_1,\ldots,b_n\}$ elements of $\mathcal{B}$, then the function
+\begin{align*}
+	s(x) \coloneq \sum_{i=1}^n \chi_{E_i} b_i
+\end{align*}
+is called a simple function and its integral is defined as
+\begin{align*}
+	\int_X s\dx\mu \coloneq \sum_{i=1}^n \mu(E_i) b_i.
+\end{align*}
+
+\begin{definition}[Bochner integral]
+	A measurable function $f:X\to\mathcal{B}$ is called \textit{Bochner integrable} if there
+	exists a sequence of simple functions $\{s_n:n\mathbb{N}\}$ such that
+	\begin{align*}
+		\lim_{n\to\infty} \int_X \Vert f - s_n\Vert_{\mathcal{B}}\dx\mu = 0,
+	\end{align*}
+	i.e. if its point-wise norm is Lebesgue integrable. In this case, the \textit{integral of f}
+	is defined as
+	\begin{align*}
+		\int_X f\dx\mu \coloneq \lim_{n\to\infty}\int s_n\dx\mu.
+	\end{align*}
+	It can be shown that $\{\int_X s_n\dx\mu:n\in\mathbb{N}\}$ is a Cauchy sequence, hence the
+	integral is well-defined.
+\end{definition}
+
+\begin{remark}
+	The integration rules for ``nice" functions like powers and exponentials are identical to
+	the case of scalar functions, just like for differentiation, but we will not prove this.
+\end{remark}
+
+\begin{proposition}
+	Bochner integration satisfies the following properties:
+	\begin{enumerate}
+		\item a function $f:X\to\mathcal{B}$ is Bochner integrable if, and only if,
+			$\int_X\Vert f\Vert_{\mathcal{B}}\dx\mu < \infty$;
+		\item if $T:\mathcal{B}\to\mathcal{B}'$ is a continuous linear operator between Banach
+			spaces and $f:X\to\mathcal{B}$ is Bochner integrable, then $Tf$ is also Bochner
+			integrable and it holds that
+			\begin{align*}
+				T\int_E f\dx\mu = \int_X Tf\dx\mu
+			\end{align*}
+			for all $E\in\Sigma$;
+		\item (Dominated convergence theorem) if $\{f_n\}$ is a sequence of Bochner integrable
+			functions that converges almost everywhere to a limit function $f$, and if there
+			exists an integrable function $g$ such that $\Vert f_n(x)\Vert_{\mathcal{B}} \leq g(x)$
+			almost everywhere on $X$, then it holds that
+			\begin{align*}
+				\int_E \Vert f - f_n\Vert_{\mathcal{B}} \dx\mu \to 0,
+				\quad\text{and}\quad
+				\int_E f_n\dx\mu \to \int_E f\dx\mu
+			\end{align*}
+			for all $E\in\Sigma$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+	In particular, since functionals in the dual of a Hilbert space are also continuous
+	operators between Banach spaces, given $f:X\to\mathcal{B}(\mathcal{H})$ a Bochner
+	integrable function, it holds that
+	\begin{align*}
+		\langle\phi,\left(\int_X f\dx\mu\right)\psi\rangle_{\mathcal{H}} = \int_X\langle\phi,f\psi\rangle_{\mathcal{H}}\dx\mu.
+	\end{align*}
+\end{remark}
+
+\begin{remark}
+	An important property, which we make use of in our work, is that the set of trace-class
+	operators is a Banach space with the \textcolor{red}{trace norm}, and the trace is a
+	continuous operator from this space to the base field. This means that, because of the
+	above proposition, whenever we take the trace of an integral of an operator-valued function,
+	we can take the trace inside the integral.
+\end{remark}
+
+With this notion of integration (and with the usual notion of differentiation) we can give an
+important theorem on ordinary differential equations that we used in our work. The proof of
+this theorem is completely analogous to the case where the Banach space is just $\mathbb{R}^n$,
+with the only difference being that the point-wise norm of a function is given by the norm on
+$\mathcal{B}$.
+
+\begin{theorem}[Existence and uniqueness of a solution to an ODE]
+	Let $f:[a,b]\times\mathcal{B}\to\mathcal{B}$ be a Lipschitz continuous function on $[a,b]$
+	uniformly on $\mathcal{B}$, and let it define the following Cauchy problem for
+	$(x_0,y_0)\in[a,b]\times\mathcal{B}$:
+	\begin{align*}
+		\begin{cases}
+			y'(x) = f(x,y(x))\\
+			y(x_0) = y_0
+		\end{cases}
+	\end{align*}
+	where $y:[a,b]\to\mathcal{B}$. Then there exists a unique solution for the Cauchy problem
+	over $[a,b]$.
+\end{theorem}
+
+\subsection{Direct sums and tensor products of Hilbert spaces}
+\label{appendix:direct-sum-tensor-product}
+
+Recall that, given two vector spaces $V$ and $W$ over a field $\mathbb{K}$, their
+\textit{direct sum} is the set $V\times W$ endowed with a vector space structure defined via
+the following operations:
+\begin{align*}
+	&(v_1,w_1)+(v_2,w_2) \coloneq (v_1+v_2, w_1+w_2),\\
+	&\lambda (v,w) \coloneq (\lambda v,\lambda w)
+\end{align*}
+for all $v,v_1,v_2\in V$, $w,w_1,w_2\in W$ and $\lambda\in\mathbb{K}$, and is denoted $V\oplus W$.
+Suppose now $\mathcal{H}_1$ and $\mathcal{H}_2$ are Hilbert spaces, then we have the natural
+result
+\begin{proposition}
+	If $\langle\cdot,\cdot\rangle_i$ denotes the inner product on $\mathcal{H}_i$ for $i=1,2$,
+	then the bilinear $\langle\cdot,\cdot\rangle$ given by
+	\begin{align*}
+		\langle (x_1,x_2),(y_1,y_2)\rangle \coloneq \langle x_1,y_1\rangle_1 + \langle x_2,y_2\rangle_2
+	\end{align*}
+	defines an inner product with respect to which the space $\mathcal{H}_1\oplus\mathcal{H}_2$
+	is complete. Thus $(\mathcal{H}_1\oplus\mathcal{H}_2,\langle\cdot,\cdot\rangle)$ is called
+	a direct sum of Hilbert spaces.
+\end{proposition}
+
+We can extend this definition of direct sum to the case where we consider a countable set of
+Hilber spaces $\{\mathcal{H}_i:i\in\mathbb{N}\}$ over the same field $\mathbb{K}$.
+\begin{proposition}
+	The set $\mathcal{H}$ of sequences $x=\{x_i:x_i\in\mathcal{H}_i,\;i\in\mathbb{N}\}$ that
+	satisfy
+	\begin{align*}
+		\sum_{i=1}^\infty \Vert x_i\Vert^2_i < \infty
+	\end{align*}
+	is a Hilbert space with the operations $\{x_i\} + \{y_i\} \coloneq \{x_i + y_i\}$,
+	$\lambda \{x_i\} \coloneq \{\lambda x_i\}$ and
+	$\langle\{x_i\},\{y_i\}\rangle \coloneq \sum_{i=1}^\infty \langle x_i,y_i\rangle_i$.
+	This Hilbert space is denoted
+	\begin{align*}
+		\mathcal{H} = \bigoplus_{i=1}^\infty \mathcal{H}_i.
+	\end{align*}
+\end{proposition}
+
+To build the tensor product we will follow an algebraic approach which involves a similar
+procedure but with additional steps. Given two vector spaces $V$ and $W$ over a field $\mathbb{K}$,
+define the vector space of finite linear combinations of ordered pairs in $V\times W$ as
+\begin{align*}
+	\Lambda(V,W) \coloneq \left\{ \sum_{i=1}^N a_i (x_i,y_i) : a_i\in\mathbb{K},\;
+	x_i\in V,\;y_i\in W\;\forall i=1,\ldots,N\right\}.
+\end{align*}
+On this space we impose algebraic relations through the quotien space
+\begin{align*}
+	V\otimes W \coloneq \Lambda(V,W)/\Lambda_0
+\end{align*}
+where $\Lambda_0$ is the subspace generated by elements
+\begin{align*}
+		&(x,y_1+y_2)-(x,y_1)-(x,y_2),\\
+		&(x_1+x_2,y)-(x_1,y)-(x_2,y),\\
+		&(\lambda x,y)-\lambda(x,y),\\
+		&(x,\lambda y)-\lambda(x,y)
+\end{align*}
+for all $x,x_1,x_2\in V$ and $y,y_1,y_2\in W$. If $\chi:\Lambda(V,W) \to \Lambda(V,W)/\Lambda_0$
+is the projection to the quotient space, then we denote the elements in the quotient as
+$x\otimes y=\chi((x,y))$. Once again we can now extend this definition to the case of Hilbert
+spaces.
+
+\begin{proposition}
+	Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be two Hilbert spaces over the same field. If
+	$\langle\cdot,\cdot\rangle_i$ denotes the inner product on $\mathcal{H}_i$ for $i=1,2$,
+	then the bilinear $\langle\cdot,\cdot\rangle$ given by
+	\begin{align*}
+		\langle x_1\otimes x_2, y_1\otimes y_2\rangle \coloneq \langle x_1,y_1\rangle_1 \langle x_2,y_2\rangle_2
+	\end{align*}
+	defines an inner product on $\mathcal{H}_1\otimes\mathcal{H}_2$. Since
+	$(\mathcal{H}_1\otimes\mathcal{H}_2,\langle\cdot,\cdot\rangle)$ is not necessarily complete,
+	we call its (unique) metric completion $(\mathcal{H}_1\tilde\otimes\mathcal{H}_2,\langle\cdot,\cdot\rangle)$
+	the tensor product of Hilbert spaces, which becomes a Hilbert space.
+\end{proposition}
+
+\begin{remark}
+	With a slight abuse of notation, we still denote $\mathcal{H}_1\otimes\mathcal{H}_2$ the 
+	tensor product of the Hilbert spaces $\mathcal{H}_1\otimes\mathcal{H}_2$.
+\end{remark}
+
+In the case where $\mathcal{H}_1$ and $\mathcal{H}_2$ are separable Hilbert spaces, we can
+give an explicit construction of their tensor product. Indeed, let $\{u_i:i\in\mathbb{N}_1\}$
+and $\{v_i:i\in\mathbb{N}\}$ be orthonormal systems for $\mathcal{H}_1$ and $\mathcal{H}_2$
+respectively. Then it holds that
+\begin{align*}
+	\mathcal{H}_1\otimes\mathcal{H}_2 = \overline{
+		\mathrm{span}\{u_i\otimes v_j : i,j\in\mathbb{N}\},
+	}
+\end{align*}
+which means that, in this scenario, the tensor product can be naturally identified with the
+closure of the space of finite linear combinations of elements $u\otimes v$, where $u\in\mathcal{H}_1$
+and $v\in\mathcal{H}_2$, which are called \textit{simple tensors}. Moreover, the set of
+simple tensors with factors taken from the respective complete orthonormal systems forms a
+complete orthonormal system for the tensor product.
+
+\begin{remark}
+	With a simple inductive process one can conclude that the N-fold tensor product of Hilbert
+	spaces is a Hilbert space, and the closure of the set of finite linear combinations of
+	simple tensors still coincides with that tensor product.
+\end{remark}
+
+\begin{remark}
+	A useful note for the type of computations we want to tackle in this work is that the
+	space $L^2(\mathbb{R}^n)\otimes L^2(\mathbb{R}^m)$ can be naturally identified with the
+	space $L^2(\mathbb{R}^{n+m})$, and given $f\in L^2(\mathbb{R}^n)$ and $g\in L^2(\mathbb{R}^m)$
+	one has that
+	\begin{align*}
+		f \otimes g (x,y) = f(x)g(y).
+	\end{align*}
+\end{remark}
+
+We can very naturally define operators on a tensor product starting from operators on the
+factors. Indeed, let $A:D(A)\subseteq\mathcal{H}_1\to\mathcal{H}_1$ and
+$B:D(B)\subseteq\mathcal{H}_2\to\mathcal{H}_2$ be operators on the respective Hilbert space,
+then we can define their tensor product as
+\begin{align*}
+	(A\otimes B)(\phi\otimes\psi) \coloneq (A\phi)\otimes(B\psi)
+\end{align*}
+on the set of pure pure tensors, i.e.
+\begin{align*}
+	D(A\otimes B) = \{\phi\otimes\psi : \phi\in D(A),\;\psi\in D(B)\}.
+\end{align*}
 
 \textcolor{red}{TTOODDOO:}
 \begin{itemize}
-	\item introduce UNITARIES and ISOMETRIES (and talk more about self-adjoint operators?)
-	\item ORTHOGONAL COMPLEMENT theorem + RIESZ representation theorem
-	\item SPECTRAL theorem (which version?)
-	\item DIRECT SUMS and TENSOR PRODUCTS of hilbert spaces (and their uniqueness)\\
-		$\longrightarrow$ move N-fold tensor product state space definition/explanation here,
-		and move construction of (anti-)symmetric tensor products to the disucssion on
-		canonical/grand canonical pictures, it makes more sense.
-	\item INTEGRALS (and derivatives) of operator-valued functions
 	\item comments on and PROPERTIES of $e^{-\beta H_0}$ (with $H_0$ bounded and maybe even
-		unbounded)
-	\item a couple of comments on VARIATIONAL PROBLEMS? (from blanchard maybe)
+		unbounded) and the discussion on the domain and properties of $Ve^{-\beta H_0}$.
 \end{itemize}
-
-\section{On particle-hole excitations}
-
-\textcolor{red}{How do we apply all this theory to, for example, BCS superconductors - since
-Bogolubov transformations do not necessarily preserve the relations
-$[a_\pm,a_\pm]_\mp = 0$ and $[a^*_\pm,a^*_\pm]_\mp = 0$ and we did rely on those too at times.}
-
-\section{References}
-\cite{test}

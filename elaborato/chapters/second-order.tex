@@ -2,11 +2,12 @@
 
 \subsection{Duhamel's formula}
 
-\textcolor{red}{Motivate the study of this system}.
+\textcolor{red}{Motivate the study of this system and the scalings $\hbar = N^{-1/3}$ and
+$\lambda=1/N$}.
 
 The state space for a system of N identical fermions in a box of side length L with periodic
 boundary conditions is the space of completely antisymmetric $L^2$-functions on the torus
-$\mathbb{T}^{3N} = (\mathbb{R}/2\pi\mathbb{Z})^{3N}$:
+$\mathbb{T}^{3N} = (\mathbb{R}^3/(2\pi\mathbb{Z}^3))^N$:
 
 \begin{align*}
 	L^2_a(\mathbb{T}^{3N}) := \{\psi\in L^2(\mathbb{T}^{3N})
@@ -20,19 +21,49 @@ the kinetic energy terms plus a sum of two-body interaction terms:
 	H = \hbar^2 \sum_{i=1}^{N}(-\Delta_{x_i}) + \lambda \sum_{1 \leq i <
 	j \leq N}V(x_i - x_j)
 \end{align*}
-where $V : \mathbb{R}^3 \to \mathbb{R}$ is a smooth function
-with period $L$ in all variables and such that $V(x_i - x_j) = V(|x_i - x_j|)$,
-in particular this means that $\hat{V}(-k) = \hat{V}(k)$, and this fact will become useful
-in evaluating the second order perturbation to the ground state energy of the system. The
-scaling factor $\lambda \in \mathbb{R}$ is assumed to be small. Working in the grand canonical ensemble
-requires to lift this operator to the fermionic Fock space, and in second quantization
-formalism this means that the Hamiltonian will be written as
+where $V : \mathbb{R}^3 \to \mathbb{R}$ is of class $\mathcal{C}^m$ for some $m\geq1$ and
+with period $L$ in all variables, and we assume moreover that $V(x_i - x_j) = V(|x_i - x_j|)$,
+which implies that $\hat{V}(-k) = \hat{V}(k)$. This fact will become useful in evaluating the
+second order perturbation to the ground state energy of the system. The scaling factor
+$\lambda \in \mathbb{R}$ is as \textcolor{red}{discussed above}. Working in the grand
+canonical picture requires to lift this operator to the fermionic Fock space, and requiring
+that the ground state energy is attained for a fixed number of particles that is greater than
+zero means that the Hamiltonian picks up an additional term $-\mu\mathcal{N}$, where $\mu$ is
+the constant called \textit{chemical potential}. We absorb the chemical potential in the new
+definition of the free Hamiltonian as $H_0 = \sum_k (\hbar^2 \vert k\vert^2 - \mu) a^*_k a_k$.
+Putting this all together, the Hamiltonian for this system is written as
 \begin{align*}
-	H = H_0 + V = \sum_{k \in \mathbb{Z}^3} \hbar^2|k|^2 a^*_k a_k
+	H = H_0 + \lambda V = \sum_{k \in \mathbb{Z}^3} (\hbar^2|k|^2 - \mu) a^*_k a_k
 	+ \sum_{k,p,q \in \mathbb{Z}^3} \lambda\hat{V}(k) a^*_{p-k} a^*_{q+k} a_q a_p
 \end{align*}
 where $\hat{V}(k)$ are the Fourier coefficients of $V$ and $a^\#_k$ are creation/annihilation
 operators on the Fock space that create/annihilate states of definite momentum $k \in \mathbb{Z}^3$.
+
+In the limit of zero temperature for a system of identical fermions, the chemical potential is
+also the value of the highest energy level occupied. We can therefore express it in terms of
+the number of particles in the ground state, as this parameter serves as a constraint for such
+a system through the relation (at zero temperature)
+\begin{align*}
+	N = \sum_{k\in\mathbb{Z}^3} n_{\mathrm{F}}(\epsilon_k)
+	= \sum_{k\in\mathbb{Z}^3} \chi(\epsilon_k \leq \mu)
+	= \vert \mathbb{B}_{k_{\mathrm{F}}}(0) \cap \mathbb{Z}^3\vert
+\end{align*}
+where $k_{\mathrm{F}}$ is the Fermi momentum, defined by $\hbar^2\epsilon_{k_{\mathrm{F}}}=\mu$.
+We rederive the Fermi-Dirac distribution in Section (\ref{sec:eval-exp-values}), and with that
+expression we can see that, indeed, at zero temperature $n_{\mathrm{F}}$ is just a step
+function. This constraint is then just a counting problem for which we can use a well-known
+argument by Gauss, which involves giving as lower and upper bounds to the number of points
+on a lattice inside a sphere the number of unit cubes that are completely and at least
+partially inside the sphere, respectively. The result of such bounds can be summed up into the
+estimate given by the volume of the sphere plus an error proportional to its surface:
+\begin{align*}
+	N = \vert\mathbb{B}_{k_{\mathrm{F}}}\cap\mathbb{Z}^3\vert
+	= \frac{4\pi}{3}k_{\mathrm{F}}^3 + \mathcal{O}(k_{\mathrm{F}}^2)
+\end{align*}
+which implies that
+\begin{align*}
+	k_{\mathrm{F}} = \left(\frac{3}{4\pi}N\right)^{\frac{1}{3}} + \mathcal{O}(N^0).
+\end{align*}
 
 Since we want to
 compute the second order contribution to the ground state energy, we will calculate the
@@ -45,19 +76,18 @@ given by the Gibbs state functional
 	{\mathrm{Tr}(e^{-\beta H})}.
 \end{align*}
 
-Because the free energy is given by the logarithm of the
-partition function, we can make use of a useful formula that allows to truncate
-the quantity $\mathrm{log}(\mathrm{Tr}(e^{-\beta H}))$ to second order contributions
-in the scaling factor $\lambda$.
+Because the free energy is given by the logarithm of the partition function divided by
+$-\beta$, we can make use of a useful formula that allows to truncate the quantity
+$\mathrm{log}(\mathrm{Tr}(e^{-\beta H}))$ to second order contributions in the scaling factor
+$\lambda$.
 
 \begin{proposition}
-	Given $H = H_0 + V$ as defined above, the following approximation holds \textcolor{red}{up to terms
-	of order $O(...)$ (consider putting $\lambda$ outside of $V$, i.e. $H = H_0 + \lambda V$, to make
-	this explicit)}.
+	Given $H = H_0 + \lambda V$ as defined above, the following approximation for the free
+	energy holds at second order, up to an overall factor of $1/\beta$:
 	\begin{align}
 		\mathrm{log}\,\mathrm{Tr}\,e^{-\beta H}
-		= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0} - \beta \langle V \rangle_{H_0}
-		\int_0^\beta\dx\tau \int_0^\tau\dx\tau' \left(
+		= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0} - \beta\lambda \langle V \rangle_{H_0}
+		+ \lambda^2\int_0^\beta\dx\tau \int_0^\tau\dx\tau' \left(
 			\langle V(\tau')V(\tau) \rangle_{H_0} - \langle V(\tau') \rangle_{H_0}\langle V(\tau) \rangle_{H_0}
 		\right)
 	\end{align}
@@ -75,42 +105,47 @@ in the scaling factor $\lambda$.
 			e^{-\tau H}(-H+H_0)e^{\tau H_0}\\
 		&= \mathbbm{1}
 			+ \int_0^\beta\dx\tau
-			e^{-\tau H}e^{\tau H_0}e^{-\tau H_0}(-V)e^{\tau H_0}\\
+			e^{-\tau H}e^{\tau H_0}e^{-\tau H_0}(-\lambda V)e^{\tau H_0}\\
 		&= \mathbbm{1}
-			- \int_0^\beta\dx\tau
+			- \lambda\int_0^\beta\dx\tau
 			e^{-\tau H}e^{\tau H_0}V(\tau) = \star
 	\end{align*}
 
-	\textcolor{red}{The integral converges because of Stone's theorem on strongly continuous
-	unitary groups}.
+	Note that the integral is well defined as $\tau\mapsto\Vert e^{-\tau H}e^{\tau H_0}V(\tau)\Vert$
+	is a continuous function on the compact domain $[0,\beta]$ and is therefore Lebesgue integrable,
+	which implies that $\tau\mapsto e^{-\tau H}e^{\tau H_0}V(\tau)$ is Bochner integrable. We
+	briefly discuss integration of functions $\mathbb{R}^n\to\mathfrak{B}(\mathcal{H})$ in the
+	appendix.
 	Now we can see that in the integral we have the same term that appears in the
 	l.h.s. but at a generic temperature $\tau$. This means that we can repeat
-	the same steps to push this operator to higher and higher "orders". Iterating this procedure
+	the same steps to push this operator to higher and higher ``orders". Iterating this procedure
 	just once gives the following:
 	\begin{align*}
 		\star &= \mathbbm{1}
-				- \int_0^\beta\dx\tau
+				- \lambda\int_0^\beta\dx\tau
 				\left(
-				\mathbbm{1} + \int_0^\tau\dx\tau'e^{-\tau' H}e^{\tau' H_0}V(\tau')
+				\mathbbm{1} + \lambda\int_0^\tau\dx\tau'e^{-\tau' H}e^{\tau' H_0}V(\tau')
 				\right)V(\tau) \\
-			  &= \mathbbm{1} - \int_0^\beta\dx\tau V(\tau)
-				+ \int_0^\beta\dx\tau \int_0^\tau\dx\tau' V(\tau')V(\tau)
-				+ \mathrm{R}(V,\beta).
+			  &= \mathbbm{1} - \lambda\int_0^\beta\dx\tau V(\tau)
+				+ \lambda^2\int_0^\beta\dx\tau \int_0^\tau\dx\tau' V(\tau')V(\tau)
+				+ \mathrm{R}(\lambda,V,\beta).
 	\end{align*}
-	where $\mathrm{R}(V,\beta)$ is the remainder of this expression \textcolor{red}{and is of order $O(...)$}.
-	Dropping the remainder term and truncating the expression,
-	we can invert this relation to isolate $e^{-\beta H}$ and take the trace. Since the trace
-	is a series of matrix elements \textcolor{red}{we can move it inside the integral}
-	to get:
+	where $\mathrm{R}(\lambda,V,\beta)$ is the remainder of this expression. Giving an
+	estimate for the remainder that allows to prove the convergence of this iterative process
+	is an entire problem on its own, so we will simply truncate the expression at second order
+	and drop the remainder. Now we can invert this relation to isolate $e^{-\beta H}$ and take
+	the trace. Since the trace is a continuous operator from trace class operators to $\mathbb{R}$
+	and $Ve^{-\beta H_0}$ is trace class, we can move it inside the integral to get
+	(see Appendix \ref{appendix:special-operators} and Appendix \ref{appendix:bochner-integral}):
 	\begin{align*}
 		\mathrm{Tr} \, e^{-\beta H}
 		&=
 			\mathrm{Tr} \, e^{-\beta H_0}
-			- \int_0^\beta\dx\tau\, \mathrm{Tr}(V(\tau)e^{-\beta H_0})
-			+ \int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \mathrm{Tr}(V(\tau')V(\tau)e^{-\beta H_0})\\
+			- \lambda\int_0^\beta\dx\tau\, \mathrm{Tr}(V(\tau)e^{-\beta H_0})
+			+ \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \mathrm{Tr}(V(\tau')V(\tau)e^{-\beta H_0})\\
 		&= (\mathrm{Tr}\,e^{-\beta H_0})\left(
-			1 - \int_0^\beta\dx\tau\,\langle V(\tau) \rangle_{H_0}
-			+ \int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle_{H_0}
+			1 - \lambda\int_0^\beta\dx\tau\,\langle V(\tau) \rangle_{H_0}
+			+ \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle_{H_0}
 			\right).
 	\end{align*}
 
@@ -123,12 +158,12 @@ in the scaling factor $\lambda$.
 		\label{eq:duhamel}
 		\mathrm{log}\,\mathrm{Tr}\,e^{-\beta H}
 		&= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}
-			- \int_0^\beta\dx\tau\,\langle V(\tau) \rangle_{H_0} \nonumber \\
-		&\quad + \int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle_{H_0}
-			-\frac{1}{2} \left( \int_0^\beta\dx\tau \langle V(\tau) \rangle_{H_0} \right)^2 \nonumber \\
+			- \lambda\int_0^\beta\dx\tau\,\langle V(\tau) \rangle_{H_0}
+			- \frac{1}{2} \left( \lambda\int_0^\beta\dx\tau \langle V(\tau) \rangle_{H_0} \right)^2 \nonumber \\
+		&\quad + \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle_{H_0} \nonumber \\
 		&= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}
-			- \beta \langle V \rangle_{H_0} \nonumber \\
-		&\quad+ \int_0^\beta\dx\tau\int_0^\tau\dx\tau'\,\biggl(
+			- \beta \lambda\langle V \rangle_{H_0} \nonumber \\
+		&\quad+ \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\,\biggl(
 				\langle V(\tau')V(\tau) \rangle_{H_0} - \langle V(\tau') \rangle_{H_0} \langle V(\tau) \rangle_{H_0}
 			\biggr)
 	\end{align}
@@ -138,21 +173,24 @@ in the scaling factor $\lambda$.
 \end{proof}
 
 \subsection{Evaluating expectation values}
+\label{sec:eval-exp-values}
 
 To evaluate the expectation values, which are expectations of polynomials in field operators,
-we can turn to Grassmann variables. Indeed, \textcolor{red}{by introducing a cutoff $\Lambda$}
-we see that the possible momentum states form a finite set of M independent modes:
+we can turn to Grassmann variables. Indeed, by introducing a cutoff $\Lambda$ we see that the
+possible momentum states form a finite set of M independent modes:
 \begin{align*}
-	\mathcal{D}_\Lambda := \{...\}.
+	\mathcal{D}_\Lambda := \{ k\in\mathbb{Z}^3 : \vert k\vert < \Lambda \} = \mathbb{Z}^3\cap\mathbb{B}_\Lambda(0),
+	\quad\mathrm{with}\;\vert\mathcal{D}_\Lambda\vert = M.
 \end{align*}
 
 Let then $\boldsymbol{\psi} = (\psi_1, ..., \psi_M)$ and
 $\boldsymbol{\bar\psi} = (\bar\psi_1, ..., \bar\psi_M)$ be the Grassmann variables
 associated to the families of operators $a$ and $a^*$ respectively.
-Having introduced the cutoff, the Hamiltonian can now be written as a simple
-finite linear combination of creation/annihilation operators:
+Having introduced the cutoff, the kinetic part of the Hamiltonian can now be written as a
+simple finite linear combination of fermionic number density operators, which makes it a
+bounded operator:
 \begin{align*}
-	H_0 = \sum_{k \in \mathcal{D}_\Lambda} \epsilon_k a^*_k a_k
+	H_0 = \sum_{k \in \mathcal{D}_\Lambda} (\epsilon_k-\mu) a^*_k a_k
 \end{align*}
 
 We begin the calculation by building the gaussian measure for the expectations
@@ -168,9 +206,9 @@ diagrams are going to be different.
 	\begin{equation}
 		G_{k,k'}(\tau,\tau')
 		= \langle a^*_k(\tau) a_{k'}(\tau') \rangle_{H_0}
-		= \delta_{k,k'} n_{\mathrm{F}}(\epsilon_k) e^{-(\tau-\tau')\epsilon_{k}}
+		= \delta_{k,k'} n_{\mathrm{F}}(\epsilon_k) e^{-(\tau-\tau')(\epsilon_{k}-\mu)}
 	\end{equation}
-	where $n_\mathrm{F}(\epsilon) = (e^{\beta\epsilon}+1)^{-1}$ is the Fermi-Dirac distribution.
+	where $n_\mathrm{F}(\epsilon) = (e^{\beta(\epsilon-\mu)}+1)^{-1}$ is the Fermi-Dirac distribution.
 \end{lemma}
 \begin{proof}
 	We are going to divide the proof in two parts: first we will find an expression for the
@@ -178,14 +216,14 @@ diagrams are going to be different.
 	$\langle a^*_k a_k' \rangle$, then we will compute this last expectation to find the
 	Fermi-Dirac distribution. Recall that in the Heisenberg picture with imaginary time one has
 	that for an operator $A$ its evolution at temperature $\tau$ is given by
-	$A(\tau) = e^{-\tau H_0}Ae^{\tau H_0}$. \textcolor{red}{check domains}. Once again we will
-	make use of the fundamental theorem of calculus to write
+	$A(\tau) = e^{-\tau H_0}Ae^{\tau H_0}$. Once again we will make use of the fundamental
+	theorem of calculus to write
 	\begin{align*}
 		e^{-\tau H_0}a_k e^{\tau H_0}
 		&= a_k + \int_0^\tau \dx\lambda\, \frac{\dx}{\dx\lambda}\left( e^{-\lambda H_0}a_k e^{\lambda H_0} \right) \\
 		&= a_k + \int_0^\tau \dx\lambda\, e^{-\lambda H_0}(-H_0 a_k + a_k H_0)e^{\lambda H_0} \\
 		&= a_k + \int_0^\tau \dx\lambda\, e^{-\lambda H_0}[a_k,H_0]e^{\lambda H_0} \\
-		&= a_k + \int_0^\tau \dx\lambda\, e^{-\lambda H_0}\sum_{k'\in\mathcal{D}_\Lambda}\epsilon_{k'}[a_k,a^*_{k'} a_{k'}]e^{\lambda H_0}
+		&= a_k + \int_0^\tau \dx\lambda\, e^{-\lambda H_0}\sum_{k'\in\mathcal{D}_\Lambda}(\epsilon_{k'}-\mu)[a_k,a^*_{k'} a_{k'}]e^{\lambda H_0}
 		= \star.
 	\end{align*}
 
@@ -199,39 +237,39 @@ diagrams are going to be different.
 	\begin{align*}
 		\star
 		&= a_k + \int_0^\tau\dx\lambda\, e^{-\lambda H_0}
-			\sum_{k'\in\mathcal{D}_\Lambda}\epsilon_{k'}(\{a_k,a^*_{k'}\}a_{k'} - a^*_{k'}\{a_k,a_{k'}\})
+			\sum_{k'\in\mathcal{D}_\Lambda}(\epsilon_{k'}-\mu)(\{a_k,a^*_{k'}\}a_{k'} - a^*_{k'}\{a_k,a_{k'}\})
 			e^{\lambda H_0} \\
-		&= a_k + \int_0^\tau\dx\lambda\, e^{-\lambda H_0}\epsilon_{k}a_{k}e^{\lambda H_0} \\
-		&= a_k + \epsilon_k\int_0^\tau\dx\lambda\,a_k(\lambda)
+		&= a_k + \int_0^\tau\dx\lambda\, e^{-\lambda H_0}(\epsilon_{k}-\mu)a_{k}e^{\lambda H_0} \\
+		&= a_k + (\epsilon_k-\mu)\int_0^\tau\dx\lambda\,a_k(\lambda)
 	\end{align*}
 	where we used that $\{a_k,a^*_{k'}\}=\delta_{k,k'}$ and that $\{a_k,a_{k'}\}=0$. We now
 	have an expression for $a_k(\tau)$ in terms of its integral, and if we take the derivative
 	with respect to $\tau$ we get the following Cauchy problem:
 	\begin{align*}
 		\begin{cases}
-			\frac{\dx}{\dx\tau}a_k(\tau) = \epsilon_k a_k(\tau) \\
+			\frac{\dx}{\dx\tau}a_k(\tau) = (\epsilon_k-\mu) a_k(\tau) \\
 			a_k(0) = a_k
 		\end{cases}.
 	\end{align*}
 	
-	By the \textcolor{red}{theorem of existence and uniqueness of the solution to an ODE on
-	a closed interval}, it suffices to find one explicitly. This is a well known differential
-	equation and is easy to check that the following is indeed a solution
+	By the theorem of existence and uniqueness of the solution to an ODE on a closed interval,
+	it suffices to find one explicitly. This is a well known differential equation and it's
+	easy to check that the following is indeed a solution
 	\begin{align*}
-		a_k(\tau) = e^{\tau\epsilon_k}a_k(0) = e^{\tau\epsilon_k}a_k.
+		a_k(\tau) = e^{\tau(\epsilon_k-\mu)}a_k(0) = e^{\tau(\epsilon_k-\mu)}a_k.
 	\end{align*}
 
 	The procedure is completely analogous in the case of $a^*_k(\tau)$ and the result differs
 	only by a sign in the exponent:
 	\begin{align*}
-		a^*_k(\tau) = e^{-\tau\epsilon_k}a^*_k(0) = e^{-\tau\epsilon_k}a^*_k.
+		a^*_k(\tau) = e^{-\tau(\epsilon_k-\mu)}a^*_k(0) = e^{-\tau(\epsilon_k-\mu)}a^*_k.
 	\end{align*}
 
 	By linearity, we can take the scalar exponential factors out of the expectation value to
 	write the two-point function in terms of the quantity $\langle a^*_k a_{k'}\rangle$:
 	\begin{align*}
 		\langle a^*_k(\tau) a_{k'}(\tau') \rangle_{H_0}
-		= e^{-\tau\epsilon_k}e^{\tau'\epsilon_{k'}} \langle a^*_k a_{k'} \rangle_{H_0}.
+		= e^{-\tau(\epsilon_k-\mu)}e^{\tau'(\epsilon_{k'}-\mu)} \langle a^*_k a_{k'} \rangle_{H_0}.
 	\end{align*}
 
 	It remains to determine the expectation $\langle a^*_k a_{k'}\rangle$ and find the Fermi-Dirac
@@ -250,21 +288,21 @@ diagrams are going to be different.
 		\langle a^*_k a_{k'} \rangle_{H_0}
 		&= \frac{\mathrm{Tr}(a^*_k a_{k'}e^{-\beta H_0})}{\mathrm{Tr}\,e^{-\beta H_0}}
 		= \frac{1}{Z} \sum_{\boldsymbol{n}\in\{0,1\}^M}\langle\boldsymbol{n}\vert e^{-\beta H_0}a^*_k a_{k'}\vert\boldsymbol{n}\rangle\\
-		&= \delta_{k,k'} \frac{1}{Z} \sum_{\boldsymbol{n}\in\{0,1\}^M}\langle\boldsymbol{n}\vert a^*_k a_k \vert\boldsymbol{n}\rangle\prod_{p\in\mathcal{D}_\Lambda}e^{-\beta\epsilon_p n_p}\\
-		&= \delta_{k,k'} \frac{1}{Z} \sum_{\boldsymbol{n}\in\{0,1\}^M} n_k e^{-\beta\epsilon_k n_k} \prod_{p\neq k} e^{-\beta\epsilon_p n_p}\\
-		&= \delta_{k,k'} \frac{1}{Z} \left(\sum_{n_k=0}^1 n_k e^{-\beta\epsilon_k n_k}\right)\prod_{p\neq k}\sum_{n_p=0}^1 e^{-\beta\epsilon_p n_p}\\
-		&= \delta_{k,k'} \frac{1}{Z} e^{-\beta\epsilon_k}\prod_{p\neq k}(1 + e^{-\beta\epsilon_p})
+		&= \delta_{k,k'} \frac{1}{Z} \sum_{\boldsymbol{n}\in\{0,1\}^M}\langle\boldsymbol{n}\vert a^*_k a_k \vert\boldsymbol{n}\rangle\prod_{p\in\mathcal{D}_\Lambda}e^{-\beta(\epsilon_p-\mu)n_p}\\
+		&= \delta_{k,k'} \frac{1}{Z} \sum_{\boldsymbol{n}\in\{0,1\}^M} n_k e^{-\beta(\epsilon_k-\mu)n_k} \prod_{p\neq k} e^{-\beta(\epsilon_p-\mu)n_p}\\
+		&= \delta_{k,k'} \frac{1}{Z} \left(\sum_{n_k=0}^1 n_k e^{-\beta(\epsilon_k-\mu)n_k}\right)\prod_{p\neq k}\sum_{n_p=0}^1 e^{-\beta(\epsilon_p-\mu)n_p}\\
+		&= \delta_{k,k'} \frac{1}{Z} e^{-\beta(\epsilon_k-\mu)}\prod_{p\neq k}(1 + e^{-\beta(\epsilon_p-\mu)})
 	\end{align*}
-	where we used the fact that $e^{-\beta H_0}$ \textcolor{red}{is bounded} and diagonal
+	where we used the fact that $H_0$ is bounded (finite sum of bounded operators) and diagonal
 	in the occupation number basis $\{\vert\boldsymbol{n}\rangle\}$, and that
 	$a^*_k a_k\vert\boldsymbol{n}\rangle=n_k\vert\boldsymbol{n}\rangle$. Using many of the
-	same steps for the denominator, we find that $Z = \prod_{p\in\mathcal{D}_\Lambda}(1 + e^{-\beta\epsilon_p})$,
+	same steps for the denominator, we find that $Z = \prod_{p\in\mathcal{D}_\Lambda}(1 + e^{-\beta(\epsilon_p-\mu)})$,
 	thus the expression simplyfies to
 	\begin{align*}
 		\langle a^*_k a_{k'}\rangle_{H_0}
-		&= \delta_{k,k'} \frac{e^{-\beta\epsilon_k}\prod_{p\neq k}(1 + e^{-\beta\epsilon_p})}{\prod_{p}(1 + e^{-\beta\epsilon_p})}\\
-		&= \delta_{k,k'} \frac{e^{-\beta\epsilon_k}}{1 + e^{-\beta\epsilon_k}}\\
-		&= \delta_{k,k'} \frac{1}{e^{\beta\epsilon_k}+1}.
+		&= \delta_{k,k'} \frac{e^{-\beta(\epsilon_k-\mu)}\prod_{p\neq k}(1 + e^{-\beta(\epsilon_p-\mu)})}{\prod_{p}(1 + e^{-\beta(\epsilon_p-\mu)})}\\
+		&= \delta_{k,k'} \frac{e^{-\beta(\epsilon_k-\mu)}}{1 + e^{-\beta(\epsilon_k-\mu)}}\\
+		&= \delta_{k,k'} \frac{1}{e^{\beta(\epsilon_k-\mu)}+1}.
 	\end{align*}
 	This is exactly the Fermi-Dirac distribution, and the thesis follows immediately.
 \end{proof}
@@ -278,7 +316,7 @@ for the expectation of a function of Grassmann variables
 \end{align*}
 and the graphical representation of the interaction term via a vertex:
 \begin{align*}
-	V = \lambda \sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p = \;
+	V = \sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p = \;
 	\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
 		\node (a) at (-1, 1) {} node[scale=0.7] at (-1.1, 0.5) {$p-k$};
 		\node (b) at ( 1, 1) {} node[scale=0.7] at ( 1.1, 0.5) {$q+k$};
@@ -310,7 +348,7 @@ $n_k = n_\text{F}(\epsilon_k)$ the calculation is as follows:
 \begin{align*}
 	\langle V \rangle_{H_0}
 	&= \mathbb{E}_G \biggl(
-		\lambda \sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p
+		\sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p
 		\biggr)
 	= \sum_{\Gamma \in \mathcal{G}_{\text{C},1}} \text{val}(\Gamma) \\
 	&= \textcolor{red}{draw \ feynman \ diagrams} \\
@@ -338,10 +376,10 @@ $n_k = n_\text{F}(\epsilon_k)$ the calculation is as follows:
 	% \end{tikzpicture}.
 	&= \sum_{k,p,q} \hat{V}(k) G_{p-k,p}G_{q+k,q} - \sum_{k,p,q} \hat{V}(k) G_{p-k,q}G_{q+k,p} \\
 	&= \sum_{k,p,q} \bigl(\hat{V}(k) \delta_{k,0} n_p n_q - \hat{V}(k) \delta_{k,p-q} n_p n_q \bigr)\\
-	&= \sum_{p,q} (\hat{V}(0) - \hat{V}(p-q)) n_p n_q
+	&= \sum_{p,q} (\hat{V}(0) - \hat{V}(p-q)) n_p n_q.
 \end{align*}
 
-Let's consider the term $\langle V(\tau')V(\tau) \rangle - \langle V(\tau') \rangle\langle V(\tau) \rangle$
+Let us now consider the term $\langle V(\tau')V(\tau) \rangle - \langle V(\tau') \rangle\langle V(\tau) \rangle$
 in the double integral now. This time we have terms with two vertices, and recalling the
 linked cluster theorem the expression factorizes as follows:
 \begin{align*}
@@ -373,24 +411,25 @@ Accounting for these multiplicities, we have:
 		+ 16 \, G_{p-k,q}G_{q+k,q'}G_{p'-k',p}G_{q'+k',p'}
 	\right) \\
 	&= \sum_{p,q,p'} \Bigl(
-		4 \, (\hat{V}(p-p'))^2 e^{(\tau'-\tau)(\epsilon_p + \epsilon_q + \epsilon_{p'} + \epsilon_{p-p'+q})} n_p n_q n_{p'} n_{p-p'+q} \\
-	&\qquad\qquad + 16 \, \hat{V}(0)\hat{V}(p-q) e^{(\tau'-\tau)(2\epsilon_p + \epsilon_q + \epsilon_{p'})} n_p^2 n_q n_{p'}
+		4 \, (\hat{V}(p-p'))^2 e^{(\tau'-\tau)(\epsilon_p + \epsilon_q + \epsilon_{p'} + \epsilon_{p-p'+q} - 4\mu)} n_p n_q n_{p'} n_{p-p'+q} \\
+	&\qquad\qquad + 16 \, \hat{V}(0)\hat{V}(p-q) e^{(\tau'-\tau)(2\epsilon_p + \epsilon_q + \epsilon_{p'} - 4\mu)} n_p^2 n_q n_{p'}
 	\Bigr)
 \end{align*}
 
 Renaming some of the indices at both orders and integrating this last expression, as per
-equation (\ref{eq:duhamel}), leads to the final expression of the free energy at second order
+equation (\ref{eq:duhamel}), leads us to the final expression of the free energy at second order
 
-\begin{align*}
+\begin{align}
+	\label{final-expression}
 	\mathrm{log}\,\mathrm{Tr}\,e^{-\beta H}
-	&= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}\\
-	&\quad-\beta \sum_{p,k\in\mathcal{D}_\Lambda} \left( \hat{V}(0) -\hat{V}(k) \right) n_p n_{p-k} \\
-	&\quad - \sum_{p,q,k\in\mathcal{D}_\Lambda} \Biggr(
-	\frac{4(\hat{V}(k))^2 n_p n_q n_{q+k} n_{p-k}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k}} \biggl( \beta + \frac{1 - e^{-\beta (\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k})}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k}} \biggr) \\
+	&= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}\nonumber\\
+	&\quad-\beta\lambda\sum_{p,k\in\mathcal{D}_\Lambda} \left( \hat{V}(0) -\hat{V}(k) \right) n_p n_{p-k} \nonumber\\
+	&\quad - \lambda^2\sum_{p,q,k\in\mathcal{D}_\Lambda} \Biggr(
+	\frac{4(\hat{V}(k))^2 n_p n_q n_{q+k} n_{p-k}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu} \biggl( \beta + \frac{1 - e^{-\beta (\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu)}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu} \biggr) \nonumber\\
 	&\quad +
-	\frac{16\hat{V}(0)\hat{V}(p-q) n^2_p n_q n_{p-k}}{2\epsilon_p + \epsilon_q + \epsilon_{p-k}} \biggl( \beta + \frac{1 - e^{-\beta (2\epsilon_p + \epsilon_q + \epsilon_{p-k})}}{2\epsilon_p + \epsilon_q + \epsilon_{p-k}} \biggr)
+	\frac{16\hat{V}(0)\hat{V}(p-q) n^2_p n_q n_{p-k}}{2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu} \biggl( \beta + \frac{1 - e^{-\beta (2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu)}}{2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu} \biggr)
 	\Biggl).
-\end{align*}
+\end{align}
 
 Now that the computation is complete, we need to prove that removing the UV cutoff, i.e.
 taking the limit $\Lambda\to\infty$, leads to a well-defined expression. Please note that this
@@ -399,27 +438,38 @@ to take different limits, as removing the cutoff starting from this expression m
 perturbative series is \textit{not} done in the case where the state space is
 infinite-dimensional. Physically, this does not pose any concern and we expect the two
 scenarios to be equivalent, but from the point of view of mathematical rigour it is worth
-pointing out this kind of subtleties.
+pointing out these kinds of subtleties.
+
+So far we have been considering the kinetic energy to be $\epsilon_k=\hbar^2\vert k\vert^2$,
+but this expression is relevant for the specific limit $\beta\to\infty$, while in the
+following theorem we will consider a more general form with one condition on the asymptotic
+behaviour at high momentum. The reason for this choice is that at this level we are not yet
+interested in the scaling of this expression in the number of particles, and having the
+possibility of proving the well-defined-ness of the perturbative series for systems that have
+a different kinetic term is worth the very little trouble this generalization costs. This is
+also partly motivated by the need to treat a special type of systems that can be treated via
+particle-hole transformations, a type of Bogolubov transformation, \textcolor{red}{and we will
+comment on it later on}.
 
 \begin{theorem}
-	With the regularity condition that, given $m\geq1$, $\partial^\alpha V\in L^1(\mathbb{T}^3)$
+	\label{big-thm-1}
+	With the regularity condition that, given $m\geq1$, $\partial^\alpha V\in L^1(\mathbb{T}^{3N})$
 	for all multi-indices $\alpha$ such that $\vert\alpha\vert=m$, and the assumption that
-	$\epsilon_p$ is a positive and monotonically increasing \textcolor{red}{polynomial} in
-	$\vert p\vert$, the above expression converges in the limit $\Lambda\to\infty$.
+	$\lim_{\vert k\vert \to \infty} \epsilon_k / \vert k\vert > 0$, the above expression
+	converges in the limit $\Lambda\to\infty$.
 \end{theorem}
 \begin{proof}
 	The zero-th order is trivial, as it doesn't depend on $\Lambda$ and is, in fact, finite:
 	$e^{-\beta H_0}$ is trace-class and strictly positive definite, which implies
 	$\vert\log\,\mathrm{Tr}\,e^{-\beta H_0}\vert<\infty$.
 	Moving onto the first and second orders, by the non-stationary phase argument we can
-	conclude that $\vert\hat{V}(k)\vert \leq C/\vert k\vert^m$ for some $C>0$, which means
+	conclude that $\vert\hat{V}(k)\vert \leq C_1/\vert k\vert^m$ for some $C_1>0$, which means
 	that at both orders the factors $\hat{V}(k)$ will be decaying as an inverse power as
 	$\vert k\vert\to\infty$, which is the relevant limit as we take the cutoff $\Lambda$ to
-	infinity. As for the energy terms, we are assuming that $\epsilon_k\geq0$ for all $k$, and
-	that it is a monotonically increasing polynomial in $\vert k\vert$. The last factor to
+	infinity. As for the energy terms, we are assuming that $\epsilon_k\geq C_2\vert k\vert$
+	for all $k$ outside of the ball of radius $K$ for some $K,C_2>0$. The last factor to
 	discuss is the Fermi-Dirac distribution, but this has an explicit form: an exponential
-	decay in $\epsilon_k$, which leads to an explonential decay in some power (greater or
-	equal to one) of $\vert k\vert$.
+	decay in $\epsilon_k$, which is bounded at least by an explonential decay in $\vert k\vert$.
 
 	With these estimates in place we can show that, in the limit $\Lambda\to\infty$, the
 	expression above converges. Looking at the first order, we can write
@@ -449,15 +499,15 @@ pointing out this kind of subtleties.
 	the root test:
 	\begin{align*}
 		\left\vert \ell^2 e^{-\beta\epsilon_{\ell}}\right\vert^{1/\ell}
-		= e^{\frac{2\log(\ell)}{\ell} - \beta\epsilon_\ell}
-		\longrightarrow K \in [0,1).
+		= e^{\frac{2\log(\ell) - \beta\epsilon_\ell}{\ell}}
+		\longrightarrow Q \in [0,1).
 	\end{align*}
 
 	Similarly, $\sum_{k\in\mathbb{Z}^3}\vert\hat{V}(k)\vert n_k$ converges, as
 	\begin{align*}
 		\sum_{k\in\mathbb{Z}^3} \vert\hat{V}(k)\vert n_k
-		\leq \sum_{k\in\mathbb{Z}^3}\frac{C n_k}{\vert k\vert^m}
-		\leq \sum_{k\in\mathbb{Z}^3} C n_k.
+		\leq \sum_{k\in\mathbb{Z}^3}\frac{C_1 n_k}{\vert k\vert^m}
+		\leq \sum_{k\in\mathbb{Z}^3} C_1 n_k.
 	\end{align*}
 	This shows that indeed the first order is, in the limit in $\Lambda\to\infty$, an
 	absolutely convergent series.
@@ -467,8 +517,8 @@ pointing out this kind of subtleties.
 	expression, we can bound the first term in the sum by
 	\begin{align*}
 		\sum_{p,q,k\in\mathcal{D}_\Lambda} (\ldots)
-		&\leq \sum_p \frac{4n_p}{\epsilon_p} \sum_q n_q \sum_k (\hat{V}(k))^2 n_{q+k}n_{p-k}
-		\left(\beta + \frac{1}{\epsilon_p}\right),
+		&\leq \sum_p \frac{4n_p}{\epsilon_p-4\mu} \sum_q n_q \sum_k (\hat{V}(k))^2 n_{q+k}n_{p-k}
+		\left(\beta + \frac{1}{\epsilon_p-4\mu}\right),
 	\end{align*}
 	which, turning once more sums over $\mathbb{Z}^3$ into normal series with an additional square
 	in the general term, is an absolutely convergent series in the limit $\Lambda\to\infty$, as
@@ -477,7 +527,82 @@ pointing out this kind of subtleties.
 	The exact same argument can be applied to the second term, and this concludes the proof.
 \end{proof}
 
-And with the convergence of the free energy under control, the next step is to look at the
-limit $\beta\to\infty$ to retrieve the ground state energy.
+We can then replace the sums over $\mathcal{D}_\Lambda$ in equation \ref{final-expression}
+with series over $\mathbb{Z}^3$.
 
-\subsection{Mean field scaling limit}
+\subsection{Mean field scaling}
+
+With the convergence of the free energy under control, the next step is to look at the limit
+$\beta\to\infty$ to retrieve the ground state energy and complete our perturbative proof of
+the \textcolor{red}{RPA scaling in the number of particles $N$}.
+
+\begin{lemma}
+	With the same hypotheses as in theorem (\ref{big-thm-1}), the series in equation
+	(\ref{final-expression}) converge uniformly in $\beta$, and the limit $\beta \to \infty$
+	can thus be taken inside the sums.
+\end{lemma}
+\begin{proof}
+	The only problematic factor is the Fermi-Dirac distribution, as it has a discontinuity
+	at $\epsilon_k = \mu$ in the limit $\beta\to\infty$. By splitting each sum into a finite
+	part up to, say, $\epsilon_k = 2\mu$, and a series over the remaining values of $k$, we
+	can avoid this discontinuity. Moreover, since we are considering a limit away from
+	$\beta = 0$ we can restrict the domain on which to check for uniform convergence to
+	$[\delta,\infty)$ for some $\delta>0$, and we'll see this is needed for some of the terms
+	in the expression. With these things in mind we can see that the series $\sum_k n_k$
+	converges uniformly, as
+	\begin{align*}
+		\sum_{k:\epsilon_k\geq2\mu} n_k
+		\leq \sum_k \sup_{\beta\in[\delta,\infty)} n_k
+		\leq \sum_k e^{-\delta(\epsilon_k-\mu)}
+	\end{align*}
+	and the upper bound converges absolutely by the same arguments used in the previous
+	theorem. Modifying this series with a prefactor of $1/(\epsilon_k-\mu)$, $\hat{V}(k)$ or
+	$\hat{V}^2(k)$ in the general term does not change the result, as these factors do not
+	depend on $\beta$ and still lead to an absolutely convergent series as an upper bound. We
+	can now consider the first order: 
+	\begin{align*}
+		\sum_{p,k} \left|\hat{V}(0)-\hat{V}(k)\right| n_p n_{p-k}
+		&= \sum_p n_p \sum_k \left|\hat{V}(0)-\hat{V}(k)\right| n_{p-k}\\
+		&\leq \sum_p n_p \sum_k \left|\hat{V}(0)-\hat{V}(k)\right| \sup_{\beta\in[\delta,\infty)}n_{p-k}
+		= \star
+	\end{align*}
+	but the series containing $|\sup_\beta(...)|$ converges to some $C>0$ as we discussed
+	above, and we can therefore write $\star = \sum_p C n_p$, which again converges uniformly.
+	Moving onto the second order, we only need to prove the convergence of two more series.
+	Indeed, in both of the terms of the second order, by following the same reasoning used so
+	far we only need to worry about
+	\begin{align*}
+		\sum_k \frac{e^{-\beta(\epsilon_k-\mu)}}{\epsilon_k-\mu}\beta
+		\quad\text{and}\quad
+		\sum_k n_k \frac{1-e^{-\beta(\epsilon_k-\mu)}}{\epsilon_k-\mu}.
+	\end{align*}
+	The general term of the first series is increasing up to $\beta=1/(\epsilon_k-\mu)$ and
+	then it decreases, where we found the stationary point by setting the derivative with
+	respect to $\beta$ equal to zero. The quantity $1/(\epsilon_k-\mu)$ goes to zero as
+	$\vert k\vert\to\infty$, which means that by appropriately cutting the first part of the
+	series we can bound it with
+	\begin{align*}
+		\sum_k \beta \frac{e^{-\beta(\epsilon_k-\mu)}}{\epsilon_k-\mu}
+		\leq \sum_k \sup_{\beta\in[\delta,\infty)} \beta\frac{e^{-\beta(\epsilon_k-\mu)}}{\epsilon_k-\mu}
+		= \sum_k \delta\frac{e^{-\delta(\epsilon_k-\mu)}}{\epsilon_k-\mu}
+	\end{align*}
+	which once more converges by the arguments used in the previous theorem. The exact same
+	reasoning applies to the general term of the second series, only this time the stationary
+	point is found at $\beta=\log(2)/(\epsilon_k-\mu)$, which changes nothing in terms of
+	convergence.
+\end{proof}
+
+Now that we have proved that we can take the limit of zero temperature inside the series, we
+are left with the task of computing it. The zero temperature Fermi-Dirac distribution is a
+step function
+\begin{align*}
+	n_{\mathrm{F}}(\epsilon) \xrightarrow[\beta\to\infty]{}
+	\begin{cases}
+		1 & \epsilon < \mu \\
+		\frac{1}{2} & \epsilon = \mu \\
+		0 & \epsilon > \mu
+	\end{cases}
+\end{align*}
+which implies the following: \textcolor{red}{YOUR MOM}
+\begin{align*}
+\end{align*}
