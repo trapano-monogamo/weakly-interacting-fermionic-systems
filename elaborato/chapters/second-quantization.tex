@@ -1,7 +1,6 @@
 \section{Second Quantization}
 
-\textcolor{red}{Let's take a step back and build the correct structures in which to set the
-treatment of this physical problem.}
+\textcolor{red}{INTROOOOO}
 
 \subsection{Principles of quantum mechanics}
 
@@ -36,7 +35,25 @@ this notation is used.
 	A Hilbert space is said to be \textit{separable} if it admits a countable dense subset.
 \end{definition}
 
-Even when writing just ``Hilbert space" we will always assume that the space is separable.
+The relevance of this definition stems from the fact that, if we can find a countable set
+$\mathcal{S} = \{u_n:n\in\mathbb{N}\}$ of vectors in the Hilbert space $\mathcal{H}$ such that
+the space of \textit{finite} linear combinations of elements from $\mathcal{S}$ is dense, we
+have that any vector in $\mathcal{H}$ can be expressed as a limit of such finite linear
+combinations. That is, the set $\mathcal{S}$ acts as a \textit{basis} in the sense that any
+vector can be identified with a sequence of components $\{a_n:n\in\mathbb{N}\}$, with the
+condition that the series $\sum_{n\in\mathbb{N}}a_n u_n$ converges (in the norm topology of
+$\mathcal{H}$). For simplicity, even when writing just ``Hilbert space" we will always assume
+that the space is separable.
+
+\begin{lemma}
+	If $X$ is a dense closed subspace of the Hilbert space $\mathcal{H}$, it is always possible
+	to choose a basis $\{u_n:n\in\mathbb{N}\}$ for $\mathcal{H}$ composed only of elements of
+	$X$.
+\end{lemma}
+\begin{proof}
+	\textcolor{red}{Is it easy?}
+\end{proof}
+
 Observable quantities must then be represented by objects that are capable of encoding statistical
 information about the system. In particular, the result of an experiment is an average of all
 the possible outcomes allowed by the state the system is in, and this average must be a real
@@ -68,16 +85,19 @@ part of the definition, and will therefore need to be specified case by case.
 	and we write $A \subseteq B$.
 \end{definition}
 
-\begin{definition}[Observable]
-	An \textit{observable} is a symmetric operator on $\mathcal{H}$, i.e. such that
-	$\langle\psi,A\psi\rangle = \langle A\psi,\phi\rangle$ for all $\phi,\psi\in\mathcal{H}$.
+\begin{definition}[Symmetric operators and observables]
+	An operator $A$ is said to be \textit{symmetric} if
+	$\langle\psi,A\phi\rangle = \langle A\psi,\phi\rangle$ for all $\phi,\psi\in D(A)$.
+	An \textit{observable} is a physical quantity represented by a symmetric operator on some
+	Hilbert space.
 \end{definition}
 
 \begin{remark}
 	The symmetry condition $\langle\psi,A\phi\rangle = \langle A\psi,\phi\rangle$ for all
 	$\phi,\psi\in\mathcal{H}$ is equivalent to the condition $\langle\psi,A\psi\rangle\in\mathbb{R}$
 	for all $\psi\in\mathcal{H}$, and because we defined expectation values as exactly this type
-	of expression, this is equivalent to asking that measurable quantities must be real numbers.
+	of expression, this is equivalent to asking that measurable quantities must be real numbers,
+	i.e. that observables must have real eigenvalues.
 \end{remark}
 
 \begin{remark}
@@ -87,8 +107,8 @@ part of the definition, and will therefore need to be specified case by case.
 \end{remark}
 
 \begin{definition}[Bounded operator]
-	An operator $A$ is said to be \textit{bounded} if $D(A) = \mathcal{H}$ and is continuous
-	(with respect to the norm topology), which by linearity is equivalent to the condition
+	An densely defined operator $A$ is said to be \textit{bounded} if it is continuous (with
+	respect to the norm topology), which, by linearity, is equivalent to the condition
 	\begin{align*}
 		\Vert A\Vert \coloneq \sup_{\psi, \Vert\psi\Vert = 1} \Vert A\psi\Vert < \infty.
 	\end{align*}
@@ -124,7 +144,7 @@ part of the definition, and will therefore need to be specified case by case.
 From this simple but important result it is clear that, when dealing with bounded operators,
 it will suffice to define said operator on a dense subspace. In particular, since we are always
 assuming the Hilbert space to be separable, it will suffice to define the image of only the
-basis elements, i.e. the elements of the appropriate countable dense subset.
+basis elements.
 
 \begin{definition}[Adjoint]
 	If $A$ is an operator on $\mathcal{H}$ we define the \textit{adjoint} $A^*$ of $A$ as the
@@ -137,6 +157,18 @@ basis elements, i.e. the elements of the appropriate countable dense subset.
 		\langle A^*\phi,\psi \rangle = \langle \phi, A\psi \rangle \quad \forall \psi\in D(A).
 	\end{align*}
 \end{definition}
+
+\begin{proposition}
+	The adjoint of a bounded operator is a bounded operator.
+\end{proposition}
+\begin{proof} \textcolor{red}{????} \end{proof}
+
+\begin{proposition}
+	An operator $A$ is symmetric if, and only if, $A\subseteq A^*$.
+\end{proposition}
+\begin{proof}
+	\textcolor{red}{???}.
+\end{proof}
 
 We point to Appendix \ref{appendix:special-operators} for a discussion on the most important
 definitions and properties of special types of operators, and end the introduction of the
@@ -274,7 +306,8 @@ usually pure, while non-zero temperature are mixed.
 	where $\beta \coloneq 1/T$. In particular, $\exp(-\beta H)$ is a trace class operator.
 \end{proposition}
 \begin{proof}
-	\textcolor{red}{IMPORTANT.}
+	\textcolor{red}{IMPORTANT (and maybe add discussion of $e^{\pm\tau H_0}$ and of
+	$Ve^{-\tau H_0}$ where $V$ is the potential).}
 \end{proof}
 
 \subsection{Canonical and grand canonical pictures}
@@ -309,7 +342,7 @@ where
 \begin{align*}
 	D(H_N^{\mathrm{in}}) = \mathrm{span}\{ \phi_1 \otimes \cdots \otimes \phi_N : \phi_i \in D(h_i), \; i=1,\ldots,N \}
 \end{align*}
-which is dense in $\mathcal{H}$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for all $i$.
+which is dense in $\mathcal{H}_N$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for all $i$.
 
 \begin{theorem}[ground state of non-interacting (distinguishable) particles]
 	If the ground state energies of the Hamiltonians $h_1,\ldots,h_N$ are
@@ -321,7 +354,27 @@ which is dense in $\mathcal{H}$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for all
 	state of $H_N^{\mathrm{in}}$ is $\phi_1 \otimes \cdots \otimes \phi_N$.
 \end{theorem}
 \begin{proof}
-	\textcolor{red}{write proof.}
+	If $\Psi\in D(H_N^{\mathrm{in}})$ is a unit vector, then we may write $\Psi=\psi_1\otimes\Psi_1+
+	\cdots+\psi_K\otimes\Psi_k$, where $\psi_1,\ldots,\psi_K\in D(h_1)$ and $\Psi_1,\ldots,
+	\Psi_K\in \mathfrak{h}_2\otimes\cdots\otimes\mathfrak{h}_N$ are orthonormal. Since $\Psi$
+	is normalized this implies that $\Vert\psi_1\Vert^2+\cdots+\Vert\psi_K\Vert^2=1$, thus
+	\begin{align*}
+		\langle\Psi,h_1\Psi\rangle = \sum_{i=1}^K\langle\psi_i,h_1\psi_i\rangle
+		\geq \sum_{i=1}^K \Vert\psi_i\Vert^2 e_1 = e_1.
+	\end{align*}
+	This implies that $\langle\Psi,H_N^{\mathrm{in}}\Psi\rangle \geq \sum_{j=1}^N e_j$.
+	Conversely, for every $\varepsilon>0$ we can choose unit vectors $\phi_j\in D(h_j)$ such
+	that $\langle\phi_j,h_j\phi_j\rangle\leq e_j+\varepsilon$ with $j=1,\ldots,N$, which
+	implies that, for $\Psi = \phi_1\otimes\cdots\phi_N$ (still a unit vector),
+	\begin{align*}
+		\langle\Psi,H_N^{\mathrm{in}}\Psi\rangle = \sum_{j=1}^N\langle\phi_j,h_j\phi_j\rangle
+		\leq \sum_{j=1}^N e_j + N\varepsilon,
+	\end{align*}
+	which holds if, and only if, $\langle\Psi,H_N^{\mathrm{in}}\Psi\rangle\leq \sum_{j=1}^N e_j$,
+	thus we proved the equality. Furthermore, it is clear that if $\phi_1,\ldots,\phi_N$ are
+	the respective ground state eigenvectors of the N one-body Hamiltonians, their tensor
+	product is an eigenvector of $H_N^{\mathrm{in}}$ with eigenvalue given precisely by
+	$\sum_{j=1}^N e_j$, the ground state energy.
 \end{proof}
 
 If we consider interactions we need to lift additional operators. For pair-wise interactions,
@@ -400,13 +453,14 @@ These are unitary by construction and \textcolor{red}{one can show} that they ar
 projections.
 
 \begin{definition}[Symmetric and anti-symmetric tensor products]
-	The \textit{symmetric tensor product} is the subspace
+	Given $\mathfrak{h}$ the one-particle Hilbert space, the \textit{symmetric tensor product}
+	is the subspace
 	\begin{align*}
-		\bigotimes_{sym}^N\mathcal{H} \coloneq P_+ \left( \bigotimes^N\mathcal{H} \right)
+		\bigotimes_{sym}^N\mathfrak{h} \coloneq P_+ \left( \bigotimes^N\mathfrak{h} \right) \subset \mathcal{H}_N
 	\end{align*}
-	and the \textit{anti-symmetric tensor product} is the subspace
+	while the \textit{anti-symmetric tensor product} is the subspace
 	\begin{align*}
-		\bigwedge^N\mathcal{H} \coloneq P_- \left( \bigotimes^N\mathcal{H} \right).
+		\bigwedge^N\mathfrak{h} \coloneq P_- \left( \bigotimes^N\mathfrak{h} \right) \subset \mathcal{H}_N.
 	\end{align*}
 	We also define the anti-symmetric tensor product of vectors as
 	\begin{align*}
@@ -417,7 +471,7 @@ projections.
 \end{definition}
 
 \begin{remark}
-	In the special case where $\mathcal{H} = L^2(\mathrm{R}^n)$, anti-symmetric tensor
+	In the special case where $\mathfrak{h} = L^2(\mathrm{R}^n)$, anti-symmetric tensor
 	products between wavefunctions can be constructed as Slater determinants, i.e.
 	\begin{align*}
 		u_1 \wedge \cdots \wedge u_N (x_1, \ldots, x_N) = \frac{1}{\sqrt{N!}} \,\mathrm{det}
@@ -430,14 +484,14 @@ projections.
 \end{remark}
 
 \begin{remark}
-	If $\mathrm{dim}(\mathcal{H}) < N$ then $\bigwedge^N\mathcal{H} = \{0\}$,
+	If $\mathrm{dim}(\mathfrak{h}) < N$ then $\bigwedge^N\mathfrak{h} = \{0\}$,
 	i.e. the anti-symmetrization of $N$ vectors in a space of dimension less than $N$ is always
 	the null vector. This is especially important because physical states of fermionic systems
 	live in the anti-symmetric tensor product, and if the Hilbert space of a single particle
 	is finite-dimensional the allowed number of particles will be finite.
 \end{remark}
 
-With the restrictions we put on the Hamiltonian $H_N$, it is clear that $H_N$ maps the spaces
+With the restrictions we put on the N-body Hamiltonian, it is clear that $H_N$ maps the spaces
 $\bigotimes_{\mathrm{sym}}^N\mathfrak{h}$ and $\bigwedge^N\mathfrak{h}$ into themselves, which
 means that we can restrict this N-body Hamiltonian to either of the two subspaces and get a
 well-defined operator (provided that a suitable domain for the starting Hamiltonian is chosen).
@@ -448,18 +502,23 @@ This way of defining the energy of the system characterises the \textit{canonica
 where the number of particles is fixed. But in statistical mechanics, allowing the number of
 particles to vary actually makes things easier, and as a byproduct also forces the
 introduction of an incredibly powerful formalism to describe quantum systems: second
-quantization. Letting $N$ vary gets us to the \textit{grand canonical picture}.
+quantization. Allowing $N$ to vary leads to the definition of \textit{grand canonical picture}.
+We shall discuss the state space for a system in the grand canonical picture, which we can
+define quite easily recalling the results mentioned in Appendix \ref{appendix:direct-sum-tensor-product}.
 
-We start by defining a space that allows for superpositions of states with different numbers
-of particles, the \textit{Fock space}. Given, for every $N$, the state spaces of N particles
-$\mathfrak{h}_1,\ldots,\mathfrak{h}_N$, the Fock space is defined as
-\begin{align*}
-	\mathcal{F} \coloneq \bigoplus_{N=0}^\infty \bigotimes_{i=1}^N \mathfrak{h}_i
-\end{align*}
-where, as a convention, we interpret $\mathfrak{h}_1\otimes\cdots\otimes\mathfrak{h}_N$ for
-$N=0$ to be just $\mathbb{C}$. The state $1\in\mathbb{C}$ is called the \textit{vacuum
-state} and often denoted $|0\rangle$ or $|\Omega\rangle$. On this space, the energy operator
-is naturally given by
+\begin{definition}[Fock space]
+	For every $N\in\mathbb{N}$, let $\mathfrak{h}_1,\ldots,\mathfrak{h}_N$ be one-particle
+	Hilbert spaces, the \textit{Fock space} is defined as
+	\begin{align*}
+		\mathcal{F} \coloneq \bigoplus_{N=0}^\infty \bigotimes_{i=1}^N \mathfrak{h}_i
+	\end{align*}
+	where, as a convention, we interpret $\mathfrak{h}_1\otimes\cdots\otimes\mathfrak{h}_N$
+	for $N=0$ to be just $\mathbb{C}$. The state $1\in\mathbb{C}$ is called the
+	\textit{vacuum state} and often denoted $|0\rangle$, $|\Omega\rangle$ or $\Omega$.
+\end{definition}
+
+On this space, the energy operator is naturally given by the sum of all the possible N-body
+Hamiltonians:
 \begin{align*}
 	H = \bigoplus_{N=0}^\infty H_N,\quad\text{with }
 	H\bigoplus_{N=0}^\infty\Psi_N = \bigoplus_{N=0}^\infty H_N\Psi_N,
@@ -500,15 +559,26 @@ pure tensors, but by linearity we can extend this to the space
 $\cup_{M=0}^\infty \bigoplus_{N=0}^M \mathcal{H}_N$, which is dense in $\mathcal{F}$.
 
 \begin{proposition}
-	Creation and annihilation are \textcolor{red}{formally (?)} the adjoint of one another, i.e.
-	for all $f\in\mathfrak{h}$ and for all $\Psi,\Phi\in\cup_{M=0}^\infty\bigoplus_{N=0}^M\mathcal{H}_N$
-	it holds that
+	Creation and annihilation are the adjoint of one another, i.e. for all $f\in\mathfrak{h}$
+	and for all $\Psi,\Phi\in\cup_{M=0}^\infty\bigoplus_{N=0}^M\mathcal{H}_N$ it holds that
 	\begin{align*}
 		\langle a(f)\Psi,\Phi \rangle_\mathcal{F} = \langle \Psi, a^*(f)\Phi \rangle_\mathcal{F}.
 	\end{align*}
 \end{proposition}
 \begin{proof}
-	\textcolor{red}{EXPLICIT CALCULATION?}
+	It suffices to prove the equality for simple tensors, so let $\psi_1\otimes\ldots\otimes
+	\psi_N\in\bigotimes^N\mathfrak{h}$ and $\phi_0\otimes\phi_1\otimes\ldots\otimes\phi_N\in
+	\bigotimes^N\mathfrak{h}$. Then, for all $f\in\mathfrak{h}$,
+	\begin{align*}
+		\langle\psi_1\otimes\cdots\psi_N,a(f)\phi_0\otimes\cdots\otimes\phi_N\rangle
+		&= \sqrt{N+1}\langle f,\phi_0\rangle\langle\psi_1\otimes\cdots\otimes\psi_N,\phi_1\otimes\cdots\otimes\phi_N\rangle\\
+		&= \sqrt{N+1}\langle f,\phi_0\rangle\prod_{j=1}^N\langle\psi_j,\phi_j\rangle,
+	\end{align*}
+	and similarly
+	\begin{align*}
+		\langle a^*(f)\psi_1\otimes\cdots\otimes\psi_N,\phi_0\otimes\cdots\otimes\phi_N\rangle
+		&= \sqrt{N+1}\langle f,\phi_0\rangle\prod_{j=1}^N\langle\psi_j,\phi_j\rangle.
+	\end{align*}
 \end{proof}
 
 Once again we introduce indistinguishability into the picture. Looking at the definition of
@@ -552,7 +622,7 @@ common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$.
 
 \begin{remark}
 	A crucial point, that greatly simplifies the treatment of our system in terms of how
-	well-behaved are the operators we are going to use, is that fermionic creation/annihilation
+	well-behaved the operators we are going to use are, is that fermionic creation/annihilation
 	operators are bounded. Let $f\in\mathfrak{h}$, then it is clear that for all normalized
 	$\Psi\in D(a^\#(f))$ it holds that
 	\begin{align*}
@@ -605,9 +675,9 @@ $\phi\otimes\psi - \psi\otimes\phi$ is not null if, and only if, $\phi\neq\psi$.
 	\begin{align*}
 		[N_j, N_k] = a^*_ja_ja^*_ka_k - a^*_ka_ka^*_ja_j = a^*_ka_ka^*_ja_j - a^*_ka_ka^*_ja_j = 0,
 	\end{align*}
-	therefore, all the number operators are projections and can be all diagonalized
-	simultaneously. Note that these algebraic manipulations are well defined, since all the
-	operators $a^\#$ (and their products) are defined on the entire space
+	therefore, all the number operators are commuting projections, furthermore their spectra
+	are all equal to $\{0,1\}$. Note that these algebraic manipulations are well defined,
+	since all the operators $a^\#$ (and their products) are defined on the entire space
 	$\mathcal{F}^\text{F}(\mathfrak{h})$, which is finite-dimensional if $\mathfrak{h}$ is
 	finite-dimensional. We now turn to the direct sum decomposition. Let
 	$\boldsymbol{n}=(n_1,\ldots,n_M)\in\{0,1\}^M$ be an $M$-tuple of eigenvalues of the
@@ -750,7 +820,7 @@ out to study, but this procedure can be generalized to any N-body operator.
 	W_{ij}))$ we have
 	\begin{align*}
 		\bigoplus_{N=2}^\infty\sum_{1\leq i<j\leq N} W_{ij} =
-		\frac{1}{2}\sum_{\alpha,\beta,\nu,\mu=1}^\infty \langle u_\alpha\otimes u_\beta, W u_\mu\otimes u_\nu \rangle_{\mathfrak{h}\otimes\mathfrak{h}}
+		\frac{1}{2}\sum_{\alpha,\beta,\nu,\mu=1}^\infty \langle u_\alpha\otimes u_\beta, W u_\mu\otimes u_\nu \rangle
 		a^*_\pm(u_\alpha)a^*_\pm(u_\beta)a_\pm(u_\nu)a_\pm(u_\mu).
 	\end{align*}
 	Again, this operator is called the second quantization of $W$.
@@ -759,7 +829,40 @@ out to study, but this procedure can be generalized to any N-body operator.
 	commute.
 \end{theorem}
 \begin{proof}
-	\textcolor{red}{prooooooof}
+	We proceed in a similar fashion to the second quantization of one-body operators. We have
+	that
+	\begin{align*}
+		Wu_1\otimes u_2 = \sum_{\alpha,\beta,\mu,\nu=1}^\infty
+		\langle u_\alpha\otimes u_\beta,Wu_\mu\otimes u_\nu\rangle
+		\langle u_\mu,u_1\rangle\langle u_\nu,u_2\rangle u_\alpha\otimes u_\beta,
+	\end{align*}
+	using the resolution of the identity. But now notice that the product of
+	creation/annihilation acts on pure tensors as
+	\begin{align*}
+		a^*(u_\alpha)a^*(u_\beta)a(u_\nu)a(u_\mu)u_1\otimes\cdots\otimes u_N =
+		N(N-1)\langle u_\mu,u_1\rangle\langle u_\nu,u_2\rangle u_\alpha\otimes u_\beta\otimes u_3\otimes\cdots\otimes u_N,
+	\end{align*}
+	and that, like in the one-body case, the projectors $P_\pm$ act on $W$ as
+	\begin{align*}
+		\frac{N(N-1)}{2}P_\pm W_{12}P_\pm = \sum_{1\leq i<j\leq N} W_{ij}P_\pm,
+	\end{align*}
+	where we used that $\mathrm{Ex}W\mathrm{Ex}=W$. Recall, finally, that $P_\pm a^*(f)P_\pm=
+	P_\pm a^*(f)$ as it doesn't matter if the starting state is (anti-)symmetrized since the
+	image gets (anti-)symmetrized. With this in mind, we may write
+	\begin{align*}
+		\bigoplus_{N=2}^\infty \sum_{1\leq i<j\leq N} W_{ij}P_\pm
+		&= \bigoplus_{N=2}^\infty \frac{N(N-1)}{2} P_\pm W_{12}P_\pm \\
+		&= P_\pm\frac{1}{2}\sum_{\alpha,\beta,\nu,\mu=1}^\infty
+		\langle u_\alpha\otimes u_\beta, W u_\mu\otimes u_\nu \rangle
+		a^*(u_\alpha)a^*(u_\beta)a(u_\nu)a(u_\mu)P_\pm\\
+		&= \frac{1}{2}\sum_{\alpha,\beta,\nu,\mu=1}^\infty
+		\langle u_\alpha\otimes u_\beta, W u_\mu\otimes u_\nu \rangle
+		P_\pm a^*(u_\alpha)P_\pm a^*(u_\beta)a(u_\nu)a(u_\mu)P_\pm\\
+		&= \frac{1}{2}\sum_{\alpha,\beta,\nu,\mu=1}^\infty
+		\langle u_\alpha\otimes u_\beta, W u_\mu\otimes u_\nu \rangle
+		a^*_\pm(u_\alpha)a^*_\pm(u_\beta)a_\pm(u_\nu)a_\pm(u_\mu)P_\pm,
+	\end{align*}
+	which concludes the proof.
 \end{proof}
 
 \subsection{One-particle density matrices}
@@ -807,23 +910,22 @@ the following definition.
 	\textcolor{red}{???}
 \end{proof}
 
-\begin{proposition}
+\begin{lemma}
 	If $\Psi\in\mathcal{F}^{\mathrm{F}}(\mathfrak{h})$ is a normalized vector then $\gamma_\Psi$
 	satisfies the inequality
 	\begin{align*}
 		0 \leq \gamma_\Psi \leq \mathbbm{1}.
 	\end{align*}
 	In particular, the eigenvalues of $\gamma_\Psi$ lie in the interval $[0,1]$.
-\end{proposition}
+\end{lemma}
 \begin{proof}
 	We need to show that for every $f\in\mathfrak{h}$ it holds that
 	$0\leq\langle f,\gamma_\Psi f\rangle\leq\Vert f\Vert^2$. Using that $a(f)$ and $a^*(f)$
-	are formally adjoints of each other, we can see that
+	are adjoints of each other, we can see that
 	\begin{align*}
 		\langle f,\gamma_\Psi f\rangle = \langle\Psi, a^*_-(f)a_-(f)\Psi\rangle
 		= \langle a_-(f)\Psi, a_-(f)\Psi\rangle = \Vert a_-(f)\Psi\Vert^2 \geq 0.
 	\end{align*}
-
 	On the other hand, the CAR imply
 	\begin{align*}
 		\langle f,\gamma_\Psi f\rangle
@@ -832,8 +934,16 @@ the following definition.
 		&= \langle \Psi, (a^*_-(f)a_-(f) + a_-(f)a^*_-(f))\Psi\rangle
 		= \langle \Psi, \{a^*_-(f),a_-(f)\}\Psi\rangle = \Vert f\Vert^2.
 	\end{align*}
-
 	This concludes the proof.
+\end{proof}
+
+\begin{lemma}
+	If $u_1,\ldots,u_N$ are orthonormal vectors in $\mathfrak{h}$, then the 1pdm of $\Psi=
+	u_1\wedge\cdots\wedge u_N$ is the projection onto the N-dimensional space $\mathrm{span}\{
+	u_1,\ldots,u_N\}$.
+\end{lemma}
+\begin{proof}
+	\textcolor{red}{???}
 \end{proof}
 
 We are now ready to prove a fundamental theorem on which the treatment of any fermionic system
@@ -847,8 +957,9 @@ eigenvector of non-interacting fermions.
 	\begin{align*}
 		D_-(H_N^{\mathrm{in}}) = P_-D(H_N^{\mathrm{in}}).
 	\end{align*}
-	Assume that the one-body operator $h$ is bounded below. The ground state energy of this
-	fermionic system is
+	Assume that the one-body operator $h$ is bounded below, i.e. there exists some constant
+	$E_0\in\mathbb{R}$ such that $h\geq E_0$. The ground state energy of this fermionic system
+	is
 	\begin{align*}
 		\inf \left\{ \mathrm{Tr}(Ph) : P \text{ is a projection onto an N-dimensional
 		subspace of } D(h) \right\}.
@@ -860,19 +971,19 @@ eigenvector of non-interacting fermions.
 	will be greater than the expectations of $h$ restricted to $P(\mathfrak{h})$.
 \end{theorem}
 \begin{proof}
-	Since $D(h)$ is assumed to be dense, \textcolor{red}{we can choose an
-	orthonormal basis $\{u_\alpha\}_{\alpha=1}^\infty$ for $\mathfrak{h}$ of elements in
-	$D(h)$}. Let $\Psi\in D_-(H_N^{\mathrm{in}})$ be a normalized vector, then
+	Since $D(h)$ is assumed to be dense, we can choose an orthonormal basis
+	$\{u_\alpha\}_{\alpha=1}^\infty$ for $\mathfrak{h}$ of elements in $D(h)$. Let
+	$\Psi\in D_-(H_N^{\mathrm{in}})$ be a normalized vector, then
 	\begin{align*}
 		\langle\Psi,H_N^{\mathrm{in}}\Psi\rangle
 		= \sum_{\alpha,\beta=1}^\infty \langle u_\alpha,h u_\beta\rangle \langle\Psi,a^*_-(u_\alpha)a_-(u_\beta)\Psi\rangle
 		= \sum_{\alpha,\beta=1}^\infty h_{\alpha\beta} \langle u_\beta,\gamma_\Psi u_\alpha\rangle.
 	\end{align*}
-	Since $\Psi$ is assumed to be a finite linear combination of pure tensor products of elements
-	of $D(h)$, it follows from Lemma \ref{finite-rank-1pdm} that $\gamma_\Psi$ has finite rank.
-	Let $\{v_1,\ldots,v_n\}$ be the set of eigenvectors of $\gamma_\Psi$ with eigenvalues
-	$\{\lambda_1,\ldots,\lambda_n\}$, then it follows from the same lemma that $v_1,\ldots,v_n\in D(h)$.
-	Then
+	Since, from the second quantization of an observable, $\Psi$ is assumed to be a finite
+	linear combination of pure tensor products of elements in $D(h)$, it follows from Lemma
+	\ref{finite-rank-1pdm} that $\gamma_\Psi$ has finite rank. Let $\{v_1,\ldots,v_n\}$ be the
+	set of eigenvectors of $\gamma_\Psi$ with eigenvalues $\{\lambda_1,\ldots,\lambda_n\}$,
+	then it follows from the same lemma that $v_1,\ldots,v_n\in D(h)$. Then
 	\begin{align*}
 		\langle\Psi,H_N^{\mathrm{in}}\Psi\rangle
 		= \sum_{j=1}^n\sum_{\alpha,\beta=1}^\infty \lambda_j h_{\alpha\beta} \langle u_\beta,v_j\rangle\langle v_j,u_\alpha\rangle
@@ -904,11 +1015,47 @@ eigenvector of non-interacting fermions.
 		\langle\Psi,H_N^{\mathrm{in}}\Psi\rangle \leq \mathrm{Tr}(\gamma_\Psi h)
 	\end{align*}
 	and the inequality carries to the infimum, which finally proves the double inequality
-	and the first part of the thesis.
+	and the first part of the thesis. Assume now that $P$ is a minimizing projection for the
+	variational problem. It is clear that the state $\Psi=f_1\wedge\cdots\wedge f_N$ whose
+	1pdm coincides with $P$ is a ground state for $H_N^{\mathrm{in}}$ if $f_1,\ldots,f_N$ form
+	an orthonormal basis for $P(\mathfrak{h})$.
 
-	Assume now that $P$ is a minimizing projection for the variational problem of the thesis.
+	We may now prove the stated properties for this minimizing projection. Let $\phi\in P(
+	\mathfrak{h})$ and $\psi\in P(\mathfrak{h})^\perp\cap D(h)$ be two normalized states, then
+	\begin{align*}
+		\langle\phi,h\phi\rangle\leq\langle\psi,h\psi\rangle.
+	\end{align*}
+	Furthermore, consider the projection $Q$ onto the N-dimensional space where $\psi$ and $\phi$
+	are swapped, i.e. onto
+	\begin{align*}
+		\mathrm{span}(\{\psi\}\cup (P(\mathfrak{h})\cap\{\phi\}^\perp),
+	\end{align*}
+	and since $P$ is a minimizer it is clear that
+	\begin{align*}
+		0\leq\mathrm{Tr}(Qh)-\mathrm{Tr}(Ph) = \langle\psi,h\psi\rangle-\langle\phi,h\phi\rangle.
+	\end{align*}
+	We can use this same argument to show that if $\psi\in D(h)\cap (P(\mathfrak{h})\cap
+	\{\phi\}^\perp)^\perp$ then $\langle\phi,h\phi\rangle\leq\langle\psi,h\psi\rangle$, and we
+	now use this fact to show that $h$ maps $P(\mathfrak{h})$ which leads to the conclusion
+	that $P(\mathfrak{h})$ is indeed spanned by eigenvectors of $h$.
 
-	\textcolor{red}{AAAAAHHHH}.
+	We proceed by contradiction, so assume that there exists a vector $\phi\in P(\mathfrak{h})$
+	such that $h\phi\not\in P(\mathfrak{h})$. Since $D(h)$ is dense there is a $g\in D(h)$
+	such that $\langle(\mathbbm{1}-P)g,h\phi\rangle=\langle g,(\mathbbm{1}-P)h\phi\rangle\neq0$,
+	and, without loss of generality, we may assume $\mathrm{Re}\langle(\mathbbm{1}-P)g,h\phi
+	\rangle\neq0$. We have that $(\mathbbm{1}-P)g\in D(h)$. Consider $t\in\mathbb{R}$ (close to
+	0) and define
+	\begin{align*}
+		\phi_t = \frac{\phi+t(\mathbbm{1}-P)g}{\Vert\phi+t(\mathbbm{1}-P)g\Vert}.
+	\end{align*}
+	Note that $\phi_t\in D(h)\cap(P(\mathfrak{h})\cap\{\phi\}^\perp)^\perp$, and therefore
+	$\langle\phi,h\phi\rangle\leq\langle\phi_t,h\phi_t\rangle$. But this is a contradiction,
+	since
+	\begin{align*}
+		0 = \frac{\dx}{\dx t}\bigg|_{t=0}\langle\phi_t,h\phi_t\rangle
+		= \langle(\mathbbm{1}-P)g,h\phi\rangle + \langle\phi,h(\mathbbm{1}-P)g\rangle
+		= 2\mathrm{Re}\langle(\mathbbm{1}-P)g,h\phi\rangle \neq 0.
+	\end{align*}
 \end{proof}
 
 Before going over the next section there is an important generalization to be made. Everything
@@ -1180,6 +1327,9 @@ physical modes.
 		\}.
 	\end{align*}
 \end{theorem}
+\begin{proof}
+	\textcolor{red}{AAAAAAAAAAAAAAHHHHHHHHHHHHH.}
+\end{proof}
 
 Despite dreaming of resisting the urge to characterize \textit{something}, the mathematician
 is ultimately doomed to fail. Let us then indulge in the characterization of generalized

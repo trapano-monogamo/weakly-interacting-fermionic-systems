@@ -411,6 +411,7 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-italic.luc
 INPUT ./chapters/feynman-diagrams.tex
 INPUT ./chapters/second-order.tex
+INPUT ./chapters/higher-orders.tex
 INPUT ./chapters/appendix.tex
 INPUT ./main.aux
 INPUT ./main.run.xml

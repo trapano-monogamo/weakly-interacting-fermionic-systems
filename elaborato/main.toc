@@ -1,20 +1,21 @@
 \contentsline {section}{\numberline {1}Second Quantization}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Principles of quantum mechanics}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Canonical and grand canonical pictures}{5}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}One-particle density matrices}{13}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Bogolubov transformations and quasi-free pure states}{16}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Quadratic hamiltonians}{18}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Perturbation Theory}{19}{section.2}%
-\contentsline {subsection}{\numberline {2.1}A toy model}{19}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Bosonic expectations}{19}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Grassmann Algebras and Grassmann Integrals}{19}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Fermionic expectations}{23}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Perturbative series and Feynman diagrams}{23}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Explicit Calculation at Second Order}{23}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Duhamel's formula}{23}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Evaluating expectation values}{26}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Mean field scaling}{31}{subsection.3.3}%
-\contentsline {section}{\numberline {A}More about operators on a Hilbert space}{32}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Special operators}{33}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Integration of operator-valued functions}{35}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Direct sums and tensor products of Hilbert spaces}{36}{subsection.A.3}%
+\contentsline {subsection}{\numberline {1.2}Canonical and grand canonical pictures}{6}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}One-particle density matrices}{14}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Bogolubov transformations and quasi-free pure states}{18}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Quadratic hamiltonians}{21}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Perturbation Theory}{21}{section.2}%
+\contentsline {subsection}{\numberline {2.1}A toy model}{21}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Bosonic expectations}{21}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Grassmann Algebras and Grassmann Integrals}{21}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Fermionic expectations}{25}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Perturbative series and Feynman diagrams}{25}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Explicit Calculation at Second Order}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Duhamel's formula}{25}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Evaluating expectation values}{28}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Mean field scaling}{33}{subsection.3.3}%
+\contentsline {section}{\numberline {4}On higher orders of perturbation theory}{35}{section.4}%
+\contentsline {section}{\numberline {A}More about Hilbert spaces}{35}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Special operators}{35}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Integration of operator-valued functions}{37}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Direct sums and tensor products of Hilbert spaces}{38}{subsection.A.3}%

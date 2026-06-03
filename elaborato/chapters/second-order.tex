@@ -451,25 +451,37 @@ also partly motivated by the need to treat a special type of systems that can be
 particle-hole transformations, a type of Bogolubov transformation, \textcolor{red}{and we will
 comment on it later on}.
 
+\begin{lemma}[Non-stationary phase lemma]
+	If $m\in\mathbb{N}$ and $f:\mathbb{R}^n\to\mathbb{R}$ such that $\partial^\alpha f\in L^1(
+	\mathbb{R}^M)$, for all multi-indices $\alpha$ of degree $m$, then for all such $\alpha$
+	\begin{align*}
+		\vert \hat{f}(k)\vert \leq \frac{1}{\vert k\vert^m}
+			\int_{\mathbb{R}^n}\dx x\vert \partial^\alpha f(x)\vert
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	\textcolor{red}{???}
+\end{proof}
+
 \begin{theorem}
 	\label{big-thm-1}
 	With the regularity condition that, given $m\geq1$, $\partial^\alpha V\in L^1(\mathbb{T}^{3N})$
 	for all multi-indices $\alpha$ such that $\vert\alpha\vert=m$, and the assumption that
-	$\lim_{\vert k\vert \to \infty} \epsilon_k / \vert k\vert > 0$, the above expression
-	converges in the limit $\Lambda\to\infty$.
+	$\lim_{\vert k\vert \to \infty} \epsilon_k / \vert k\vert > 0$, the expression in Equation
+	\ref{final-expression} converges in the limit $\Lambda\to\infty$.
 \end{theorem}
 \begin{proof}
 	The zero-th order is trivial, as it doesn't depend on $\Lambda$ and is, in fact, finite:
 	$e^{-\beta H_0}$ is trace-class and strictly positive definite, which implies
-	$\vert\log\,\mathrm{Tr}\,e^{-\beta H_0}\vert<\infty$.
-	Moving onto the first and second orders, by the non-stationary phase argument we can
-	conclude that $\vert\hat{V}(k)\vert \leq C_1/\vert k\vert^m$ for some $C_1>0$, which means
-	that at both orders the factors $\hat{V}(k)$ will be decaying as an inverse power as
-	$\vert k\vert\to\infty$, which is the relevant limit as we take the cutoff $\Lambda$ to
-	infinity. As for the energy terms, we are assuming that $\epsilon_k\geq C_2\vert k\vert$
-	for all $k$ outside of the ball of radius $K$ for some $K,C_2>0$. The last factor to
-	discuss is the Fermi-Dirac distribution, but this has an explicit form: an exponential
-	decay in $\epsilon_k$, which is bounded at least by an explonential decay in $\vert k\vert$.
+	$\vert\log\,\mathrm{Tr}\,e^{-\beta H_0}\vert<\infty$. Moving onto the first and second
+	orders, by the non-stationary phase argument we can conclude that $\vert\hat{V}(k)\vert
+	\leq C_1/\vert k\vert^m$ for some $C_1>0$, which means that at both orders the factors
+	$\hat{V}(k)$ will be decaying as an inverse power as $\vert k\vert\to\infty$, which is the
+	relevant limit as we take the cutoff $\Lambda$ to infinity. As for the energy terms, we
+	are assuming that $\epsilon_k\geq C_2\vert k\vert$ for all $k$ outside of the ball of
+	radius $K$ for some $K,C_2>0$. The last factor to discuss is the Fermi-Dirac distribution,
+	but this has an explicit form: an exponential decay in $\epsilon_k$, which is bounded at
+	least by an explonential decay in $\vert k\vert$.
 
 	With these estimates in place we can show that, in the limit $\Lambda\to\infty$, the
 	expression above converges. Looking at the first order, we can write
@@ -603,6 +615,6 @@ step function
 		0 & \epsilon > \mu
 	\end{cases}
 \end{align*}
-which implies the following: \textcolor{red}{YOUR MOM}
+which implies the following: \textcolor{red}{something for sure}
 \begin{align*}
 \end{align*}
