@@ -1,17 +1,17 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'main.blg'
-[31] biber:342> INFO - === gio giu  4, 2026, 19:29:54
-[39] Biber.pm:421> INFO - Reading 'main.bcf'
-[74] Biber.pm:1002> INFO - Found 1 citekeys in bib section 0
-[82] Biber.pm:4487> INFO - Processing section 0
-[87] Biber.pm:4678> INFO - Looking for bibtex file 'refs.bib' for section 0
-[87] bibtex.pm:1713> INFO - LaTeX decoding ...
-[88] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
-[105] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[105] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[105] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[105] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[106] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[106] bbl.pm:779> INFO - Output to main.bbl
-[106] Biber.pm:132> WARN - legacy year field 'which year again?' in entry 'test' is not an integer - this will probably not sort properly.
-[106] Biber.pm:134> INFO - WARNINGS: 1
+[32] biber:342> INFO - === lun giu  8, 2026, 22:24:00
+[41] Biber.pm:421> INFO - Reading 'main.bcf'
+[77] Biber.pm:1002> INFO - Found 1 citekeys in bib section 0
+[85] Biber.pm:4487> INFO - Processing section 0
+[90] Biber.pm:4678> INFO - Looking for bibtex file 'refs.bib' for section 0
+[91] bibtex.pm:1713> INFO - LaTeX decoding ...
+[92] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
+[108] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[108] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[108] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[108] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[109] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[110] bbl.pm:779> INFO - Output to main.bbl
+[110] Biber.pm:132> WARN - legacy year field 'which year again?' in entry 'test' is not an integer - this will probably not sort properly.
+[110] Biber.pm:134> INFO - WARNINGS: 1

@@ -14,7 +14,6 @@ $\mathbb{T}^{3N} = (\mathbb{R}^3/(2\pi\mathbb{Z}^3))^N$:
 	: \psi(x_{\sigma(1)}, ..., x_{\sigma(N)})
 	= \mathrm{sgn}(\sigma)\psi(x_1, ..., x_N) \,\forall \sigma \in S_N\}
 \end{align*}
-
 The Hamiltonian for weakly interacting particles can be written as a sum of
 the kinetic energy terms plus a sum of two-body interaction terms:
 \begin{align*}
@@ -38,7 +37,7 @@ Putting this all together, the Hamiltonian for this system is written as
 \end{align*}
 where $\hat{V}(k)$ are the Fourier coefficients of $V$ and $a^\#_k$ are creation/annihilation
 operators on the Fock space that create/annihilate states of definite momentum $k \in \mathbb{Z}^3$.
-
+\\
 In the limit of zero temperature for a system of identical fermions, the chemical potential is
 also the value of the highest energy level occupied. We can therefore express it in terms of
 the number of particles in the ground state, as this parameter serves as a constraint for such
@@ -65,7 +64,6 @@ which implies that
 	\label{fermi-surface}
 	k_{\mathrm{F}} = \left(\frac{3}{4\pi}N\right)^{\frac{1}{3}} + \mathcal{O}(N^0).
 \end{align}
-
 Since we want to compute the second order contribution to the ground state energy, we will
 calculate the free energy of the system and take its limit as the temperature goes to zero,
 that is $\beta \to \infty$. Recall that at thermal equilibrium the expectation value of any
@@ -74,7 +72,6 @@ observable is given by the Gibbs state functional
 	\langle\cdot\rangle = \frac{\mathrm{Tr}(\cdot \, e^{-\beta H})}
 	{\mathrm{Tr}(e^{-\beta H})}.
 \end{align*}
-
 Because the free energy is given by the logarithm of the partition function divided by
 $-\beta$, we can make use of a useful formula that allows to truncate the quantity
 $\mathrm{log}(\mathrm{Tr}(e^{-\beta H}))$ to second order contributions in the scaling factor
@@ -109,7 +106,6 @@ $\lambda$.
 			- \lambda\int_0^\beta\dx\tau
 			e^{-\tau H}e^{\tau H_0}V(\tau) = \star
 	\end{align*}
-
 	Note that the integral is well defined as $\tau\mapsto\Vert e^{-\tau H}e^{\tau H_0}V(\tau)\Vert$
 	is a continuous function on the compact domain $[0,\beta]$ and is therefore Lebesgue integrable,
 	which implies that $\tau\mapsto e^{-\tau H}e^{\tau H_0}V(\tau)$ is Bochner integrable. We
@@ -147,7 +143,6 @@ $\lambda$.
 			+ \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle_{H_0}
 			\right).
 	\end{align*}
-
 	We can now take the logarithm on both sides. Recall the Taylor expansion
 	$\mathrm{log}(1+x) \sim x - x^2/2\,$ as $x \to 0$ and apply it to the r.h.s.,
 	but note that the first integral gives two contributions (one at first
@@ -181,7 +176,6 @@ possible momentum states form a finite set of M independent modes:
 	\mathcal{D}_\Lambda := \{ k\in\mathbb{Z}^3 : \vert k\vert < \Lambda \} = \mathbb{Z}^3\cap\mathbb{B}_\Lambda(0),
 	\quad\mathrm{with}\;\vert\mathcal{D}_\Lambda\vert = M.
 \end{align*}
-
 Let then $\boldsymbol{\psi} = (\psi_1, ..., \psi_M)$ and
 $\boldsymbol{\bar\psi} = (\bar\psi_1, ..., \bar\psi_M)$ be the Grassmann variables
 associated to the families of operators $a$ and $a^*$ respectively.
@@ -191,13 +185,11 @@ bounded operator:
 \begin{align*}
 	H_0 = \sum_{k \in \mathcal{D}_\Lambda} (\epsilon_k-\mu) a^*_k a_k
 \end{align*}
-
-We begin the calculation by building the gaussian measure for the expectations
-$\langle\,\cdot\,\rangle_{H_0}$.
-Note that $\langle V \rangle_{H_0}$ contains field operators at the same temperature, while
-the expectations inside the double integral contain field operators at different temperatures,
-which means the two-point funcitons that appear in the contractions of the respective
-diagrams are going to be different.
+We begin the calculation by building the gaussian measure for the expectations $\langle\,\cdot
+\,\rangle_{H_0}$. Note that $\langle V \rangle_{H_0}$ contains field operators at the same
+temperature, while the expectations inside the double integral contain field operators at
+different temperatures, which means the two-point funcitons that appear in the contractions of
+the respective diagrams are going to be different.
 
 \begin{lemma}
 	\label{two-point-function}
@@ -225,7 +217,6 @@ diagrams are going to be different.
 		&= a_k + \int_0^\tau \dx\lambda\, e^{-\lambda H_0}\sum_{k'\in\mathcal{D}_\Lambda}(\epsilon_{k'}-\mu)[a_k,a^*_{k'} a_{k'}]e^{\lambda H_0}
 		= \star.
 	\end{align*}
-
 	Recall that, for operators $A$, $B$ and $C$ defined on a common domain, it holds that
 	\begin{align*}
 		[A,BC] = \{A,B\}C - B\{A,C\}
@@ -250,20 +241,17 @@ diagrams are going to be different.
 			a_k(0) = a_k
 		\end{cases}.
 	\end{align*}
-	
 	By the theorem of existence and uniqueness of the solution to an ODE on a closed interval,
 	it suffices to find one explicitly. This is a well known differential equation and it's
 	easy to check that the following is indeed a solution
 	\begin{align*}
 		a_k(\tau) = e^{\tau(\epsilon_k-\mu)}a_k(0) = e^{\tau(\epsilon_k-\mu)}a_k.
 	\end{align*}
-
 	The procedure is completely analogous in the case of $a^*_k(\tau)$ and the result differs
 	only by a sign in the exponent:
 	\begin{align*}
 		a^*_k(\tau) = e^{-\tau(\epsilon_k-\mu)}a^*_k(0) = e^{-\tau(\epsilon_k-\mu)}a^*_k.
 	\end{align*}
-
 	By linearity, we can take the scalar exponential factors out of the expectation value to
 	write the two-point function in terms of the quantity $\langle a^*_k a_{k'}\rangle$:
 	\begin{align*}
@@ -323,56 +311,76 @@ and the graphical representation of the interaction term via a vertex:
 		\node (d) at ( 1,-1) {} node[scale=0.7] at ( 0.9,-0.5) {$p$};
 		\begin{scope}[very thick, decoration={
 				markings,
-				mark=at position 0.6 with {\arrow{>}}}
+				mark=at position 0.57 with {\arrow{>}}}
 			]
 			\draw[black, thick, postaction={decorate}] (0,0) -- (a);
 			\draw[black, thick, postaction={decorate}] (0,0) -- (b);
+			\draw[black, thick, postaction={decorate}] (c) -- (0,0);
+			\draw[black, thick, postaction={decorate}] (d) -- (0,0);
 		\end{scope}
-		\begin{scope}[very thick, decoration={
-				markings,
-				mark=at position 0.6 with {\arrow{<}}}
-			]
-			\draw[black, thick, postaction={decorate}] (0,0) -- (c);
-			\draw[black, thick, postaction={decorate}] (0,0) -- (d);
-		\end{scope}
-		\filldraw[black] (0,0) circle (2pt); %node[anchor=west]{Intersection point};
+		\filldraw[black] (0,0) circle (2pt);
 	\end{tikzpicture}.
 \end{align*}
-
-With these we can evaluate the expectations that show up in Duhamel's formula separately. Let's start
-with $\langle V \rangle_{H_0}$. This is the expectation of a sum with terms $\bar\psi\bar\psi\psi\psi$,
-exactly the interaction term, and so the result will be a sum of all possible (connected) diagrams
-with one vertex. Omitting the temperatures when writing two-point functions and calling
-$n_k = n_\text{F}(\epsilon_k)$ the calculation is as follows:
+We can evaluate the expectations that show up in Duhamel's formula separately by following the
+diagrammatic rules we discussed in the previous chapter. Let's start with $\langle V
+\rangle_{H_0}$. This is the expectation of a sum of terms $\bar\psi\bar\psi\psi\psi$, exactly
+the interaction term, and so the result will be a sum of all possible (connected) diagrams
+with one vertex. Omitting the temperatures when writing two-point functions and calling $n_k =
+n_\text{F}(\epsilon_k)$ the calculation is as follows:
 \begin{align*}
 	\langle V \rangle_{H_0}
 	&= \mathbb{E}_G \biggl(
 		\sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p
 		\biggr)
 	= \sum_{\Gamma \in \mathcal{G}_{\text{C},1}} \text{val}(\Gamma) \\
-	&= \textcolor{red}{draw \ feynman \ diagrams} \\
-	% \begin{tikzpicture}[scale=.7, baseline=(current bounding box.center)]
-	% 	\node[shape=coordinate] (a) at (-1, 1) {};
-	% 	\node[shape=coordinate] (b) at ( 1, 1) {};
-	% 	\node[shape=coordinate] (c) at (-1,-1) {};
-	% 	\node[shape=coordinate] (d) at ( 1,-1) {};
-	% 	\begin{scope}[very thick, decoration={
-	% 			markings,
-	% 			mark=at position 0.5 with {\arrow{>}}}
-	% 		]
-	% 		\draw[black, thick] (0,0) -- (a);
-	% 		\draw[black, thick] (0,0) -- (b);
-	% 	\end{scope}
-	% 	\begin{scope}[very thick, decoration={
-	% 			markings,
-	% 			mark=at position 0.5 with {\arrow{<}}}
-	% 		]
-	% 		\draw[black, thick] (0,0) -- (c);
-	% 		\draw[black, thick] (0,0) -- (d);
-	% 	\end{scope}
-	% 	\filldraw[black] (0,0) circle (2pt); %node[anchor=west]{Intersection point};
-	% 	% \draw[black, thick, postaction={decorate}] (a) .. controls (-2,-.5) and (-.5,-2) .. (d);
-	% \end{tikzpicture}.
+	&= \vcenter{\hbox{
+		\begin{tikzpicture}[scale=.5, baseline=(current bounding box.center)]
+			\node[shape=coordinate] (a) at (-1, 1) {};
+			\node[shape=coordinate] (b) at ( 1.1, 1.1) {};
+			\node[shape=coordinate] (c) at (-1.1,-1.1) {};
+			\node[shape=coordinate] (d) at ( 1,-1) {};
+			\coordinate (A) at (-1.2,-1.2);
+			\coordinate (B) at ( 1.5,-1.5);
+			\draw[black, thick] (0,0) -- (a);
+			\draw[black, thick] (0,0) -- (b);
+			\draw[black, thick] (0,0) -- (c);
+			\draw[black, thick] (0,0) -- (d);
+			\filldraw[black] (0,0) circle (2pt);
+			\begin{scope}[very thick, decoration={
+					markings,
+					mark=at position 0.7 with {\arrow{>}}}
+				]
+				\draw[black, thick, postaction={decorate}] (a) .. controls +(135:1) and +(135:1) .. (A);
+				\draw[black, thick]                        (A) .. controls +(315:1) and +(315:1) .. (d);
+			\end{scope}
+			\begin{scope}[very thick, decoration={
+					markings,
+					mark=at position 0.45 with {\arrow{>}}}
+				]
+				\draw[black, thick]                        (c) .. controls +(225:1) and +(225:1) .. (B);
+				\draw[black, thick, postaction={decorate}] (B) .. controls +( 45:1) and +( 45:1) .. (b);
+			\end{scope}
+		\end{tikzpicture}
+	}} + \vcenter{\hbox{
+		\begin{tikzpicture}[scale=.5, baseline=(current bounding box.center)]
+			\node[shape=coordinate] (a) at (-1, 1) {};
+			\node[shape=coordinate] (b) at ( 1, 1) {};
+			\node[shape=coordinate] (c) at (-1,-1) {};
+			\node[shape=coordinate] (d) at ( 1,-1) {};
+			\draw[thick] (0,0) -- (a);
+			\draw[thick] (0,0) -- (b);
+			\draw[thick] (0,0) -- (c);
+			\draw[thick] (0,0) -- (d);
+			\filldraw[black] (0,0) circle (2pt);
+			\begin{scope}[very thick, decoration={
+					markings,
+					mark=at position 0.55 with {\arrow{>}}}
+				]
+				\draw[thick, postaction={decorate}] (a) .. controls +(135:1.5) and +(225:1.5) .. (c);
+				\draw[thick, postaction={decorate}] (b) .. controls +( 45:1.5) and +(315:1.5) .. (d);
+			\end{scope}
+		\end{tikzpicture}
+	}}\\
 	&= \sum_{k,p,q} \hat{V}(k) G_{p-k,p}G_{q+k,q} - \sum_{k,p,q} \hat{V}(k) G_{p-k,q}G_{q+k,p} \\
 	&= \sum_{k,p,q} \bigl(\hat{V}(k) \delta_{k,0} n_p n_q - \hat{V}(k) \delta_{k,p-q} n_p n_q \bigr)\\
 	&= \sum_{p,q} (\hat{V}(0) - \hat{V}(p-q)) n_p n_q.
@@ -387,36 +395,64 @@ linked cluster theorem the expression factorizes as follows:
 	&= \mathbb{E}^{\mathrm{T}}_G(V(\tau');V(\tau))\\
 	&= \sum_{\Gamma\in\mathcal{G}_{\mathrm{C},2}} \mathrm{val}(\Gamma) = \star
 \end{align*}
-
 Assuming that $V$ is such that $\hat{V}(-k)=\hat{V}(k)$, the
-connected diagrams with two vertices are exactly divided in two groups, up to renaming the
-indices in the resulting sums. Indeed, on one hand we have diagrams that have no loops, i.e.
-each vertex only has contractions with the other vertex and never with itself, and on the
-other we have diagrams with two loops.
-
-\textcolor{red}{draw the complete set of diagrams?}.
-
-Consider the first group. Fixing an incoming and an outgoing leg on one vertex, there are 4 ways
-to contract them with legs of the other vertex, and in each case there is only one way to
-complete the diagram without introducing loops, therefore this group contains 4 diagrams.
-For the second group, there are 4 ways to form a loop on a vertex, and given a (connected)
-diagram with two vertices and two loops there exists only one way to complete it. Therefore
-the second group contains 16 diagrams (all possible ways to put one loop on both vertices).
-Accounting for these multiplicities, we have:
+connected diagrams with two vertices are exactly divided in two groups, up to a renaming of
+the indices in the resulting sums. Indeed, on one hand we have diagrams that have no loops,
+i.e. each vertex only has contractions with the other vertex and never with itself, and on the
+other we have diagrams with two loops. Consider the first group. Fixing an incoming and an
+outgoing leg on one vertex, there are 4 ways to contract them with legs of the other vertex,
+and in each case there is only one way to complete the diagram without introducing loops,
+therefore this group contains 4 diagrams. For the second group, there are 4 ways to form a
+loop on a vertex, and given a (connected) diagram with two vertices and two loops there exists
+only one way to complete it. Therefore the second group contains 16 diagrams (all possible
+ways to put one loop on both vertices). Accounting for these multiplicities, we have:
 \begin{align*}
-	\star &= 4 \left( \textcolor{red}{no loops} \right) + 16 \left( \textcolor{red}{with loops} \right)\\
-	&= \sum_{k,p,q,k',p',q'} \hat{V}(k')\hat{V}(k) \left(
+	\star
+	&= 4 \vcenter{\hbox{
+		\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
+			\node[shape=coordinate] (a) at (-1.1,0) {} node[scale=1] at (-1.5,0) {$s$};
+			\node[shape=coordinate] (b) at ( 1.1,0) {} node[scale=1] at ( 1.5,0) {$s'$};
+			\begin{scope}[very thick, decoration={
+					markings,
+					mark=at position 0.55 with {\arrow{>}}}
+				]
+				\filldraw[] (-1.1,0) circle (.05);
+				\filldraw[] ( 1.1,0) circle (.05);
+				\draw[thick, postaction={decorate}] (a) .. controls +( 80:1.3) and +(100:1.3) .. (b);
+				\draw[thick, postaction={decorate}] (b) .. controls +(260:1.3) and +(280:1.3) .. (a);
+				\draw[thick, postaction={decorate}] (a) .. controls +( 60:0.7) and +(120:0.7) .. (b);
+				\draw[thick, postaction={decorate}] (b) .. controls +(240:0.7) and +(300:0.7) .. (a);
+			\end{scope}
+		\end{tikzpicture}
+	}} + 16 \vcenter{\hbox{
+		\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
+			\node[shape=coordinate] (a) at (-0.9,0) {} node[scale=1] at (-1.2,0) {$s$};
+			\node[shape=coordinate] (b) at ( 0.9,0) {} node[scale=1] at ( 1.2,0) {$s'$};
+			\begin{scope}[very thick, decoration={
+					markings,
+					mark=at position 0.55 with {\arrow{>}}}
+				]
+				\filldraw[] (-0.9,0) circle (.05);
+				\filldraw[] ( 0.9,0) circle (.05);
+				\draw[thick, postaction={decorate}] (a) .. controls +(125:2) and +(235:2) .. (a);
+				\draw[thick, postaction={decorate}] (b) .. controls +(305:2) and +( 55:2) .. (b);
+				\draw[thick, postaction={decorate}] (a) .. controls +( 60:1) and +(120:1) .. (b);
+				\draw[thick, postaction={decorate}] (b) .. controls +(240:1) and +(300:1) .. (a);
+			\end{scope}
+		\end{tikzpicture}
+	}}\\
+	&= \sum_{\substack{k,p,q\\k',p',q'}}
+		\hat{V}(k')\hat{V}(k) \left(
 		4 \, G_{p-k,p'}G_{q'+k',q}G_{q+k,q'}G_{p'-k',p}
 		+ 16 \, G_{p-k,q}G_{q+k,q'}G_{p'-k',p}G_{q'+k',p'}
-	\right) \\
+	\right)\\
 	&= \sum_{p,q,p'} \Bigl(
 		4 \, (\hat{V}(p-p'))^2 e^{(\tau'-\tau)(\epsilon_p + \epsilon_q + \epsilon_{p'} + \epsilon_{p-p'+q} - 4\mu)} n_p n_q n_{p'} n_{p-p'+q} \\
 	&\qquad\qquad + 16 \, \hat{V}(0)\hat{V}(p-q) e^{(\tau'-\tau)(2\epsilon_p + \epsilon_q + \epsilon_{p'} - 4\mu)} n_p^2 n_q n_{p'}
 	\Bigr)
 \end{align*}
-
 Renaming some of the indices at both orders and integrating this last expression, as per
-equation (\ref{eq:duhamel}), leads us to the final expression of the free energy at second order
+equation (\ref{eq:duhamel}), leads us to the following expression for the logarithm:
 
 \begin{align}
 	\label{final-expression}
@@ -438,7 +474,7 @@ perturbative series is \textit{not} done in the case where the state space is
 infinite-dimensional. Physically, this does not pose any concern and we expect the two
 scenarios to be equivalent, but from the point of view of mathematical rigour it is worth
 pointing out these kinds of subtleties.
-
+\\
 So far we have been considering the kinetic energy to be $\epsilon_k=\hbar^2\vert k\vert^2$,
 but this expression is relevant specifically for the limit $\beta\to\infty$, while in the
 following theorem we will consider a more general form with one condition on the asymptotic
@@ -492,7 +528,6 @@ comment on it later on}.
 		&= \vert\hat{V}(0)\vert \sum_{p\in\mathcal{D}_\Lambda}n_p\sum_{k\in\mathcal{D}_\Lambda}n_{p-k}
 		+ \sum_{p\in\mathcal{D}_\Lambda}n_p\sum_{k\in\mathcal{D}_\Lambda}\vert\hat{V}(k)\vert n_{p-k}.
 	\end{align*}
-
 	By the positivity of the general terms for all $k\in\mathbb{Z}^3$ we can bound the sums by
 	the respective sum over $\mathbb{Z}^3$, and because the general terms of each of the above
 	sums only depends on the modulus of the index we can employ the following strategy. Define
@@ -503,18 +538,15 @@ comment on it later on}.
 	Because $c_1\vert A_n\vert a_{n+1} \leq \sum_{k\in A_n}a_{\vert k\vert} \leq c_2\vert A_{n+1}\vert a_n$
 	for all $n$ if $a_n$ is decreasing, and because $\vert A_n\vert\asymp n^2$, we can conclude
 	that the behaviour of $\sum_{k\in\mathbb{Z}^3} a_{\vert k\vert}$ and $\sum_{n=0}^\infty n^2 a_n$
-	is the same.
-
-	Now we can show that each term converges. Indeed $\sum_{k\in\mathbb{Z}^3}n_k$ converges
-	if, and only if, the series $\sum_{\ell\in\mathbb{N}} \ell^2 e^{-\beta\epsilon_\ell}$
-	converges, by the asymptotic comparison test. The latter does converge absolutely as shown by
-	the root test:
+	is the same. Now we can show that each term converges. Indeed $\sum_{k\in\mathbb{Z}^3}n_k$
+	converges if, and only if, the series $\sum_{\ell\in\mathbb{N}} \ell^2 e^{-\beta
+	\epsilon_\ell}$ converges, by the asymptotic comparison test. The latter does converge
+	absolutely as shown by the root test:
 	\begin{align*}
 		\left\vert \ell^2 e^{-\beta\epsilon_{\ell}}\right\vert^{1/\ell}
 		= e^{\frac{2\log(\ell) - \beta\epsilon_\ell}{\ell}}
 		\longrightarrow Q \in [0,1).
 	\end{align*}
-
 	Similarly, $\sum_{k\in\mathbb{Z}^3}\vert\hat{V}(k)\vert n_k$ converges, as
 	\begin{align*}
 		\sum_{k\in\mathbb{Z}^3} \vert\hat{V}(k)\vert n_k
@@ -526,35 +558,39 @@ comment on it later on}.
 
 	Very similar arguments can be used to show that the second order has an absolutely convergent
 	series as a limit. Indeed, recalling the assumptions made about each factor present in the
-	expression, we can bound the first term in the sum by
+	expression, we can bound the first term in the sum (the second order direct term) by
 	\begin{align*}
 		\sum_{p,q,k\in\mathcal{D}_\Lambda} (\ldots)
 		&\leq \sum_p \frac{4n_p}{\epsilon_p-4\mu} \sum_q n_q \sum_k (\hat{V}(k))^2 n_{q+k}n_{p-k}
 		\left(\beta + \frac{1}{\epsilon_p-4\mu}\right),
 	\end{align*}
 	which, turning once more sums over $\mathbb{Z}^3$ into normal series with an additional square
-	in the general term, is an absolutely convergent series in the limit $\Lambda\to\infty$, as
-	the only true difference from the previous case is the additional factor $1/\epsilon_p$, which
-	is an inverse power and does not change the result of any of the comparison tests done before.
-	The exact same argument can be applied to the second term, and this concludes the proof.
+	in the general term, is absolutely convergent, since the only true difference from the
+	previous case is the additional factor $1/\epsilon_p$, which is an inverse power and does
+	not change the result of any of the comparison tests done before. The exact same argument
+	can be applied to the other term (second order exchange term), and this concludes the proof.
 \end{proof}
 
 We can then replace the sums over $\mathcal{D}_\Lambda$ in equation \ref{final-expression}
 with series over $\mathbb{Z}^3$. Inserting the factor of $-1/\beta$ to get the free energy
-and calling $F_0 = -\log(\mathrm{Tr}(e^{-\beta H_0}))/\beta$ leads us to
+leads us to the complete expression for the free energy:
 \begin{align}
 	\label{free-energy}
 	F
+	&\eqcolon F_0 + F_{1,\mathrm{D}} + F_{1,\mathrm{X}} + F_{2,\mathrm{D}} + F_{2,\mathrm{X}}\nonumber\\
 	&= F_0\nonumber
-	-\lambda\sum_{p,k\in\mathbb{Z}^3} \left( \hat{V}(0) -\hat{V}(k) \right) n_p n_{p-k} \nonumber\\
-	&\quad - \lambda^2\sum_{p,q,k\in\mathbb{Z}^3} \Biggr(
+	+\lambda\sum_{p,k\in\mathbb{Z}^3} \hat{V}(0) n_p n_{p-k} \nonumber
+	-\lambda\sum_{p,k\in\mathbb{Z}^3} \hat{V}(k) n_p n_{p-k} \nonumber\\
+	&\quad +\lambda^2\sum_{p,q,k\in\mathbb{Z}^3}
 	\frac{4(\hat{V}(k))^2 n_p n_q n_{q+k} n_{p-k}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu}
-	\biggl( 1 + \beta^{-1}\frac{1 - e^{-\beta (\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu)}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu} \biggr) \nonumber\\
-	&\quad +
+	\biggl( 1 + \beta^{-1}\frac{1 - e^{-\beta (\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu)}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu} \biggr)\nonumber\\
+	&\quad +\lambda^2\sum_{p,q,k\in\mathbb{Z}^3}
 	\frac{16\hat{V}(0)\hat{V}(p-q) n^2_p n_q n_{p-k}}{2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu}
 	\biggl( 1 + \beta^{-1}\frac{1 - e^{-\beta (2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu)}}{2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu} \biggr)
-	\Biggl).
 \end{align}
+where each term has been named appropriately following the order in which they appear: $F_0$
+is the free energy of the unperturbed system (no interactions), $F_{i,\mathrm{D}}$ is the
+direct term at order $i$ and $F_{i,\mathrm{X}}$ is the exchange term at order $i$.
 
 \subsection{Mean field scaling}
 
@@ -568,7 +604,7 @@ the \textcolor{red}{RPA scaling in the number of particles $N$}.
 	$\delta>0$, and the limit $\beta \to \infty$ can thus be taken inside the sums.
 \end{lemma}
 \begin{proof}
-	The only problematic factor is the Fermi-Dirac distribution, as it has a discontinuity
+	The only troubling factor is the Fermi-Dirac distribution, as it has a discontinuity
 	at $\epsilon_k = \mu$ in the limit $\beta\to\infty$. By splitting each sum into a finite
 	part up to, say, $\epsilon_k = 2\mu$, and a series over the remaining values of $k$, we
 	can avoid this discontinuity. Moreover, since we are considering a limit away from
@@ -590,9 +626,7 @@ the \textcolor{red}{RPA scaling in the number of particles $N$}.
 	all the terms of Equation (\ref{free-energy}), because the result we just proved shows
 	that the rest will converge uniformly as it is going to be of the form $\sum_{p,q}Cn_pn_q$
 	up to some inverse energy factors, where $C$ is a constant that comes from the specific
-	bound used for the innermost series.
-
-	We can see this strategy in action for the first order: 
+	bound used for the innermost series. We can see this strategy in action for term $F_1$:
 	\begin{align*}
 		\sum_{p,k} \left|\hat{V}(0)-\hat{V}(k)\right| n_p n_{p-k}
 		&= \sum_p n_p \sum_k \left|\hat{V}(0)-\hat{V}(k)\right| n_{p-k}\\
@@ -601,7 +635,7 @@ the \textcolor{red}{RPA scaling in the number of particles $N$}.
 	\end{align*}
 	but the series containing $\sup_\beta(...)$ converges to some $C>0$ as we discussed above,
 	and we can therefore write $\star = \sum_p C n_p$, which again converges. For the direct
-	term at second order, following the same strategy of isolating the innermost series, we
+	term at second order, $F_{2,\mathrm{D}}$, following the same strategy of isolating the innermost series, we
 	can identify two terms that need our attention, up to trivial bounds:
 	\begin{align*}
 		A\coloneq\sum_k \frac{\hat{V}(k)^2n_{q+k}n_{p-k}}{\epsilon_{q+k}+\epsilon_{p-k}-2\mu}
@@ -609,20 +643,20 @@ the \textcolor{red}{RPA scaling in the number of particles $N$}.
 		B\coloneq\sum_k \left|\frac{\hat{V}(k)^2n_{q+k}n_{p-k}(1-e^{-\beta(\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu)})}
 		{\beta(\epsilon_{q+k} + \epsilon_{p-k} - 2\mu)^2}\right|
 	\end{align*}
-	while the exchange term (the one with $\hat{V}(0)\hat{V}(p-q)$) has the same behaviour,
-	both in terms of dependence on $\beta$ and in terms of pointwise convergence. The series
-	$A$ is very simple: the Fermi-Dirac distributions are bounded by their supremum which leads
-	to the convergent bound
+	and the exchange term $F_{2,\mathrm{X}}$ has the same behaviour, both in terms of
+	dependence on $\beta$ and in terms of pointwise convergence. The series $A$ is very
+	simple: the Fermi-Dirac distributions are bounded by their supremum which allows us to
+	show convergence by writing
 	\begin{align*}
 		A \leq \sum_k \frac{4\hat{V}(k)^2e^{-\delta(\epsilon_{q+k}+\epsilon_{p-k}-2\mu)}}
 		{\epsilon_{q+k}+\epsilon_{p-k}-2\mu}.
 	\end{align*}
 	Let's now discuss $B$. Distributing the product at the numerator, the first term is a
-	product of Fermi-Dirac distributions over $\beta$, which is monotonically decreasing in
-	$\beta$ for all $q,p,k$ that respect the condition $\epsilon-\mu>0$. As for explonential
-	factor it is easy to check that, for all $k$ far enough from the origin, the resulting
-	general term is monotonically decreasing in $\beta$. Therefore, once again, the supremum
-	is found at $\beta=\delta$ and we are left with the bound
+	product of Fermi-Dirac distributions divided by $\beta$, which means it is monotonically
+	decreasing in $\beta$ for all $q,p,k$ that respect the condition $\epsilon-\mu>0$. As for
+	the explonential term it is easy to check that, for all $k$ far enough from the origin,
+	the resulting general term is monotonically decreasing in $\beta$. Therefore, once again,
+	the supremum is found at $\beta=\delta$ and we are left with
 	\begin{align*}
 		B \leq \sum_k \frac{\hat{V}(k)^2 e^{-\delta(\epsilon_{q+k}+\epsilon_{p-k}-2\mu)}}{\delta(\epsilon_{q+k}+\epsilon_{p-k})^2}
 		+ \sum_k \frac{\hat{V}(k)^2 e^{-\delta(\epsilon_p+\epsilon_q+2\epsilon_{q+k}+2\epsilon_{p-k}-6\mu)}}{\delta(\epsilon_{q+k}+\epsilon_{p-k})^2},
@@ -637,56 +671,81 @@ a step function
 	n_{\mathrm{F}}(\epsilon) \xrightarrow[\beta\to\infty]{} \chi(\epsilon\leq\mu).
 \end{align*}
 At last, using this fact we arrive at the ground state energy scaling in $N$, which is just
-a couple of estimates away. Of course we proceed order by order, starting from the unperturbed
-free energy to make sure that everything is in order. Recall that $B_{\mathrm{F}}=\{p\in
-\mathbb{Z}^3:\vert p\vert<k_{\mathrm{F}}\}$ and expand the expression for $F_0$ as
-\begin{align*}
-	F_0
-	&= -\frac{\log(Z)}{\beta} = -\sum_{p\in\mathbb{Z}^3} \frac{1}{\beta}\log(1+e^{-\beta(\epsilon_p-\mu)})
-	= \sum_{p\in B_{\mathrm{F}}}(\epsilon_p-\mu) + \sum_{p\not\in B_{\mathrm{F}}}\log(1+e^{-\beta(\epsilon_p-\mu)}),
-\end{align*}
-where in the limit the second term contributes to order $\mathcal{O}(N^{0})$. From here we can
-change the index summed over in $\sum_{\vert p\vert\leq CN^{1/3}}$ to approximate the result
-with an integral which contributes to order $\mathcal{O}(N^{0})$. Recall that $\hbar=N^{-1/3}$
-and $k_{\mathrm{F}}= \mathcal{O}(N^{1/3})$, then take $p\mapsto p'=N^{-1/3}p$, and since in
-the Fermi ball one has $\vert p\vert\leq CN^{1/3}$ this leads to $\vert p'\vert\leq C$. This
-allows for the following known approximation by integration:
-\begin{align*}
-	\sum_{p\in B_{\mathrm{F}}}(\hbar^2p^2-\mu)
-	&= N^{-\frac{2}{3}}\sum_{p\in\mathbb{Z}^3:\vert k\vert\leq CN^{1/3}}p^2 -\mu\sum_{p\in B_{\mathrm{F}}}1\\
-	&= N^{-\frac{2}{3}}N\left(\frac{1}{N}\sum_{p'\in\mathbb{Z}^3:\vert p'\vert\leq C} (N^{\frac{1}{3}}p)^2\right)-N\mu\\
-	&= N \left(\int_0^C p^2 (4\pi p^2)\dx p + \mathcal{O}(N^{-\frac{1}{3}})\right) -N\mu\\
-	&= \tilde{C}N + \mathcal{O}(N^{\frac{2}{3}})
-\end{align*}
-where we used that, from Equation (\ref{fermi-surface}), $\mu=\hbar^2k_{\mathrm{F}}^2=\mathcal{O}(N^{0})$.
-This shows that indeed $F_0\asymp N$.
+a couple of estimates away.
 
-Onto the first order, recall the limit of the Fermi-Dirac distribution and the scaling
-$\lambda=N^{-1}$ to see that
-\begin{align*}
-	\lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{p-k}
-	&= \lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{k}\\
-	&\xrightarrow[\beta\to\infty]{} N^{-1}\left(\sum_{p\in B_{\mathrm{F}}}1\right)\left(\sum_{k\in B_{\mathrm{F}}}(\hat{V}(0)-\hat{V}(k))\right)\\
-	&= N\hat{V}(0) - \sum_{k\in B_{\mathrm{F}}}\hat{V}(k)\\
-	&\approx N\hat{V}(0) - \sum_{k\in\mathbb{Z}^3}\hat{V}(k).
-\end{align*}
-where in the last steps we assumed a stronger regularity condition. In particular, we may choose
-to assume that $\hat{V}$ has compact support, or that $\hat{V}(k)\asymp e^{-\vert k\vert}$, so
-that the bound can provide an estimate that gets better as $N$ grows. With this expression we
-can conclude that the first order indeed contributes to order $\mathcal{O}(N)$ with the direct
-term and to order $\mathcal{O}(N^0)$ with the exchange term.
+\begin{theorem}
+	Up to second order in perturbation theory, the ground state energy of a system of weakly
+	interacting fermions exhibits the following scalings in the number of particles, $N$:
+	\begin{itemize}
+		\item $F_0 \asymp N$,
+		\item $F_{1,\mathrm{D}} \asymp N$ while $F_{1,\mathrm{X}} = \mathcal{O}(N^0)$,
+		\item $F_{2,\mathrm{D}} \asymp N^{-\frac{1}{3}}$ and also $F_{2,\mathrm{X}} \asymp N^{-\frac{1}{3}}$ \textcolor{red}{CHECK SPECIFIC POWER OF N for $F_{2,\mathrm{X}}$}.
+	\end{itemize}
+\end{theorem}
+\begin{proof}
+	Of course we proceed order by order, starting from the unperturbed free energy to make
+	sure that everything is in order. Recall that $B_{\mathrm{F}}=\{p\in\mathbb{Z}^3:\vert p
+	\vert<k_{\mathrm{F}}\}$ and expand the expression for $F_0$ as
+	\begin{align*}
+		F_0
+		&= -\frac{\log(Z)}{\beta} = -\sum_{p\in\mathbb{Z}^3} \frac{1}{\beta}\log(1+e^{-\beta(\epsilon_p-\mu)})
+		= \sum_{p\in B_{\mathrm{F}}}(\epsilon_p-\mu) + \sum_{p\not\in B_{\mathrm{F}}}\log(1+e^{-\beta(\epsilon_p-\mu)}),
+	\end{align*}
+	where in the limit the second term contributes to order $\mathcal{O}(N^{0})$. From here we
+	can change the index summed over in $\sum_{\vert p\vert\leq CN^{1/3}}$ to approximate the
+	result with an integral which contributes to order $\mathcal{O}(N^{0})$. Recall that
+	$\hbar=N^{-1/3}$ and $k_{\mathrm{F}}= \mathcal{O}(N^{1/3})$, then take $p\mapsto p'=
+	N^{-1/3}p$, and since in the Fermi ball one has $\vert p\vert\leq CN^{1/3}$ this leads to
+	$\vert p'\vert\leq C$. This allows for the following known approximation by integration:
+	\begin{align*}
+		\sum_{p\in B_{\mathrm{F}}}(\hbar^2p^2-\mu)
+		&= N^{-\frac{2}{3}}\sum_{p\in\mathbb{Z}^3:\vert k\vert\leq CN^{1/3}}p^2 -\mu\sum_{p\in B_{\mathrm{F}}}1\\
+		&= N^{-\frac{2}{3}}N\left(\frac{1}{N}\sum_{p'\in\mathbb{Z}^3:\vert p'\vert\leq C} (N^{\frac{1}{3}}p)^2\right)-N\mu\\
+		&= N \left(\int_0^C p^2 (4\pi p^2)\dx p + \mathcal{O}(N^{-\frac{1}{3}})\right) -N\mu\\
+		&= \tilde{C}N + \mathcal{O}(N^{\frac{2}{3}})
+	\end{align*}
+	where we used that, from Equation (\ref{fermi-surface}), $\mu=\hbar^2k_{\mathrm{F}}^2=\mathcal{O}(N^{0})$.
+	This shows that indeed $F_0\asymp N$.
 
-To tackle the second order we use the same strategies that worked for the zero-th and first
-orders. We have to pay attention to the fact that, because of the product of Fermi-Dirac
-distributions $n_{q+k}n_{p-k}$ in both the direct and exchange terms, the innermost sums
-$\sum_k$ will contain a characteristic function of some set that is \textit{contained} in a
-Fermi ball in the limit $\beta\to\infty$ (the set is an intersection of shifted Fermi balls).
-With this in mind, we can give an upper bound for this type of expression by summing over the
-entire Fermi ball and approximate the resulting sums with an integral, as follows:
-\begin{align*}
-	\lambda^2\sum_{p,q,k\in\mathbb{Z}^3}&\frac{4\hat{V}(k)^2n_qn_pn_{q+k}n_{p-k}}
-	{\epsilon_q+\epsilon_p+\epsilon_{q+k}+\epsilon_{p-k}-4\mu}\\
-	&\xrightarrow[\beta\to\infty]{} N^{-2}\sum_{p,q\in B_{\mathrm{F}}}\sum_{\substack{k\in B_{\mathrm{F}}\\q+k,p-k\in B_{\mathrm{F}}}}
-	\frac{4\hat{V}(k)^2}{\epsilon_q+\epsilon_p+\epsilon_{q+k}+\epsilon_{p-k}-4\mu}\\
-	&\approx N^{-2}N\int_0^C\dx p\dx q\dx k \frac{4\hat{V}(N^{1/3}k)^2(4\pi)^3 p^2 q^2 k^2}{p^2+q^2+(q+k)^2+(p-k)^2-4\mu}
-\end{align*}
+	Onto the first order, recall the limit of the Fermi-Dirac distribution and the scaling
+	$\lambda=N^{-1}$ to see that
+	\begin{align*}
+		\lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{p-k}
+		&= \lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{k}\\
+		&\xrightarrow[\beta\to\infty]{} N^{-1}\left(\sum_{p\in B_{\mathrm{F}}}1\right)\left(\sum_{k\in B_{\mathrm{F}}}(\hat{V}(0)-\hat{V}(k))\right)\\
+		&= N\hat{V}(0) - \sum_{k\in B_{\mathrm{F}}}\hat{V}(k)\\
+		&\approx N\hat{V}(0) - \sum_{k\in\mathbb{Z}^3}\hat{V}(k).
+	\end{align*}
+	where in the last steps we assumed a stronger regularity condition. In particular, we may
+	choose to assume that $\hat{V}$ has compact support, or that $\hat{V}(k)\asymp e^{-\vert
+	k\vert}$, so that the bound can provide an estimate that gets better as $N$ grows. With
+	this expression we can conclude that the first order indeed contributes to order
+	$\mathcal{O}(N)$ with the direct term and to order $\mathcal{O}(N^0)$ with the exchange term.
+
+	To tackle the second order we use the same strategies that worked for the zero-th and
+	first orders. We have to pay attention to the fact that, because of the product of
+	Fermi-Dirac distributions $n_{q+k}n_{p-k}$ in both the direct and exchange terms, the
+	innermost sums $\sum_k$ will contain a characteristic function of some set that is
+	\textit{contained} in a Fermi ball in the limit $\beta\to\infty$ (the set is an intersection
+	of shifted Fermi balls). With this in mind, we can give an upper bound for this type of
+	expression by summing over the entire Fermi ball and approximate the resulting sums with
+	an integral. For the direct terms this is done as follows:
+	\begin{align*}
+		\lambda^2\sum_{p,q,k\in\mathbb{Z}^3}&\frac{4\hat{V}(k)^2n_qn_pn_{q+k}n_{p-k}}
+		{\epsilon_q+\epsilon_p+\epsilon_{q+k}+\epsilon_{p-k}-4\mu}\\
+		&\xrightarrow[\beta\to\infty]{} N^{-2} \frac{N}{N}\sum_{p,q\in B_{\mathrm{F}}}\sum_{\substack{k\in B_{\mathrm{F}}\\q+k,p-k\in B_{\mathrm{F}}}}
+		\frac{4\hat{V}(k)^2}{N^{-\frac{2}{3}}(q^2+p^2+(q+k)^2+(p-k)^2-4\mu N^{\frac{2}{3}})}\\
+		&= N^{-1}\left(N^{\frac{2}{3}}\int_0^C\dx p\dx q\dx k \frac{4\hat{V}(N^{1/3}k)^2(4\pi)^3 p^2 q^2 k^2}{p^2+q^2+(q+N^{1/3}k)^2+(p-N^{1/3}k)^2-4\mu N^{2/3}} + \mathcal{O}(N^{-\frac{1}{3}})\right)\\
+		&= \tilde{C} N^{-\frac{1}{3}} + \mathcal{O}(N^{-\frac{4}{3}}).
+	\end{align*}
+	Note that, in the last line, $\tilde{C}$ techincally depends on $N$ since the integrand
+	has terms of the form $\hat{V}(N^{1/3}k)$, $N^{2/3}k^2$ and $\mu N^{2/3}$. This, however,
+	does not pose any problem to us, because as $N\to\infty$ the integral will still converge
+	(recall the additional regularity condition for $V$: either $\mathrm{supp}(\hat{V})$ is
+	compact, or $\hat{V}(k)\sim e^{-\vert k\vert}$) and we may read $\tilde{C}N^{-1/3}+
+	\mathcal{O}(N^{-4/3})$ as $(...)\asymp N^{-1/3}$ or even reabsorb an additional error
+	$\mathcal{O}(N^{...})$ from the integral into the other term $\mathcal{O}(N^{-4/3})$. The
+	exchange term is really much of the same, with the only difference being that the
+	integrand contains $\hat{V}(0) \hat{V}(N^{1/3}(p-q))$, which means the error that gets
+	reabsorbed into $\mathcal{O}(N^{-4/3})$ will be slighlty different.
+\end{proof}

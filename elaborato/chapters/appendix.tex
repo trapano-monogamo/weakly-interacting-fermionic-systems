@@ -37,8 +37,6 @@ referencing an entire course on functional analysis.
 	\end{align*}
 \end{definition}
 
-\textcolor{red}{$Ve^{-\beta H_0}$ is traceclass}?
-
 \begin{proposition}
 	The trace of a trace class operator $A$ is finite, and given an orthonormal basis
 	$\{\phi_n\}_{n\in\mathbb{N}}$ for $\mathcal{H}$ the trace is
@@ -47,6 +45,13 @@ referencing an entire course on functional analysis.
 	\end{align*}
 \end{proposition}
 \begin{proof} \textcolor{red}{????} \end{proof}
+
+\begin{itemize}
+	\item \textcolor{red}{$Ve^{-\beta H_0}$ is traceclass}?
+	\item \textcolor{red}{comments on and PROPERTIES of $e^{-\beta H_0}$ with $H_0$ bounded
+		and discussion on $Ve^{-\beta H_0}$ where $V$ is bounded}
+	\item \textcolor{red}{trace norm}
+\end{itemize}
 
 \begin{definition}[Projection]
 	A bounded linear operator $P$ on a Hilbert space $\mathcal{H}$ which is symmetric, $P^*=P$,
@@ -85,8 +90,8 @@ referencing an entire course on functional analysis.
 	isometry is called a \textit{unitary operator}.
 \end{definition}
 
-Unitary operators are of particular interest in quantum mechanics, as the property of conserving
-the inner product means that these are the natural objects to describe operatotions that need
+Unitary operators are of particular interest in quantum mechanics, as the property of
+preserving the inner product means that these are the natural objects to describe operatotions that need
 to preserve probability amplitudes.
 
 \begin{proposition}
@@ -101,9 +106,8 @@ to preserve probability amplitudes.
 
 Recall that the dual of a complex Hilbert space $\mathcal{H}$ is the Hilbert space
 $\mathcal{H}^* = \{\varphi:\mathcal{H}\to\mathbb{C} : \varphi\;\text{is a continuous linear
-functional}\}$, where continuity is with respect to the norm topology on $\mathcal{H}$.
-
-To conclude this part of our discussion on the basics of operators on a Hilbert space, we give
+functional}\}$, where continuity is with respect to the norm topology on $\mathcal{H}$. To
+conclude this part of our discussion on the basics of operators on a Hilbert space, we give
 three more results whose importance we will not discuss further, as it goes beyond the scope
 of our work.
 
@@ -140,7 +144,7 @@ of our work.
 \end{remark}
 
 \begin{theorem}[C*-algebra of bounded operators]
-	Let $\mathcal{H}$ be a Hilbert space, the set
+	Let $\mathcal{H}$ be a Hilbert space. The set
 	\begin{align*}
 		\mathfrak{B}(\mathcal{H}) = \left\{ A:\mathcal{H}\to\mathcal{H} : A \text{ is bounded } \right\}
 	\end{align*}
@@ -207,7 +211,13 @@ is called a simple function and its integral is defined as
 				\quad\text{and}\quad
 				\int_E f_n\dx\mu \to \int_E f\dx\mu
 			\end{align*}
-			for all $E\in\Sigma$.
+			for all $E\in\Sigma$;
+		\item (Fundamental theorem of calculus) if $f:X\to\mathcal{B}$ is Bochner integrable
+			over $[a,b]\subseteq\mathbb{R}$ and $F:X\to\mathcal{B}$ is an antiderivative for
+			$f$, then
+			\begin{align*}
+				\int_{[a,b]} f\dx\mu = F(b)-F(a).
+			\end{align*}
 	\end{enumerate}
 \end{proposition}
 
@@ -222,10 +232,10 @@ is called a simple function and its integral is defined as
 
 \begin{remark}
 	An important property, which we make use of in our work, is that the set of trace-class
-	operators is a Banach space with the \textcolor{red}{trace norm}, and the trace is a
-	continuous operator from this space to the base field. This means that, because of the
-	above proposition, whenever we take the trace of an integral of an operator-valued function,
-	we can take the trace inside the integral.
+	operators is a Banach space with the trace norm, and the trace is a continuous operator
+	from this space to the base field. This means that, because of the above proposition,
+	whenever we take the trace of an integral of an operator-valued function, we can take the
+	trace inside the integral.
 \end{remark}
 
 With this notion of integration (and with the usual notion of differentiation) we can give an
@@ -361,8 +371,8 @@ orthonormal systems forms a complete orthonormal system for the tensor product.
 	\end{align*}
 \end{remark}
 
-We can very naturally define operators on a tensor product starting from operators on the
-factors. Indeed, let $A:D(A)\subseteq\mathcal{H}_1\to\mathcal{H}_1$ and
+Lastly, we can very naturally define operators on a tensor product starting from operators on
+the factors. Indeed, let $A:D(A)\subseteq\mathcal{H}_1\to\mathcal{H}_1$ and
 $B:D(B)\subseteq\mathcal{H}_2\to\mathcal{H}_2$ be operators on the respective Hilbert space,
 then we can define their tensor product as
 \begin{align*}
@@ -372,9 +382,3 @@ on the set of pure pure tensors, i.e.
 \begin{align*}
 	D(A\otimes B) = \{\phi\otimes\psi : \phi\in D(A),\;\psi\in D(B)\}.
 \end{align*}
-
-\textcolor{red}{TTOODDOO:}
-\begin{itemize}
-	\item comments on and PROPERTIES of $e^{-\beta H_0}$ (with $H_0$ bounded and maybe even
-		unbounded) and the discussion on the domain and properties of $Ve^{-\beta H_0}$.
-\end{itemize}

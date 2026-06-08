@@ -11,10 +11,9 @@ defining the mathematical objects that appear in the description of a quantum sy
 The probabilistic nature of a quantum system is realized in the linear structure of a complex
 vector space that is equipped with an inner product, which produces the probability amplitude
 for a system prepared in some state to be measured in another. In this setting, linear
-combinations of state vectors are just probabilistic superpositions.
-
-We will give the necessary definitions regarding a particular class of vector spaces, even
-though many concepts come from much more general settings.
+combinations of state vectors are just probabilistic superpositions. We will give the
+necessary definitions regarding a particular class of vector spaces, even though many concepts
+come from much more general settings.
 
 \begin{definition}[Hilbert space]
 	A (complex) \textit{Hilbert space} $\mathcal{H}$ is a vector space equipped with a
@@ -172,11 +171,9 @@ basis elements.
 
 We point to Appendix \ref{appendix:special-operators} for a discussion on the most important
 definitions and properties of special types of operators, and end the introduction of the
-basic objects used here.
-
-Before moving onto the discussion of how these objects come into play in the treatment of our
-physical system, we introduce the most important Hilbert space for us: the space of square
-integrable functions on $\mathbb{R}^n$
+basic objects used here. Before moving onto the discussion of how these objects come into play
+in the treatment of our physical system, we introduce the most important Hilbert space for us:
+the space of square integrable functions on $\mathbb{R}^n$
 \begin{align*}
 	&L^2(\mathbb{R}^n) = \left\{ f : \mathbb{R}^n \to \mathbb{C}
 	\;\Big| \left(\int_{\mathbb{R}^n} \dx x\, |f(x)|^2\right)^{1/2} < \infty \right\}\\
@@ -186,7 +183,7 @@ whose elements are the wavefunctions of a physical system. Its relevance stands 
 fact, that in this space, the squared norm of a state $\psi\in L^2(\mathbb{R}^n)$ makes it
 possible to write probability amplitudes as integrals of a \textit{probability density},
 given as the point-wise modulus squared of the wave function: $\vert\psi(x)\vert^2$.
-
+\\
 Going back to the definition of expectation value of an observable, we can now make an important
 generalization. Suppose the system has probability $p_i$ of being prepared in some initial
 state $\psi_i$, of course given the probability normalization condition $\sum_i p_i = 1$,
@@ -222,7 +219,6 @@ mixed state
 \begin{align*}
 	\rho \coloneq \sum_i p_i \langle\psi_i, \cdot\rangle\psi_i.
 \end{align*}
-
 This brings us to a general definition of a quantum
 state. Recall that $\mathfrak{B}(\mathcal{H})$ is the $C^*$-algebra of bounded operators on
 $\mathcal{H}$ (see Appendix \ref{appendix:special-operators}).
@@ -265,7 +261,6 @@ usually pure, while non-zero temperature are mixed.
 	\begin{align*}
 		E = \inf_{\phi\in D(H),\Vert\phi\Vert=1} \langle\phi,H\phi\rangle.
 	\end{align*}
-
 	A \textit{ground state}, \textbf{if it exists}, is a unit vector $\psi_0\in D(H)$ such
 	that
 	\begin{align*}
@@ -325,13 +320,11 @@ Consider a system of $N$ particles whose physical states belong to the spaces $\
 \begin{align*}
 	\mathcal{H}_N = \mathfrak{h}_1 \otimes \cdots \otimes \mathfrak{h}_N.
 \end{align*}
-
 Given the energy operators for each particle $h_1,\ldots,h_N$, we lift these operators to
 the space $\mathcal{H}_N$ with the identification
 \begin{align*}
 	h_i \longmapsto \mathbbm{1} \otimes \cdots \otimes h_i \otimes \cdots \otimes \mathbbm{1}.
 \end{align*}
-
 The total energy of the system, given only the ``internal" degrees of freedom for each particle
 and disregarding any interaction, is naturally given by
 \begin{align}
@@ -391,7 +384,6 @@ system of N pair-wise interacting particles:
 \begin{align*}
 	H_N = H_N^{\mathrm{in}} + \sum_{1\leq i < j\leq N} W_{ij} = \sum_{j=1}^N h_j + \sum_{1\leq i<j\leq N} W_{ij}.
 \end{align*}
-
 Requiring that particles be indistinguishable from one another means that both their internal
 energy operators and the pair-wise interactions do not depend on the specific particle
 considered. This means that
@@ -406,7 +398,6 @@ the specific factor of the tensor product they act on, for example
 	h_1 = h \otimes \mathbbm{1} \otimes \cdots \otimes \mathbbm{1},
 	\quad W_{12} = W \otimes \mathbbm{1} \otimes \cdots \otimes \mathbbm{1}.
 \end{align*}
-
 Indistinguishability also requires an additional property that physical states must satisfy,
 and we will now go over a heuristic explanation of what this property is. Consider the
 simplest case of a system of two indistinguishable particles in the states $\psi,\phi\in
@@ -429,7 +420,6 @@ particle states should yield the original state, we can conclude that
 \begin{align*}
 	\mathrm{Ex}^2 = \mathbbm{1} \implies e^{2i\alpha} = 1 \implies \alpha = \pm 1.
 \end{align*}
-
 The sign $\alpha=\pm1$ is what determines the statistics of the two identical particles:
 \textit{bosonic} (+) and \textit{fermionic} (-). Although we will only focus on
 explicit calculations in the fermionic case, the statistical differences between bosons
@@ -497,7 +487,7 @@ means that we can restrict this N-body Hamiltonian to either of the two subspace
 well-defined operator (provided that a suitable domain for the starting Hamiltonian is chosen).
 The operators $P_+(H_N)$ and $P_-(H_N)$ are respectively called the \textit{bosonic} and
 \textit{fermionic} N-body Hamiltonians for interacting indistinguishable particles.
-
+\\
 This way of defining the energy of the system characterises the \textit{canonical picture},
 where the number of particles is fixed. But in statistical mechanics, allowing the number of
 particles to vary actually makes things easier, and as a byproduct also forces the
@@ -531,7 +521,6 @@ energy), and its domain is
 		\sum_{N=0}^\infty\Vert H_N\Psi_N \Vert^2 < \infty
 	\right\}.
 \end{align*}
-
 Introducing indistinguishability in this picture means repeating the steps we took for the N-body
 case in each \textit{N-particle sector}, which gets us to the definition of the \textit{fermionic}
 and \textit{bosonic} Fock spaces. Given $\mathfrak{h}$ the state space for a single particle,
@@ -549,7 +538,6 @@ we define operators that add or remove a single particle state $f\in\mathfrak{h}
 	&a(f)(f_1\otimes\cdots\otimes f_N) \coloneq \sqrt{N} \langle f,f_1\rangle_\mathfrak{h} f_2\otimes\cdots\otimes f_N,\\
 	&a^*(f)(f_1\otimes\cdots\otimes f_N) \coloneq \sqrt{N+1} f\otimes f_1\otimes\cdots\otimes f_N.\nonumber
 \end{align}
-
 Here, for every $f\in\mathcal{\mathfrak{h}}$, $a(f)$ is called \textit{annihilation operator}
 and $a^*(f)$ is called \textit{creation operator}. Note the very important special case where
 an annihilation operator acts on the vacuum: $a(f)|0\rangle = 0$ for all $f\in\mathcal{F}$,
@@ -604,6 +592,18 @@ subspaces:
 	$\mathfrak{h} \ni f \mapsto a_\pm(f)$ is conjugate linear.
 \end{remark}
 
+\begin{remark}
+	The normalization we used in (\ref{eq:creation-annihilation}) changes slightly when
+	projecting the image onto the (anti-)symmetric subspaces. Indeed \textcolor{red}{it can be
+	shown that}
+	\begin{align*}
+		&a_\pm(f) P_\pm(f_1\otimes\cdots\otimes f_N)
+		= \sqrt{N+1} \sum_{\sigma\in S_N}\langle f,f_{\sigma(1)}\rangle f_{\sigma(2)}\otimes\cdots\otimes f_{\sigma(N)},\\
+		&a^*_\pm(f)f_1\otimes\cdots\otimes f_N
+		= \frac{1}{\sqrt{N}}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1} f_{\sigma(1)}\otimes\cdots\otimes \mathop{f}_{(j\mathrm{-th})} \otimes\cdots\otimes f_{\sigma(N)}.
+	\end{align*}
+\end{remark}
+
 Recall the definition of the commutator and anticommutator between two operators defined on a
 common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$.
 
@@ -624,14 +624,14 @@ common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$.
 	A crucial point, that greatly simplifies the treatment of our system in terms of how
 	well-behaved the operators we are going to use are, is that fermionic creation/annihilation
 	operators are bounded. Let $f\in\mathfrak{h}$, then it is clear that for all normalized
-	$\Psi\in D(a^\#(f))$ it holds that
+	$\Psi\in D(a(f))$ it holds that
 	\begin{align*}
 		\Vert a_-(f)\Psi\Vert^2 &= \langle\Psi,a^*_-(f)a_-(f)\Psi\rangle
 		= -\langle\Psi,a_-(f)a^*_-(f)\Psi\rangle + \langle\Psi,\{a_-(f),a^*_-(f)\}\Psi\rangle \\
 								&= -\langle a^*_-(f)\Psi,a^*_-(f)\Psi\rangle + 1 \leq 1,
 	\end{align*}
-	which implies that $\Vert a_-(f)\Vert \leq 1\Vert$, i.e. $a_-(f)$ is bounded for all $f\in\mathfrak{h}$.
-	Similarly for $a^*_-(f)$.
+	which implies that $\Vert a_-(f)\Vert \leq 1$, i.e. $a_-(f)$ is bounded for all
+	$f\in\mathfrak{h}$. Similarly for $a^*_-(f)$.
 \end{remark}
 
 An important quantity we will come back to shortly is the number density operator. Given
@@ -1019,7 +1019,7 @@ eigenvector of non-interacting fermions.
 	variational problem. It is clear that the state $\Psi=f_1\wedge\cdots\wedge f_N$ whose
 	1pdm coincides with $P$ is a ground state for $H_N^{\mathrm{in}}$ if $f_1,\ldots,f_N$ form
 	an orthonormal basis for $P(\mathfrak{h})$.
-
+	\\
 	We may now prove the stated properties for this minimizing projection. Let $\phi\in P(
 	\mathfrak{h})$ and $\psi\in P(\mathfrak{h})^\perp\cap D(h)$ be two normalized states, then
 	\begin{align*}
@@ -1038,7 +1038,7 @@ eigenvector of non-interacting fermions.
 	\{\phi\}^\perp)^\perp$ then $\langle\phi,h\phi\rangle\leq\langle\psi,h\psi\rangle$, and we
 	now use this fact to show that $h$ maps $P(\mathfrak{h})$ which leads to the conclusion
 	that $P(\mathfrak{h})$ is indeed spanned by eigenvectors of $h$.
-
+	\\
 	We proceed by contradiction, so assume that there exists a vector $\phi\in P(\mathfrak{h})$
 	such that $h\phi\not\in P(\mathfrak{h})$. Since $D(h)$ is dense there is a $g\in D(h)$
 	such that $\langle(\mathbbm{1}-P)g,h\phi\rangle=\langle g,(\mathbbm{1}-P)h\phi\rangle\neq0$,
@@ -1103,7 +1103,6 @@ as can be shown by noting that, using the CAR or the CCR,
 	\langle\alpha_\Psi^* f,Jg\rangle = \langle f,\alpha_\Psi Jg\rangle
 	= \pm \langle g,\alpha_\Psi Jf\rangle = \pm \langle J\alpha_\Psi Jf, Jg\rangle.
 \end{align*}
-
 With this operator we come to the following lemma.
 
 \begin{lemma}
@@ -1256,7 +1255,6 @@ and the conditions \ref{bogolubov-map-conditions} can then be read as
 		JV^*JU = \pm JU^*J^*V
 	\end{cases}.
 \end{align*}
-
 Defining Bogolubov maps is not sufficient though, as such a map need not, in general,
 correspond to a unitary \textit{on the Fock space}. Thus we come to the following theorem
 which tells us when this is possible, and which we will use to define an important class of
