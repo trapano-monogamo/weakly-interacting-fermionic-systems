@@ -61,16 +61,15 @@ estimate given by the volume of the sphere plus an error proportional to its sur
 	= \frac{4\pi}{3}k_{\mathrm{F}}^3 + \mathcal{O}(k_{\mathrm{F}}^2)
 \end{align*}
 which implies that
-\begin{align*}
+\begin{align}
+	\label{fermi-surface}
 	k_{\mathrm{F}} = \left(\frac{3}{4\pi}N\right)^{\frac{1}{3}} + \mathcal{O}(N^0).
-\end{align*}
+\end{align}
 
-Since we want to
-compute the second order contribution to the ground state energy, we will calculate the
-free energy of the system and take its limit as the temperature goes to zero,
-that is $\beta \to \infty$.
-Recall that at thermal equilibrium the expectation value of any observable is
-given by the Gibbs state functional
+Since we want to compute the second order contribution to the ground state energy, we will
+calculate the free energy of the system and take its limit as the temperature goes to zero,
+that is $\beta \to \infty$. Recall that at thermal equilibrium the expectation value of any
+observable is given by the Gibbs state functional
 \begin{align*}
 	\langle\cdot\rangle = \frac{\mathrm{Tr}(\cdot \, e^{-\beta H})}
 	{\mathrm{Tr}(e^{-\beta H})}.
@@ -135,8 +134,8 @@ $\lambda$.
 	is an entire problem on its own, so we will simply truncate the expression at second order
 	and drop the remainder. Now we can invert this relation to isolate $e^{-\beta H}$ and take
 	the trace. Since the trace is a continuous operator from trace class operators to $\mathbb{R}$
-	and $Ve^{-\beta H_0}$ is trace class, we can move it inside the integral to get
-	(see Appendix \ref{appendix:special-operators} and Appendix \ref{appendix:bochner-integral}):
+	and $Ve^{-\beta H_0}$ is trace class, we can move it inside the integral (see Appendix
+	\ref{appendix:special-operators} and Appendix \ref{appendix:bochner-integral}) to get:
 	\begin{align*}
 		\mathrm{Tr} \, e^{-\beta H}
 		&=
@@ -441,9 +440,9 @@ scenarios to be equivalent, but from the point of view of mathematical rigour it
 pointing out these kinds of subtleties.
 
 So far we have been considering the kinetic energy to be $\epsilon_k=\hbar^2\vert k\vert^2$,
-but this expression is relevant for the specific limit $\beta\to\infty$, while in the
+but this expression is relevant specifically for the limit $\beta\to\infty$, while in the
 following theorem we will consider a more general form with one condition on the asymptotic
-behaviour at high momentum. The reason for this choice is that at this level we are not yet
+behaviour at high momentum. The reason for this choice is that, at this level, we are not yet
 interested in the scaling of this expression in the number of particles, and having the
 possibility of proving the well-defined-ness of the perturbative series for systems that have
 a different kinetic term is worth the very little trouble this generalization costs. This is
@@ -467,8 +466,9 @@ comment on it later on}.
 	\label{big-thm-1}
 	With the regularity condition that, given $m\geq1$, $\partial^\alpha V\in L^1(\mathbb{T}^{3N})$
 	for all multi-indices $\alpha$ such that $\vert\alpha\vert=m$, and the assumption that
-	$\lim_{\vert k\vert \to \infty} \epsilon_k / \vert k\vert > 0$, the expression in Equation
-	\ref{final-expression} converges in the limit $\Lambda\to\infty$.
+	$\epsilon_k$ depends only on $\vert k\vert$ and satisfies $\lim_{\vert k\vert\to\infty}
+	\epsilon_k/\vert k\vert>0$, the expression in Equation (\ref{final-expression}) converges
+	in the limit $\Lambda\to\infty$.
 \end{theorem}
 \begin{proof}
 	The zero-th order is trivial, as it doesn't depend on $\Lambda$ and is, in fact, finite:
@@ -540,7 +540,21 @@ comment on it later on}.
 \end{proof}
 
 We can then replace the sums over $\mathcal{D}_\Lambda$ in equation \ref{final-expression}
-with series over $\mathbb{Z}^3$.
+with series over $\mathbb{Z}^3$. Inserting the factor of $-1/\beta$ to get the free energy
+and calling $F_0 = -\log(\mathrm{Tr}(e^{-\beta H_0}))/\beta$ leads us to
+\begin{align}
+	\label{free-energy}
+	F
+	&= F_0\nonumber
+	-\lambda\sum_{p,k\in\mathbb{Z}^3} \left( \hat{V}(0) -\hat{V}(k) \right) n_p n_{p-k} \nonumber\\
+	&\quad - \lambda^2\sum_{p,q,k\in\mathbb{Z}^3} \Biggr(
+	\frac{4(\hat{V}(k))^2 n_p n_q n_{q+k} n_{p-k}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu}
+	\biggl( 1 + \beta^{-1}\frac{1 - e^{-\beta (\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu)}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu} \biggr) \nonumber\\
+	&\quad +
+	\frac{16\hat{V}(0)\hat{V}(p-q) n^2_p n_q n_{p-k}}{2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu}
+	\biggl( 1 + \beta^{-1}\frac{1 - e^{-\beta (2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu)}}{2\epsilon_p + \epsilon_q + \epsilon_{p-k} -4\mu} \biggr)
+	\Biggl).
+\end{align}
 
 \subsection{Mean field scaling}
 
@@ -549,9 +563,9 @@ $\beta\to\infty$ to retrieve the ground state energy and complete our perturbati
 the \textcolor{red}{RPA scaling in the number of particles $N$}.
 
 \begin{lemma}
-	With the same hypotheses as in theorem (\ref{big-thm-1}), the series in equation
-	(\ref{final-expression}) converge uniformly in $\beta$, and the limit $\beta \to \infty$
-	can thus be taken inside the sums.
+	With the same hypotheses as in theorem (\ref{big-thm-1}), all the series in Equation
+	(\ref{free-energy}) converge uniformly in $\beta$ over $[\delta,\infty)$ for some
+	$\delta>0$, and the limit $\beta \to \infty$ can thus be taken inside the sums.
 \end{lemma}
 \begin{proof}
 	The only problematic factor is the Fermi-Dirac distribution, as it has a discontinuity
@@ -570,51 +584,109 @@ the \textcolor{red}{RPA scaling in the number of particles $N$}.
 	and the upper bound converges absolutely by the same arguments used in the previous
 	theorem. Modifying this series with a prefactor of $1/(\epsilon_k-\mu)$, $\hat{V}(k)$ or
 	$\hat{V}^2(k)$ in the general term does not change the result, as these factors do not
-	depend on $\beta$ and still lead to an absolutely convergent series as an upper bound. We
-	can now consider the first order: 
+	depend on $\beta$ and still lead to an absolutely convergent series as an upper bound.
+	We can see that, by rewriting sums of the form $\sum_{p,q,k}(...)$ as $\sum_q(...\sum_p
+	(...\sum_k(...)))$, we only need to check the convergence of the innermost series in
+	all the terms of Equation (\ref{free-energy}), because the result we just proved shows
+	that the rest will converge uniformly as it is going to be of the form $\sum_{p,q}Cn_pn_q$
+	up to some inverse energy factors, where $C$ is a constant that comes from the specific
+	bound used for the innermost series.
+
+	We can see this strategy in action for the first order: 
 	\begin{align*}
 		\sum_{p,k} \left|\hat{V}(0)-\hat{V}(k)\right| n_p n_{p-k}
 		&= \sum_p n_p \sum_k \left|\hat{V}(0)-\hat{V}(k)\right| n_{p-k}\\
 		&\leq \sum_p n_p \sum_k \left|\hat{V}(0)-\hat{V}(k)\right| \sup_{\beta\in[\delta,\infty)}n_{p-k}
 		= \star
 	\end{align*}
-	but the series containing $|\sup_\beta(...)|$ converges to some $C>0$ as we discussed
-	above, and we can therefore write $\star = \sum_p C n_p$, which again converges uniformly.
-	Moving onto the second order, we only need to prove the convergence of two more series.
-	Indeed, in both of the terms of the second order, by following the same reasoning used so
-	far we only need to worry about
+	but the series containing $\sup_\beta(...)$ converges to some $C>0$ as we discussed above,
+	and we can therefore write $\star = \sum_p C n_p$, which again converges. For the direct
+	term at second order, following the same strategy of isolating the innermost series, we
+	can identify two terms that need our attention, up to trivial bounds:
 	\begin{align*}
-		\sum_k \frac{e^{-\beta(\epsilon_k-\mu)}}{\epsilon_k-\mu}\beta
+		A\coloneq\sum_k \frac{\hat{V}(k)^2n_{q+k}n_{p-k}}{\epsilon_{q+k}+\epsilon_{p-k}-2\mu}
 		\quad\text{and}\quad
-		\sum_k n_k \frac{1-e^{-\beta(\epsilon_k-\mu)}}{\epsilon_k-\mu}.
+		B\coloneq\sum_k \left|\frac{\hat{V}(k)^2n_{q+k}n_{p-k}(1-e^{-\beta(\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu)})}
+		{\beta(\epsilon_{q+k} + \epsilon_{p-k} - 2\mu)^2}\right|
 	\end{align*}
-	The general term of the first series is increasing up to $\beta=1/(\epsilon_k-\mu)$ and
-	then it decreases, where we found the stationary point by setting the derivative with
-	respect to $\beta$ equal to zero. The quantity $1/(\epsilon_k-\mu)$ goes to zero as
-	$\vert k\vert\to\infty$, which means that by appropriately cutting the first part of the
-	series we can bound it with
+	while the exchange term (the one with $\hat{V}(0)\hat{V}(p-q)$) has the same behaviour,
+	both in terms of dependence on $\beta$ and in terms of pointwise convergence. The series
+	$A$ is very simple: the Fermi-Dirac distributions are bounded by their supremum which leads
+	to the convergent bound
 	\begin{align*}
-		\sum_k \beta \frac{e^{-\beta(\epsilon_k-\mu)}}{\epsilon_k-\mu}
-		\leq \sum_k \sup_{\beta\in[\delta,\infty)} \beta\frac{e^{-\beta(\epsilon_k-\mu)}}{\epsilon_k-\mu}
-		= \sum_k \delta\frac{e^{-\delta(\epsilon_k-\mu)}}{\epsilon_k-\mu}
+		A \leq \sum_k \frac{4\hat{V}(k)^2e^{-\delta(\epsilon_{q+k}+\epsilon_{p-k}-2\mu)}}
+		{\epsilon_{q+k}+\epsilon_{p-k}-2\mu}.
 	\end{align*}
-	which once more converges by the arguments used in the previous theorem. The exact same
-	reasoning applies to the general term of the second series, only this time the stationary
-	point is found at $\beta=\log(2)/(\epsilon_k-\mu)$, which changes nothing in terms of
-	convergence.
+	Let's now discuss $B$. Distributing the product at the numerator, the first term is a
+	product of Fermi-Dirac distributions over $\beta$, which is monotonically decreasing in
+	$\beta$ for all $q,p,k$ that respect the condition $\epsilon-\mu>0$. As for explonential
+	factor it is easy to check that, for all $k$ far enough from the origin, the resulting
+	general term is monotonically decreasing in $\beta$. Therefore, once again, the supremum
+	is found at $\beta=\delta$ and we are left with the bound
+	\begin{align*}
+		B \leq \sum_k \frac{\hat{V}(k)^2 e^{-\delta(\epsilon_{q+k}+\epsilon_{p-k}-2\mu)}}{\delta(\epsilon_{q+k}+\epsilon_{p-k})^2}
+		+ \sum_k \frac{\hat{V}(k)^2 e^{-\delta(\epsilon_p+\epsilon_q+2\epsilon_{q+k}+2\epsilon_{p-k}-6\mu)}}{\delta(\epsilon_{q+k}+\epsilon_{p-k})^2},
+	\end{align*}
+	which shows that the second order is uniformly convergent too, completing the proof.
 \end{proof}
 
 Now that we have proved that we can take the limit of zero temperature inside the series, we
-are left with the task of computing it. The zero temperature Fermi-Dirac distribution is a
-step function
+are left with the task of computing it. The zero temperature Fermi-Dirac distribution is just
+a step function
 \begin{align*}
-	n_{\mathrm{F}}(\epsilon) \xrightarrow[\beta\to\infty]{}
-	\begin{cases}
-		1 & \epsilon < \mu \\
-		\frac{1}{2} & \epsilon = \mu \\
-		0 & \epsilon > \mu
-	\end{cases}
+	n_{\mathrm{F}}(\epsilon) \xrightarrow[\beta\to\infty]{} \chi(\epsilon\leq\mu).
 \end{align*}
-which implies the following: \textcolor{red}{something for sure}
+At last, using this fact we arrive at the ground state energy scaling in $N$, which is just
+a couple of estimates away. Of course we proceed order by order, starting from the unperturbed
+free energy to make sure that everything is in order. Recall that $B_{\mathrm{F}}=\{p\in
+\mathbb{Z}^3:\vert p\vert<k_{\mathrm{F}}\}$ and expand the expression for $F_0$ as
 \begin{align*}
+	F_0
+	&= -\frac{\log(Z)}{\beta} = -\sum_{p\in\mathbb{Z}^3} \frac{1}{\beta}\log(1+e^{-\beta(\epsilon_p-\mu)})
+	= \sum_{p\in B_{\mathrm{F}}}(\epsilon_p-\mu) + \sum_{p\not\in B_{\mathrm{F}}}\log(1+e^{-\beta(\epsilon_p-\mu)}),
+\end{align*}
+where in the limit the second term contributes to order $\mathcal{O}(N^{0})$. From here we can
+change the index summed over in $\sum_{\vert p\vert\leq CN^{1/3}}$ to approximate the result
+with an integral which contributes to order $\mathcal{O}(N^{0})$. Recall that $\hbar=N^{-1/3}$
+and $k_{\mathrm{F}}= \mathcal{O}(N^{1/3})$, then take $p\mapsto p'=N^{-1/3}p$, and since in
+the Fermi ball one has $\vert p\vert\leq CN^{1/3}$ this leads to $\vert p'\vert\leq C$. This
+allows for the following known approximation by integration:
+\begin{align*}
+	\sum_{p\in B_{\mathrm{F}}}(\hbar^2p^2-\mu)
+	&= N^{-\frac{2}{3}}\sum_{p\in\mathbb{Z}^3:\vert k\vert\leq CN^{1/3}}p^2 -\mu\sum_{p\in B_{\mathrm{F}}}1\\
+	&= N^{-\frac{2}{3}}N\left(\frac{1}{N}\sum_{p'\in\mathbb{Z}^3:\vert p'\vert\leq C} (N^{\frac{1}{3}}p)^2\right)-N\mu\\
+	&= N \left(\int_0^C p^2 (4\pi p^2)\dx p + \mathcal{O}(N^{-\frac{1}{3}})\right) -N\mu\\
+	&= \tilde{C}N + \mathcal{O}(N^{\frac{2}{3}})
+\end{align*}
+where we used that, from Equation (\ref{fermi-surface}), $\mu=\hbar^2k_{\mathrm{F}}^2=\mathcal{O}(N^{0})$.
+This shows that indeed $F_0\asymp N$.
+
+Onto the first order, recall the limit of the Fermi-Dirac distribution and the scaling
+$\lambda=N^{-1}$ to see that
+\begin{align*}
+	\lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{p-k}
+	&= \lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{k}\\
+	&\xrightarrow[\beta\to\infty]{} N^{-1}\left(\sum_{p\in B_{\mathrm{F}}}1\right)\left(\sum_{k\in B_{\mathrm{F}}}(\hat{V}(0)-\hat{V}(k))\right)\\
+	&= N\hat{V}(0) - \sum_{k\in B_{\mathrm{F}}}\hat{V}(k)\\
+	&\approx N\hat{V}(0) - \sum_{k\in\mathbb{Z}^3}\hat{V}(k).
+\end{align*}
+where in the last steps we assumed a stronger regularity condition. In particular, we may choose
+to assume that $\hat{V}$ has compact support, or that $\hat{V}(k)\asymp e^{-\vert k\vert}$, so
+that the bound can provide an estimate that gets better as $N$ grows. With this expression we
+can conclude that the first order indeed contributes to order $\mathcal{O}(N)$ with the direct
+term and to order $\mathcal{O}(N^0)$ with the exchange term.
+
+To tackle the second order we use the same strategies that worked for the zero-th and first
+orders. We have to pay attention to the fact that, because of the product of Fermi-Dirac
+distributions $n_{q+k}n_{p-k}$ in both the direct and exchange terms, the innermost sums
+$\sum_k$ will contain a characteristic function of some set that is \textit{contained} in a
+Fermi ball in the limit $\beta\to\infty$ (the set is an intersection of shifted Fermi balls).
+With this in mind, we can give an upper bound for this type of expression by summing over the
+entire Fermi ball and approximate the resulting sums with an integral, as follows:
+\begin{align*}
+	\lambda^2\sum_{p,q,k\in\mathbb{Z}^3}&\frac{4\hat{V}(k)^2n_qn_pn_{q+k}n_{p-k}}
+	{\epsilon_q+\epsilon_p+\epsilon_{q+k}+\epsilon_{p-k}-4\mu}\\
+	&\xrightarrow[\beta\to\infty]{} N^{-2}\sum_{p,q\in B_{\mathrm{F}}}\sum_{\substack{k\in B_{\mathrm{F}}\\q+k,p-k\in B_{\mathrm{F}}}}
+	\frac{4\hat{V}(k)^2}{\epsilon_q+\epsilon_p+\epsilon_{q+k}+\epsilon_{p-k}-4\mu}\\
+	&\approx N^{-2}N\int_0^C\dx p\dx q\dx k \frac{4\hat{V}(N^{1/3}k)^2(4\pi)^3 p^2 q^2 k^2}{p^2+q^2+(q+k)^2+(p-k)^2-4\mu}
 \end{align*}
