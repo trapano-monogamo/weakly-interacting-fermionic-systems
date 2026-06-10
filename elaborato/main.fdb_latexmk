@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1780950239.67352 "main.bcf" "main.bbl" "main" 1780954978.25573 0
-  "main.bcf" 1780954978.11997 108604 0dfdebb7f977d280ff455b214448b678 "pdflatex"
+["biber main"] 1780950239.67352 "main.bcf" "main.bbl" "main" 1781054695.78673 0
+  "main.bcf" 1781054695.64153 108604 0dfdebb7f977d280ff455b214448b678 "pdflatex"
   "refs.bib" 1777301307.73719 109 3269a620b8345b2b90ddadb4767f9abb ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1780954975.89986 "main.tex" "main.pdf" "main" 1780954978.25595 0
+["pdflatex"] 1781054693.289 "main.tex" "main.pdf" "main" 1781054695.787 0
   "/home/chiara/.texlive/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1775842594.0631 6964 2b2f59d99251ed4e6e96b596248da6c9 ""
   "/home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1778698970.58931 128397 dc8cded2bbafe8195c86cdaea92e40b2 ""
   "/home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc" 1778698971.57619 136299 81dfec24bbf14622db1629e3fd551117 ""
@@ -399,14 +399,14 @@
   "chapters/appendix.tex" 1780947181.07122 18220 f1f25c710ae06f82f653c4207a88f367 ""
   "chapters/feynman-diagrams.tex" 1780948691.61474 15204 4d45e719251dd780bbe1cb3845348b24 ""
   "chapters/higher-orders.tex" 1780948806.31897 479 89037a4fa0714e6c1981f02ba0976e2b ""
-  "chapters/second-order.tex" 1780954973.9899 44219 5e02badf3379849148c13537b7f95b6d ""
-  "chapters/second-quantization.tex" 1780948552.90044 72488 bd3f7b8ba7c234f89956cfd37427a5d6 ""
-  "main.aux" 1780954978.11997 4846 f9d689397b16df33c92212bf740a0740 "pdflatex"
+  "chapters/second-order.tex" 1781054693.11481 44873 6983f0f8f4c89dae69b8087ca2c184b7 ""
+  "chapters/second-quantization.tex" 1781054288.79331 74698 69131508359a0edee5b09ee3784dbed7 ""
+  "main.aux" 1781054695.64153 4911 69911f15084e0323c32aefa354222040 "pdflatex"
   "main.bbl" 1780950240.15246 1513 61ef0bb6d60fbbf1e1515f4c00387fed "biber main"
-  "main.out" 1780954978.11997 4389 95d50fc4537cd5824b494122a858dab0 "pdflatex"
-  "main.run.xml" 1780954978.11997 2334 495085e3091aac17e7ead29a73d4107a "pdflatex"
+  "main.out" 1781054695.64153 4389 95d50fc4537cd5824b494122a858dab0 "pdflatex"
+  "main.run.xml" 1781054695.64153 2334 495085e3091aac17e7ead29a73d4107a "pdflatex"
   "main.tex" 1780946385.06211 1332 0ce753fb41616ad15a763a84ac3d6c36 ""
-  "main.toc" 1780954978.1233 1970 fc276d5aa33a1ce6624c41ee66f628ba "pdflatex"
+  "main.toc" 1781054695.64153 1970 5e434be4b179d7d0197ab3f059192751 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

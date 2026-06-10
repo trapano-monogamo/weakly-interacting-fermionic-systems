@@ -155,6 +155,8 @@ basis elements.
 	\begin{align*}
 		\langle A^*\phi,\psi \rangle = \langle \phi, A\psi \rangle \quad \forall \psi\in D(A).
 	\end{align*}
+	If $A^*=A$ then $A$ is said to be \textit{self-adjoint}, and \textit{hermitian} if both
+	operators are defined on the entire Hilbert space.
 \end{definition}
 
 \begin{proposition}
@@ -177,7 +179,7 @@ the space of square integrable functions on $\mathbb{R}^n$
 \begin{align*}
 	&L^2(\mathbb{R}^n) = \left\{ f : \mathbb{R}^n \to \mathbb{C}
 	\;\Big| \left(\int_{\mathbb{R}^n} \dx x\, |f(x)|^2\right)^{1/2} < \infty \right\}\\
-	&\mathrm{with}\quad\langle f,g\rangle \coloneq \int_{\mathbb{R}^n}\dx x \bar{f}(x)g(x),
+	&\mathrm{with}\quad\langle f,g\rangle \coloneq \int_{\mathbb{R}^n}\dx x \overline{f(x)}g(x),
 \end{align*}
 whose elements are the wavefunctions of a physical system. Its relevance stands from the
 fact, that in this space, the squared norm of a state $\psi\in L^2(\mathbb{R}^n)$ makes it
@@ -227,24 +229,32 @@ $\mathcal{H}$ (see Appendix \ref{appendix:special-operators}).
 	A general quantum state is an operator $\rho$ on $\mathcal{H}$ such that
 	\begin{itemize}
 		\item $\mathrm{Tr}(\rho) = 1$ (probability normalization condition)
+		\item $\rho^* = \rho$ (self-adjointness)
 		\item $\rho \geq 0$ (positivity of probabilities)
-		\item $\rho^* = \rho$ (symmetry)
 	\end{itemize}
-	and defines the expectation functional
+	and it defines the \textit{expectation functional}
 	\begin{alignat*}{1}
-		\langle\cdot\rangle : \mathfrak{B}(\mathcal{H}) &\longrightarrow \mathbb{C}\\
-		A &\longmapsto \langle A \rangle \coloneq \mathrm{Tr}(\rho A).
+		\langle\cdot\rangle_\rho : \mathfrak{B}(\mathcal{H}) &\longrightarrow \mathbb{C}\\
+		A &\longmapsto \langle A \rangle_\rho \coloneq \mathrm{Tr}(\rho A).
 	\end{alignat*}
 \end{definition}
 
-Equipped with this general definition we are now ready to define the fundamental thermodynamic
-quantity that will be the center of the rest of our work, the free energy.
+There is a bijection between the set of mixed states (while pure states are just a special
+case) and the set of quantum states (i.e. a subset of the dual of $\mathfrak{B}(\mathcal{H})$).
+The states in which we are interested in are thermal equilibrium states, which we know from
+statistical mechanics populate the energy spectrum of the system according to Boltzmann's
+distribution $e^{-\beta\epsilon}/Z$, and with the aforementioned bijection we can just
+identify these states \textit{at a given temperature} with mixtures $\{(e^{-\beta\epsilon_j}/Z
+,\psi_j)\}$ if $\psi_j$ are energy eigenstates. To make this precise we need to properly
+define the foundamental thermodynamic quantities required, and in particular we want to
+discuss the main focus or our work: the free energy, which we will actually define starting
+from the known relation $F=U-TS$.
 
 \begin{definition}[Von Neumann entropy]
-	In the same notation used so far (and with $I = \mathbb{N}$),
-	the \textit{Von Neumann entropy} of a state $\langle\cdot\rangle$ is defined as
+	In the same notation used so far (and with $I = \mathbb{N}$), the \textit{Von Neumann
+	entropy} of a state $\langle\cdot\rangle_\rho$ is defined as
 	\begin{align*}
-		S(\langle\cdot\rangle) \coloneq - \sum_{n=1}^\infty p_n \log(p_n),
+		S(\langle\cdot\rangle_\rho) \coloneq - \sum_{n=1}^\infty p_n \log(p_n),
 	\end{align*}
 	where we are using the convention that $t\log(t)=0 \text{ if } t=0$.
 \end{definition}
@@ -261,13 +271,11 @@ usually pure, while non-zero temperature are mixed.
 	\begin{align*}
 		E = \inf_{\phi\in D(H),\Vert\phi\Vert=1} \langle\phi,H\phi\rangle.
 	\end{align*}
-	A \textit{ground state}, \textbf{if it exists}, is a unit vector $\psi_0\in D(H)$ such
-	that
+	A \textit{ground state}, \textbf{if it exists}, is a (normalized) minimizer for the energy
+	expectation, i.e. a unit vector $\psi_0\in D(H)$ such that
 	\begin{align*}
-		\langle\psi_0,H\psi_0\rangle = E,
+		\langle\psi_0,H\psi_0\rangle = E.
 	\end{align*}
-	i.e. a minimizer for the energy expectation functional $\langle\cdot,H\cdot\rangle$ we
-	just defined.
 \end{definition}
 
 \begin{remark}
@@ -279,31 +287,35 @@ usually pure, while non-zero temperature are mixed.
 \begin{definition}[Free energy]
 	The \textit{free energy} of a stable system at temperature $T\geq0$ is defined as
 	\begin{align*}
-		F(T) \coloneq \inf_{\langle\cdot\rangle,\langle H \rangle < \infty}
+		F(T) \coloneq \inf_{\substack{\langle\cdot\rangle_\rho\\\langle H\rangle_\rho<\infty}}
 		(\langle H \rangle - T\,S(\langle\cdot\rangle)),
 	\end{align*}
-	which is possibly $-\infty$. Note that we are also assuming that the states $\psi_i$ in
-	the definition of a mixed state are in $D(H)$. If, for $T>0$, there exists a minimizer
-	for the free energy variation, then that state is called a \textit{Gibbs state at temperature
-	T}.
+	which is possibly $-\infty$. If, for $T>0$, there exists a minimizer for the free energy
+	variation, then that state is called a \textit{Gibbs state at (inverse) temperature
+	$\beta$}. We will denote Gibbs states by $\langle\cdot\rangle_\beta$, despite the slight
+	ambiguity in the notation, and we will also specify the Hamiltonian in exam when needed
+	with $\langle\cdot\rangle_{\beta,H}$.
 \end{definition}
 
 \begin{remark}
-	A system composed of a single free particle is stable but it does not admit a ground state,
-	and $F(T) = -\infty$ for all $T>0$.
+	A system composed of a single free particle, governed by $H=p^2$ is stable but it does not
+	admit a ground state, and $F(T) = -\infty$ for all $T>0$.
 \end{remark}
 
 \begin{proposition}
 	If $\langle\cdot\rangle$ is a Gibbs state at $T>0$, then for all bounded operators
 	\begin{align*}
-		\langle A \rangle = \frac{\mathrm{Tr}(A\exp(-\beta H))}{\mathrm{Tr}(\exp(-\beta H))}
+		\langle A \rangle = \frac{\mathrm{Tr}(Ae^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}.
 	\end{align*}
-	where $\beta \coloneq 1/T$. In particular, $\exp(-\beta H)$ is a trace class operator.
+	In particular, $e^{-\beta H}$ is a trace class operator.
 \end{proposition}
 \begin{proof}
 	\textcolor{red}{IMPORTANT (and maybe add discussion of $e^{\pm\tau H_0}$ and of
 	$Ve^{-\tau H_0}$ where $V$ is the potential).}
 \end{proof}
+
+We refer to the appendix for the definition of trace class operators and point out that such
+operators are compact, which makes $e^{-\beta H}$ a very well-behaved operator in computations.
 
 \subsection{Canonical and grand canonical pictures}
 So far we talked about a generic (separable) Hilber space, but for the most part we will deal
@@ -1292,7 +1304,8 @@ states that the expectation value for any observable on a special class of state
 completely determined by the 2-point function. Moreover, since the perturbative expansion of
 a physical quantity involves a series of products of creation/annihilation operators, this
 theorem also says that such a perturbative expansion is completely determined by the 2-point
-function as well.
+function as well. We first give the definition for pure states and then move onto the more
+important case of mixed states and prove their version of Wick's theorem.
 
 \begin{definition}[Quasi-free pure state]
 	A vector $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ is called a \textit{quasi-free
@@ -1301,18 +1314,19 @@ function as well.
 	unitary implementation of $\mathcal{V}$.
 \end{definition}
 
-That is, a state is quasi-free if it is the vacuum state under an appropriate choice of
+That is, a pure state is quasi-free if it is the vacuum state under an appropriate choice of
 physical modes.
 
 \begin{theorem}[Wick's theorem]
 	If $\Psi$ is a quasi-free pure state and $F_1,\ldots,F_{2m}\in\mathfrak{h}\oplus\mathfrak{h}^*$
 	for some $m\geq1$, then it holds that
-	\begin{align*}
-		&\langle\Psi,A_\pm(F_1)\cdots A_\pm(F_2m)\Psi\rangle =\\
+	\begin{align}
+		\label{wicks-theorem}
+		&\langle\Psi,A_\pm(F_1)\cdots A_\pm(F_2m)\Psi\rangle =\nonumber\\
 		&\quad\sum_{\sigma\in P_{2m}} (\pm 1)^\sigma
 		\langle\Psi, A_\pm(F_{\sigma(1)})A_\pm(F_{\sigma(2)})\Psi\rangle \cdots
 		\langle\Psi, A_\pm(F_{\sigma(2m-1)})A_\pm(F_{\sigma(2m)})\Psi\rangle
-	\end{align*}
+	\end{align}
 	and
 	\begin{align*}
 		\langle\Psi,A_\pm(F_1)\cdots A_\pm(F_{2m-1})\Psi\rangle = 0
@@ -1325,9 +1339,6 @@ physical modes.
 		\}.
 	\end{align*}
 \end{theorem}
-\begin{proof}
-	\textcolor{red}{AAAAAAAAAAAAAAHHHHHHHHHHHHH.}
-\end{proof}
 
 Despite dreaming of resisting the urge to characterize \textit{something}, the mathematician
 is ultimately doomed to fail. Let us then indulge in the characterization of generalized
@@ -1351,8 +1362,26 @@ is ultimately doomed to fail. Let us then indulge in the characterization of gen
 	with $\gamma$ a trace-class operator, then there exists a quasi-free pure state
 	$\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ such that $\Gamma_\Psi = \Gamma$.
 \end{proposition}
+
+We may now extend the definition of quasi-free pure states to include non-pure ones, and we
+may as well use Wick's theorem as the defining property of quasi-free expectations. Surprisingly
+enough, Gibbs states are quasi-free, as illustrated by the theorem we are about to prove.
+
+\begin{definition}[General quasi-free states]
+	A \textit{quasi-free state} is a quantum state $\rho\in\mathfrak{B}^*(\mathcal{F}^{
+	\mathrm{F,B}}(\mathfrak{h}))$ that satisfies Wick's theorem, i.e. such that Equation
+	(\ref{wicks-theorem}) holds when replacing expectations $\langle\Psi,\cdot\Psi\rangle$
+	with mixed expectations $\langle\cdot\rangle_\rho$.
+\end{definition}
+
+\begin{theorem}
+	Let $\{F_n\}_{n\in\mathbb{N}}$ be an orthonormal basis for $\mathfrak{h}\oplus\mathfrak{h}^*$
+	and define the Hamiltonian $H=\sum_{n=0}^\infty\epsilon_nA^*_\pm(F_n)A_\pm(F_n)$, where
+	$\mathrm{Tr}(e^{-\beta H})=\sum_ne^{-\beta\epsilon_n}<\infty$. The Gibbs state
+	$\langle\cdot\rangle_{\beta,H}$ is quasi-free.
+\end{theorem}
 \begin{proof}
-	\textcolor{red}{proof you have to write, if mathematician you want to become, mmh.}
+	\textcolor{red}{LOOK AT GIULIANI AND VIGNALE.}
 \end{proof}
 
 \subsection{Quadratic hamiltonians}

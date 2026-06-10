@@ -69,7 +69,7 @@ calculate the free energy of the system and take its limit as the temperature go
 that is $\beta \to \infty$. Recall that at thermal equilibrium the expectation value of any
 observable is given by the Gibbs state functional
 \begin{align*}
-	\langle\cdot\rangle = \frac{\mathrm{Tr}(\cdot \, e^{-\beta H})}
+	\langle\cdot\rangle_\beta = \frac{\mathrm{Tr}(\cdot \, e^{-\beta H})}
 	{\mathrm{Tr}(e^{-\beta H})}.
 \end{align*}
 Because the free energy is given by the logarithm of the partition function divided by
@@ -79,14 +79,15 @@ $\lambda$.
 
 \begin{proposition}
 	Given $H = H_0 + \lambda V$ as defined above, the following approximation for the free
-	energy holds at second order, up to an overall factor of $1/\beta$:
+	energy holds formally at second order $\lambda$, up to an overall factor of $-1/\beta$:
 	\begin{align}
 		\mathrm{log}\,\mathrm{Tr}\,e^{-\beta H}
-		= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0} - \beta\lambda \langle V \rangle_{H_0}
-		+ \lambda^2\int_0^\beta\dx\tau \int_0^\tau\dx\tau' \left(
-			\langle V(\tau')V(\tau) \rangle_{H_0} - \langle V(\tau') \rangle_{H_0}\langle V(\tau) \rangle_{H_0}
+		= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}-\beta\lambda\langle V\rangle
+		+\lambda^2\int_0^\beta\dx\tau \int_0^\tau\dx\tau' \left(
+			\langle V(\tau')V(\tau)\rangle-\langle V(\tau')\rangle\langle V(\tau) \rangle
 		\right)
 	\end{align}
+	where Gibbs expectations are understood to be with respect to $H_0$ at temperature $\beta$.
 \end{proposition}
 \begin{proof}
 	Start by rewriting the operator $e^{-\beta H}e^{\beta H_0}$ using the
@@ -139,8 +140,8 @@ $\lambda$.
 			- \lambda\int_0^\beta\dx\tau\, \mathrm{Tr}(V(\tau)e^{-\beta H_0})
 			+ \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \mathrm{Tr}(V(\tau')V(\tau)e^{-\beta H_0})\\
 		&= (\mathrm{Tr}\,e^{-\beta H_0})\left(
-			1 - \lambda\int_0^\beta\dx\tau\,\langle V(\tau) \rangle_{H_0}
-			+ \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle_{H_0}
+			1 - \lambda\int_0^\beta\dx\tau\,\langle V(\tau) \rangle
+			+ \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle
 			\right).
 	\end{align*}
 	We can now take the logarithm on both sides. Recall the Taylor expansion
@@ -152,13 +153,13 @@ $\lambda$.
 		\label{eq:duhamel}
 		\mathrm{log}\,\mathrm{Tr}\,e^{-\beta H}
 		&= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}
-			- \lambda\int_0^\beta\dx\tau\,\langle V(\tau) \rangle_{H_0}
-			- \frac{1}{2} \left( \lambda\int_0^\beta\dx\tau \langle V(\tau) \rangle_{H_0} \right)^2 \nonumber \\
-		&\quad + \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle_{H_0} \nonumber \\
+			- \lambda\int_0^\beta\dx\tau\,\langle V(\tau) \rangle
+			- \frac{1}{2} \left( \lambda\int_0^\beta\dx\tau \langle V(\tau) \rangle \right)^2 \nonumber \\
+		&\quad + \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\, \langle (V(\tau')V(\tau) \rangle \nonumber \\
 		&= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}
-			- \beta \lambda\langle V \rangle_{H_0} \nonumber \\
+			- \beta \lambda\langle V \rangle \nonumber \\
 		&\quad+ \lambda^2\int_0^\beta\dx\tau\int_0^\tau\dx\tau'\,\biggl(
-				\langle V(\tau')V(\tau) \rangle_{H_0} - \langle V(\tau') \rangle_{H_0} \langle V(\tau) \rangle_{H_0}
+				\langle V(\tau')V(\tau) \rangle - \langle V(\tau') \rangle \langle V(\tau) \rangle
 			\biggr)
 	\end{align}
 	where in the last step we performed the first integral and rewrote the square as a double integral,
@@ -196,7 +197,7 @@ the respective diagrams are going to be different.
 	The two-point function for this system has the following form:
 	\begin{equation}
 		G_{k,k'}(\tau,\tau')
-		= \langle a^*_k(\tau) a_{k'}(\tau') \rangle_{H_0}
+		= \langle a^*_k(\tau) a_{k'}(\tau') \rangle_{\beta,H_0}
 		= \delta_{k,k'} n_{\mathrm{F}}(\epsilon_k) e^{-(\tau-\tau')(\epsilon_{k}-\mu)}
 	\end{equation}
 	where $n_\mathrm{F}(\epsilon) = (e^{\beta(\epsilon-\mu)}+1)^{-1}$ is the Fermi-Dirac distribution.
@@ -272,7 +273,7 @@ the respective diagrams are going to be different.
 	and using the momenta $k\in\mathcal{D}_\Lambda$ as indices for the basis states labels $n_k$,
 	we write
 	\begin{align*}
-		\langle a^*_k a_{k'} \rangle_{H_0}
+		\langle a^*_k a_{k'} \rangle_{\beta,H_0}
 		&= \frac{\mathrm{Tr}(a^*_k a_{k'}e^{-\beta H_0})}{\mathrm{Tr}\,e^{-\beta H_0}}
 		= \frac{1}{Z} \sum_{\boldsymbol{n}\in\{0,1\}^M}\langle\boldsymbol{n}\vert e^{-\beta H_0}a^*_k a_{k'}\vert\boldsymbol{n}\rangle\\
 		&= \delta_{k,k'} \frac{1}{Z} \sum_{\boldsymbol{n}\in\{0,1\}^M}\langle\boldsymbol{n}\vert a^*_k a_k \vert\boldsymbol{n}\rangle\prod_{p\in\mathcal{D}_\Lambda}e^{-\beta(\epsilon_p-\mu)n_p}\\
@@ -286,7 +287,7 @@ the respective diagrams are going to be different.
 	same steps for the denominator, we find that $Z = \prod_{p\in\mathcal{D}_\Lambda}(1 + e^{-\beta(\epsilon_p-\mu)})$,
 	thus the expression simplyfies to
 	\begin{align*}
-		\langle a^*_k a_{k'}\rangle_{H_0}
+		\langle a^*_k a_{k'}\rangle_{\beta,H_0}
 		&= \delta_{k,k'} \frac{e^{-\beta(\epsilon_k-\mu)}\prod_{p\neq k}(1 + e^{-\beta(\epsilon_p-\mu)})}{\prod_{p}(1 + e^{-\beta(\epsilon_p-\mu)})}\\
 		&= \delta_{k,k'} \frac{e^{-\beta(\epsilon_k-\mu)}}{1 + e^{-\beta(\epsilon_k-\mu)}}\\
 		&= \delta_{k,k'} \frac{1}{e^{\beta(\epsilon_k-\mu)}+1}.
@@ -326,9 +327,10 @@ diagrammatic rules we discussed in the previous chapter. Let's start with $\lang
 \rangle_{H_0}$. This is the expectation of a sum of terms $\bar\psi\bar\psi\psi\psi$, exactly
 the interaction term, and so the result will be a sum of all possible (connected) diagrams
 with one vertex. Omitting the temperatures when writing two-point functions and calling $n_k =
-n_\text{F}(\epsilon_k)$ the calculation is as follows:
+n_\text{F}(\epsilon_k)$ the calculation is as follows, again omitting the subscripts $\beta$
+and $H_0$ for readability:
 \begin{align*}
-	\langle V \rangle_{H_0}
+	\langle V \rangle_{\beta,H_0}
 	&= \mathbb{E}_G \biggl(
 		\sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p
 		\biggr)
@@ -410,8 +412,8 @@ ways to put one loop on both vertices). Accounting for these multiplicities, we 
 	\star
 	&= 4 \vcenter{\hbox{
 		\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
-			\node[shape=coordinate] (a) at (-1.1,0) {} node[scale=1] at (-1.5,0) {$s$};
-			\node[shape=coordinate] (b) at ( 1.1,0) {} node[scale=1] at ( 1.5,0) {$s'$};
+			\node[shape=coordinate] (a) at (-1.1,0) {} node[scale=1] at (-1.5,0) {$\tau$};
+			\node[shape=coordinate] (b) at ( 1.1,0) {} node[scale=1] at ( 1.5,0) {$\tau'$};
 			\begin{scope}[very thick, decoration={
 					markings,
 					mark=at position 0.55 with {\arrow{>}}}
@@ -426,8 +428,8 @@ ways to put one loop on both vertices). Accounting for these multiplicities, we 
 		\end{tikzpicture}
 	}} + 16 \vcenter{\hbox{
 		\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
-			\node[shape=coordinate] (a) at (-0.9,0) {} node[scale=1] at (-1.2,0) {$s$};
-			\node[shape=coordinate] (b) at ( 0.9,0) {} node[scale=1] at ( 1.2,0) {$s'$};
+			\node[shape=coordinate] (a) at (-0.9,0) {} node[scale=1] at (-1.2,0) {$\tau$};
+			\node[shape=coordinate] (b) at ( 0.9,0) {} node[scale=1] at ( 1.2,0) {$\tau'$};
 			\begin{scope}[very thick, decoration={
 					markings,
 					mark=at position 0.55 with {\arrow{>}}}
@@ -485,6 +487,15 @@ a different kinetic term is worth the very little trouble this generalization co
 also partly motivated by the need to treat a special type of systems that can be treated via
 particle-hole transformations, a type of Bogolubov transformation, \textcolor{red}{and we will
 comment on it later on}.
+\\
+A quick comment on a slightly less standard notation we will use to state some of the following
+results. We say that two real or complex sequences $\{x_n\}_n$ and $\{y_n\}_n$ are asymptotic
+if, and only if, $x_n/y_n \longrightarrow 1$, but from here we will mainly deal with quantities
+that are asymptotic only up to a proportionality constant. We will deal with the latter case
+by adopting the following notation:
+\begin{align*}
+	x_n \asymp y_n \iff \exists C\neq0 : \frac{x_n}{y_n} \longrightarrow C.
+\end{align*}
 
 \begin{lemma}[Non-stationary phase lemma]
 	If $m\in\mathbb{N}$ and $f:\mathbb{R}^n\to\mathbb{R}$ such that $\partial^\alpha f\in L^1(
@@ -725,7 +736,7 @@ a couple of estimates away.
 	To tackle the second order we use the same strategies that worked for the zero-th and
 	first orders. We have to pay attention to the fact that, because of the product of
 	Fermi-Dirac distributions $n_{q+k}n_{p-k}$ in both the direct and exchange terms, the
-	innermost sums $\sum_k$ will contain a characteristic function of some set that is
+	innermost sums $\sum_k$ will contain the characteristic function of some set that is
 	\textit{contained} in a Fermi ball in the limit $\beta\to\infty$ (the set is an intersection
 	of shifted Fermi balls). With this in mind, we can give an upper bound for this type of
 	expression by summing over the entire Fermi ball and approximate the resulting sums with
