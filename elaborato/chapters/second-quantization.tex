@@ -17,18 +17,19 @@ come from much more general settings.
 
 \begin{definition}[Hilbert space]
 	A (complex) \textit{Hilbert space} $\mathcal{H}$ is a vector space equipped with a
-	sesquilinear map $\langle \cdot , \cdot \rangle : \mathcal{H}\times\mathcal{H} \to \mathbb{C}$
-	such that $\Vert\phi\Vert \coloneq \langle\phi,\phi\rangle^{1/2}$ defines a norm which makes
+	sesquilinear map $\langle\cdot,\cdot\rangle:\mathcal{H}\times\mathcal{H}\to\mathbb{C}$
+	such that $\Vert\phi\Vert\coloneq\langle\phi,\phi\rangle^{1/2}$ defines a norm which makes
 	$\mathcal{H}$ a complete metric space.
 \end{definition}
 
-A note on the choice of notation. Usually a vector is just indicated by a letter, but there
-are situations in quantum mechanics where it is clearer to indicate a family of vectors by
-an index. To prevent ambiguity in those cases it can be convenient to employ Dirac's
-``bra-ket" notation, where a vector would be indicated by $|\psi\rangle\in\mathcal{H}$, a
-linear functional as $\langle\psi|\in\mathcal{H}^*$, and the inner product as
-$\langle\psi,A\phi\rangle = \langle\psi|A|\phi\rangle$. It will be clear by the context if
-this notation is used.
+A note on the choice of notation. Usually a vector is just indicated by a letter that doesn't
+hold additional meaning, but there are situations in quantum mechanics where it is clearer to
+use, for example, indices to enumerate a specific family of vectors, and to avoid ambiguity
+it can be convenient to employ Dirac's ``bra-ket" notation. In this notation, a vector would
+be denoted by $|\psi\rangle\in\mathcal{H}$, a linear functional as $\langle\psi|\in\mathcal{H}^*$,
+and the inner product (with respect to a symmetric operator, which we haven't yet introduced)
+as $\langle\psi,A\phi\rangle=\langle\psi|A|\phi\rangle$. It will be clear when this notation
+is used and why it can help avoid ambiguities, but for the most part we won't make use of it.
 
 \begin{definition}
 	A Hilbert space is said to be \textit{separable} if it admits a countable dense subset.
@@ -45,9 +46,8 @@ $\mathcal{H}$). For simplicity, even when writing just ``Hilbert space" we will 
 that the space is separable.
 
 \begin{lemma}
-	If $X$ is a dense closed subspace of the Hilbert space $\mathcal{H}$, it is always possible
-	to choose a basis $\{u_n:n\in\mathbb{N}\}$ for $\mathcal{H}$ composed only of elements of
-	$X$.
+	If $X$ is a dense subspace of the Hilbert space $\mathcal{H}$, it is always possible to
+	choose a basis $\{u_n:n\in\mathbb{N}\}$ for $\mathcal{H}$ composed only of elements in $X$.
 \end{lemma}
 \begin{proof}
 	\textcolor{red}{Is it easy?}
