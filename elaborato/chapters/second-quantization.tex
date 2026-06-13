@@ -6,14 +6,13 @@
 
 \subsection*{Preliminaries}
 
-We must start our discussion of the tools needed to approach the physical problem at hand by
-defining the mathematical objects that appear in the description of a quantum system.
-The probabilistic nature of a quantum system is realized in the linear structure of a complex
-vector space that is equipped with an inner product, which produces the probability amplitude
-for a system prepared in some state to be measured in another. In this setting, linear
-combinations of state vectors are just probabilistic superpositions. We will give the
-necessary definitions regarding a particular class of vector spaces, even though many concepts
-come from much more general settings.
+In this preliminary section we give an overvew of the mathematical objects that appear in the
+description of quantum systems. The probabilistic nature of a quantum system is realized in
+the linear structure of a complex vector space that is equipped with an inner product, which
+produces the probability amplitude for a system prepared in some state to be measured in
+another. In this setting, linear combinations of state vectors are just probabilistic
+superpositions. We will give the necessary definitions regarding a particular class of vector
+spaces, even though many concepts come from more general settings.
 
 \begin{definition}[Hilbert space]
 	A (complex) \textit{Hilbert space} $\mathcal{H}$ is a vector space equipped with a
@@ -22,14 +21,12 @@ come from much more general settings.
 	$\mathcal{H}$ a complete metric space.
 \end{definition}
 
-A note on the choice of notation. Usually a vector is just indicated by a letter that doesn't
-hold additional meaning, but there are situations in quantum mechanics where it is clearer to
-use, for example, indices to enumerate a specific family of vectors, and to avoid ambiguity
-it can be convenient to employ Dirac's ``bra-ket" notation. In this notation, a vector would
-be denoted by $|\psi\rangle\in\mathcal{H}$, a linear functional as $\langle\psi|\in\mathcal{H}^*$,
-and the inner product (with respect to a symmetric operator, which we haven't yet introduced)
-as $\langle\psi,A\phi\rangle=\langle\psi|A|\phi\rangle$. It will be clear when this notation
-is used and why it can help avoid ambiguities, but for the most part we won't make use of it.
+A note on the choice of notation. Sometimes, using Dirac's ``bra-ket" notation can help avoid
+ambiguities. In this notation, a vector would be denoted by $|\psi\rangle\in\mathcal{H}$, a
+linear functional as $\langle\psi|\in\mathcal{H}^*$, and the inner product (with respect to a
+symmetric operator, which we haven't yet introduced) as $\langle\psi,A\phi\rangle=\langle\psi|
+A|\phi\rangle$. An example of such a scenario where this notation \textit{might} be preferred
+is that of the occupation number basis, which we make use of in Chapter (\ref{second-order}).
 
 \begin{definition}
 	A Hilbert space is said to be \textit{separable} if it admits a countable dense subset.
@@ -39,44 +36,66 @@ The relevance of this definition stems from the fact that, if we can find a coun
 $\mathcal{S} = \{u_n:n\in\mathbb{N}\}$ of vectors in the Hilbert space $\mathcal{H}$ such that
 the space of \textit{finite} linear combinations of elements from $\mathcal{S}$ is dense, we
 have that any vector in $\mathcal{H}$ can be expressed as a limit of such finite linear
-combinations. That is, the set $\mathcal{S}$ acts as a \textit{basis} in the sense that any
-vector can be identified with a sequence of components $\{a_n:n\in\mathbb{N}\}$, with the
-condition that the series $\sum_{n\in\mathbb{N}}a_n u_n$ converges (in the norm topology of
-$\mathcal{H}$). For simplicity, even when writing just ``Hilbert space" we will always assume
-that the space is separable.
+combinations. That is, the set $\mathcal{S}$ is \textit{complete} (acts as a \textit{basis})
+in the sense that, ignoring problems with linear independence, any vector can be identified
+with a sequence of components $\{a_n:n\in\mathbb{N}\}$, with the condition that the series
+$\sum_{n\in\mathbb{N}}a_n u_n$ converges (in the norm topology of $\mathcal{H}$). When
+speaking of Hilbert spaces we will always assume that they are separable.
 
 \begin{lemma}
 	If $X$ is a dense subspace of the Hilbert space $\mathcal{H}$, it is always possible to
-	choose a basis $\{u_n:n\in\mathbb{N}\}$ for $\mathcal{H}$ composed only of elements in $X$.
+	choose a complete orthonormal system $\{u_n:n\in\mathbb{N}\}$ for $\mathcal{H}$ composed
+	only of elements in $X$.
 \end{lemma}
 \begin{proof}
-	\textcolor{red}{Is it easy?}
+	Since $\overline{X}=\mathcal{H}$, for all $x\in\mathcal{H}$ there exists a sequence $\{x_n
+	\}_{n\in\mathbb{N}}\subseteq X$ such that $x_n\to x$. Let $\{y_n\}_{n\in\mathbb{N}}$ be a
+	complete orthonormal set for $\mathcal{H}$, then for any $n$ there exists a sequence $\{
+	u^{(n)}_m\}_{m\in\mathbb{N}}$ such that $\lim_m u^{(n)}_m = y_n$.
+	Define
+	\begin{align*}
+		\mathcal{S} \coloneq \{ u^{(n)}_m : n,m\in\mathbb{N} \},
+	\end{align*}
+	which is countable because it is a countable union of countable sets. The set $\mathcal{S}$
+	is complete, indeed let $x\in\mathcal{H}$, then there exists a sequence $\{\lambda_m\}_{m
+	\in\mathbb{N}}$ such that $\sum_{k=1}^\infty\vert\lambda_k\vert^2<\infty$ and $x=
+	\sum_{k=1}^\infty \lambda_k y_k$: we can express $y_k$ as a limit, as discussed above, to
+	get that
+	\begin{align*}
+		x = \sum_{k=1}^\infty \lambda_k y_k
+		= \sum_{k=1}^\infty\lambda_k \lim_{m\to\infty}u^{(k)}_m
+		= \lim_{m\to\infty}\sum_{k=1}^\infty\lambda_k u^{(k)}_m,
+	\end{align*}
+	which implies that the sequence $\{\sum_{k=1}^N\lambda_k u^{(k)}_m\}_{m,N\in\mathbb{N}}
+	\subseteq X$ converges to $x$ \textcolor{red}{(you sure?)}. Lastly, recall the infinite-dimensional version of the
+	Grahm-Schmidt orthonormalization procedure, then it is clear that to $\mathcal{S}$ we can
+	associate a complete orthonormal system.
 \end{proof}
 
-Observable quantities must then be represented by objects that are capable of encoding statistical
-information about the system. In particular, the result of an experiment is an average of all
-the possible outcomes allowed by the state the system is in, and this average must be a real
-number. If $\{\lambda_i : i \in I\} \subseteq \mathbb{R}$ is the set of the possible values
-that can be obtained by measuring a physical  quantity $A$, and the system is found in a
-superposition of the final states $\{\psi_i : i\in I\}$ on which the system could
-collapse after the measurement, then we would want to write the expectation value as the
-result of applying a linear map on this state
+In quantum mechanics, observables are represented by a special type of linear map on the state
+space, so let us briefly recall the (purely formal) motivation behind this. If $A$ is a
+physical observable, the result of an experiment is the collapse of the system onto a state
+associated to a well-defined value of $A$. A generic state $\psi$ will be a superposition of
+such vectors, which we may call $\{\psi_i:i\in\mathbb{N}\}$, and let us call $\{\lambda_i:i
+\in\mathbb{N}\}\subset\mathbb{R}$ the well-defined values of $A$ associated to such vectors.
+The generic state $\psi$ then encodes the probability amplitudes for system to collapse in
+each $\psi_i$, which suggests that the statistical expectation for the measurement of $A$,
+when the system is in the state $\psi=\sum_{i}\lambda_i\psi_i$, would read something like
 \begin{align*}
-	\langle A \rangle_{\psi_0} = \sum_{i \in I} \lambda_i \langle \psi_i,\psi_i \rangle = \langle\psi,A\psi\rangle
+	\langle A\rangle_\psi=\sum_{i\in I}\lambda_i\langle\psi_i,\psi_i\rangle=\langle\psi,A\psi\rangle
 \end{align*}
-and this suggests that the natural definition for an observable is a \textit{symmetric operator},
-which we can now define, with measurable outcomes being its eigenvalues.
+if we could represent the observable by a linear map $A:\mathcal{H}\to\mathcal{H}$. Let us
+make this precise and give meaning to what we just wrote.
 
 \begin{definition}[Operator]
-	A \textit{linear operator} (or simply an \textit{operator}) $A$ on $\mathcal{H}$
-	is a linear map $A : D(A) \to \mathcal{H}$ defined on a subspace
-	$D(A) \subseteq \mathcal{H}$. If $D(A)$ is dense in $\mathcal{H}$, $A$ is said to be
-	\textit{densely defined}.
+	A \textit{linear operator} (or simply an \textit{operator}) $A$ on $\mathcal{H}$ is a
+	linear map $A:D(A)\to\mathcal{H}$ defined on a subspace $D(A)\subseteq\mathcal{H}$. If
+	$D(A)$ is dense in $\mathcal{H}$, $A$ is said to be \textit{densely defined}.
 \end{definition}
 
-For the sake of brevity, we will say ``operator" to mean a densely defined linear map on a Hilbert
-space, unless stated otherwise. Moreover, note that the domain on which an operator acts is
-part of the definition, and will therefore need to be specified case by case.
+We will often write ``operator" to mean a densely defined operator on a Hilbert space, unless
+stated otherwise. Moreover, note that the domain on which an operator acts is part of the
+definition, and will therefore need to be specified case by case.
 
 \begin{definition}[Extension of an operator]
 	If $A$ and $B$ are two operators such that $D(A) \subseteq D(B)$ and $A\phi = B\phi$ for
@@ -85,18 +104,24 @@ part of the definition, and will therefore need to be specified case by case.
 \end{definition}
 
 \begin{definition}[Symmetric operators and observables]
-	An operator $A$ is said to be \textit{symmetric} if
-	$\langle\psi,A\phi\rangle = \langle A\psi,\phi\rangle$ for all $\phi,\psi\in D(A)$.
-	An \textit{observable} is a physical quantity represented by a symmetric operator on some
-	Hilbert space.
+	An operator $A$ is said to be \textit{symmetric} if $\langle\psi,A\phi\rangle=\langle
+	A\psi,\phi\rangle$ for all $\phi,\psi\in D(A)$.
+	\\
+	An \textit{observable} is a physical quantity represented by a symmetric operator on the
+	Hilbert space of physical states.
+	\\
+	Given $A$ a symmetric operator and $\psi\in D(A)$, the \textit{expectation of $A$ on $\psi$}
+	is the quantity
+	\begin{align*}
+		\langle A\rangle_\psi \coloneq \langle\psi,A\psi\rangle.
+	\end{align*}
 \end{definition}
 
 \begin{remark}
 	The symmetry condition $\langle\psi,A\phi\rangle = \langle A\psi,\phi\rangle$ for all
 	$\phi,\psi\in\mathcal{H}$ is equivalent to the condition $\langle\psi,A\psi\rangle\in\mathbb{R}$
-	for all $\psi\in\mathcal{H}$, and because we defined expectation values as exactly this type
-	of expression, this is equivalent to asking that measurable quantities must be real numbers,
-	i.e. that observables must have real eigenvalues.
+	for all $\psi\in\mathcal{H}$, which in turn is equivalent to asking that expectation
+	values of observables must be real numbers.
 \end{remark}
 
 \begin{remark}
@@ -106,16 +131,19 @@ part of the definition, and will therefore need to be specified case by case.
 \end{remark}
 
 \begin{definition}[Bounded operator]
-	An densely defined operator $A$ is said to be \textit{bounded} if it is continuous (with
-	respect to the norm topology), which, by linearity, is equivalent to the condition
-	\begin{align*}
-		\Vert A\Vert \coloneq \sup_{\psi, \Vert\psi\Vert = 1} \Vert A\psi\Vert < \infty.
-	\end{align*}
-	The quantity $\Vert A \Vert$ is called the \textit{operator norm} of $A$. An operator is said to be
-	\textit{unbounded} if it is not bounded.
+	A densely defined operator $A$ is said to be \textit{bounded} if it is continuous with
+	respect to the norm topology, and \textit{unbounded} if it is not bounded.
 \end{definition}
+\begin{remark}
+	By linearity, continuity is equivalent to the condition that
+	\begin{align*}
+		\Vert A\Vert\coloneq\sup_{\substack{\psi\in D(A)\\\Vert\psi\Vert=1}}\Vert A\psi\Vert<\infty,
+	\end{align*}
+	and the quantity $\Vert A\Vert$ is called the \textit{operator norm} of $A$.
+\end{remark}
 
 \begin{proposition}
+	\label{extension-of-densely-defined-operators}
 	Given $A : D(A) \to \mathcal{H}$ a densely defined bounded operator on $\mathcal{H}$,
 	there exists a unique extension to a bounded operator on the entire space
 	$\tilde{A} : \mathcal{H} \to \mathcal{H}$.
@@ -140,42 +168,62 @@ part of the definition, and will therefore need to be specified case by case.
 	\end{align*}
 \end{proof}
 
-From this simple but important result it is clear that, when dealing with bounded operators,
-it will suffice to define said operator on a dense subspace. In particular, since we are always
-assuming the Hilbert space to be separable, it will suffice to define the image of only the
-basis elements.
+It is worth underlying that from Proposition (\ref{extension-of-densely-defined-operators})
+follows that for bounded operators it is possible to deal with dense subspaces without losing
+generality. In particular, since we are always assuming the Hilbert space to be separable, it
+will suffice to define the image of only the basis elements.
 
 \begin{definition}[Adjoint]
 	If $A$ is an operator on $\mathcal{H}$ we define the \textit{adjoint} $A^*$ of $A$ as the
 	operator $A^* : D(A^*) \to \mathcal{H}$ defined on
 	\begin{align*}
-		D(A^*) = \{ \phi \in \mathcal{H} : \sup_{\psi\in D(A), \Vert\psi\Vert=1} |\langle\phi,A\psi\rangle|<\infty \}
+		D(A^*) = \{ \phi \in \mathcal{H} : \sup_{\substack{\psi\in D(A)\\\Vert\psi\Vert=1}}
+		|\langle\phi,A\psi\rangle|<\infty \}
 	\end{align*}
-	and with $A^*\phi$ defined for all $\phi \in \mathcal{H}$ as
+	and with $A^*\phi$ defined for all $\phi\in D(A^*)$ as
 	\begin{align*}
 		\langle A^*\phi,\psi \rangle = \langle \phi, A\psi \rangle \quad \forall \psi\in D(A).
 	\end{align*}
-	If $A^*=A$ then $A$ is said to be \textit{self-adjoint}, and \textit{hermitian} if both
+	If $A^*=A$ then $A$ is said to be \textit{self-adjoint}, and \textit{Hermitian} if both
 	operators are defined on the entire Hilbert space.
 \end{definition}
 
 \begin{proposition}
 	The adjoint of a bounded operator is a bounded operator.
 \end{proposition}
-\begin{proof} \textcolor{red}{????} \end{proof}
+\begin{proof}
+	\textcolor{red}{CHECK.}
+	We are only considering densely defined operators, therefore, without loss of generality,
+	let $A:\mathcal{H}\to\mathcal{H}$ be a bounded operator on the whole space $\mathcal{H}$.
+	For all $\phi\in D(A^*)$, the map $\psi\mapsto\langle A^*\phi,\psi \rangle$ is a linear
+	functional on $\mathcal{H}$, where
+	\begin{align*}
+		D(A^*) = \left\{\phi\in\mathcal{H} : \sup_{\Vert\psi\Vert=1}\langle\phi,A\psi\rangle
+		<\infty\right\}.
+	\end{align*}
+	Then, by Schwarz's inequality, we have that for every $\phi\in D(A^*)$
+	\begin{align*}
+		\Vert A^*\phi\Vert = \sup_{\Vert\psi\Vert=1}|\langle A^*\phi,\psi\rangle|
+		= \sup_{\Vert\psi\Vert=1}|\langle\phi,A\psi\rangle|
+		\leq \sup_{\Vert\psi\Vert=1}\Vert A\psi\Vert\Vert\phi\Vert,
+	\end{align*}
+	where the first step makes use of Riesz representation theorem, which states that the
+	norm of the vector $A^*\phi$ is equal to the norm of the functional we previously wrote.
+	It follows from the boundedness of $A$ that
+	\begin{align*}
+		\Vert A^*\phi\Vert \leq \Vert\phi\Vert \Vert A\Vert < \infty
+	\end{align*}
+	which implies that $A^*$ is bounded.
+\end{proof}
 
 \begin{proposition}
 	An operator $A$ is symmetric if, and only if, $A\subseteq A^*$.
 \end{proposition}
-\begin{proof}
-	\textcolor{red}{???}.
-\end{proof}
 
 We point to Appendix \ref{appendix:special-operators} for a discussion on the most important
 definitions and properties of special types of operators, and end the introduction of the
-basic objects used here. Before moving onto the discussion of how these objects come into play
-in the treatment of our physical system, we introduce the most important Hilbert space for us:
-the space of square integrable functions on $\mathbb{R}^n$
+basic objects used here. A key role in the discussion of quantum systems is played by the
+space of square integrable functions on $\mathbb{R}^n$
 \begin{align*}
 	&L^2(\mathbb{R}^n) = \left\{ f : \mathbb{R}^n \to \mathbb{C}
 	\;\Big| \left(\int_{\mathbb{R}^n} \dx x\, |f(x)|^2\right)^{1/2} < \infty \right\}\\
@@ -188,31 +236,31 @@ given as the point-wise modulus squared of the wave function: $\vert\psi(x)\vert
 \\
 Going back to the definition of expectation value of an observable, we can now make an important
 generalization. Suppose the system has probability $p_i$ of being prepared in some initial
-state $\psi_i$, of course given the probability normalization condition $\sum_i p_i = 1$,
-then the expectation of an observable $A$ would be the weighted average of the expectations on
-each initial state.
+state $\psi_i$, of course given the normalization condition $\sum_i p_i = 1$, then the
+expectation of an observable $A$ would be the weighted average of the expectations on each
+initial state.
 
 \begin{definition}[Pure and mixed states]
-	A state represented by a vector in $\mathcal{H}$ is called a \textit{pure state}, while
-	the statistical mixture of pure states $\{(p_i,\psi_i):i\in I\}$, with $\sum_i p_i = 1$,
-	is called a \textit{mixed state}. If $A$ is an observable, the expectation of $A$ on the
-	mixed state $\{(p_i,\psi_i)\}$ is defined as the average of the expectations over each
-	single state
+	A \textit{pure state} is a vector in $\mathcal{H}$, while a \textit{mixed state} is a
+	statistical mixture of pure states given by the collection of probability-state pairs
+	$\{(p_i,\psi_i):i\in\mathbb{N}\}$, with $\sum_ip_i=1$. If $A$ is an observable, the
+	expectation of $A$ on a mixed state is defined as
 	\begin{align*}
-		\langle A \rangle = \sum_i p_i \langle\psi_i,A\psi_i\rangle
+		\langle A \rangle = \sum_{i\in\mathbb{N}}p_i\langle\psi_i,A\psi_i\rangle.
 	\end{align*}
 \end{definition}
 
-Assuming the observable $A$ is a compact symmetric operator, by the spectral theorem we can
-write it as a series of projectors onto its eigenspaces. Let
-$\{\phi_\lambda : \lambda\in\sigma(A)\}$ be the eigenvectors of $A$, then
+We can take this definition further by following another formal argument. Assuming the
+observable $A$ is a compact self-adjoint operator, by the spectral theorem we can write it as
+a series of projectors onto its eigenspaces. Let $\{\phi_\lambda:\lambda\in\sigma(A)\}$ be the
+eigenvectors of $A$, then
 \begin{align*}
 	A = \sum_{\lambda\in\sigma(A)} \lambda\langle\phi_\lambda,\cdot\rangle\phi_\lambda.
 \end{align*}
 Using this, we write the expectation of $A$ on the mixed state $\{(p_i,\psi_i)\}$ as
 \begin{align*}
 	\langle A \rangle = \sum_{i\in I} p_i \langle\psi_i,A\psi_i\rangle
-	= \sum_{i\in I,\lambda\in\sigma(A)} p_i \langle \psi_i, \lambda\langle\phi_\lambda,\psi_i\rangle\phi_\lambda\rangle
+	= \sum_{i\in\mathbb{N},\lambda\in\sigma(A)}p_i\langle\psi_i,\lambda\langle\phi_\lambda,\psi_i\rangle\phi_\lambda\rangle
 	= \sum_{\lambda\in\sigma(A)} \lambda\langle\phi_\lambda,\rho\phi_\lambda\rangle
 	= \mathrm{Tr}(\rho A)
 \end{align*}
@@ -221,9 +269,9 @@ mixed state
 \begin{align*}
 	\rho \coloneq \sum_i p_i \langle\psi_i, \cdot\rangle\psi_i.
 \end{align*}
-This brings us to a general definition of a quantum
-state. Recall that $\mathfrak{B}(\mathcal{H})$ is the $C^*$-algebra of bounded operators on
-$\mathcal{H}$ (see Appendix \ref{appendix:special-operators}).
+This argument brings us to a general definition of a quantum state. Recall that $\mathfrak{B}(
+\mathcal{H})$ is the $C^*$-algebra of bounded operators on $\mathcal{H}$ (see Appendix
+\ref{appendix:special-operators}).
 
 \begin{definition}
 	A general quantum state is an operator $\rho$ on $\mathcal{H}$ such that
@@ -239,43 +287,39 @@ $\mathcal{H}$ (see Appendix \ref{appendix:special-operators}).
 	\end{alignat*}
 \end{definition}
 
-There is a bijection between the set of mixed states (while pure states are just a special
-case) and the set of quantum states (i.e. a subset of the dual of $\mathfrak{B}(\mathcal{H})$).
-The states in which we are interested in are thermal equilibrium states, which we know from
-statistical mechanics populate the energy spectrum of the system according to Boltzmann's
-distribution $e^{-\beta\epsilon}/Z$, and with the aforementioned bijection we can just
-identify these states \textit{at a given temperature} with mixtures $\{(e^{-\beta\epsilon_j}/Z
-,\psi_j)\}$ if $\psi_j$ are energy eigenstates. To make this precise we need to properly
-define the foundamental thermodynamic quantities required, and in particular we want to
-discuss the main focus or our work: the free energy, which we will actually define starting
-from the known relation $F=U-TS$.
+There is a bijection between the set of mixed states (pure states are just a special case) and
+the set of quantum states (i.e. a subset of the dual of $\mathfrak{B}(\mathcal{H})$). We are
+interested in the state the system is found in when at thermal equilibrium, and from statistical
+mechanics we know this state is such that the energy spectrum is populated according to
+Boltzmann's distribution $p(\epsilon)=e^{-\beta\epsilon}/Z$. With the aforementioned bijection
+we may identify such a state \textit{at a given temperature} with the mixture $\{(e^{-\beta
+\epsilon_j}/Z,\psi_j)\}$ if $\psi_j$ are energy eigenstates. To make this precise we need to
+properly define the foundamental thermodynamic quantities required, which also brings us to
+the main focus of our work: the free energy, which we will define starting from the known
+thermodynamic relation $F=U-TS$.
 
 \begin{definition}[Von Neumann entropy]
-	In the same notation used so far (and with $I = \mathbb{N}$), the \textit{Von Neumann
-	entropy} of a state $\langle\cdot\rangle_\rho$ is defined as
+	In the same notation used so far, the \textit{Von Neumann entropy} of a state $\langle
+	\cdot\rangle_\rho$ is defined as
 	\begin{align*}
-		S(\langle\cdot\rangle_\rho) \coloneq - \sum_{n=1}^\infty p_n \log(p_n),
+		S(\langle\cdot\rangle_\rho) \coloneq -\sum_{n=1}^\infty p_n\log(p_n),
 	\end{align*}
 	where we are using the convention that $t\log(t)=0 \text{ if } t=0$.
 \end{definition}
 
-We are particularly interested in \textit{equilibrium states}. Zero temperature states are
-usually pure, while non-zero temperature are mixed.
-
 \begin{definition}[Stability and ground state]
-	Given a physical system governed by a Hamiltonian $H$ on $\mathcal{H}$, if
+	A physical system governed by a Hamiltonian, i.e. energy operator, $H$ on $\mathcal{H}$ is
+	said to be \textit{stable} if
 	\begin{align*}
-		\inf_{\phi\in D(H),\Vert\phi\Vert=1} \langle\phi,H\phi\rangle > -\infty
+		\inf_{\phi\in D(H),\Vert\phi\Vert=1} \langle\phi,H\phi\rangle > -\infty.
 	\end{align*}
-	the system is said to be \textit{stable}. We define the \textit{ground state energy} as
+	We define the \textit{ground state energy} as
 	\begin{align*}
-		E = \inf_{\phi\in D(H),\Vert\phi\Vert=1} \langle\phi,H\phi\rangle.
+		E = \inf_{\phi\in D(H),\Vert\phi\Vert=1} \langle\phi,H\phi\rangle,
 	\end{align*}
-	A \textit{ground state}, \textbf{if it exists}, is a (normalized) minimizer for the energy
-	expectation, i.e. a unit vector $\psi_0\in D(H)$ such that
-	\begin{align*}
-		\langle\psi_0,H\psi_0\rangle = E.
-	\end{align*}
+	and the \textit{ground state}, \textbf{if it exists}, as a (normalized) minimizer for the
+	energy expectation, i.e. a unit vector $\psi_0\in D(H)$ such that $\langle\psi_0,H\psi_0
+	\rangle = E$.
 \end{definition}
 
 \begin{remark}
@@ -290,22 +334,29 @@ usually pure, while non-zero temperature are mixed.
 		F(T) \coloneq \inf_{\substack{\langle\cdot\rangle_\rho\\\langle H\rangle_\rho<\infty}}
 		(\langle H \rangle - T\,S(\langle\cdot\rangle)),
 	\end{align*}
-	which is possibly $-\infty$. If, for $T>0$, there exists a minimizer for the free energy
-	variation, then that state is called a \textit{Gibbs state at (inverse) temperature
-	$\beta$}. We will denote Gibbs states by $\langle\cdot\rangle_\beta$, despite the slight
-	ambiguity in the notation, and we will also specify the Hamiltonian in exam when needed
-	with $\langle\cdot\rangle_{\beta,H}$.
+	which is possibly $-\infty$. If, for $T>0$, there exists a minimizer for the free energy,
+	then the minimizing state is called a \textit{Gibbs state at (inverse) temperature $\beta$}.
 \end{definition}
 
+Gibbs states are thermal equilibrium states, and for $\beta<\infty$ they are generally mixed,
+while at $\beta=\infty$ we find the, usually pure, ground state. We will denote Gibbs states
+by $\langle\cdot\rangle_\beta$, despite the slight ambiguity between this notation and the one
+used for a generic mixed state, and we will also specify the Hamiltonian, when needed, by
+writing $\langle\cdot\rangle_{\beta,H}$.
+
 \begin{remark}
-	A system composed of a single free particle, governed by $H=p^2$ is stable but it does not
-	admit a ground state, and $F(T) = -\infty$ for all $T>0$.
+	A system composed of a single free particle with state space $L^2(\mathbb{R})$ and
+	governed by the Hamiltonian $H=-\nabla^2$ is stable but it does not admit a ground state,
+	and $F(T) = -\infty$ for all $T>0$. However, this Hamiltonian does admit a ground state
+	when restricting the state space to wavefunctions on a compact interval. The stability of
+	free particles is essential, as will become clear in the third chapter.
 \end{remark}
 
 \begin{proposition}
-	If $\langle\cdot\rangle$ is a Gibbs state at $T>0$, then for all bounded operators
+	If $\langle\cdot\rangle_\beta$ is a Gibbs state at $\beta<\infty$ (i.e. at $T>0$), then
+	for any bounded self-adjoint operator $A$ we have that
 	\begin{align*}
-		\langle A \rangle = \frac{\mathrm{Tr}(Ae^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}.
+		\langle A\rangle = \frac{\mathrm{Tr}(Ae^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}.
 	\end{align*}
 	In particular, $e^{-\beta H}$ is a trace class operator.
 \end{proposition}
@@ -318,14 +369,15 @@ We refer to the appendix for the definition of trace class operators and point o
 operators are compact, which makes $e^{-\beta H}$ a very well-behaved operator in computations.
 
 \subsection{Canonical and grand canonical pictures}
+\label{canonical-grand-canonical}
 So far we talked about a generic (separable) Hilber space, but for the most part we will deal
 with Hilbert spaces constructed in a specific way: tensor products of Hilbert spaces, which
-are an especially useful contruction as they are the natural spaces in which to set physical
-systems composed of multiple particles. In particular, we are interested in two special
-subspaces of a tensor product that encode the \textit{statistics} of the particles considered,
-a property that describes indistinguishabilty between particles in a quantum system. Once again
-we point to Appendix \ref{appendix:direct-sum-tensor-product} for a discussion on the
-construction of tensor products (and direct sums) of Hilbert spaces.
+are the natural spaces in which to set physical systems composed of multiple degrees of
+freedom. We are particularly interested in two special subspaces of a tensor product that
+encode the \textit{statistics} of the particles considered, a property that describes
+indistinguishabilty between particles in a quantum system. Once again we point to Appendix
+(\ref{appendix:direct-sum-tensor-product}) for a discussion on the construction of tensor
+products (and direct sums) of Hilbert spaces.
 
 Consider a system of $N$ particles whose physical states belong to the spaces $\mathfrak{h}_1,
 \ldots,\mathfrak{h}_N$. The possible states of this system are described by the tensor product
@@ -343,7 +395,7 @@ and disregarding any interaction, is naturally given by
 	\label{free-hamiltonian}
 	H_N^{\mathrm{in}} = h_1 + \cdots + h_N
 \end{align}
-where
+with
 \begin{align*}
 	D(H_N^{\mathrm{in}}) = \mathrm{span}\{ \phi_1 \otimes \cdots \otimes \phi_N : \phi_i \in D(h_i), \; i=1,\ldots,N \}
 \end{align*}
@@ -382,26 +434,27 @@ which is dense in $\mathcal{H}_N$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for a
 	$\sum_{j=1}^N e_j$, the ground state energy.
 \end{proof}
 
-If we consider interactions we need to lift additional operators. For pair-wise interactions,
-although this procedure is fully generalizeable, to each pair $(i,j)$ of distinct particles
-($i \neq j$) we associate an interaction operator $W_{ij}$ on a suitable domain contained in
-$\mathfrak{h}_i \otimes \mathfrak{h}_j$. To lift this operator to $\mathcal{H}_N$ we again
-make use of the identification
+If we consider interactions we need to lift additional operators. For pair-wise interactions
+(but this procedure can be easily generalized to N-body interactions) to each pair $(i,j)$ of
+distinct particles ($i\neq j$) we associate an operator $W_{ij}$ on a suitable domain
+contained in $\mathfrak{h}_i\otimes\mathfrak{h}_j$. To lift this operator to $\mathcal{H}_N$
+we again make use of the identification
 \begin{align*}
-	W_{ij} \longmapsto \mathbbm{1} \otimes \cdots \otimes W_{ij} \otimes \cdots \otimes \mathbbm{1},
+	W_{ij}\longmapsto\mathbbm{1}\otimes\cdots\otimes W_{ij}\otimes\cdots\otimes\mathbbm{1},
 \end{align*}
 which gives a tensor product of $N-2$ identity operators and one interaction operator. Without
 specifying the correct domain we arrive at the formal way of writing the Hamiltonian of a
 system of N pair-wise interacting particles:
-\begin{align*}
+\begin{align}
+	\label{our-system}
 	H_N = H_N^{\mathrm{in}} + \sum_{1\leq i < j\leq N} W_{ij} = \sum_{j=1}^N h_j + \sum_{1\leq i<j\leq N} W_{ij}.
-\end{align*}
+\end{align}
 Requiring that particles be indistinguishable from one another means that both their internal
 energy operators and the pair-wise interactions do not depend on the specific particle
 considered. This means that
 \begin{align*}
-	&\mathfrak{h}_1 = \ldots = \mathfrak{h}_N \eqcolon \mathfrak{h};\\
-	&h_1 = \ldots = h_N \eqcolon h;\\
+	&\mathfrak{h}_1 = \ldots = \mathfrak{h}_N \eqcolon \mathfrak{h},\\
+	&h_1 = \ldots = h_N \eqcolon h,\\
 	&W_{ij} = W_{kl} \eqcolon W \quad \forall i\neq j, k\neq l.
 \end{align*}
 When lifting these operators to $\mathcal{H}_N$ we still need to specify indices that identify
@@ -411,13 +464,12 @@ the specific factor of the tensor product they act on, for example
 	\quad W_{12} = W \otimes \mathbbm{1} \otimes \cdots \otimes \mathbbm{1}.
 \end{align*}
 Indistinguishability also requires an additional property that physical states must satisfy,
-and we will now go over a heuristic explanation of what this property is. Consider the
+so let us take the time to recall a formal explanation of what this property is. Consider the
 simplest case of a system of two indistinguishable particles in the states $\psi,\phi\in
 \mathfrak{h}$. Because quantum states can be told apart only through probability amplitudes,
-if two vectors differ only by an overall phase they can be considered indistinguishable, as no
-experiment will be able to measure any difference in their statistical properties since $\vert
-\langle\phi,e^{i\theta}\phi\rangle\vert^2 = \Vert\phi\Vert^2$ no matter the phase $\theta$.
-Thus we can consider an exchange operator that flips the order in a simple tensor in
+two vectors that differ only by an overall phase can be considered indistinguishable, as
+$\vert\langle\phi,e^{i\theta}\phi\rangle\vert^2=\Vert\phi\Vert^2$ no matter the phase $\theta$.
+Therefore we can consider an exchange operator that flips the order in a simple tensor in
 $\mathfrak{h}\otimes\mathfrak{h}$
 \begin{align*}
 	\mathrm{Ex}(\phi\otimes\psi) = \psi\otimes\phi
@@ -428,7 +480,7 @@ an overall phase from their exchanged version, i.e. there must exist some $\alph
 	\mathrm{Ex}(\phi\otimes\psi) = e^{i\alpha}\phi\otimes\psi.
 \end{align*}
 But since $\mathrm{Ex}^2$ should act as the identity, as flipping two times the order of the
-particle states should yield the original state, we can conclude that
+particle states results in the original state, we can conclude that
 \begin{align*}
 	\mathrm{Ex}^2 = \mathbbm{1} \implies e^{2i\alpha} = 1 \implies \alpha = \pm 1.
 \end{align*}
@@ -502,11 +554,10 @@ The operators $P_+(H_N)$ and $P_-(H_N)$ are respectively called the \textit{boso
 \\
 This way of defining the energy of the system characterises the \textit{canonical picture},
 where the number of particles is fixed. But in statistical mechanics, allowing the number of
-particles to vary actually makes things easier, and as a byproduct also forces the
-introduction of an incredibly powerful formalism to describe quantum systems: second
-quantization. Allowing $N$ to vary leads to the definition of \textit{grand canonical picture}.
-We shall discuss the state space for a system in the grand canonical picture, which we can
-define quite easily recalling the results mentioned in Appendix \ref{appendix:direct-sum-tensor-product}.
+particles to vary can actually make things easier. Allowing $N$ to vary leads to the
+definition of the \textit{grand canonical picture}. We shall now discuss the state space for a
+system in the grand canonical picture, which we can define quite easily recalling the results
+mentioned in Appendix \ref{appendix:direct-sum-tensor-product}.
 
 \begin{definition}[Fock space]
 	For every $N\in\mathbb{N}$, let $\mathfrak{h}_1,\ldots,\mathfrak{h}_N$ be one-particle
@@ -536,9 +587,10 @@ energy), and its domain is
 Introducing indistinguishability in this picture means repeating the steps we took for the N-body
 case in each \textit{N-particle sector}, which gets us to the definition of the \textit{fermionic}
 and \textit{bosonic} Fock spaces. Given $\mathfrak{h}$ the state space for a single particle,
+these spaces are, respectively
 \begin{align*}
-	&\mathcal{F}^\mathrm{B}(\mathfrak{h}) \coloneq \bigoplus_{N=0}^\infty \bigotimes_{\mathrm{sym}}^N\mathfrak{h}\\
-	&\mathcal{F}^\mathrm{F}(\mathfrak{h}) \coloneq \bigoplus_{N=0}^\infty \bigwedge^N\mathfrak{h}
+	&\mathcal{F}^\mathrm{F}(\mathfrak{h}) \coloneq \bigoplus_{N=0}^\infty \bigwedge^N\mathfrak{h}\\
+	&\mathcal{F}^\mathrm{B}(\mathfrak{h}) \coloneq \bigoplus_{N=0}^\infty \bigotimes_{\mathrm{sym}}^N\mathfrak{h}.
 \end{align*}
 
 One of the most powerful aspects of the grand canonical picture is that all observables of the
@@ -552,7 +604,7 @@ we define operators that add or remove a single particle state $f\in\mathfrak{h}
 \end{align}
 Here, for every $f\in\mathcal{\mathfrak{h}}$, $a(f)$ is called \textit{annihilation operator}
 and $a^*(f)$ is called \textit{creation operator}. Note the very important special case where
-an annihilation operator acts on the vacuum: $a(f)|0\rangle = 0$ for all $f\in\mathcal{F}$,
+an annihilation operator acts on the vacuum: $a(f)|0\rangle = 0$ for all $f\in\mathfrak{h}$,
 i.e. annihilation operators annihilate the vacuum. To indicate an operator that could be
 either of the two, we write $a^\#(f)$. With this definition the domain would be the set of
 pure tensors, but by linearity we can extend this to the space

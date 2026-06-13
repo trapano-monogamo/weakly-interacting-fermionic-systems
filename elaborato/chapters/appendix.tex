@@ -14,8 +14,10 @@ referencing an entire course on functional analysis.
 
 \begin{definition}[Self-adjoint operators]
 	An operator on a Hilbert space $A:D(A)\subseteq\mathcal{H}\to\mathcal{H}$ is called
-	\textit{self-adjoint} if $A=A^*$. Note that this condition is stronger that being symmetric.
+	\textit{self-adjoint} if $A=A^*$.
 \end{definition}
+
+Note that this condition is stronger that being symmetric.
 
 \begin{definition}[Compact operators]
 	An operator on a Hilbert space $A:D(A)\subseteq\mathcal{H}\to\mathcal{H}$ is called
@@ -54,8 +56,8 @@ referencing an entire course on functional analysis.
 \end{itemize}
 
 \begin{definition}[Projection]
-	A bounded linear operator $P$ on a Hilbert space $\mathcal{H}$ which is symmetric, $P^*=P$,
-	and idempotent, $P^2=P$, is called a \textit{projection operator} or \textit{projector}.
+	A linear operator $P$ on a Hilbert space $\mathcal{H}$ which is self-adjoint ($P^*=P$) and
+	idempotent ($P^2=P$) is called a \textit{projection operator} or \textit{projector}.
 \end{definition}
 \begin{proposition}
 	Given a Hilbert space $\mathcal{H}$, projectors defined on $\mathcal{H}$ have the following
@@ -91,8 +93,8 @@ referencing an entire course on functional analysis.
 \end{definition}
 
 Unitary operators are of particular interest in quantum mechanics, as the property of
-preserving the inner product means that these are the natural objects to describe operatotions that need
-to preserve probability amplitudes.
+preserving the inner product means that these are the natural objects to describe operations
+that need to preserve probability amplitudes.
 
 \begin{proposition}
 	For a bounded linear operator between Hilbert spaces $U:\mathcal{H}\to\mathcal{K}$, the
@@ -112,13 +114,24 @@ three more results whose importance we will not discuss further, as it goes beyo
 of our work.
 
 \begin{theorem}[Riesz representation theorem]
-	Let $\mathcal{H}$ be a complex Hilbert space and $F:\mathcal{H}\to\mathbb{C}$ a linear
-	functional. Then $F\in\mathcal{H}^*$ if, and only if, there exists a unique $x_{\mathrm{F}}\in\mathcal{H}$
-	such that $F(x) = \langle x_{\mathrm{F}},x\rangle$ for all $x\in\mathcal{H}$. Moreover,
-	it holds that $\Vert x_{\mathrm{F}}\Vert_{\mathcal{H}} = \Vert F\Vert_{\mathcal{H}^*}$.
-	In particular, the map $x\mapsto x_{\mathrm{F}}$ defines a canonical isomorphism between
-	$\mathcal{H}$ and $\mathcal{H}^*$, i.e. Hilbert spaces are self-dual.
+	Let $\mathcal{H}$ be a complex Hilbert space. For every $x\in\mathcal{H}$ the map
+	\begin{alignat*}{1}
+		F : \mathcal{H} &\longrightarrow \mathbb{C}\\
+			y &\longmapsto F(y) \coloneq \langle x,y \rangle
+	\end{alignat*}
+	defines a continuous functional, and thus $F\in\mathcal{H}^*$. Conversely, for every $F\in
+	\mathcal{H}^*$ there exists a unique $x_F\in\mathcal{H}$ such that $F(y)=\langle x_F,y
+	\rangle$ for all $y\in\mathcal{H}$. Moreover, it holds that $\Vert x_F\Vert_{\mathcal{H}}=
+	\Vert F\Vert_{\mathcal{H}^*}$.
 \end{theorem}
+
+\begin{remark}
+	The map $J:\mathcal{H}\to\mathcal{H}^*$ that sends a vector to its uniquely identifed
+	continuous functional on $\mathcal{H}$ defines a canonical ``isomorphism" between a
+	Hilbert space and its dual, which means Hilbert spaces are self-dual. Technically $J$ is
+	not even a homomorphism since it is conjugate-linear rather than linear, and calling it an
+	isomorphism is a bit imprecise, but this does not pose any problem to us.
+\end{remark}
 
 \begin{theorem}[Spectral theorem for self-adjoint operators]
 	Let $A : \mathcal{H}\to\mathcal{H}$ be a self-adjoint operator on the Hilbert space
@@ -133,14 +146,12 @@ of our work.
 \end{theorem}
 
 \begin{remark}
-	In the case where $A$ is also compact, then the spectrum is discrete and the function $f$
-	would be the map that maps an index for the spectrum $\sigma(A)$ to an eigenvector, and we
-	could write $(M_\lambda\psi)_i = \lambda_i \psi_i$, which defines $\psi_i$ as an
-	eigenvector with eigenvalue $\lambda_i$. Another familiar case is that of the position
-	operator $X$, defined as the multiplication by the independent variable, which would read
-	as $(X\psi)(x) = x\psi(x)$. Here a value $x$ would be, with some abuse of terminology, the
-	eigenvalue of $\psi(x)$. Then, the value $\psi(x)$ is in some sense the coefficient of the
-	``vector" at position $x$.
+	In the case where $A$ is also compact, then the spectrum $\sigma(A)$ is discrete and the
+	function $f$ could be seen as mapping an index over $\sigma(A)$ to an eigenvector, and the
+	thesis would read as $(M_f\psi)_i = f_i \psi_i$, which tells us that $\psi_i$ is an
+	eigenvector with eigenvalue $f_i$. This special case makes it easier to understand this
+	version of the spectral theorem as a generalization to the case of self-adjoint operators
+	with continuous spectrum.
 \end{remark}
 
 \begin{theorem}[C*-algebra of bounded operators]
@@ -278,8 +289,8 @@ result
 		\langle (x_1,x_2),(y_1,y_2)\rangle \coloneq \langle x_1,y_1\rangle_1 + \langle x_2,y_2\rangle_2
 	\end{align*}
 	defines an inner product with respect to which the space $\mathcal{H}_1\oplus\mathcal{H}_2$
-	is complete. Thus $(\mathcal{H}_1\oplus\mathcal{H}_2,\langle\cdot,\cdot\rangle)$ is called
-	a direct sum of Hilbert spaces.
+	is complete. Thus $(\mathcal{H}_1\oplus\mathcal{H}_2,\langle\cdot,\cdot\rangle)$ is a Hilbert
+	space.
 \end{proposition}
 
 We can extend this definition of direct sum to the case where we consider a countable set of
@@ -329,15 +340,17 @@ spaces.
 	\begin{align*}
 		\langle x_1\otimes x_2, y_1\otimes y_2\rangle \coloneq \langle x_1,y_1\rangle_1 \langle x_2,y_2\rangle_2
 	\end{align*}
-	defines an inner product on $\mathcal{H}_1\otimes\mathcal{H}_2$. Since
-	$(\mathcal{H}_1\otimes\mathcal{H}_2,\langle\cdot,\cdot\rangle)$ is not necessarily complete,
-	we call its (unique) metric completion $(\mathcal{H}_1\tilde\otimes\mathcal{H}_2,\langle\cdot,\cdot\rangle)$
-	the tensor product of Hilbert spaces, which becomes a Hilbert space.
+	defines an inner product on $\mathcal{H}_1\otimes\mathcal{H}_2$. The 
+	metric completion $(\mathcal{H}_1\tilde\otimes\mathcal{H}_2,\langle\cdot,\cdot\rangle)$,
+	unique up to isomorphism, is a Hilbert space, called tensor product of Hilbert spaces.
 \end{proposition}
 
 \begin{remark}
-	With a slight abuse of notation, we still denote $\mathcal{H}_1\otimes\mathcal{H}_2$ the 
-	tensor product of the Hilbert spaces $\mathcal{H}_1\otimes\mathcal{H}_2$.
+	Note that, in general, the metric completion is required, as the algebraic tensor product
+	by itself may not be complete with respect to the norm induced by the inner product defined
+	in the proposition. However, with a slight abuse of notation we still denote
+	$\mathcal{H}_1\otimes\mathcal{H}_2$ the tensor product of the Hilbert spaces
+	$\mathcal{H}_1$ and $\mathcal{H}_2$.
 \end{remark}
 
 In the case where $\mathcal{H}_1$ and $\mathcal{H}_2$ are separable Hilbert spaces, we can
@@ -371,10 +384,10 @@ orthonormal systems forms a complete orthonormal system for the tensor product.
 	\end{align*}
 \end{remark}
 
-Lastly, we can very naturally define operators on a tensor product starting from operators on
-the factors. Indeed, let $A:D(A)\subseteq\mathcal{H}_1\to\mathcal{H}_1$ and
-$B:D(B)\subseteq\mathcal{H}_2\to\mathcal{H}_2$ be operators on the respective Hilbert space,
-then we can define their tensor product as
+Lastly, we may define operators on a tensor product starting from operators on the factors.
+Indeed, let $A:D(A)\subseteq\mathcal{H}_1\to\mathcal{H}_1$ and $B:D(B)\subseteq\mathcal{H}_2
+\to\mathcal{H}_2$ be operators on the respective Hilbert space, then we can define their
+tensor product as
 \begin{align*}
 	(A\otimes B)(\phi\otimes\psi) \coloneq (A\phi)\otimes(B\psi)
 \end{align*}
