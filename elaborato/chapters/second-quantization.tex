@@ -103,33 +103,6 @@ definition, and will therefore need to be specified case by case.
 	and we write $A \subseteq B$.
 \end{definition}
 
-\begin{definition}[Symmetric operators and observables]
-	An operator $A$ is said to be \textit{symmetric} if $\langle\psi,A\phi\rangle=\langle
-	A\psi,\phi\rangle$ for all $\phi,\psi\in D(A)$.
-	\\
-	An \textit{observable} is a physical quantity represented by a symmetric operator on the
-	Hilbert space of physical states.
-	\\
-	Given $A$ a symmetric operator and $\psi\in D(A)$, the \textit{expectation of $A$ on $\psi$}
-	is the quantity
-	\begin{align*}
-		\langle A\rangle_\psi \coloneq \langle\psi,A\psi\rangle.
-	\end{align*}
-\end{definition}
-
-\begin{remark}
-	The symmetry condition $\langle\psi,A\phi\rangle = \langle A\psi,\phi\rangle$ for all
-	$\phi,\psi\in\mathcal{H}$ is equivalent to the condition $\langle\psi,A\psi\rangle\in\mathbb{R}$
-	for all $\psi\in\mathcal{H}$, which in turn is equivalent to asking that expectation
-	values of observables must be real numbers.
-\end{remark}
-
-\begin{remark}
-	We can introduce a partial ordering on symmetric operators. If $A$ and $B$ are symmetric
-	operators defined on a common domain $D\subseteq\mathcal{H}$, then we say that $A<B$ if
-	$\langle\phi,A\phi\rangle < \langle\phi,B\phi\rangle$ for all $\phi\in D$.
-\end{remark}
-
 \begin{definition}[Bounded operator]
 	A densely defined operator $A$ is said to be \textit{bounded} if it is continuous with
 	respect to the norm topology, and \textit{unbounded} if it is not bounded.
@@ -184,9 +157,24 @@ will suffice to define the image of only the basis elements.
 	\begin{align*}
 		\langle A^*\phi,\psi \rangle = \langle \phi, A\psi \rangle \quad \forall \psi\in D(A).
 	\end{align*}
-	If $A^*=A$ then $A$ is said to be \textit{self-adjoint}, and \textit{Hermitian} if both
-	operators are defined on the entire Hilbert space.
+	If $A^*=A$ then $A$ is said to be \textit{self-adjoint}.
 \end{definition}
+
+\begin{definition}[Observable]
+	A \textit{physical observable} (or simply \textit{observable}) is a self-adjoint operator
+	$A$ on the Hilbert space $\mathcal{H}$ of physical states. Given a normalized vector $\psi
+	\in\mathcal{H}$ we define the \textit{expectation of $A$ on $\psi$} as
+	\begin{align*}
+		\langle A\rangle_\psi \coloneq \langle\psi,A\psi\rangle.
+	\end{align*}
+\end{definition}
+
+\begin{remark}
+	From the self-adjointness of $A$ we have that  $\langle\psi,A\phi\rangle=\langle A\psi,
+	\phi\rangle$ for all $\phi,\psi\in\mathcal{H}$, which is equivalent to saying that
+	$\langle\psi,A\psi\rangle\in\mathbb{R}$ for all $\psi\in\mathcal{H}$, i.e. expectation
+	values of $A$ must be real numbers.
+\end{remark}
 
 \begin{proposition}
 	The adjoint of a bounded operator is a bounded operator.
@@ -216,23 +204,25 @@ will suffice to define the image of only the basis elements.
 	which implies that $A^*$ is bounded.
 \end{proof}
 
-\begin{proposition}
-	An operator $A$ is symmetric if, and only if, $A\subseteq A^*$.
-\end{proposition}
+\begin{remark}
+	We can introduce a partial ordering on self-adjoint operators. If $A$ and $B$ are
+	self-adjoint and defined on a common domain $D\subseteq\mathcal{H}$, then we say that $A<B$
+	if $\langle\phi,A\phi\rangle < \langle\phi,B\phi\rangle$ for all $\phi\in D$.
+\end{remark}
 
 We point to Appendix \ref{appendix:special-operators} for a discussion on the most important
-definitions and properties of special types of operators, and end the introduction of the
-basic objects used here. A key role in the discussion of quantum systems is played by the
-space of square integrable functions on $\mathbb{R}^n$
+definitions and properties of special types of operators, and end here the introduction of the
+basic objects used. A key role in the discussion of quantum systems is played by the space of
+square integrable functions on $\mathbb{R}^n$
 \begin{align*}
 	&L^2(\mathbb{R}^n) = \left\{ f : \mathbb{R}^n \to \mathbb{C}
 	\;\Big| \left(\int_{\mathbb{R}^n} \dx x\, |f(x)|^2\right)^{1/2} < \infty \right\}\\
 	&\mathrm{with}\quad\langle f,g\rangle \coloneq \int_{\mathbb{R}^n}\dx x \overline{f(x)}g(x),
 \end{align*}
-whose elements are the wavefunctions of a physical system. Its relevance stands from the
-fact, that in this space, the squared norm of a state $\psi\in L^2(\mathbb{R}^n)$ makes it
-possible to write probability amplitudes as integrals of a \textit{probability density},
-given as the point-wise modulus squared of the wave function: $\vert\psi(x)\vert^2$.
+whose elements are often called wavefunctions. Its relevance stands from the fact, that in
+this space, the squared norm of a state $\psi\in L^2(\mathbb{R}^n)$ makes it possible to write
+probability amplitudes as integrals of a \textit{probability density}, given as the point-wise
+modulus squared of the wave function: $\vert\psi(x)\vert^2$.
 \\
 Going back to the definition of expectation value of an observable, we can now make an important
 generalization. Suppose the system has probability $p_i$ of being prepared in some initial
@@ -287,16 +277,16 @@ This argument brings us to a general definition of a quantum state. Recall that 
 	\end{alignat*}
 \end{definition}
 
-There is a bijection between the set of mixed states (pure states are just a special case) and
-the set of quantum states (i.e. a subset of the dual of $\mathfrak{B}(\mathcal{H})$). We are
-interested in the state the system is found in when at thermal equilibrium, and from statistical
-mechanics we know this state is such that the energy spectrum is populated according to
-Boltzmann's distribution $p(\epsilon)=e^{-\beta\epsilon}/Z$. With the aforementioned bijection
-we may identify such a state \textit{at a given temperature} with the mixture $\{(e^{-\beta
-\epsilon_j}/Z,\psi_j)\}$ if $\psi_j$ are energy eigenstates. To make this precise we need to
-properly define the foundamental thermodynamic quantities required, which also brings us to
-the main focus of our work: the free energy, which we will define starting from the known
-thermodynamic relation $F=U-TS$.
+There is a correspondence between the set of mixed states (pure states are just a special case)
+and the set of quantum states (i.e. a subset of the dual of $\mathfrak{B}(\mathcal{H})$). We
+are interested in the state the system is found in when at thermal equilibrium, and from
+statistical mechanics we know this state is such that the energy spectrum is populated
+according to Boltzmann's distribution $p(\epsilon)=e^{-\beta\epsilon}/Z$. With the
+aforementioned correspondence we may identify such a state \textit{at a given temperature}
+with the mixture $\{(e^{-\beta\epsilon_j}/Z,\psi_j)\}$ if $\psi_j$ are energy eigenstates. To
+make this precise we need to properly define the foundamental thermodynamic quantities required,
+which also brings us to the main focus of our work: the free energy, which we will define
+starting from the known thermodynamic relation $F=U-TS$.
 
 \begin{definition}[Von Neumann entropy]
 	In the same notation used so far, the \textit{Von Neumann entropy} of a state $\langle
@@ -348,8 +338,9 @@ writing $\langle\cdot\rangle_{\beta,H}$.
 	A system composed of a single free particle with state space $L^2(\mathbb{R})$ and
 	governed by the Hamiltonian $H=-\nabla^2$ is stable but it does not admit a ground state,
 	and $F(T) = -\infty$ for all $T>0$. However, this Hamiltonian does admit a ground state
-	when restricting the state space to wavefunctions on a compact interval. The stability of
-	free particles is essential, as will become clear in the third chapter.
+	when restricting the state space to wavefunctions on a compact interval with periodic
+	boundary conditions. The stability of free particles is essential, as will become clear in
+	the third chapter.
 \end{remark}
 
 \begin{proposition}
@@ -371,11 +362,11 @@ operators are compact, which makes $e^{-\beta H}$ a very well-behaved operator i
 \subsection{Canonical and grand canonical pictures}
 \label{canonical-grand-canonical}
 So far we talked about a generic (separable) Hilber space, but for the most part we will deal
-with Hilbert spaces constructed in a specific way: tensor products of Hilbert spaces, which
-are the natural spaces in which to set physical systems composed of multiple degrees of
-freedom. We are particularly interested in two special subspaces of a tensor product that
-encode the \textit{statistics} of the particles considered, a property that describes
-indistinguishabilty between particles in a quantum system. Once again we point to Appendix
+with Hilbert spaces constructed in a specific way: tensor products, which are the natural
+spaces in which to set physical systems composed of multiple degrees of freedom. We are
+particularly interested in two special subspaces of a tensor product that encode the
+\textit{statistics} of the particles considered, a property that describes indistinguishabilty
+between particles in a quantum system. Once again we point to Appendix
 (\ref{appendix:direct-sum-tensor-product}) for a discussion on the construction of tensor
 products (and direct sums) of Hilbert spaces.
 
@@ -436,15 +427,17 @@ which is dense in $\mathcal{H}_N$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for a
 
 If we consider interactions we need to lift additional operators. For pair-wise interactions
 (but this procedure can be easily generalized to N-body interactions) to each pair $(i,j)$ of
-distinct particles ($i\neq j$) we associate an operator $W_{ij}$ on a suitable domain
-contained in $\mathfrak{h}_i\otimes\mathfrak{h}_j$. To lift this operator to $\mathcal{H}_N$
-we again make use of the identification
+distinct particles ($i\neq j$) we associate an operator $W_{ij}$ on a suitable domain. To lift
+this operator, consider the vectors $\phi_i\in\mathfrak{h}_i$ and identify $W_{ij}$ with the
+operator on $\mathcal{H}_N$ that acts as
 \begin{align*}
-	W_{ij}\longmapsto\mathbbm{1}\otimes\cdots\otimes W_{ij}\otimes\cdots\otimes\mathbbm{1},
+	W_{ij}(\phi_1\otimes\cdots\otimes\phi_i\otimes\cdots\otimes\phi_j\otimes\cdots\otimes\phi_N)
+	= \phi_1\otimes\cdots\otimes\psi_i\otimes\cdots\otimes\psi_j\otimes\cdots\otimes\phi_N
 \end{align*}
-which gives a tensor product of $N-2$ identity operators and one interaction operator. Without
-specifying the correct domain we arrive at the formal way of writing the Hamiltonian of a
-system of N pair-wise interacting particles:
+in the case where $W_{ij}\phi_i\otimes\phi_j = \psi_i\otimes\psi_j$ (and express the image as
+a sum of simple tensors in the case where it is not factorizable as one). Without specifying
+the correct domain we arrive at the formal way of writing the Hamiltonian of a system of N
+pair-wise interacting particles:
 \begin{align}
 	\label{our-system}
 	H_N = H_N^{\mathrm{in}} + \sum_{1\leq i < j\leq N} W_{ij} = \sum_{j=1}^N h_j + \sum_{1\leq i<j\leq N} W_{ij}.
@@ -456,12 +449,6 @@ considered. This means that
 	&\mathfrak{h}_1 = \ldots = \mathfrak{h}_N \eqcolon \mathfrak{h},\\
 	&h_1 = \ldots = h_N \eqcolon h,\\
 	&W_{ij} = W_{kl} \eqcolon W \quad \forall i\neq j, k\neq l.
-\end{align*}
-When lifting these operators to $\mathcal{H}_N$ we still need to specify indices that identify
-the specific factor of the tensor product they act on, for example
-\begin{align*}
-	h_1 = h \otimes \mathbbm{1} \otimes \cdots \otimes \mathbbm{1},
-	\quad W_{12} = W \otimes \mathbbm{1} \otimes \cdots \otimes \mathbbm{1}.
 \end{align*}
 Indistinguishability also requires an additional property that physical states must satisfy,
 so let us take the time to recall a formal explanation of what this property is. Consider the
@@ -485,10 +472,11 @@ particle states results in the original state, we can conclude that
 	\mathrm{Ex}^2 = \mathbbm{1} \implies e^{2i\alpha} = 1 \implies \alpha = \pm 1.
 \end{align*}
 The sign $\alpha=\pm1$ is what determines the statistics of the two identical particles:
-\textit{bosonic} (+) and \textit{fermionic} (-). Although we will only focus on
-explicit calculations in the fermionic case, the statistical differences between bosons
-(particles that follow bosonic statistics) and fermions (particles that follow fermionic
-statistics) can be huge and have extremely deep physical consequences.
+(+) for \textit{bosons} and (-) for \textit{fermions}. Generalizing to the case of $N$
+identical particles (of the same statistics) means defining physical states as those that
+belong to the $+1$ or $-1$ joint eigenspaces of \textit{all} the exchange operators between
+two of the $N$ particles, i.e. the subspace of completely symmetric or completely
+anti-symmetric tensors respectively.
 
 We will now make precise the notion of bosonic and fermionic physical states. On the space
 $\mathcal{H}_N$ we can define a natural action for the group of permutations $S_N$. Indeed, we
@@ -540,9 +528,9 @@ projections.
 \begin{remark}
 	If $\mathrm{dim}(\mathfrak{h}) < N$ then $\bigwedge^N\mathfrak{h} = \{0\}$,
 	i.e. the anti-symmetrization of $N$ vectors in a space of dimension less than $N$ is always
-	the null vector. This is especially important because physical states of fermionic systems
-	live in the anti-symmetric tensor product, and if the Hilbert space of a single particle
-	is finite-dimensional the allowed number of particles will be finite.
+	the null vector. Thus, if the Hilbert space of a single fermionic particle is
+	finite-dimensional, the allowed number of particles in the canonical and grand canonical
+	pictures will be finite.
 \end{remark}
 
 With the restrictions we put on the N-body Hamiltonian, it is clear that $H_N$ maps the spaces
@@ -554,10 +542,8 @@ The operators $P_+(H_N)$ and $P_-(H_N)$ are respectively called the \textit{boso
 \\
 This way of defining the energy of the system characterises the \textit{canonical picture},
 where the number of particles is fixed. But in statistical mechanics, allowing the number of
-particles to vary can actually make things easier. Allowing $N$ to vary leads to the
-definition of the \textit{grand canonical picture}. We shall now discuss the state space for a
-system in the grand canonical picture, which we can define quite easily recalling the results
-mentioned in Appendix \ref{appendix:direct-sum-tensor-product}.
+particles to vary can actually make things easier. Allowing $N$ to vary defines the
+\textit{grand canonical picture}, and we shall now discuss its state space.
 
 \begin{definition}[Fock space]
 	For every $N\in\mathbb{N}$, let $\mathfrak{h}_1,\ldots,\mathfrak{h}_N$ be one-particle
@@ -570,7 +556,7 @@ mentioned in Appendix \ref{appendix:direct-sum-tensor-product}.
 	\textit{vacuum state} and often denoted $|0\rangle$, $|\Omega\rangle$ or $\Omega$.
 \end{definition}
 
-On this space, the energy operator is naturally given by the sum of all the possible N-body
+On this space, the energy operator is naturally given by the sum of all possible N-body
 Hamiltonians:
 \begin{align*}
 	H = \bigoplus_{N=0}^\infty H_N,\quad\text{with }
@@ -637,7 +623,7 @@ Once again we introduce indistinguishability into the picture. Looking at the de
 these operators, it is clear that if a state $\Psi_N\in D(a^\#(f))$ is completely symmetric
 or completely anti-symmetric then applying an annihilation operator produces a state that is
 still completely symmetric or anti-symmetric (as $\Psi_N$ can be written as a linear
-combination of all $N!$ permutations of $N$ states and thus $a(f)$ removes all of these states
+combination of all $N!$ permutations of $N$ states and thus $a(f)$ removes every particle
 exactly once), but applying a creation operator does introduces a state that is not yet
 accounted for in the (anti-)symmetrization. We then define \textit{bosonic (+)} and
 \textit{fermionic (-)} creation/annihilation operators as the projection onto the correct
@@ -647,13 +633,13 @@ subspaces:
 \end{align*}
 
 \begin{remark}
-	Bosonic and fermionic creation/annihilation operators are still densely defined and still
-	formally adjoint to one another (within their respective statistics).
+	Bosonic and fermionic creation/annihilation operators are still densely defined and
+	adjoints of one another (within their respective statistics).
 \end{remark}
 
 \begin{remark}
-	The map $\mathfrak{h} \ni f \mapsto a^*_\pm(f)$ is linear but
-	$\mathfrak{h} \ni f \mapsto a_\pm(f)$ is conjugate linear.
+	The map $\mathfrak{h}\ni f\mapsto a^*_\pm(f)$ is linear but $\mathfrak{h}\ni f\mapsto
+	a_\pm(f)$ is conjugate linear.
 \end{remark}
 
 \begin{remark}
@@ -685,10 +671,8 @@ common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$.
 \end{proof}
 
 \begin{remark}
-	A crucial point, that greatly simplifies the treatment of our system in terms of how
-	well-behaved the operators we are going to use are, is that fermionic creation/annihilation
-	operators are bounded. Let $f\in\mathfrak{h}$, then it is clear that for all normalized
-	$\Psi\in D(a(f))$ it holds that
+	Fermionic creation/annihilation operators are bounded. To see this, let $f\in\mathfrak{h}$,
+	it is clear that for all normalized $\Psi\in D(a(f))$ it holds that
 	\begin{align*}
 		\Vert a_-(f)\Psi\Vert^2 &= \langle\Psi,a^*_-(f)a_-(f)\Psi\rangle
 		= -\langle\Psi,a_-(f)a^*_-(f)\Psi\rangle + \langle\Psi,\{a_-(f),a^*_-(f)\}\Psi\rangle \\
@@ -698,23 +682,20 @@ common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$.
 	$f\in\mathfrak{h}$. Similarly for $a^*_-(f)$.
 \end{remark}
 
-An important quantity we will come back to shortly is the number density operator. Given
-$u \in \mathfrak{h}$ a unit vector, $\bigotimes^N u$ is an eigenvector with eigenvalue
-$N$ for the operator $a^*(u)a(u)$, which means this operator ``counts" how many times
-a single-particle state is present in a state in $\mathcal{F}$. This is useful when
-considering the occupation number basis for a bosonic or fermionic Fock space, with the 
-important distinction that bosonic modes can have arbitrary occupation number, while fermionic
-modes can only have occupation 0 or 1. Pauli's exclusion principle is realized in quantum
-mechanics exactly by the antisymmetrization of fermionic states, as, given two one-particle
-states $\phi,\psi\in\mathcal{H}\setminus\{0\}$, their antisymmetrization
-$\phi\otimes\psi - \psi\otimes\phi$ is not null if, and only if, $\phi\neq\psi$.
+An important quantity we will come back to shortly is the number density operator. Given $u\in
+\mathfrak{h}$ a unit vector, $\bigotimes^N u$ is an eigenvector with eigenvalue $N$ for the
+operator $a^*(u)a(u)$, which means this operator ``counts" how many copies of a single-particle
+state compose a vector in $\mathcal{F}$. This is useful when considering the occupation number
+basis for a bosonic or fermionic Fock space, with the important distinction that bosonic modes
+can have arbitrary occupation number, while fermionic modes can only have occupation 0 or 1.
+The last statement is the content of Pauli's exclusion principle.
 
 \begin{proposition}
 	\label{occupation-number-basis}
 	Let $u_1,\ldots,u_r\in\mathfrak{h}$ be unit vectors and $\mathcal{H}_{n_1,\ldots,n_r}$
 	the joint eigenspaces of the operators
 	$a^*_\pm(u_1)a_\pm(u_1),\ldots,a^*_\pm(u_r)a_\pm(u_r)$, then the fermionic and bosonic
-	Fock spaces can be decomposed as direct sums of their joint eigenspaces. Indeed:
+	Fock spaces can be decomposed as direct sums of such eigenspaces:
 	\begin{align*}
 		&\mathcal{F}^\mathrm{B}(\mathfrak{h}) =
 		\bigoplus_{n_1=0}^\infty\cdots\bigoplus_{n_r=0}^\infty\mathcal{H}_{n_1,\ldots,n_r}\\
@@ -723,9 +704,9 @@ $\phi\otimes\psi - \psi\otimes\phi$ is not null if, and only if, $\phi\neq\psi$.
 	\end{align*}
 \end{proposition}
 \begin{proof}
-	We'll prove the fermionic case, with $\mathrm{dim}(\mathfrak{h})=M<\infty$ and $r=M$,
-	as this provides the useful fermionic occupation number basis, which will be of great
-	help to us later. Given $\{\phi_1,\ldots,\phi_M\}$ an orthonormal basis for
+	We will only prove the fermionic case, with $\mathrm{dim}(\mathfrak{h})=M<\infty$ and
+	$r=M$, as this provides the useful fermionic occupation number basis, which will be of
+	great help to us later. Given $\{\phi_1,\ldots,\phi_M\}$ an orthonormal basis for
 	$\mathfrak{h}$, and calling $N_j = a^*_-(\phi_j)a_-(\phi_j) = a^*_ja_j$, we can prove that
 	these number operators are commuting projections. These operators are indeed self-adjoint, as
 	\begin{align*}
@@ -772,12 +753,14 @@ $\phi\otimes\psi - \psi\otimes\phi$ is not null if, and only if, $\phi\neq\psi$.
 	The case where $\mathfrak{h}$ is infinite-dimensional is not much different, and even then
 	we can always choose a finite set of $M$ independent number operators to obtain a
 	decomposition into a direct sum of $M$ (possibly infinite-dimensional) joint eigenspaces.
-	But, as will be made clear later on, we will put a UV cutoff on our system and this will
-	reduce the allowed momenta of a particle to a finite set. Having then a finite
-	one-particle state space will make our life much easier, as we can make use of the finite
-	basis given by the eigenvectors
-	$\{\vert\boldsymbol{n}\rangle = \vert n_1\rangle\otimes\cdots\otimes\vert n_M\rangle:n_i\in\{0,1\}\;\forall i=1,\ldots,M\}$,
-	with eigenvalues given by the occupation of the $M$ independent modes.
+	But because we will put a UV cutoff on our system the allowed momenta will form a finite
+	set, then the one-particle Hilbert space will be finite dimensional and the above
+	decomposition will be realized by choosing the following basis for the fermionic Fock space:
+	\begin{align*}
+		\{\vert\boldsymbol{n}\rangle = \vert n_1\rangle\otimes\cdots\otimes\vert n_M\rangle
+		:n_i\in\{0,1\}\;\forall i=1,\ldots,M\}
+	\end{align*}
+	with eigenvalues $n_i$ given by the occupation of the $M$ independent modes.
 \end{remark}
 
 We can now come back to a statement that we previously used as motivation for the introduction
@@ -811,7 +794,7 @@ out to study, but this procedure can be generalized to any N-body operator.
 	\end{align*}
 	where the indices $\alpha$ and $\beta$ are removed by using the completeness of the basis
 	$\{u_\alpha\}_{\alpha=1}^\infty$, and $h$ can be moved on either side of the inner products
-	as it is a symmetric operator with $f,g\in D(h)$ and $u_\alpha\in D(h)$ for all $\alpha$.
+	as it is self-adjoint with $f,g\in D(h)$ and $u_\alpha\in D(h)$ for all $\alpha$.
 	Moving onto $N$-fold pure tensors, let $f_1,\ldots,f_N\in D(h)$ for some $N\geq1$ and
 	consider the action of $a^*(u_\alpha)a(u_\beta)$ on their tensor product
 	\begin{align*}
@@ -823,8 +806,8 @@ out to study, but this procedure can be generalized to any N-body operator.
 		= N h_1
 	\end{align*}
 	as quadratic form on finite linear combinations of pure tensor products of elements in $D(h)$.
-	Recall the definition of the projections $P_\pm$ from equation \ref{eq:projections}, then
-	it is clear that
+	Recall the definition of the projections $P_\pm$ from Equation (\ref{eq:projections}),
+	then it is clear that
 	\begin{align*}
 		P_\pm Nh_1P_\pm = P_\pm\sum_{j=1}^N h_jP_\pm = \sum_{j=1}^N h_jP_\pm
 	\end{align*}
@@ -842,18 +825,16 @@ out to study, but this procedure can be generalized to any N-body operator.
 \begin{remark}
 	Another way to lift an operator $U$ to the Fock space is multiplicatively as
 	$\bigoplus_{N=0}^\infty\bigotimes^N U$, and this plays an important role in the discussion
-	of symmetries. Given a Lie group (although this discussion can be somewhat generalized to
-	groups that are not Lie groups) and a unitary representation $\gamma$, then $\dx \gamma$
-	defines a representation of its associated Lie algebra as hermitian operators. One can
-	then define a map $\Gamma$ that lifts the representation $\gamma$ multiplicatively to the
-	Fock space, and this induces again another representation $\dx\Gamma$ which now lifts the
-	representation $\dx\gamma$ additively to the Fock space. One can show that $\Gamma$ indeed
-	defines a representation, and this highlights how the two ways of lifting an operator to a
-	Fock space respect two different algebraic structures (at least in this case where we
-	discuss groups of symmetries of a system): a multiplicative (group) and a linear
-	(algebra) structure. Given a unitary operator $U$ on $\mathfrak{h}$ we can call
-	$\Gamma(U)$ its multiplicative representation on the Fock space, and given a symmetric
-	operator $A$ we can call $\dx\Gamma(A)$ its additive representation on the Fock space.
+	of symmetries. Given a Lie group and a unitary representation $\gamma$ on some Hilbert
+	space, $\dx \gamma$ defines a representation of its associated Lie algebra as Hermitian
+	operators. One can then define a map $\Gamma$ that lifts the representation $\gamma$
+	multiplicatively to the Fock space, and this induces yet another map $\dx\Gamma$ which
+	lifts the representation $\dx\gamma$ additively to the Fock space. In general, given a
+	unitary operator $U$ on $\mathfrak{h}$ we may call $\Gamma(U)=\bigoplus_{N=0}^\infty
+	\bigotimes_{j=1}^N U_j$ its multiplicative representation on $\mathcal{F}^{\mathrm{F,B}}(
+	\mathfrak{h})$, and given a self-adjoint operator $A$ we may call $\dx\Gamma(A)=
+	\bigoplus_{N=0}^\infty\sum_{j=1}^N A_j$ its additive representation on $\mathcal{F}^{
+	\mathrm{F,B}}(\mathfrak{h})$.
 \end{remark}
 
 \begin{remark}
@@ -868,11 +849,10 @@ out to study, but this procedure can be generalized to any N-body operator.
 	creation/annihilation \textit{distributions} as objects that formally create/annihilate
 	states completely localized at one point in space. If we called $|x\rangle$ an
 	``eigenstate" (in a generalized sense that we will not discuss here) of the position
-	operator with eigenvalue $x$, then the number density would be written as
-	$\rho(x) = a^*_\pm(|x\rangle)a_\pm(|x\rangle)$ and the total number of particles would
-	turn into a very familiar expression: $\mathcal{N} = \int_{\mathbb{R}^n} \dx x\,\rho(x)$,
-	but to make sense of these objects we would need tools that go beyond the scope of our
-	work.
+	operator with eigenvalue $x$, then the number density would be $\rho(x)=a^*_\pm(|x\rangle)
+	a_\pm(|x\rangle)$ and the total number of particles would be written in a familiar way:
+	$\mathcal{N} = \int_{\mathbb{R}} \dx x\,\rho(x)$, but to make sense of these objects one
+	needs tools that go beyond the scope of our work.
 \end{remark}
 
 \begin{theorem}[2nd quantization of 2-body operator]
@@ -933,8 +913,8 @@ out to study, but this procedure can be generalized to any N-body operator.
 
 It is clear from our discussion of the second quantization of an operator, that expectation
 values of any observable will inevitably reduce to expectation values of products of
-creation and annihilation operators. An important result that we will discuss in the section
-after this one states that -- under appropriate conditions which are not at all obvious -- the
+creation and annihilation operators. An important result that we will discuss in the next
+section states that -- under appropriate conditions which are not at all obvious -- the
 expectation of an observable can be written in terms of expectations of operators of the form
 $a_\pm^\#a_\pm^\#$. We therefore begin the study of these kinds of expectations, starting from
 the following definition.
@@ -1129,11 +1109,7 @@ Hilbert space was chosen. It is, however, quite natural to ask what happens - am
 things - when a different basis is chosen, or when the Hamiltonian contains terms of the form
 $a^*(f)a^*(g)$ and $a(f)a(g)$. These, and other questions, can be answered by appropriately
 generalizing the one-particle density matrix, and the aim of this section is precisely to
-introduce this generalization. Our study case doesn't include terms of the
-above form, i.e. it only contains number-preserving interactions, but when going over Wick's
-theorem it will become quite clear just how powerful this generalization truly is, as it would
-eventually make it much easier to study the same problem through different physical lenses,
-using quasi-particle states, and also study much more general systems.
+introduce this generalization.
 
 \begin{definition}[Generalized 1pdm]
 	\label{generalized-1pdm}
@@ -1146,11 +1122,11 @@ using quasi-particle states, and also study much more general systems.
 		\langle f_1\oplus Jg_1, \Gamma_\Psi f_2\oplus Jg_2\rangle_{\mathfrak{h}\oplus\mathfrak{h}^*}
 		= \langle\Psi, (a^*_\pm(f_2)+a_\pm(g_2))(a_\pm(f_1)+a^*_\pm(g_1))\Psi\rangle_{\mathcal{F}^{\mathrm{F,B}}}
 	\end{align*}
-	where $J$ is the canonical isomorphism between $\mathfrak{h}$ and $\mathfrak{h}^*$.
+	where $J$ is the canonical isomorphism between $\mathfrak{h}$ and $\mathfrak{h}^*$ (see
+	Appendix (\ref{appendix:special-operators}).
 \end{definition}
 
-It will be useful to recall that $J$ acts as $Jg(f)=\langle g,f \rangle$, and its inverse is
-also its adjoint, i.e. $J^{-1} = J^*$. Given the normalized vector $\Psi$ we may write
+Given the normalized vector $\Psi$ we may write
 $\Gamma_\Psi$ in block-matrix form by using an auxiliary operator,
 $\alpha_\Psi : \mathfrak{h}^* \to \mathfrak{h}$, that ``measures" how far the state $\Psi$ is
 from having a fixed particle number. The operator is defined by
@@ -1179,8 +1155,8 @@ With this operator we come to the following lemma.
 \end{lemma}
 \begin{proof}
 	It suffices to prove that, as a quadratic form on $\mathfrak{h}\oplus\mathfrak{h}^*$,
-	this matrix reproduces exactly Definition \ref{generalized-1pdm}. Let $f_1,g_1,f_2,g_2\in\mathfrak{h}$,
-	then it holds that
+	this matrix reproduces exactly Definition (\ref{generalized-1pdm}). Let $f_1,g_1,f_2,g_2
+	\in\mathfrak{h}$, then it holds that
 	\begin{align*}
 		&\begin{pmatrix} f_1 & Jg_1 \end{pmatrix}
 		\begin{pmatrix} \gamma_\Psi & \alpha_\Psi \\ \pm J\alpha_\Psi J & \mathbbm{1}\pm J\gamma_\Psi J^* \end{pmatrix}
@@ -1248,13 +1224,11 @@ need to define the generalized creation/annihilation operators:
 	need not be zero.
 \end{remark}
 
-\begin{remark}
-	The special case where $F=f\oplus0$ reads $A^\#_\pm(F) = a^\#_\pm(f)$.
-\end{remark}
-
-With these operators, the generalized one-particle density matrix can be written in a familiar
-form. Given, as usual, $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ normalized and
-for all $F_1,F_2\in\mathfrak{h}\oplus\mathfrak{h}^*$ we have
+The special case where $F=f\oplus0$ reduces to the usual creation/annihilation operators because
+$A^\#_\pm(f\oplus0)=a^\#_\pm(f)$, which means that this is by all means an extension of the
+theory we developed so far. With these operators, the generalized one-particle density matrix
+can be written in a familiar form. Given, as usual, $\Psi\in\mathcal{F}^{\mathrm{F,B}}(
+\mathfrak{h})$ normalized and for all $F_1,F_2\in\mathfrak{h}\oplus\mathfrak{h}^*$ we have
 \begin{align*}
 	\langle F_1,\Gamma_\Psi F_2\rangle_{\mathfrak{h}\oplus\mathfrak{h}^*}
 	= \langle \Psi, A^*_\pm(F_1)A_\pm(F_2)\Psi\rangle
@@ -1262,10 +1236,10 @@ for all $F_1,F_2\in\mathfrak{h}\oplus\mathfrak{h}^*$ we have
 
 \subsection{Bogolubov transformations and quasi-free pure states}
 
-We can finally realize the notion of a ``change of basis" for creation/annihilation operators
-on the space $\mathfrak{h}\oplus\mathfrak{h}^*$. The following definition characterizes
-a class of isomorphisms on this space as those that, in some sense, preserve the structure
-of the generalized creation and annihilation operators.
+We can finally realize the notion of a ``change of modes" for creation/annihilation operators
+on the space $\mathfrak{h}\oplus\mathfrak{h}^*$. The following definition characterizes a class
+of isomorphisms on this space as those that, in some sense, preserve the structure of the
+generalized creation and annihilation operators.
 
 \begin{definition}[Bogolubov transformations]
 	A linear bounded isomorphism $\mathcal{V} : \mathfrak{h}\oplus\mathfrak{h}^* \to \mathfrak{h}\oplus\mathfrak{h}^*$
@@ -1305,13 +1279,13 @@ we just said:
 	\end{align}
 \end{proposition}
 
-If we take bounded linear maps $U : \mathfrak{h}\to\mathfrak{h}$ and $V : \mathfrak{h} \to\mathfrak{h}^*$
+If we take bounded linear maps $U:\mathfrak{h}\to\mathfrak{h}$ and $V:\mathfrak{h}\to\mathfrak{h}^*$
 we can finally write a Bogolubov map in block-matrix form
 \begin{align}
 	\label{bogolubov-block-matrix}
 	\mathcal{V} = \begin{pmatrix} U & J^* V J^* \\ V & JUJ^* \end{pmatrix}
 \end{align}
-and the conditions \ref{bogolubov-map-conditions} can then be read as
+and the conditions (\ref{bogolubov-map-conditions}) can then be read as
 \begin{align*}
 	\begin{cases}
 		U^*U = \mathbbm{1} \pm V^*V \\
@@ -1326,7 +1300,7 @@ states in a Fock space for which Wick's theorem will hold in its most general fo
 
 \begin{theorem}[Unitary implementability of Bogolubov maps]
 	If $\mathcal{V} : \mathfrak{h}\oplus\mathfrak{h}^* \to \mathfrak{h}\oplus\mathfrak{h}^*$
-	is a Bogolubov map of the form \ref{bogolubov-block-matrix} then there exists a unitary
+	is a Bogolubov map of the form (\ref{bogolubov-block-matrix}) then there exists a unitary
 	map
 	\begin{align*}
 		\mathbb{U}_\mathcal{V} : \mathcal{F}^{\mathrm{F,B}}(\mathfrak{h}) \to \mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})
@@ -1348,16 +1322,12 @@ superposition of states determined by the linear map $\mathcal{V}$.
 	\textcolor{red}{AAAAAAHHHHHHH}
 \end{proof}
 
-We are finally ready to discuss the most important concept in this chapter: Wick's theorem.
-This is the result that, among other things, allows us to write perturbative series as they
-are described in the next chapter, and it is motivation behind the computational tools we will
-need to introduce. Thanks to the formalism of second quantization, Wick's theorem essentially
-states that the expectation value for any observable on a special class of states is
-completely determined by the 2-point function. Moreover, since the perturbative expansion of
-a physical quantity involves a series of products of creation/annihilation operators, this
-theorem also says that such a perturbative expansion is completely determined by the 2-point
-function as well. We first give the definition for pure states and then move onto the more
-important case of mixed states and prove their version of Wick's theorem.
+We are finally ready to discuss the most important result of this chapter: Wick's theorem.
+This is what, among other things, allows us to write perturbative series in the way described
+in the next chapter, and it motivates tools we will need to introduce. The content of this
+important theorem is, concretely, that all the expectations we are interested in reduce to
+products of the 2-point function. We first look at the case of pure states and then move onto
+Gibbs states.
 
 \begin{definition}[Quasi-free pure state]
 	A vector $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ is called a \textit{quasi-free
@@ -1368,6 +1338,7 @@ important case of mixed states and prove their version of Wick's theorem.
 
 That is, a pure state is quasi-free if it is the vacuum state under an appropriate choice of
 physical modes.
+\textcolor{red}{DEFINE CONTRACTIONS TO PROVE WICK'S THEOREM.}
 
 \begin{theorem}[Wick's theorem]
 	If $\Psi$ is a quasi-free pure state and $F_1,\ldots,F_{2m}\in\mathfrak{h}\oplus\mathfrak{h}^*$
@@ -1391,29 +1362,33 @@ physical modes.
 		\}.
 	\end{align*}
 \end{theorem}
+\begin{proof}
+	The theorem is trivially true for the case $m=1$, and we will prove the case $m>1$ by
+	induction.
+\end{proof}
 
-Despite dreaming of resisting the urge to characterize \textit{something}, the mathematician
-is ultimately doomed to fail. Let us then indulge in the characterization of generalized
-2-point functions of quasi-free pure states, since they appear to be so important.
-
-\begin{proposition}
-	If $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ is a quasi-free pure state then the
-	generalized 2-point function, $\Gamma = \Gamma_\Psi$, satisfies the condition
-	\begin{align}
-		\label{two-point-function-condition}
-		\Gamma\mathcal{S}_\pm\Gamma = \mp\Gamma.
-	\end{align}
-	In particular, $\Gamma$ is a projection in the fermionic case. Conversely, if
-	$\Gamma : \mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ is a
-	positive semi-definite operator satisfying \ref{two-point-function-condition} and of the
-	form
-	\begin{align*}
-		\Gamma = \begin{pmatrix} \gamma & \alpha \\
-		\pm J\alpha J & \mathbbm{1}\pm J\gamma J^* \end{pmatrix}
-	\end{align*}
-	with $\gamma$ a trace-class operator, then there exists a quasi-free pure state
-	$\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ such that $\Gamma_\Psi = \Gamma$.
-\end{proposition}
+% Despite dreaming of resisting the urge to characterize \textit{something}, the mathematician
+% is ultimately doomed to fail. Let us then (very briefly) indulge in the characterization of
+% generalized 2-point functions of quasi-free pure states, since they appear to be so important.
+% 
+% \begin{proposition}
+% 	If $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ is a quasi-free pure state then the
+% 	generalized 2-point function, $\Gamma = \Gamma_\Psi$, satisfies the condition
+% 	\begin{align}
+% 		\label{two-point-function-condition}
+% 		\Gamma\mathcal{S}_\pm\Gamma = \mp\Gamma.
+% 	\end{align}
+% 	In particular, $\Gamma$ is a projection in the fermionic case. Conversely, if
+% 	$\Gamma : \mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ is a
+% 	positive semi-definite operator satisfying \ref{two-point-function-condition} and of the
+% 	form
+% 	\begin{align*}
+% 		\Gamma = \begin{pmatrix} \gamma & \alpha \\
+% 		\pm J\alpha J & \mathbbm{1}\pm J\gamma J^* \end{pmatrix}
+% 	\end{align*}
+% 	with $\gamma$ a trace-class operator, then there exists a quasi-free pure state
+% 	$\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ such that $\Gamma_\Psi = \Gamma$.
+% \end{proposition}
 
 We may now extend the definition of quasi-free pure states to include non-pure ones, and we
 may as well use Wick's theorem as the defining property of quasi-free expectations. Surprisingly
