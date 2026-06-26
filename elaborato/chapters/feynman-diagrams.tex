@@ -1,21 +1,255 @@
 \section{Perturbation Theory}
 
-\subsection{A toy model}
+In the previous chapter we built the second quantization formalism to be able to introduce, in
+full generality, the key property that allows to greatly simplify the computation of expectation
+values of any observable. Looking at the Gibbs state functional
+\begin{align*}
+	\langle\cdot\rangle_\beta=\frac{\mathrm{Tr}(\,\cdot\,e^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
+\end{align*}
+we can imagine expanding the exponential in the numerator as (something similar to) a power
+series, and consider each term as a contribution at a specific order. Such terms will contain
+powers of the energy operators, i.e. polynomials of creation/annihilation operators. Then
+Wick's theorem tells us that at all orders we can write the correct contribution using more
+and more complicated combinations of the 2-point function. These combinations can be easily
+found by means of the very clever diagrammatic approach first employed by Richard Feynman, and
+the aim of this chapter is to outline the inner workings of this approach in the specific case
+of a fermionic theory.
+\begin{remark}
+We will only deal with the perturbative series for thermal equilibrium states, but the idea
+behind the tools we will introduce shortly is the same as the one used for scattering
+processes in any QFT. In fact, there is a beautiful connection between the calculations done
+for such processes and the theory we build below, and it has to do with the link between
+the time evolution operator of quantum mechanics $e^{-iHt}$ and its imaginary time version
+$e^{-\tau H}$, which looks exactly like what appears in a Gibbs state.
+\end{remark}
 
-To compute expectation values of products of field operators, one can follow the Feynman
-integral approach. The aim is to define this integral without trying to integrate over
-field configurations, and in some cases this can be done rigorously by defining this special
-integral as a linear operator on commuting (bosonic) or anticommuting (fermionic) variables
-in such a way that the integral of polynomials respects Wick's rule. Bosonic field operators
-can be represented with complex variables, this way their expectation values become complex
-Gaussian integrals. Fermionic field operators on the other hand require a different
-algebraic structure.
+\subsection{A toy model: bosonic expectations}
+\label{sec:toy-model}
 
-\subsection{Bosonic expectations}
+We build the theory of Feynman diagrams, or graphs, by first looking at a simple model: a
+classical Hamiltonian given by polynomials of complex variables. We will introduce expectations
+as Gaussian integrals over such variables and show that they exactly reproduce Wick's theorem,
+in a sense that will be made clear in the next section. After that, we will interpret this
+tool as a formal way of writing expectations of bosonic (i.e. \textit{commuting}) operators,
+and then introduce an algebraic structure capable of carrying the results found to the
+fermionic (i.e. \textit{anticommuting}) case.
 
-\subsection{Grassmann Algebras and Grassmann Integrals}
+Suppose we are given a classical system of N coupled harmonic oscillators: a linear chain
+model, with Hamiltonian
+\begin{align*}
+	H_0 = \sum_{j\in\mathbb{Z}_N} \left( \frac{p_j^2}{2} + (q_{j+1} - q_j)^2 \right).
+\end{align*}
+It can be shown that there exists a canonical transformation that sends $H_0$ into
+\begin{align*}
+	H_0 = \sum_{k\in\mathcal{D}} \omega_k z_k^* z_k
+\end{align*}
+where $\omega_k = 2\sin(\frac{\pi k}{N})$ and $\mathcal{D}=\{k\in\mathbb{Z}:-\frac{N}{2}\leq k\leq \frac{N+1}{2}\}$.
+Following the classical theory, the partition function for this system is
+\begin{align*}
+	Z_0(\beta) \propto \int \left(\prod_{k\in\mathcal{D}}\dx z^*_k\,\dx z_k\right) e^{-\beta H_0}
+	= \prod_{k\in\mathcal{D}} \int\dx z^*_k\,\dx z_k e^{-\beta\omega_k z^*_k z_k}
+	\propto \prod_{k\in\mathcal{D}} \frac{1}{\beta\omega_k}
+\end{align*}
+where, recall, the integral is given by
+\begin{align*}
+	\int\dx z^*\,\dx z f(z,z^*) \coloneq 2i\int_{\mathbb{R}^2} \dx x\,\dx y f(x+iy,x-iy).
+\end{align*}
+Suppose now we want to add anharmonic corrections to the model. We start with a quartic term,
+and already we notice that exact diagonalization is not possible anymore. Performing the
+canonical transformation into the variables $z_k$ and $z_k^*$ leads to
+\begin{align*}
+	H
+	&= H_0 + V = \sum_{j\in\mathbb{Z}_N}\left( \frac{p_j^2}{2} + (q_{j+1}-q_j)^2 + \frac{\lambda}{4}(q_{j+1}-q_j)^4 \right)\\
+	&= \sum_{k\in\mathcal{D}}\omega_k z^*_k z_k
+	+ \lambda\sum_{k\in\mathcal{D}}\Omega_{p,q,k} z^*_{q+k} z^*_{p-k} z_p z_q.
+\end{align*}
+Now the partition function reads as
+\begin{align}
+	\label{eq:partition-function-correction}
+	Z(\beta,\lambda) = \int\left(\prod_{k\in\mathcal{D}}\dx z^*_k\,\dx z_k\right)e^{-\beta H_0}e^{-\beta\lambda V},
+\end{align}
+and this is not exactly computable. If we suppose that $\lambda\ll1$, we can expand the
+exponential of the correction term as a power series and truncate $Z(\beta,\lambda)$ to the
+desired order. For example
+\begin{align*}
+	Z(\beta,\lambda)
+	&= \int\left(\prod_{k\in\mathcal{D}}\dx z^*_k\,\dx z_k\right)e^{-\beta H_0}
+	\Bigg(1 - \lambda\beta V + \mathcal{O}(\lambda^2)\Bigg)\\
+	&= Z_0(\beta)\left(1 - \lambda\beta
+		\frac{\int\left(\prod_{k\in\mathcal{D}}\dx z^*_k\,\dx z_k\right)e^{-\beta H_0}V}{Z_0(\beta)}
+		+ \mathcal{O}(\lambda^2)
+	\right).
+\end{align*}
+Looking at this first order correction, we could interpret the expression
+\begin{align*}
+		\frac{\left(\prod_{k\in\mathcal{D}}\dx z^*_k\,\dx z_k\right)e^{-\beta H_0}}{Z_0(\beta)}
+		\eqcolon P_0(\dx z)
+\end{align*}
+as some Gaussian probability measure, and correspondigly interpret $\int P_0(\dx z) V$ as a
+kind of average of $V$. Higher order corrections can also be interpreted as higher moments of
+V with respect to this Gaussian probability measure.
 
-Consider the unital complex Grassmann algebra generated by a set of $2N$ anticommuting vectors:
+We now want to show that this kind of expectation satisfies Wick's theorem, or Isserlis' theorem
+as it is known in the field of probability theory. After that it will be clear that the
+variables $z^*_k$ and $z_k$ may just as well be regarded to as a formal representation of
+creation/annihilation operators, and higher order corrections to the free partition function
+$Z_0(\beta)$ are going to be expectations of powers of the interaction potential $V$. The only
+obstacle is then the fact that complex Gaussian integrals actually satisfy the \textit{bosonic}
+version of Wick's theorem, and this is a consequence of $z^*_k$ and $z_k$ being commuting
+variables rather than anticommuting. The missing fermionic signs will be the subject of
+Section \ref{sec:grassmann}.
+
+We start our discussion of bosonic expectations by recalling some properties of complex
+Gaussian integrals.
+
+\begin{definition}[Complex covariance]
+	A matrix $G\in\mathrm{Mat}_{N\times N}$ is said to be a \textit{complex covariance} if
+	\begin{itemize}
+		\item[(i)] there exists a matrix $U$ that diagonalizes $G$;
+		\item[(ii)] all eigenvalues of $G$ have positive real part.
+	\end{itemize}
+	The space of complex covariances on will be denoted by $\mathcal{C}_N$.
+\end{definition}
+To ease the notation, if $\boldsymbol{z},\boldsymbol{w}\in\mathbb{C}^N$ we will write
+$\boldsymbol{z}\cdot \boldsymbol{w}=\sum_{j=1}^N z_j w_j$.
+
+\begin{lemma}
+	Let $G\in\mathcal{C}_N$ and $\boldsymbol{z}\in\mathbb{C}^N$, then
+	\begin{align*}
+		\int\left(\prod_{j=1}^N\frac{\dx z^*_j\,\dx z_j}{2\pi i}\right)
+		e^{-\boldsymbol{z}\cdot G^{-1}\boldsymbol{z}} = \det(G).
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	Because $G\in\mathcal{C}_N$ there exists $U$ that diagonalizes $G$, i.e. there exist
+	$\xi$ such that $\boldsymbol{z}=U\boldsymbol{\xi}$. Then
+	\begin{gather*}
+		\boldsymbol{z}^* \cdot G^{-1}\boldsymbol{z}
+		= \boldsymbol{z}^*\cdot U^\dagger G^{-1}U\boldsymbol{z} \eqcolon \boldsymbol{\xi}^*\cdot D^{-1}\boldsymbol{\xi}\\
+		\dx\boldsymbol{z}^*\,\dx\boldsymbol{z} = \det(U^\dagger)\det(U)\dx\boldsymbol{\xi}^*\,\dx\boldsymbol{\xi}
+		= \dx\boldsymbol{\xi}^*\,\dx\boldsymbol{\xi}
+	\end{gather*}
+	where $D=\mathrm{diag}(\lambda_1,\ldots,\lambda_N)$ is the diagonalization of $G$. Then, the left
+	hand side becomes
+	\begin{align*}
+		\mathrm{l.h.s.}
+		= \prod_{j=1}^N\int\frac{\dx \xi^*_j\,\dx \xi_j}{2\pi i} e^{-\xi^*j\frac{1}{\lambda_j}\xi_j}
+		= \prod_{j=1}^N\int_{\mathbb{R}^2}\frac{\dx x\,\dx y}{\pi}e^{-\frac{x^2+y^2}{\lambda_j}}
+		= \det(G).
+	\end{align*}
+\end{proof}
+
+\begin{definition}[Complex Gaussian measure]
+	Let $G\in\mathcal{C}_N$. The complex integration measure
+	\begin{align*}
+		P_G(\dx z) \coloneq \frac{1}{\det(G)}\int\left(\prod_{j=1}^N\frac{\dx z^*_j\,\dx z_j}{2\pi i}\right)
+		e^{-\boldsymbol{z}^*\cdot G^{-1}\boldsymbol{z}}
+	\end{align*}
+	is called \textit{complex Gaussian measure} of covariance $G$.
+\end{definition}
+\begin{remark}
+	The matrix $G$ is alsa called a propagator because, as we will see, it covers the role of
+	the 2-point function, which is itself also called propagator.
+\end{remark}
+
+Note that a complex Gaussian measure is ``normalized", in the sense that $\int P_G(\dx z)=1$.
+We are now ready to define expectation values and prove their foundamental properties.
+
+\begin{definition}[Complex/bosonic expectation]
+	Given $P_G(\dx z)$ and a measureable function $f$, the \textit{expectation of f} with
+	respect to $P_G(\dx z)$ is defined as
+	\begin{align*}
+		\mathbb{E}_G(f) \coloneq \int P_G(\dx z) f(\boldsymbol{z},\boldsymbol{z}^*).
+	\end{align*}
+\end{definition}
+\begin{remark}
+	In Section \ref{sec:toy-model}, we actually had $G=\mathrm{diag}\left(\frac{1}{\beta\omega_1},\ldots,\frac{1}{\beta\omega_N}\right)$
+	and the first order correction to the partition function was indeed $\mathbb{E}_G(V)$.
+\end{remark}
+
+\begin{lemma}
+	\label{lemma:source-terms}
+	Let $G\in\mathcal{C}_N$ and let $\boldsymbol{J}\in\mathbb{C}^N$ be a fixed complex vector,
+	often called a \textit{source term}. Then
+	\begin{align*}
+		\int P_G(\dx z) e^{\boldsymbol{J}^*\cdot\boldsymbol{z} + \boldsymbol{J}\cdot\boldsymbol{z}^*}
+		= e^{\boldsymbol{J}^*\cdot G\boldsymbol{J}}
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	Let $U$ be the diagonalization matrix for $G$, let $\boldsymbol{z}=U\boldsymbol{\xi}$ and
+	$\boldsymbol{J}=U\boldsymbol{\eta}$. Then we can rewrite the exponent of the integrand
+	and complete the square:
+	\begin{align*}
+		-\boldsymbol{z}^*\cdot G^{-1}\boldsymbol{z} + \boldsymbol{z}^*\cdot\boldsymbol{J} + \boldsymbol{z}\cdot\boldsymbol{J}^*
+		&= -\boldsymbol{\xi}^*\cdot D^{-1}\boldsymbol{\xi} + \boldsymbol{\xi}^*\cdot\boldsymbol{\eta} + \boldsymbol{\xi}\cdot\boldsymbol{\eta}^*\\
+		&= -(\boldsymbol{\xi}^*-D\boldsymbol{\eta}^*)\cdot D^{-1}(\boldsymbol{\xi}-D\boldsymbol{\eta}) + \boldsymbol{\eta}^*\cdot D\boldsymbol{\eta}\\
+		&= -(\boldsymbol{\xi}^*-D\boldsymbol{\eta}^*)\cdot D^{-1}(\boldsymbol{\xi}-D\boldsymbol{\eta}) + \boldsymbol{J}^*\cdot G\boldsymbol{J}
+	\end{align*}
+	where, once again, $D=\mathrm{diag}(\lambda_1,\ldots,\lambda_N)$ is the diagonalization of
+	$G$. We can apply the change of variables $\xi_j\mapsto\xi_j+\frac{1}{\lambda_j}\eta_j$ and
+	take the term $J^*\cdot GJ$ out of the integral, but the remaining integral is just $\int
+	P_G(\dx\xi)=1$, and the thesis follows immediately.
+\end{proof}
+
+To prove the next theorem we will need the two following identities:
+\begin{align}
+	\label{eq:source-terms}
+	P_G(\dx z)z_j = \frac{\partial}{\partial J^*_j}\left(P_G(\dx z)e^{\boldsymbol{J}^*\cdot\boldsymbol{z}+\boldsymbol{J}\cdot\boldsymbol{z}^*}\right)
+	\bigg|_{\boldsymbol{J}=\boldsymbol{J}^*=0}\nonumber\\
+	P_G(\dx z)z^*_j = \frac{\partial}{\partial J_j}\left(P_G(\dx z)e^{\boldsymbol{J}^*\cdot\boldsymbol{z}+\boldsymbol{J}\cdot\boldsymbol{z}^*}\right)
+	\bigg|_{\boldsymbol{J}=\boldsymbol{J}^*=0}
+\end{align}
+
+\begin{theorem}[Isserlis' theorem]
+	\label{thm:isserlis}
+	Given $G\in\mathcal{C}_N$, let $M$ be a positive integer and consider two sets of indices:
+	$\alpha_1,\ldots,\alpha_M$ and $\beta_1,\ldots,\beta_M$. Then it holds that
+	\begin{align*}
+		\mathbb{E}_G(z_{\alpha_1}\cdots z_{\alpha_M} z^*_{\beta_1}\cdots z^*_{\beta_M})
+		= \sum_{\sigma\in S_N} \prod_{j=1}^M G_{\alpha_j,\beta_{\sigma(j)}}
+	\end{align*}
+	where $S_M$ is the set of permutations of $M$ elements.
+\end{theorem}
+\begin{proof}
+	Using the identities in (\ref{eq:source-terms}) and Lemma (\ref{lemma:source-terms}) we
+	can write
+	\begin{align*}
+		\mathbb{E}_G(z_{\alpha_1}\cdots z_{\alpha_M} z^*_{\beta_1}\cdots z^*_{\beta_M})
+		= \frac{\partial^{2M}}{\partial J^*_{\alpha_1}\cdots\partial J^*_{\alpha_M}\partial J_{\beta_1}\cdots\partial J_{\beta_M}}
+		\left(e^{\boldsymbol{J}^*\cdot G\boldsymbol{J}}\right)\bigg|_{\boldsymbol{J}=\boldsymbol{J}^*=0}
+		= \star
+	\end{align*}
+	Now we can expand the exponential as a power series and derive term by term. In fact,
+	when deriving $2M$ times the $n$-th term of this series we have the following cases: if
+	$r<M$ we are taking derivatives of order higher than the degree of the polynomial so it
+	gives zero, if $r>M$ deriving will lead to a homogeneous polynomial evaluated at zero so
+	it gives zero, if $r=M$ some terms survive. Indeed, if we look at the derivatives with
+	respect to the $J^*$ we see that
+	\begin{align*}
+		\frac{\partial^{M}}{\partial J^*_{\alpha_1}\cdots\partial J^*_{\alpha_M}}
+		\frac{\left(\boldsymbol{J}^*\cdot G\boldsymbol{J}\right)^M}{M!}
+		&= \frac{1}{M!}\frac{\partial^{M}}{\partial J^*_{\alpha_1}\cdots\partial J^*_{\alpha_M}}
+		\left(\sum_{j,k=1}^M J^*_{\rho_j}G_{\rho_j,\tau_k}J_{\tau_k}\right)^M\\
+		&= \frac{\partial^{M-1}}{\partial J^*_{\alpha_2}\cdots\partial J^*_{\alpha_M}}
+		\frac{M}{M!}\left(\sum_{j,k=1}^M \delta_{\rho_j,\alpha_1}G_{\rho_j,\tau_k}J_{\tau_k}\right)
+		\left(\sum_{j,k=1}^M J^*_{\rho_j}G_{\rho_j,\tau_k}J_{\tau_k}\right)^{M-1}\\
+		&= \prod_{\ell=1}^M\sum_{j,k=1}^M\delta_{\rho_j,\alpha_\ell}G_{\alpha_\ell,\tau_k}J_{\tau_k}.
+	\end{align*}
+	Using this in $\star$ we get that
+	\begin{align*}
+		\star = \frac{\partial^M}{\partial J_{\beta_1}\cdots\partial J_{\beta_M}}
+		\left(\prod_{j=1}^M\sum_{k=1}^MG_{\alpha_j,\tau_k}J_{\tau_k}\right)\Bigg|_{J=J^*=0}
+	\end{align*}
+	and applying Leibnitz rule we arrive at the thesis.
+\end{proof}
+
+\subsection{Grassmann integrals and fermionic expectations}
+\label{sec:grassmann}
+
+It is time to introduce the anticipated algebraic structure that carries the results found so
+far to the fermionic case: Grassmann variables. Consider the unital complex Grassmann algebra
+generated by a set of $2N$ anticommuting vectors:
 \begin{equation}
 	\begin{split}
 	\label{def:grassmann}
@@ -25,9 +259,8 @@ Consider the unital complex Grassmann algebra generated by a set of $2N$ anticom
 		&\{ \bar\psi_i, \bar\psi_j \} = 0 \quad \forall i,j=1,...,N
 	\end{split}
 \end{equation}
-where $\{\psi, \phi\} := \psi\phi + \phi\psi$ is the anticommutator. The idea is to interpret
-the elements of this algebra as (polynomials of) field operators, so we need to define integrals
-and expectations of Grassmann variables, i.e. of elements of this algebra.
+where $\{\psi, \phi\} := \psi\phi + \phi\psi$ is the anticommutator. We need to define
+Gaussian integrals and expectations of Grassmann variables.
 \\
 Given $\mathcal{G}_N$ the Grassmann algebra generated by
 $\{\psi_1, ..., \psi_N, \bar\psi_1, ..., \bar\psi_N\}$, denote by
@@ -48,7 +281,7 @@ that $\mathcal{G}_N$ can be decomposed as
 Odd elements satisfy a really important property. If $\psi \in \mathcal{G}_N^{+}$ it follows
 that $\{\psi,\psi\} = 2\psi^2 = 0$. That is, all powers greater than one of an odd element vanish.
 
-\begin{definition}
+\begin{definition}[Functions of Grassmann variables]
 	Given $\mathcal{G}$ a Grassmann algebra, as defined above, and $f : \mathbb{C}^k \to \mathbb{C}$
 	an analytic function given by its Taylor series centered at zero
 	\begin{align*}
@@ -73,36 +306,22 @@ that $\{\psi,\psi\} = 2\psi^2 = 0$. That is, all powers greater than one of an o
 	\end{align*}
 \end{remark}
 
-\begin{remark}
-	We could define a Grassmann algebra more "directly" as the ring of polynomials in
-	anticommuting variables over a field, and choose $\mathbb{C}$ as base field to get exactly
-	the structure we need. Indeed, the Grassmann algebra can be viewed as the free algebra
-	generated by the variables corresponding to the modes of the physical system, quotiented
-	by the ideal generated by anticommutators, i.e.
-	\begin{align*}
-		\mathcal{G}_N \coloneq
-		\frac{\mathbb{C} \langle \psi_1, ..., \psi_N, \bar\psi_1, ..., \bar\psi_N \rangle}
-		{ \mathrm{span}\{ \psi_i\psi_j + \psi_j\psi_i,\, \psi_i\bar\psi_j + \bar\psi_j\psi_i,\, \bar\psi_i\bar\psi_j + \bar\psi_j\bar\psi_i : i,j = 1, ..., N \} }
-	\end{align*}
-\end{remark}
-
 We now introduce integrals of functions of Grassmann variables. Note that the definition is
-going to be purely algebraic and, in particular, motivated by our need to reproduce specific
-computational rules. Indeed, we'll see that we can define expectations of functions of
-Grassmann variables in a way that reproduces exactly Wick's rule for expectations of fermionic
-field operators.
-\\
-We ask, first of all, for the integral to be a linear operator on a Grassmann algebra.
-Then, specifying the image of a basis for the algebra will uniquely determine the
-operator.
-\begin{definition}
-	Given $\{1, \psi_1, ..., \psi_N, \bar\psi_1, ..., \bar\psi_N\}$ the basis for the Grassmann algebra,
-	as above, the \textit{Grassmann integral} is the linear operator that acts on this basis as
+going to be purely algebraic and, in particular, motivated by our need to reproduce the
+fermionic version of Wick's theorem. We ask, first of all, for the integral to be a linear
+operator on a Grassmann algebra. Then, specifying the image of a basis for the algebra will
+uniquely determine the operator. The specific definition of the image of basis elements is
+such that a Grassmann integral over all such basis elements extracts the coefficient of the
+highest degree term of the integrand.
+\begin{definition}[Grassmann integral]
+	Given $\{1, \psi_1, ..., \psi_N, \bar\psi_1, ..., \bar\psi_N\}$ the anticommuting basis
+	for a Grassmann algebra, the \textit{Grassmann integral} is the linear operator that acts
+	on this basis as
 	\begin{align*}
 		&\int\dx\psi_i\,\psi_j = \int\dx\bar\psi_i\,\bar\psi_j \coloneq \delta_{ij}, \\
 		&\int\dx\psi_i = \int\dx\bar\psi_i \coloneq 0.
 	\end{align*}
-	Repeated integration is denoted by a single integral symbol and multiple "differentials".
+	Repeated integration is denoted by a single integral symbol and multiple ``differentials".
 \end{definition}
 
 \begin{example}
@@ -118,25 +337,26 @@ operator.
 \begin{remark}
 	Repeated integration, i.e. the composition of multiple integral operators, inherits some form of
 	anticommutativity when acting on the basis elements. Indeed in $\mathcal{G}_1$, for example, we have
-	\begin{align*}
-		\int\dx\psi\dx\bar\psi\,\psi\bar\psi &= -\int\dx\psi\dx\bar\psi\,\bar\psi\psi = -1 \\
-											 &= -\int\dx\bar\psi\dx\psi\,\psi\bar\psi.
-	\end{align*}
+	\begin{align}
+		\label{anticommuting-integrals}
+		\int\dx\psi\dx\bar\psi\,\psi\bar\psi
+		= -\int\dx\psi\dx\bar\psi\,\bar\psi\psi = -1 = -\int\dx\bar\psi\dx\psi\,\psi\bar\psi.
+	\end{align}
 	And given the definition of Grassmann functions, this property will be quite useful to us.
 \end{remark}
 
-Having defined integration, we can now introduce a \textit{Gaussian measure} (in a purely algebraic
-sense). To make the notation ligher, we define a ``dot product", without any geometric meaning, as
-$\boldsymbol{\psi}\cdot\boldsymbol{\phi} \coloneq \sum_{i = 1}^k \psi_i\phi_i$.
+Having defined integration, we can now introduce a \textit{Gaussian measure}, again in a purely
+algebraic sense. To make the notation ligher, we define a ``dot product", without any geometric
+meaning, as $\boldsymbol{\psi}\cdot\boldsymbol{\phi} \coloneq \sum_{i = 1}^k \psi_i\phi_i$.
 
-\begin{definition}
-	$G \in \mathrm{Mat}(N \times N, \mathbb{C})$ is said to be a \textit{Grassmann covariance}
-	if $G \in \mathrm{GL}(N,\mathbb{C})$.
+\begin{definition}[Grassmann covariance]
+	A matrix $G \in \mathrm{GL}(N,\mathbb{C})$ is called a \textit{Grassmann covariance} on
+	the Grassmann algebra $\mathcal{G}_N$.
 \end{definition}
 
 \begin{lemma}
-	Let $G$ be a Grassmann covariance, $\boldsymbol{\psi} = (\psi_1, \ldots, \psi_N)$ and
-	$\boldsymbol{\bar\psi} = (\bar\psi_1, \ldots, \bar\psi_N)$. Then
+	Let $G$ be a Grassmann covariance, and let $\boldsymbol{\psi} = (\psi_1, \ldots, \psi_N)$
+	and $\boldsymbol{\bar\psi} = (\bar\psi_1, \ldots, \bar\psi_N)$. Then
 	\begin{align*}
 		\int\left( \prod_{i=1}^N \dx\bar\psi_i \dx\psi_i \right)
 		e^{-\boldsymbol{\bar\psi} \cdot G^{-1} \boldsymbol{\psi}} = \mathrm{det}(G^{-1})
@@ -170,19 +390,19 @@ $\boldsymbol{\psi}\cdot\boldsymbol{\phi} \coloneq \sum_{i = 1}^k \psi_i\phi_i$.
 	\end{align*}
 \end{proof}
 
-\begin{definition}
-	Let $G$ be a Gaussian covariance, and $\{ \psi_1, \ldots, \psi_N, \bar\psi_1, \ldots, \bar\psi_N\}$
-	the usual Grassmann variables. A \textit{Grassmann Gaussian measure} is the Grassmann
+\begin{definition}[Grassmann Gaussian measure]
+	Let $G$ be a Gaussian covariance. A \textit{Grassmann Gaussian measure} is the Grassmann
 	integral measure defined by
 	\begin{align*}
 		P_G(\dx\psi) \coloneq \frac{1}{\mathrm{det}(G^{-1})}
 		\left( \prod_{j=1}^N \dx\bar\psi_j \dx\psi_j \right)
 		e^{-\boldsymbol{\bar\psi} \cdot G^{-1} \boldsymbol{\psi}}
 	\end{align*}
+	where $\psi_i$ and $\bar\psi_i$ are the usual anticommuting Grassmann variables.
 \end{definition}
 
 \begin{remark}
-	The factor in front of the differentials guarantees a "normalized" measure, i.e.\\
+	The factor in front of the differentials guarantees a ``normalized" measure, i.e.\\
 	$\int P_G(\dx\psi) = (1/\mathrm{det}(G^{-1})) \mathrm{det}(G^{-1}) = 1$.
 \end{remark}
 
@@ -194,6 +414,10 @@ We will prove the following statement later.
 		\int P_G(\dx\psi) \psi_i \bar\psi_j = G_{ij}
 	\end{align*}
 \end{lemma}
+
+The following are useful facts about Grassmann integrals that we give without proof, we just
+point out that proving these only involves taking good care of the combinatorics that come
+from the definition of Grassmann integrals.
 
 \begin{lemma}
 	Let $D \in \mathrm{GL(2,\mathbb{C})}$, $\boldsymbol{\varphi}$ and $\boldsymbol{\eta}$
@@ -209,10 +433,6 @@ We will prove the following statement later.
 	= \mathrm{det}(G^{-1}) \int \left( \prod_{i} \dx\bar\varphi_i \varphi_i \right) f(D(\boldsymbol{\varphi},\boldsymbol{\bar\varphi})+(\boldsymbol{\eta},\boldsymbol{\bar\eta}))
 	\end{align*}
 \end{lemma}
-\begin{proof}
-	\textcolor{red}{check proof in the notes (is D defined only in the diagonal NxN
-	blocks? How are the "differentials" of the new variables calculated ?)}.
-\end{proof}
 
 \begin{lemma}
 	Let $G \in \mathrm{GL}(N,\mathbb{C})$, then
@@ -221,35 +441,30 @@ We will prove the following statement later.
 			= e^{\boldsymbol{\bar\eta \cdot} G \boldsymbol{\eta}}
 	\end{align*}
 \end{lemma}
-\begin{proof}
-	\textcolor{red}{it was an exercise.}
-\end{proof}
 
 Before defining expectations, we need one more operator on a Grassmann algebra to mimic the
-behaviour of these same integrals done in the complex variables case. That is, we need to introduce
-derivatives of Grassmann functions. If we had a polynomial of degree N in N variables, then
-deriving this polynomial in all of the variables should return the maximal degree term. Then
-this becomes a natural choice for the definition of Grassmann derivatives, as we defined
-functions to be nothing more than Taylor series, and evaluating a function in the elements of
-the basis gets us exactly in this situation. But recall that integrating a Grassmann function
-in all variables (i.e., in all the basis elements) returns exactly the same thing, the coefficient
-of the maximal degree term. Therefore, this natural definition for Grassmann derivatives
-reads as follows.
+behaviour of these same integrals done in the complex variables case: derivatives of Grassmann
+functions. If we are given a polynomial of degree N in N variables, then deriving this
+polynomial in all of the variables should return the maximal degree term. We will take this as
+the defining property of derivation, as we defined functions to be nothing more than Taylor
+series. Now notice that integrating a Grassmann function in all variables (i.e., in all the
+basis elements) returns exactly the same thing, the coefficient of the maximal degree term.
 
-\begin{definition}
+\begin{definition}[Grassmann derivatives]
 	Let $f(\boldsymbol{\psi},\boldsymbol{\bar\psi})$ be a Grassmann function, the
-	\textit{Grassmann derivatives} of $f$ w.r.t. the basis elements are the linear operators
-	defined as
+	\textit{Grassmann derivatives} of $f$ with respect to the basis elements are the linear
+	operators defined as
 	\begin{align*}
 		\frac{\partial}{\partial\psi_i}f \coloneq \int\dx\psi_i\,f(\boldsymbol{\psi},\boldsymbol{\bar\psi})
 	\end{align*}
 \end{definition}
 
 \begin{proof}[Proof (Lemma 2.2)]
-Recalling the "anticommutativity property" of Grassmann integrals, it is clear that the same
-property holds for derivatives too. We can make use of Grassmann derivatives to prove this
-lemma in a way that is closer to the complex variables case, and this motivates the introduction
-of Grassmann derivatives. Note that, given a vector of Grassmann variables $\boldsymbol{\eta}$,
+	Recalling the ``anticommutativity property" of Grassmann integrals from Equation (\ref{anticommuting-integrals}),
+	it is clear that the same property holds for derivatives too. We can make use of Grassmann
+	derivatives to prove this lemma in a way that is closer to the complex variables case.
+	Given a vector of Grassmann variables $\boldsymbol{\eta}$, we can write something similar
+	to (\ref{eq:source-terms}):
 \begin{align*}
 	\psi_i\bar\psi_j e^{-\boldsymbol{\bar\psi}\cdot G^{-1} \boldsymbol{\psi}}
 		= -\frac{\partial}{\partial\bar\eta_i}\frac{\partial}{\partial\eta_j}
@@ -272,37 +487,90 @@ We can substitute this in the integral to get that
 which is exactly the thesis.
 \end{proof}
 
-With this useful lemma proven, we get to the most important theorem of this section: Wick's
-theorem. It is this result that allows us to actually interpret Grassmann Gaussian integrals
-as "expectations of fermionic field operators", because it shows that these integrals exactly
-reproduce the combinatorics of fermionic expectations.
+We are finally ready to prove that Gaussian Grassmann integrals satisfy Wick's theorem.
 
-\begin{theorem}[Wick's rule]
+\begin{theorem}[Wick's theorem]
 	Let $M \in \mathbb{N}$ be the degree of a monomial in Grassmann variables, and let
-	$I = \{a_1, \ldots, a_M\}$ and $J = \{b_1, \ldots, b_M\}$ be two sets of M indices. The
+	$A = \{a_1, \ldots, a_M\}$ and $B = \{b_1, \ldots, b_M\}$ be two sets of M indices. The
 	integral of a monomial is
 	\begin{align*}
-		\int P_G(\dx\psi) \left( \prod_{\alpha \in I, \beta \in J} \psi_{\alpha}\bar\psi_{\beta} \right)
+		\int P_G(\dx\psi) \left( \prod_{\alpha\in A,\beta\in B} \psi_{\alpha}\bar\psi_{\beta} \right)
 		= \sum_{\sigma \in \mathrm{S}_N} (-1)^{\mathrm{sgn}(\sigma)} \prod_{j=1}^M G_{a_j,b_{\sigma(j)}}
 	\end{align*}
 \end{theorem}
 \begin{proof}
-	\textcolor{red}{check proof of Isserlis' theorem, and check the way the product on the LHS is written.}
+	The proof is almost identical to the one for Theorem (\ref{thm:isserlis}), with the only
+	difference being that now we have to be careful with the sign of the permutations. In
+	particular, deriving the $M$-th term of the exponential carries an additional factor of
+	$(-1)^M$:
+	\begin{align*}
+		\mathrm{l.h.s.} = (-1)^M\left(\prod_{\alpha\in A,\beta\in B}
+		\frac{\partial}{\partial\bar{J}_\alpha} \frac{\partial}{\partial J_\beta}\right)
+		e^{\boldsymbol{\bar J}\cdot G\boldsymbol{J}} \bigg|_{\boldsymbol{J}=\boldsymbol{\bar{J}}=0}.
+	\end{align*}
+	The rest of the proof follows exactly as in Theorem (\ref{thm:isserlis}).
 \end{proof}
 
-\textcolor{red}{I REWORKED THE STRUCTURE OF THIS SECOND CHAPTER!}.
-It follows that calling a Grassmann Gaussian integral a "fermionic expectation" makes sense.
-Our task now is to give important results that greatly simplify the calculation of such
-expectations. In particular, the aim is to represent these calculations using Feynman diagrams,
-which are a tool to perform the combinatorics of this exact type of problem, and because these
-integrals are supposed to be a representation of expectations of physical quantities, Feynman
-diagrams will have a clear physical interpretation that we will discuss in due time.
-
-The results we are about to give concern both bosonic and fermionic systems, and the differences
-often lie only in sign changes between expressions. In fact, the rules behind Feynman diagrams
-are going to be the same, what will change however is the precise formula to evaluate such
-diagrams in a complete calculation.
-
-\subsection{Fermionic expectations}
+At this point, we can take this notion of Gaussian integrals to write the fermionic version
+of Section \ref{sec:toy-model}.
 
 \subsection{Perturbative series and Feynman diagrams}
+
+In this section we are finally going to look at how the order-by-order corrections introduced
+by a term like $e^{-\beta\lambda V}$ in Equation (\ref{eq:partition-function-correction}) can,
+in fact, be written in terms of Feynman diagrams. To do so, we introduce the concept of a
+truncated expectation. This is the object that ultimately will ``contain" the diagrams.
+Both bosonic and fermionic cases follow the same procedure but present some slight differences
+here and there. We will state everything in the fermionic case for conveniance, and only point
+out what, if anything, changes in the bosonic case.
+
+Suppose we have an interaction potential $V$, formally written as a homogeneous polynomial of
+complex variables. We can represent such a potential as a \textit{vertex}, i.e. a node in a
+graph, with as many labelled outgoing lines as there are conjugate variables in the expression
+of $V$, and as many labelled incoming lines as there are plain variables. For example, our
+quartic correction of Section \ref{sec:toy-model} would be the formal way of writing a two-body
+interaction potential $V=\sum_{p,q,k}\Omega_{p,q,k}\bar\psi_{q+k}\bar\psi_{p-k}\psi_p\psi_q$
+and its vertex would be
+\begin{align*}
+	V = 
+	\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
+		\node (a) at (-1, 1) {} node[scale=0.7] at (-1.1, 0.5) {$p-k$};
+		\node (b) at ( 1, 1) {} node[scale=0.7] at ( 1.1, 0.5) {$q+k$};
+		\node (c) at (-1,-1) {} node[scale=0.7] at (-0.9,-0.5) {$q$};
+		\node (d) at ( 1,-1) {} node[scale=0.7] at ( 0.9,-0.5) {$p$};
+		\begin{scope}[very thick, decoration={
+				markings,
+				mark=at position 0.57 with {\arrow{>}}}
+			]
+			\draw[black, thick, postaction={decorate}] (0,0) -- (a);
+			\draw[black, thick, postaction={decorate}] (0,0) -- (b);
+			\draw[black, thick, postaction={decorate}] (c) -- (0,0);
+			\draw[black, thick, postaction={decorate}] (d) -- (0,0);
+		\end{scope}
+		\filldraw[black] (0,0) circle (2pt);
+	\end{tikzpicture}.
+\end{align*}
+The \textit{value} of a vertex is defined exactly as the expression of the interaction
+potential. In a diagram, vertices can be connected by lines called \textit{propagators} or
+even \textit{contractions}, and as the name suggests the value
+of such propagators is given by the 2-point function. In particular, if a line labelled by $i$
+exits a vertex and enters another as a line labelled by $j$, then to such a line we associate
+the value $G_{ij}$. A vertex may have an outgoing leg connecting back to an incoming line in
+the same vertex. The \textit{value of a diagram} is obtained by multiplying the values of
+vertices and propagators following the labelling and contractions dictated by the diagram.
+\\
+The definitions of the vertices and the propagators involved in the diagrams are called
+\textit{Feynman rules}. Finally, even though we will not make use of such a definition in our
+work, a Feynman rule may contain many different ``types" of incoming/outgoing lines and
+associated propagators. This means that in the vertex there might be both fermionic and bosonic
+variables, and some of them may belong to different sets of variables (for example different
+Grassmann algebras to represent different families of fermions). Each type of line gets its
+own propagator, and they should be distinguished graphically.
+\begin{example}
+	\textcolor{red}{put one of the two first order terms from chapter 3 to explain how to
+	evaluate it.}
+\end{example}
+
+\begin{definition}[Truncated expectation]
+	Let $P_G(\dx z)$
+\end{definition}

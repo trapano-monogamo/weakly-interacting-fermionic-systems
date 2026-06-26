@@ -46,14 +46,15 @@ Note that this condition is stronger that being symmetric.
 		\mathrm{Tr}(A) = \sum_{n=1}^\infty \langle\phi_n,A\phi_n\rangle.
 	\end{align*}
 \end{proposition}
-\begin{proof} \textcolor{red}{????} \end{proof}
 
-\begin{itemize}
-	\item \textcolor{red}{$Ve^{-\beta H_0}$ is traceclass}?
-	\item \textcolor{red}{comments on and PROPERTIES of $e^{-\beta H_0}$ with $H_0$ bounded
-		and discussion on $Ve^{-\beta H_0}$ where $V$ is bounded}
-	\item \textcolor{red}{trace norm}
-\end{itemize}
+\begin{remark}
+	The rigorous derivation of the quantities used in this work relies heavily on the properties
+	of the operator $e^{-\beta H}$, given $H$ a self-adjoint operator (in our case $H$ is also
+	bounded, but spectral theory can extend this to the unbounded case).
+	This operator is trace-class, and it is strictly positive definite. Moreover, if $V$ is a
+	bounded operator defined on the image of $e^{-\beta H}$ then it also holds that
+	$Ve^{-\beta H}$ is trace class.
+\end{remark}
 
 \begin{definition}[Projection]
 	A linear operator $P$ on a Hilbert space $\mathcal{H}$ which is self-adjoint ($P^*=P$) and
@@ -82,7 +83,7 @@ Note that this condition is stronger that being symmetric.
 	\end{enumerate}
 \end{proposition}
 
-\begin{definition}[Isometry and Unitaries]
+\begin{definition}[Isometries and Unitaries]
 	Given two Hilbert spaces $\mathcal{H}$ and $\mathcal{K}$, a linear map $U:\mathcal{H}\to\mathcal{K}$
 	with the property that
 	\begin{align*}
@@ -162,7 +163,7 @@ of our work.
 	is a Banach space, i.e. a complete normed space, via the usual definition of addition
 	between operators (assuming the domain is the entire space $\mathcal{H}$) and
 	multiplication by a scalar. It is also a C*-algebra, i.e. a normed algebra with an
-	involution $*$, via the adjoint of a bounded operator.
+	involution $*$, via the adjoint of bounded operators.
 \end{theorem}
 
 \subsection{Integration of operator-valued functions}
