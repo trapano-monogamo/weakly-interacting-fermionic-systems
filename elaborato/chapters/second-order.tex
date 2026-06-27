@@ -1,10 +1,9 @@
-\section{Explicit Calculation at Second Order}
+\section{Ground state energy in the mean field limit}
 \label{second-order}
 
-\subsection{Duhamel's formula}
+We can now state more in detail our objective. 
 
-\textcolor{red}{Motivate the study of this system and the scalings $\hbar = N^{-1/3}$ and
-$\lambda=1/N$}.
+\subsection{Explicit calculation at second order}
 
 The state space for a system of N identical fermions in a box of side length L with periodic
 boundary conditions is the space of completely antisymmetric $L^2$-functions on the torus
@@ -73,8 +72,8 @@ Gibbs state functional
 \end{align*}
 The free energy is given by the logarithm of the partition function divided by $-\beta$, and
 we will compute this logarithm perturbatively. We start such a perturbative calculation up to
-second order in the operator formalism, but expectation values and higher orders will be dealt
-with using formal perturbation theory and Grassmann integrals.
+second order in the operator formalism using Duhamel's formula, but expectation values and
+higher orders will be dealt with using formal perturbation theory and Grassmann integrals.
 
 \begin{proposition}
 	Given $H = H_0 + \lambda V$ as defined above, the following approximation for the free
@@ -587,7 +586,7 @@ direct term at order $i$ and $F_{\mathrm{X}}^{(i)}$ is the exchange term at orde
 
 With the convergence of the free energy under control, the next step is to look at the limit
 $\beta\to\infty$ to retrieve the ground state energy and complete our perturbative proof of
-the \textcolor{red}{RPA scaling in the number of particles $N$}.
+the mean field scaling in the number of particles $N$.
 
 \begin{lemma}
 	With the same hypotheses as in Theorem (\ref{big-thm-1}), all the series in Equation

@@ -8,8 +8,8 @@
 \contentsline {subsection}{\numberline {2.1}A toy model: bosonic expectations}{22}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Grassmann integrals and fermionic expectations}{25}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Perturbative series and Feynman diagrams}{29}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Explicit Calculation at Second Order}{32}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Duhamel's formula}{32}{subsection.3.1}%
+\contentsline {section}{\numberline {3}Ground state energy in the mean field limit}{32}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Explicit calculation at second order}{32}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Evaluating expectation values}{34}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Mean field scaling}{40}{subsection.3.3}%
 \contentsline {section}{\numberline {4}On higher orders of perturbation theory}{43}{section.4}%
