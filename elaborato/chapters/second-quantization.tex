@@ -67,7 +67,7 @@ speaking of Hilbert spaces we will always assume that they are separable.
 		= \lim_{m\to\infty}\sum_{k=1}^\infty\lambda_k u^{(k)}_m,
 	\end{align*}
 	which implies that the sequence $\{\sum_{k=1}^N\lambda_k u^{(k)}_m\}_{m,N\in\mathbb{N}}
-	\subseteq X$ converges to $x$ \textcolor{red}{(you sure?)}. Lastly, recall the infinite-dimensional version of the
+	\subseteq X$ converges to $x$. Lastly, recall the infinite-dimensional version of the
 	Grahm-Schmidt orthonormalization procedure, then it is clear that to $\mathcal{S}$ we can
 	associate a complete orthonormal system.
 \end{proof}
@@ -180,7 +180,6 @@ will suffice to define the image of only the basis elements.
 	The adjoint of a bounded operator is a bounded operator.
 \end{proposition}
 \begin{proof}
-	\textcolor{red}{CHECK.}
 	We are only considering densely defined operators, therefore, without loss of generality,
 	let $A:\mathcal{H}\to\mathcal{H}$ be a bounded operator on the whole space $\mathcal{H}$.
 	For all $\phi\in D(A^*)$, the map $\psi\mapsto\langle A^*\phi,\psi \rangle$ is a linear
@@ -272,8 +271,8 @@ This argument brings us to a general definition of a quantum state. Recall that 
 	\end{itemize}
 	and it defines the \textit{expectation functional}
 	\begin{alignat*}{1}
-		\langle\cdot\rangle_\rho : \mathfrak{B}(\mathcal{H}) &\longrightarrow \mathbb{C}\\
-		A &\longmapsto \langle A \rangle_\rho \coloneq \mathrm{Tr}(\rho A).
+		\langle\,\cdot\,\rangle : \mathfrak{B}(\mathcal{H}) &\longrightarrow \mathbb{C}\\
+		A &\longmapsto \langle A \rangle \coloneq \mathrm{Tr}(\rho A).
 	\end{alignat*}
 \end{definition}
 
@@ -283,19 +282,9 @@ are interested in the state the system is found in when at thermal equilibrium, 
 statistical mechanics we know this state is such that the energy spectrum is populated
 according to Boltzmann's distribution $p(\epsilon)=e^{-\beta\epsilon}/Z$. With the
 aforementioned correspondence we may identify such a state \textit{at a given temperature}
-with the mixture $\{(e^{-\beta\epsilon_j}/Z,\psi_j)\}$ if $\psi_j$ are energy eigenstates. To
-make this precise we need to properly define the foundamental thermodynamic quantities required,
-which also brings us to the main focus of our work: the free energy, which we will define
-starting from the known thermodynamic relation $F=U-TS$.
-
-\begin{definition}[Von Neumann entropy]
-	In the same notation used so far, the \textit{Von Neumann entropy} of a state $\langle
-	\cdot\rangle_\rho$ is defined as
-	\begin{align*}
-		S(\langle\cdot\rangle_\rho) \coloneq -\sum_{n=1}^\infty p_n\log(p_n),
-	\end{align*}
-	where we are using the convention that $t\log(t)=0 \text{ if } t=0$.
-\end{definition}
+with the mixture $\{(e^{-\beta\epsilon_j}/Z,\psi_j)\}$ if $\psi_j$ are energy eigenstates.
+Thermal equilibrium states are called Gibbs states, and we can define the quantum version for
+\textit{stable} systems by presenting their associated expectation functional.
 
 \begin{definition}[Stability and ground state]
 	A physical system governed by a Hamiltonian, i.e. energy operator, $H$ on $\mathcal{H}$ is
@@ -318,21 +307,28 @@ starting from the known thermodynamic relation $F=U-TS$.
 	eigenvalue equal to the ground state energy.
 \end{remark}
 
-\begin{definition}[Free energy]
-	The \textit{free energy} of a stable system at temperature $T\geq0$ is defined as
+\begin{definition}[Gibbs state]
+	For a stable system with Hamiltonian $H$ at temperature $T$, we define the \textit{finite
+	(inverse) temperature Gibbs state} as the quantum state given by
 	\begin{align*}
-		F(T) \coloneq \inf_{\substack{\langle\cdot\rangle_\rho\\\langle H\rangle_\rho<\infty}}
-		(\langle H \rangle - T\,S(\langle\cdot\rangle)),
+		\langle\,\cdot\,\rangle_\beta = \frac{\mathrm{Tr}(\,\cdot\,e^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
 	\end{align*}
-	which is possibly $-\infty$. If, for $T>0$, there exists a minimizer for the free energy,
-	then the minimizing state is called a \textit{Gibbs state at (inverse) temperature $\beta$}.
+	where $\beta \coloneq 1 / T$ is the inverse temperature.
 \end{definition}
 
-Gibbs states are thermal equilibrium states, and for $\beta<\infty$ they are generally mixed,
-while at $\beta=\infty$ we find the, usually pure, ground state. We will denote Gibbs states
-by $\langle\cdot\rangle_\beta$, despite the slight ambiguity between this notation and the one
-used for a generic mixed state, and we will also specify the Hamiltonian, when needed, by
+For $\beta<\infty$ they are generally mixed, while in the limit $\beta\to\infty$ we find the,
+usually pure, ground state. We will denote Gibbs states by $\langle\cdot\rangle_\beta$,
+specifying the temperature, and we will also specify the Hamiltonian, when needed, by
 writing $\langle\cdot\rangle_{\beta,H}$.
+
+\begin{remark}
+	We could define Gibbs state following the standard thermodynamical approach. We would
+	define the entropy, for example as $S(\langle\,\cdot\,\rangle) = -\sum_{n}p_n\log(p_n)$,
+	then we would define the free energy as $F(T) = \inf_{\langle\,\cdot\,\rangle}
+	(\langle H\rangle - TS$) and say that a Gibbs state, if it exists for finite temperature,
+	as a minimizer for the free energy. We would find that such a minimizer is exactly the
+	functional we wrote in the definition.
+\end{remark}
 
 \begin{remark}
 	A system composed of a single free particle with state space $L^2(\mathbb{R})$ and
@@ -342,19 +338,6 @@ writing $\langle\cdot\rangle_{\beta,H}$.
 	boundary conditions. The stability of free particles is essential, as will become clear in
 	the third chapter.
 \end{remark}
-
-\begin{proposition}
-	If $\langle\cdot\rangle_\beta$ is a Gibbs state at $\beta<\infty$ (i.e. at $T>0$), then
-	for any bounded self-adjoint operator $A$ we have that
-	\begin{align*}
-		\langle A\rangle = \frac{\mathrm{Tr}(Ae^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}.
-	\end{align*}
-	In particular, $e^{-\beta H}$ is a trace class operator.
-\end{proposition}
-\begin{proof}
-	\textcolor{red}{IMPORTANT (and maybe add discussion of $e^{\pm\tau H_0}$ and of
-	$Ve^{-\tau H_0}$ where $V$ is the potential).}
-\end{proof}
 
 We refer to the appendix for the definition of trace class operators and point out that such
 operators are compact, which makes $e^{-\beta H}$ a very well-behaved operator in computations.
@@ -491,8 +474,8 @@ Define the operators
 	&P_+ \coloneq \frac{1}{N!} \sum_{\sigma\in S_N} U_\sigma \\
 	&P_- \coloneq \frac{1}{N!} \sum_{\sigma\in S_N} \mathrm{sgn}(\sigma) U_\sigma. \nonumber
 \end{align}
-These are unitary by construction and \textcolor{red}{one can show} that they are also
-projections.
+These are unitary by construction, and showing that they are also projections only involves
+rewriting the sum over two sets of permutations as a single one to get that $P_\pm^2 = P_\pm$.
 
 \begin{definition}[Symmetric and anti-symmetric tensor products]
 	Given $\mathfrak{h}$ the one-particle Hilbert space, the \textit{symmetric tensor product}
@@ -940,9 +923,6 @@ the following definition.
 		\mathrm{Tr}(\gamma_\Psi) = \langle \Psi,\mathcal{N}\Psi \rangle.
 	\end{align*}
 \end{proposition}
-\begin{proof}
-	\textcolor{red}{???}
-\end{proof}
 
 \begin{lemma}
 	\label{finite-rank-1pdm}
@@ -950,9 +930,6 @@ the following definition.
 	subspace $X\subseteq\mathfrak{h}$ then $\gamma_\Psi$ is a finite rank operator whose
 	range is a subspace of $X$.
 \end{lemma}
-\begin{proof}
-	\textcolor{red}{???}
-\end{proof}
 
 \begin{lemma}
 	If $\Psi\in\mathcal{F}^{\mathrm{F}}(\mathfrak{h})$ is a normalized vector then $\gamma_\Psi$
@@ -986,9 +963,6 @@ the following definition.
 	u_1\wedge\cdots\wedge u_N$ is the projection onto the N-dimensional space $\mathrm{span}\{
 	u_1,\ldots,u_N\}$.
 \end{lemma}
-\begin{proof}
-	\textcolor{red}{???}
-\end{proof}
 
 We are now ready to prove a fundamental theorem on which the treatment of any fermionic system
 is built, especially if perturbation theory is involved: the ground state energy and
@@ -1316,11 +1290,9 @@ states in a Fock space for which Wick's theorem will hold in its most general fo
 What this means is that, under suitable conditions on the block-matrix form of a Bogolubov
 map, there exists a ``change of basis" on the Fock space that sends generalized annihilation
 and - by taking the adjoint - creation operators to operators that annihilate/create a
-superposition of states determined by the linear map $\mathcal{V}$.
-
-\begin{proof}
-	\textcolor{red}{AAAAAAHHHHHHH}
-\end{proof}
+superposition of states determined by the linear map $\mathcal{V}$. We will not prove this
+theorem, as it is quite a long endevour that ultimately doesn't add to our discussion of
+the physical system at hand.
 
 We are finally ready to discuss the most important result of this chapter: Wick's theorem.
 This is what, among other things, allows us to write perturbative series in the way described
@@ -1431,3 +1403,5 @@ a theory whose $n$-point functions satisfy Wick's theorem.
 	\end{align*}
 	is called the \textit{quadratic Hamiltonian associated to $\mathcal{A}$}.
 \end{definition}
+
+\textcolor{red}{yooo}

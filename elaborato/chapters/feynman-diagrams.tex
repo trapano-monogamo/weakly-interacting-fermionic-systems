@@ -556,8 +556,9 @@ even \textit{contractions}, and as the name suggests the value
 of such propagators is given by the 2-point function. In particular, if a line labelled by $i$
 exits a vertex and enters another as a line labelled by $j$, then to such a line we associate
 the value $G_{ij}$. A vertex may have an outgoing leg connecting back to an incoming line in
-the same vertex. The \textit{value of a diagram} is obtained by multiplying the values of
-vertices and propagators following the labelling and contractions dictated by the diagram.
+the same vertex. The \textit{value of a diagram $\Gamma$}, denoted $\mathrm{val}(\Gamma)$, is
+obtained by multiplying the values of vertices and propagators following the labelling and
+contractions dictated by the diagram.
 \\
 The definitions of the vertices and the propagators involved in the diagrams are called
 \textit{Feynman rules}. Finally, even though we will not make use of such a definition in our
@@ -571,6 +572,153 @@ own propagator, and they should be distinguished graphically.
 	evaluate it.}
 \end{example}
 
+In particular, we use diagrams to compute expectations. That is, if $V$ is our interaction
+potential, its expectation $\mathbb{E}_G(V)$ is the sum of all possible Wick contractions,
+i.e. all possible diagrams with one vertex and all lines contracted. Adding more copies of $V$
+inside the expectation means adding vertices, while multiplying by other expectations means
+multiplying the values of the respective sums of diagrams. We will prove that the most
+important diagrams are actually the connected ones. 
+
 \begin{definition}[Truncated expectation]
-	Let $P_G(\dx z)$
+	In the bosonic case, let $P_G(\dx z)$ be a complex Gaussian measure, and let
+	$V_1,\ldots,V_s$ be $s$ polynomials complex variables. We define the \textit{truncated
+	expectation} of $V_1,\ldots,V_s$ as
+	\begin{align*}
+		\mathbb{E}_G^{\mathrm{T}}(V_1;\ldots;V_s) \coloneq
+		\lim_{R\to\infty}\frac{\partial^s}{\partial t_1\cdots\partial t_s}\log\left(
+			\int P_G(\dx z) e^{\sum_{j=1}^s t_j V_j(\boldsymbol{z},\boldsymbol{z}^*)}\chi(|z|<R)
+		\right)\bigg|_{\boldsymbol{t}=0}.
+	\end{align*}
+	In the fermionic case, let $P_G(\dx\psi)$ be a Grassmann Gaussian measure, and let
+	$V_1,\ldots,V_s$ be $s$ polynomials of Grassmann variables. We define the \textit{truncated
+	expectation} of $V_1,\ldots,V_s$ as
+	\begin{align*}
+		\mathbb{E}_G^{\mathrm{T}}(V_1;\ldots;V_s)\coloneq
+		\frac{\partial^s}{\partial t_1\cdots\partial t_s}\log\left(
+			\int P_G(\dx\psi) e^{\sum_{j=1}^s t_j V_j(\boldsymbol{\psi},\boldsymbol{\bar\psi})}
+		\right)\bigg|_{\boldsymbol{t}=0}.
+	\end{align*}
+	We denote $\mathbb{E}_G^{\mathrm{T}}(V;r)$ the truncated expectation of $r$ copies of the same polynomial
+	$V$. Given a multiindex $I=(I_1,\ldots,I_n)$, we will denote $\mathbb{E}_G^{\mathrm{T}}(V_I)
+	=\mathbb{E}_G^{\mathrm{T}}(V_{I_1},\ldots,V_{I_n})$
 \end{definition}
+\begin{remark}
+	Note that the special case where $s=1$ reads as $\mathbb{E}_G^{\mathrm{T}}(V;1)=\mathbb{E}_G(V)$.
+\end{remark}
+
+\begin{proposition}[Invariance of exponentials]
+	Let $V$ be a polynomial of complex (or Grassmann) variables, and $P_G(\dx z)$ (or $P_G(\dx\psi)$)
+	be a complex (or Grassmann) Gaussian measure. Then
+	\begin{align*}
+		\int P_G(\dx z) e^{V(\boldsymbol{z},\boldsymbol{z}^*}
+		= e^{\sum_{j=0}^\infty\frac{1}{j!}\mathbb{E}_G(V;j)}.
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	We will compute the logarithm of the left hand side in the complex case, and the thesis
+	will follow immediately after. The Grassmann case is completely analogous and doesn't
+	require any modification. To compute the logarithm we take a Taylor expansion around zero,
+	and note that in the Grassmann case this just coincides with the definition of the integrand.
+	\begin{align*}
+		\log\int P_G(\dx z) e^{V(\boldsymbol{z},\boldsymbol{z}^*)}
+		&= \log\int P_G(\dx z)e^{tV(\boldsymbol{z},\boldsymbol{z}^*)}\big|_{t=1}\\
+		&= \sum_{j=0}^\infty \frac{1}{j!}\frac{\dx^j}{\dx s^j} \log\left(
+		\log\int P_G(\dx z)e^{tV(\boldsymbol{z},\boldsymbol{z}^*)}
+		\right)^j \bigg|_{s=0} t^j \bigg|_{t=1} = \star.
+	\end{align*}
+	But now we notice that this contains exactly the definition of $\mathbb{E}_G^{\mathrm{T}}(V;j)$,
+	thus:
+	\begin{align*}
+		\star = \sum_{j=0}^\infty \frac{1}{j!}\mathbb{E}_G^{\mathrm{T}}(V;j)t^j \big|_{t=1}
+		= \sum_{j=0}^\infty \frac{1}{j!}\mathbb{E}_G^{\mathrm{T}}(V;j)
+	\end{align*}
+\end{proof}
+
+\begin{theorem}[Linked cluster theorem]
+	Let $V_1,\ldots,V_s$ be polynomials of complex (or Grassmann) variables. Then
+	\begin{align*}
+		\mathbb{E}_G^{\mathrm{T}}(V_1;\ldots;V_s) = \mathbb{E}_G(V_1V_2\cdots V_s)
+		- \sum_{p=2}^s \sum_{\{I_1,\ldots,I_p\}\in P_p} \prod_{j=1}^p \mathbb{E}_G^{\mathrm{T}}(V_{I_j})
+	\end{align*}
+	where $P_p$ is the set of all possible partitions of the set of indices $\{1,\ldots,s\}$
+	into $p$ disjoint subsets.
+\end{theorem}
+\begin{proof}
+	Consider, in the complex case, $r\leq s$ indices $i_1,\ldots,i_r$, and define the
+	following quantity for $t,R\in\mathbb{R}$:
+	\begin{align*}
+		\mathbb{E}_{G,t,R}(V_{i_1}\cdots V_{i_r})
+		&\coloneq \frac{\mathbb{E}_G(V_{i_1}\cdots V_{i_r}e^{\sum_{j=1}^st_jV_j(z,z^*)}\chi(|z|<R))}
+		{\mathbb{E}_G(e^{\sum_{j=1}^st_jV_j(z,z^*)}\chi(|z|<R))}\\
+		&= \frac{\int P_G(\dx z)\left(\prod_{j=1}^rV_{i_j}\right)e^{\sum_{j=1}^st_jV_j(z,z^*)}\chi(|z|<R)}
+		{\int P_G(\dx z)e^{\sum_{j=1}^st_jV_j(z,z^*)}\chi(|z|<R)}
+	\end{align*}
+	And its truncated version
+	\begin{align*}
+		\mathbb{E}_{G,t,R}^{\mathrm{T}}(V_{i_1}\cdots V_{i_r})
+		= \frac{\partial^r}{\partial t_1\cdots\partial t_r}\left(
+			\log\int P_G(\dx z) e^{\sum_{j=1}^s t_j V_j(z,z^*)}\chi(|z|<R)
+		\right).
+	\end{align*}
+	Then $\mathbb{E}_G = \mathbb{E}_{G,0,\infty}$ and $\mathbb{E}_G^{\mathrm{T}}=
+	\mathbb{E}_{G,0,\infty}^{\mathrm{T}}$. The aim is to prove the more general formula in
+	which we use $\mathbb{E}_{G,t,R}$ instead of the regular expectation, and retrieve the
+	thesis by setting $t=0$ and taking $R\to\infty$. We will proceed by induction, starting
+	from the base case $r=1$:
+	\begin{align*}
+		\mathbb{E}_{G,t,R}^{\mathrm{T}}(V_k)
+		&= \frac{\partial}{\partial t_j}
+		\left(\log\int P_G(\dx z)e^{\sum_{j=1}^s t_j V_j(z,z^*)}\chi(|z|<R)\right)\\
+		&= \frac{\int P_G(\dx z)V_j(z,z^*)e^{\sum_{j=1}^s t_s V_s(z,z^*)}\chi(|z|<R)}
+		{\int P_G(\dx z)e^{\sum_{j=1}^s t_s V_s(z,z^*)}\chi(|z|<R)}\\
+		&= \mathbb{E}_{G,t,R}(V_k).
+	\end{align*}
+	We now assume the modified version of the thesis holds for $r-1$ and prove that the case
+	$r$ follows from this. The inductive hypothesis reads
+	\begin{align*}
+		\mathbb{E}_{G,t,R}^{\mathrm{T}}(V_1;\ldots;V_{r-1}) = \mathbb{E}_G(V_1V_2\cdots V_{r-1})
+		- \sum_{p=2}^{r-1} \sum_{\{I_1,\ldots,I_p\}\in P_p} \prod_{j=1}^p \mathbb{E}_{G,t,R}^{\mathrm{T}}(V_{I_j}).
+	\end{align*}
+	Deriving both sides of the equation by $t_{i_r}$ gives us, by definition,
+	\begin{align*}
+		\frac{\partial}{\partial t_{i_r}}(\mathrm{l.h.s.})
+		= \mathbb{E}_{G,t,R}^{\mathrm{T}}(V_{i_1};\ldots;V_{i_r})
+	\end{align*}
+	and
+	\begin{align*}
+		\frac{\partial}{\partial t_{i_r}} \mathbb{E}_{G,t,R}(V_{i_1},\ldots,V_{i_{r-1}})
+		= (\ldots) = \mathbb{E}_{G,t,R}(V_{i_1},\ldots,V_{i_r})
+		- \mathbb{E}_{G,t,R}(V_{i_1},\ldots,V_{i_{r-1}})\mathbb{E}_{G,t,R}(V_{i_r}).
+	\end{align*}
+	Then, using the inductive hypothesis, we can rewrite the factor $\mathbb{E}_{G,t,R}(V_{i_1},
+	\ldots,V_{i_{r-1}})$ and iteratively make all possible partitions in which $i_r$ is left
+	alone in the expression, concluding the proof.
+\end{proof}
+
+\begin{theorem}[Connected Feynman diagrams]
+	\begin{align*}
+		\mathbb{E}_G^{\mathrm{T}}(V_1;\ldots;V_s) = \sum_{\Gamma\in\mathcal{G}_{s,\mathrm{C}}}
+		\mathrm{val}(\Gamma)
+	\end{align*}
+	where $\mathcal{G}_{s,\mathrm{C}}$ is the set of all connected diagrams with $s$ vertices.
+\end{theorem}
+\begin{proof}
+	We proceed by induction, with the base case $s=1$ being trivially true, by construction of
+	$\mathbb{E}_G^{\mathrm{T}}(V;1)$. We will call $\mathcal{G}_{s,p,\mathrm{CC}}$ the set of
+	all connected diagrams with $s$ vertices divided into $p$ connected components. Assuming
+	now the thesis holds for the case $s-1$, we can use the linked cluster theorem to see that
+	\begin{align*}
+		\mathbb{E}_G^{\mathrm{T}}(V_1;\ldots;V_s)
+		&= \mathbb{E}_G(V_1;\ldots;V_s) - \sum_{p=2}^s \sum_{\{I_1,\ldots,I_p\}\in P_p}
+		\prod_{j=1}^p \mathbb{E}_G^{\mathrm{T}}(V_{I_j})\\
+		&= \mathbb{E}_G(V_1;\ldots;V_s) - \sum_{p=2}^s \sum_{\Gamma\in\mathcal{G}_{s,p,\mathrm{CC}}}\mathrm{val}(\Gamma)\\
+		&= \sum_{\Gamma\in\mathcal{G}_{s,1,\mathrm{CC}}}\mathrm{val}(\Gamma).
+	\end{align*}
+\end{proof}
+
+In the next chapter we will discuss how we can rewrite the expectations on Gibbs states as a
+series of expectations of the powers of the interaction potential, and we will see how those
+expectations are actually going to be \textit{truncated}, with a number of copies of $V$ given
+by the order at which we decide to truncate the expression. Ultimately what this means is that
+our computations will involve, order by order, a sum of all connected diagrams with a number
+of vertices equal to the chosen order.
