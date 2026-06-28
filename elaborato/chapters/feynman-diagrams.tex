@@ -570,7 +570,7 @@ Grassmann algebras to represent different families of fermions). Each type of li
 own propagator, and they should be distinguished graphically.
 \\
 We will compute values of Feynman diagrams explicitly in the next chapter, specifically in
-Section \ref{second-order}, so we will refer to those computations as examples of
+Section \ref{second-order}, so we refer to those computations as examples of
 the general rules we just laid out.
 
 We use diagrams to compute expectations. If $V$ is our interaction potential, its expectation
@@ -612,7 +612,7 @@ important diagrams are actually the connected ones.
 	be a complex (or Grassmann) Gaussian measure. Then
 	\begin{align*}
 		\int P_G(\dx z) e^{V(\boldsymbol{z},\boldsymbol{z}^*}
-		= e^{\sum_{j=0}^\infty\frac{1}{j!}\mathbb{E}_G(V;j)}.
+		= e^{\sum_{j=0}^\infty\frac{1}{j!}\mathbb{E}_G^{\mathrm{T}}(V;j)}.
 	\end{align*}
 \end{proposition}
 \begin{proof}
@@ -645,8 +645,10 @@ important diagrams are actually the connected ones.
 	into $p$ disjoint subsets.
 \end{theorem}
 \begin{proof}
-	Consider, in the complex case, $r\leq s$ indices $i_1,\ldots,i_r$, and define the
-	following quantity for $t,R\in\mathbb{R}$:
+	We consider the complex case to outline the proof, but the Grassmann case is even simpler,
+	as the characteristic functions that appear below are not needed (we put them in the
+	complex case to manage convergence of the integrals). Consider $r\leq s$ indices $i_1,
+	\ldots,i_r$, and define the following quantity for $t,R\in\mathbb{R}$:
 	\begin{align*}
 		\mathbb{E}_{G,t,R}(V_{i_1}\cdots V_{i_r})
 		&\coloneq \frac{\mathbb{E}_G(V_{i_1}\cdots V_{i_r}e^{\sum_{j=1}^st_jV_j(z,z^*)}\chi(|z|<R))}

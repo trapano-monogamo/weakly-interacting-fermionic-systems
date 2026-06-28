@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026/Arch Linux)  (format=lualatex 2026.5.9)  28 JUN 2026 16:49
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026/Arch Linux)  (format=lualatex 2026.5.9)  28 JUN 2026 21:35
  system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -1001,16 +1001,16 @@ Here is how much of LuaTeX's memory you used:
  125016,1977958 words of node,token memory allocated
  965 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 98 attribute, 71 glue_spec, 98 attribute_list, 2 write, 1 pdf_action nodes
-   avail lists: 1:8,2:1830,3:664,4:120,5:723,6:100,7:10731,8:103,9:1358,10:15,11:823
+   avail lists: 1:8,2:2532,3:994,4:120,5:723,6:100,7:10993,8:103,9:1358,10:15,11:831
  57280 multiletter control sequences out of 65536+600000
  84 fonts using 6201415 bytes
  102i,19n,101p,692b,1264s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmromancaps10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf><</home/chiara/.texlive/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/sy
 mbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (52 pages, 550452 bytes).
+Output written on main.pdf (52 pages, 550573 bytes).
 
-PDF statistics: 732 PDF objects out of 1000 (max. 8388607)
- 620 compressed objects within 7 object streams
+PDF statistics: 733 PDF objects out of 1000 (max. 8388607)
+ 621 compressed objects within 7 object streams
  225 named destinations out of 1000 (max. 1048576)
  168 words of extra memory for PDF output out of 10000 (max. 100000000)
 
