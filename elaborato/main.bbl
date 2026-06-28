@@ -68,6 +68,37 @@
       \verb ???
       \endverb
     \endentry
+    \entry{ForBook}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=f059bfe158507db3f974228d09a512d8}{%
+           family={Forte},
+           familyi={F\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+        {{hash=17dc0f0aed3c52e62a099a3ac07ae520}{%
+           family={Rottoli},
+           familyi={R\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Zanichelli}%
+      }
+      \strng{namehash}{7f210360dca51dec5930a82f86b458cc}
+      \strng{fullhash}{7f210360dca51dec5930a82f86b458cc}
+      \strng{fullhashraw}{7f210360dca51dec5930a82f86b458cc}
+      \strng{bibnamehash}{7f210360dca51dec5930a82f86b458cc}
+      \strng{authorbibnamehash}{7f210360dca51dec5930a82f86b458cc}
+      \strng{authornamehash}{7f210360dca51dec5930a82f86b458cc}
+      \strng{authorfullhash}{7f210360dca51dec5930a82f86b458cc}
+      \strng{authorfullhashraw}{7f210360dca51dec5930a82f86b458cc}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fisica Quantistica}
+      \field{year}{2018}
+    \endentry
     \entry{GalNotes}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=d5242f9459ed77349880898c438b811b}{%

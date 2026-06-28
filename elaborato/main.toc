@@ -6,14 +6,14 @@
 \contentsline {subsection}{\numberline {2.4}Bogolubov transformations and quasi-free pure states}{19}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Quadratic hamiltonians}{21}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Perturbation Theory}{22}{section.3}%
-\contentsline {subsection}{\numberline {3.1}A toy model: bosonic expectations}{22}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Grassmann integrals and fermionic expectations}{25}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Perturbative series and Feynman diagrams}{29}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Ground state energy in the mean field limit}{32}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Explicit calculation at second order}{34}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Mean field scaling}{42}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}On higher orders in perturbation theory}{45}{subsection.4.3}%
-\contentsline {section}{\numberline {A}More about Hilbert spaces}{45}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Special operators}{45}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Integration of operator-valued functions}{47}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Direct sums and tensor products of Hilbert spaces}{49}{subsection.A.3}%
+\contentsline {subsection}{\numberline {3.1}A toy model: bosonic expectations}{23}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Grassmann integrals and fermionic expectations}{26}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Perturbative series and Feynman diagrams}{30}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Ground state energy in the mean field limit}{33}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Explicit calculation at second order}{35}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Mean field scaling}{43}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}On higher orders in perturbation theory}{46}{subsection.4.3}%
+\contentsline {section}{\numberline {A}More about Hilbert spaces}{46}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Special operators}{46}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Integration of operator-valued functions}{48}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Direct sums and tensor products of Hilbert spaces}{50}{subsection.A.3}%

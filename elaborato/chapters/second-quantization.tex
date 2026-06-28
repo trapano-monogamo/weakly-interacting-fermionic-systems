@@ -6,10 +6,11 @@ the superposition principle are realized in the linear structure of a complex ve
 physical states. Such a vector space must be equipped with an inner product, which produces
 the probability amplitude for a system prepared in some state to be measured in another. Let
 us define these objects and give the results necessary to build a theory of interacting quantum
-particles. \textcolor{red}{Check citation} The majority of the definitions and theorems
-presented in this chapter are taken, and often reworked, from professor Solovej's lectures
-notes on many body quantum theory [\cite{SolNotes}], \textcolor{red}{and we will specify
-the page number for the important proofs they provide}.
+particles. The majority of the definitions and theorems presented in this chapter are taken,
+and often reworked, from professor Solovej's lectures notes on many body quantum theory
+\cite{SolNotes}, \textcolor{red}{and we will specify the page number for the proofs they
+provide. The proofs that do not have a page number are those that are not found in Solovej's
+notes and that we came up with as useful exercises}.
 
 \subsection{Principles of quantum mechanics}
 
@@ -375,7 +376,7 @@ with
 \end{align*}
 which is dense in $\mathcal{H}_N$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for all $i$.
 
-\begin{theorem}[ground state of non-interacting (distinguishable) particles]
+\begin{theorem}[Ground state of non-interacting (distinguishable) particles]
 	If the ground state energies of the Hamiltonians $h_1,\ldots,h_N$ are
 	\begin{align*}
 		e_j = \inf_{\phi\in D(h_j),\Vert\phi\Vert=1} \langle\phi,h_j\phi\rangle, \quad j=1,\ldots,N
@@ -434,12 +435,13 @@ considered. This means that
 	&W_{ij} = W_{kl} \eqcolon W \quad \forall i\neq j, k\neq l.
 \end{align*}
 Indistinguishability also requires an additional property that physical states must satisfy,
-so let us take the time to recall a formal explanation of what this property is. Consider the
-simplest case of a system of two indistinguishable particles in the states $\psi,\phi\in
-\mathfrak{h}$. Because quantum states can be told apart only through probability amplitudes,
-two vectors that differ only by an overall phase can be considered indistinguishable, as
-$\vert\langle\phi,e^{i\theta}\phi\rangle\vert^2=\Vert\phi\Vert^2$ no matter the phase $\theta$.
-Therefore we can consider an exchange operator that flips the order in a simple tensor in
+so let us take the time to recall a formal explanation of what this property is, following
+the reasoning in \cite[p.~302]{ForBook}. Consider the simplest case of a system of two
+indistinguishable particles in the states $\psi,\phi\in \mathfrak{h}$. Because quantum states
+can be told apart only through probability amplitudes, two vectors that differ only by an
+overall phase can be considered indistinguishable, as $\vert\langle\phi,e^{i\theta}\phi
+\rangle\vert^2=\Vert\phi\Vert^2$ no matter the phase $\theta$. Therefore we can consider an
+exchange operator that flips the order in a simple tensor in
 $\mathfrak{h}\otimes\mathfrak{h}$
 \begin{align*}
 	\mathrm{Ex}(\phi\otimes\psi) = \psi\otimes\phi
@@ -455,8 +457,9 @@ particle states results in the original state, we can conclude that
 	\mathrm{Ex}^2 = \mathbbm{1} \implies e^{2i\alpha} = 1 \implies \alpha = \pm 1.
 \end{align*}
 The sign $\alpha=\pm1$ is what determines the statistics of the two identical particles:
-(+) for \textit{bosons} and (-) for \textit{fermions}. Generalizing to the case of $N$
-identical particles (of the same statistics) means defining physical states as those that
+(+) for \textit{bosons} (particles that follow Bose-Einstein statistics) and (-) for
+\textit{fermions} (particles that follow Fermi-Dirac statistics). Generalizing to the case of
+$N$ identical particles (of the same statistics) means defining physical states as those that
 belong to the $+1$ or $-1$ joint eigenspaces of \textit{all} the exchange operators between
 two of the $N$ particles, i.e. the subspace of completely symmetric or completely
 anti-symmetric tensors respectively.
@@ -1437,6 +1440,9 @@ Hamiltonian, then the study of the kinetic (quadratic) part of that system is au
 done. This of course plays a crucial role in perturbative calculations, which are all about
 dealing with complicated interactions on top of an easy and well-defined ``free theory", i.e.
 a theory whose $n$-point functions satisfy Wick's theorem.
+\\
+We will not provide proofs for the following results, as they serve the purpose of giving a
+more complete picture of the tools at hand rather than being of foundamental importrance to us.
 
 \begin{definition}[Quadratic Hamiltonian]
 	Let $\mathcal{A}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ be a
@@ -1449,5 +1455,65 @@ a theory whose $n$-point functions satisfy Wick's theorem.
 	is called the \textit{quadratic Hamiltonian associated to $\mathcal{A}$}.
 \end{definition}
 
-\textcolor{red}{We only care about the basic results about quadratic Hamiltonians from Solovej's
-notes. Easy stuff, CHOP CHOP weather boy.}
+\begin{proposition}
+	If $H_{\mathcal{A}}^\pm$ is self-adjoint, than the above definition is independent of the
+	choice of basis for $\mathfrak{h}\oplus\mathfrak{h}^*$.
+\end{proposition}
+
+\begin{theorem}[Variational principle for quadratic Hamiltonians]
+	If $\mathcal{A}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ is
+	self-adjoint, trace class (and positive semi-definite in the bosonic case) and
+	$E^{H^\pm_{\mathcal{A}}}$ denotes the true ground state energy of $H^\pm_{\mathcal{A}}$,
+	then it holds that
+	\begin{align*}
+		E^{H^\pm_{\mathcal{A}}} = \inf\left\{
+			\langle\Psi,H^\pm_{\mathcal{A}}\Psi\rangle : \Psi\in\mathcal{F}^{\mathrm{F,B}}
+			\;\text{is a quasi-free pure state}\;
+		\right\}.
+	\end{align*}
+\end{theorem}
+
+\begin{theorem}[Ground state eigenvector for quadratic Hamiltonians]
+	Let $\mathcal{A}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ be
+	self-adjoint. Assume moreover, in the bosonic case, that it is positive definite. Then
+	the Hamiltonian $H^\pm_{\mathcal{A}}$ admits a ground state eigenvector that is a
+	quasi-free pure state. In the bosonic case, this eigenvector is also unique in the class
+	of quasi-free pure states.
+\end{theorem}
+
+\begin{theorem}[Bogolubov transformations of quadratic Hamiltonians]
+	If $\mathcal{V}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ is
+	a Bogolubov map and $\mathbb{U}_{\mathcal{V}}$ its unitary implementation on
+	$\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$, then for all self-adjoint $\mathcal{A}:
+	\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ it holds that
+	\begin{align*}
+		\mathbb{U}_{\mathcal{V}}H^\pm_{\mathcal{A}}\mathbb{U}_{\mathcal{V}}^*
+		= H^\pm_{\mathcal{VAV}^*}
+	\end{align*}
+\end{theorem}
+
+The definition of quadratic Hamiltonians naturally includes kinetic terms that contain the
+so-called \textit{anomalous} correlators $a_ia_j$ and $a^*_ia^*_j$, which are
+number-non-preserving terms. Usually, if a Hamiltonian contains such terms, one could try to
+find a Bogolubov transformation that diagonalizes it, taking it to the above form.
+\begin{example}
+	An important example of such a diagonalization procedure is the one obtained by the
+	particle-hole transformation, which also represents an alternative approach to the
+	calculations we carry out in our work. The transformation is as follows: consider a set of
+	momentum states inside a ball of fixed radius $k_{\mathrm{F}}$, the Fermi ball
+	$B_{\mathrm{F}} =\{k\in\mathbb{Z}^3:|k|<k_{\mathrm{F}}\}$, then define a \textit{hole} as
+	an operator that annihilates a state inside $B_{\mathrm{F}}$, and a \textit{particle} as
+	an operator that creates a state inside $B_{\mathrm{F}}$. This is the result of the
+	Bogolubov transformation $R$ which acts as (calling $a^*_k=a^*_-(\psi_k)$ the creation of a particle
+	in the state $\psi_k$ of definite momentum $k$)
+	\begin{align*}
+		R^*a^*_k R = \begin{cases}
+			a^*_k\quad&\text{if}\;k\not\in B_{\mathrm{F}}\\
+			a_k  \quad&\text{if}\;k\in B_{\mathrm{F}}
+		\end{cases}
+	\end{align*}
+	and
+	\begin{align*}
+		R|\Omega\rangle = \bigwedge_{k\in B_{\mathrm{F}}}\psi_k.
+	\end{align*}
+\end{example}
