@@ -19,27 +19,203 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
-    \entry{test}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=124433700b3275084ede92789a9d83ef}{%
-           family={What},
-           familyi={W\bibinitperiod}}}%
+    \entry{BenArt}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=e44929d3ff16d255d2948e4fb5cd6d9b}{%
+           family={Benedikter},
+           familyi={B\bibinitperiod},
+           given={Niels},
+           giveni={N\bibinitperiod}}}%
+        {{hash=7c5ce3406294db38c8665b1915b037f3}{%
+           family={Nam},
+           familyi={N\bibinitperiod},
+           given={Phan\bibnamedelima Than},
+           giveni={P\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=849c9e05a55571d8cc03cbfc81d55f58}{%
+           family={Porta},
+           familyi={P\bibinitperiod},
+           given={Marcello},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9d4bc0ff102906ff3dcab0b3c59b1027}{%
+           family={Schlein},
+           familyi={S\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=782bc3123cbdf61d594ba945ed1fe7da}{%
+           family={Seiringer},
+           familyi={S\bibinitperiod},
+           given={Rober},
+           giveni={R\bibinitperiod}}}%
       }
-      \strng{namehash}{124433700b3275084ede92789a9d83ef}
-      \strng{fullhash}{124433700b3275084ede92789a9d83ef}
-      \strng{fullhashraw}{124433700b3275084ede92789a9d83ef}
-      \strng{bibnamehash}{124433700b3275084ede92789a9d83ef}
-      \strng{authorbibnamehash}{124433700b3275084ede92789a9d83ef}
-      \strng{authornamehash}{124433700b3275084ede92789a9d83ef}
-      \strng{authorfullhash}{124433700b3275084ede92789a9d83ef}
-      \strng{authorfullhashraw}{124433700b3275084ede92789a9d83ef}
-      \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \strng{namehash}{5d11f23499cc10689efe41dc53fbad7c}
+      \strng{fullhash}{b4d464b3df9ba792db5ea8686042857b}
+      \strng{fullhashraw}{b4d464b3df9ba792db5ea8686042857b}
+      \strng{bibnamehash}{5d11f23499cc10689efe41dc53fbad7c}
+      \strng{authorbibnamehash}{5d11f23499cc10689efe41dc53fbad7c}
+      \strng{authornamehash}{5d11f23499cc10689efe41dc53fbad7c}
+      \strng{authorfullhash}{b4d464b3df9ba792db5ea8686042857b}
+      \strng{authorfullhashraw}{b4d464b3df9ba792db5ea8686042857b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{wHaT}
-      \field{title}{wHAT}
-      \field{year}{which year again?}
+      \field{title}{Correlation Energy of a Weakly Interacting Fermi Gas}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb ???
+      \endverb
+      \verb{url}
+      \verb ???
+      \endverb
+    \endentry
+    \entry{GalNotes}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=d5242f9459ed77349880898c438b811b}{%
+           family={Gallone},
+           familyi={G\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{d5242f9459ed77349880898c438b811b}
+      \strng{fullhash}{d5242f9459ed77349880898c438b811b}
+      \strng{fullhashraw}{d5242f9459ed77349880898c438b811b}
+      \strng{bibnamehash}{d5242f9459ed77349880898c438b811b}
+      \strng{authorbibnamehash}{d5242f9459ed77349880898c438b811b}
+      \strng{authornamehash}{d5242f9459ed77349880898c438b811b}
+      \strng{authorfullhash}{d5242f9459ed77349880898c438b811b}
+      \strng{authorfullhashraw}{d5242f9459ed77349880898c438b811b}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Dipartimento di Matematica, Università degli Studi di Milano}
+      \field{title}{Lecture Notes: Quantum Statistical Mechanics}
+    \endentry
+    \entry{GiuVigBook}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=ed2346f05fe56333d9300d9267a9a2f9}{%
+           family={Giuliani},
+           familyi={G\bibinitperiod},
+           given={Gabriele},
+           giveni={G\bibinitperiod}}}%
+        {{hash=265dc1582c19bd4b2bc9d90486312e1b}{%
+           family={Vignale},
+           familyi={V\bibinitperiod},
+           given={Giovanni},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{5a93bb8a014b16b171dd2a5933887bb3}
+      \strng{fullhash}{5a93bb8a014b16b171dd2a5933887bb3}
+      \strng{fullhashraw}{5a93bb8a014b16b171dd2a5933887bb3}
+      \strng{bibnamehash}{5a93bb8a014b16b171dd2a5933887bb3}
+      \strng{authorbibnamehash}{5a93bb8a014b16b171dd2a5933887bb3}
+      \strng{authornamehash}{5a93bb8a014b16b171dd2a5933887bb3}
+      \strng{authorfullhash}{5a93bb8a014b16b171dd2a5933887bb3}
+      \strng{authorfullhashraw}{5a93bb8a014b16b171dd2a5933887bb3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Quantum Theory of the Electron Liquid}
+      \field{year}{2005}
+    \endentry
+    \entry{HPRArt}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=3f8d42fd96fa6c1721406f334c2a1b4a}{%
+           family={Hainzl},
+           familyi={H\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=849c9e05a55571d8cc03cbfc81d55f58}{%
+           family={Porta},
+           familyi={P\bibinitperiod},
+           given={Marcello},
+           giveni={M\bibinitperiod}}}%
+        {{hash=24727a53e68eab3758c095e5fe51cfe9}{%
+           family={Rexze},
+           familyi={R\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{8ed67c0fb7f5bb35a612053e0e8131de}
+      \strng{fullhash}{8ed67c0fb7f5bb35a612053e0e8131de}
+      \strng{fullhashraw}{8ed67c0fb7f5bb35a612053e0e8131de}
+      \strng{bibnamehash}{8ed67c0fb7f5bb35a612053e0e8131de}
+      \strng{authorbibnamehash}{8ed67c0fb7f5bb35a612053e0e8131de}
+      \strng{authornamehash}{8ed67c0fb7f5bb35a612053e0e8131de}
+      \strng{authorfullhash}{8ed67c0fb7f5bb35a612053e0e8131de}
+      \strng{authorfullhashraw}{8ed67c0fb7f5bb35a612053e0e8131de}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{On the Correlation Energy of Interacting Fermionic Systems in the Mean Field Regime}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb ???
+      \endverb
+      \verb{url}
+      \verb ???
+      \endverb
+    \endentry
+    \entry{ManBook}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=c909105ec6d272a8411eaffa14b3b6b2}{%
+           family={Manini},
+           familyi={M\bibinitperiod},
+           given={Nicola},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c909105ec6d272a8411eaffa14b3b6b2}
+      \strng{fullhash}{c909105ec6d272a8411eaffa14b3b6b2}
+      \strng{fullhashraw}{c909105ec6d272a8411eaffa14b3b6b2}
+      \strng{bibnamehash}{c909105ec6d272a8411eaffa14b3b6b2}
+      \strng{authorbibnamehash}{c909105ec6d272a8411eaffa14b3b6b2}
+      \strng{authornamehash}{c909105ec6d272a8411eaffa14b3b6b2}
+      \strng{authorfullhash}{c909105ec6d272a8411eaffa14b3b6b2}
+      \strng{authorfullhashraw}{c909105ec6d272a8411eaffa14b3b6b2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Introduction to the Physics of Matter}
+      \field{year}{2020}
+    \endentry
+    \entry{SolNotes}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=b99f54e7ecc01c688c710f0fcf3d828d}{%
+           family={Solovej},
+           familyi={S\bibinitperiod},
+           given={Jan\bibnamedelima Philip},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b99f54e7ecc01c688c710f0fcf3d828d}
+      \strng{fullhash}{b99f54e7ecc01c688c710f0fcf3d828d}
+      \strng{fullhashraw}{b99f54e7ecc01c688c710f0fcf3d828d}
+      \strng{bibnamehash}{b99f54e7ecc01c688c710f0fcf3d828d}
+      \strng{authorbibnamehash}{b99f54e7ecc01c688c710f0fcf3d828d}
+      \strng{authornamehash}{b99f54e7ecc01c688c710f0fcf3d828d}
+      \strng{authorfullhash}{b99f54e7ecc01c688c710f0fcf3d828d}
+      \strng{authorfullhashraw}{b99f54e7ecc01c688c710f0fcf3d828d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Many Body Quantum Mechanics}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://web.math.ku.dk/~solovej/MANYBODY/mbnotes-ptn-5-3-14.pdf
+      \endverb
+      \verb{url}
+      \verb https://web.math.ku.dk/~solovej/MANYBODY/mbnotes-ptn-5-3-14.pdf
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

@@ -1,18 +1,17 @@
 \section{Second Quantization}
 
-\textcolor{red}{INTROOOOO}
+In this preliminary section we give an overvew of the mathematical objects that appear in the
+description of quantum systems. The probabilistic nature of a quantum system together with
+the superposition principle are realized in the linear structure of a complex vector space of
+physical states. Such a vector space must be equipped with an inner product, which produces
+the probability amplitude for a system prepared in some state to be measured in another. Let
+us define these objects and give the results necessary to build a theory of interacting quantum
+particles. \textcolor{red}{Check citation} The majority of the definitions and theorems
+presented in this chapter are taken, and often reworked, from professor Solovej's lectures
+notes on many body quantum theory [\cite{SolNotes}], \textcolor{red}{and we will specify
+the page number for the important proofs they provide}.
 
 \subsection{Principles of quantum mechanics}
-
-\subsection*{Preliminaries}
-
-In this preliminary section we give an overvew of the mathematical objects that appear in the
-description of quantum systems. The probabilistic nature of a quantum system is realized in
-the linear structure of a complex vector space that is equipped with an inner product, which
-produces the probability amplitude for a system prepared in some state to be measured in
-another. In this setting, linear combinations of state vectors are just probabilistic
-superpositions. We will give the necessary definitions regarding a particular class of vector
-spaces, even though many concepts come from more general settings.
 
 \begin{definition}[Hilbert space]
 	A (complex) \textit{Hilbert space} $\mathcal{H}$ is a vector space equipped with a
@@ -24,9 +23,10 @@ spaces, even though many concepts come from more general settings.
 A note on the choice of notation. Sometimes, using Dirac's ``bra-ket" notation can help avoid
 ambiguities. In this notation, a vector would be denoted by $|\psi\rangle\in\mathcal{H}$, a
 linear functional as $\langle\psi|\in\mathcal{H}^*$, and the inner product (with respect to a
-symmetric operator, which we haven't yet introduced) as $\langle\psi,A\phi\rangle=\langle\psi|
-A|\phi\rangle$. An example of such a scenario where this notation \textit{might} be preferred
-is that of the occupation number basis, which we make use of in Chapter (\ref{second-order}).
+self-adjoint operator, which we haven't yet introduced) as $\langle\psi,A\phi\rangle=\langle
+\psi|A|\phi\rangle$. An example of such a scenario where this notation \textit{might} be
+preferred is that of the occupation number basis, which we discuss in this chapter and then
+make use of in Chapter \ref{second-order}.
 
 \begin{definition}
 	A Hilbert space is said to be \textit{separable} if it admits a countable dense subset.
@@ -350,7 +350,7 @@ spaces in which to set physical systems composed of multiple degrees of freedom.
 particularly interested in two special subspaces of a tensor product that encode the
 \textit{statistics} of the particles considered, a property that describes indistinguishabilty
 between particles in a quantum system. Once again we point to Appendix
-(\ref{appendix:direct-sum-tensor-product}) for a discussion on the construction of tensor
+\ref{appendix:direct-sum-tensor-product} for a discussion on the construction of tensor
 products (and direct sums) of Hilbert spaces.
 
 Consider a system of $N$ particles whose physical states belong to the spaces $\mathfrak{h}_1,
@@ -474,8 +474,9 @@ Define the operators
 	&P_+ \coloneq \frac{1}{N!} \sum_{\sigma\in S_N} U_\sigma \\
 	&P_- \coloneq \frac{1}{N!} \sum_{\sigma\in S_N} \mathrm{sgn}(\sigma) U_\sigma. \nonumber
 \end{align}
-These are unitary by construction, and showing that they are also projections only involves
-rewriting the sum over two sets of permutations as a single one to get that $P_\pm^2 = P_\pm$.
+These are unitary and self-adjoint by construction, and showing that they are also projections
+only involves rewriting the sum over two sets of permutations as a single one to get that
+$P_\pm^2 = P_\pm$.
 
 \begin{definition}[Symmetric and anti-symmetric tensor products]
 	Given $\mathfrak{h}$ the one-particle Hilbert space, the \textit{symmetric tensor product}
@@ -625,32 +626,76 @@ subspaces:
 	a_\pm(f)$ is conjugate linear.
 \end{remark}
 
-\begin{remark}
-	The normalization we used in (\ref{eq:creation-annihilation}) changes slightly when
-	projecting the image onto the (anti-)symmetric subspaces. Indeed \textcolor{red}{it can be
-	shown that}
-	\begin{align*}
-		&a_\pm(f) P_\pm(f_1\otimes\cdots\otimes f_N)
-		= \sqrt{N+1} \sum_{\sigma\in S_N}\langle f,f_{\sigma(1)}\rangle f_{\sigma(2)}\otimes\cdots\otimes f_{\sigma(N)},\\
-		&a^*_\pm(f)f_1\otimes\cdots\otimes f_N
-		= \frac{1}{\sqrt{N}}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1} f_{\sigma(1)}\otimes\cdots\otimes \mathop{f}_{(j\mathrm{-th})} \otimes\cdots\otimes f_{\sigma(N)}.
-	\end{align*}
-\end{remark}
-
+The normalization we used in (\ref{eq:creation-annihilation}) changes slightly when
+using the (anti-)symmetric subspaces: \textcolor{red}{IS THERE A TYPO IN BENEDIKTER'S ARTICLE?}
+\begin{align*}
+	&a_\pm(f) P_\pm(f_1\otimes\cdots\otimes f_N)
+	= \sqrt{N} \sum_{\sigma\in S_N}\langle f,f_{\sigma(1)}\rangle f_{\sigma(2)}\otimes\cdots\otimes f_{\sigma(N)},\\
+	&a^*_\pm(f)f_1\otimes\cdots\otimes f_N
+	= \frac{1}{\sqrt{N+1}}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1} f_{\sigma(1)}\otimes\cdots\otimes \mathop{f}_{(j\mathrm{-th})} \otimes\cdots\otimes f_{\sigma(N)}.
+\end{align*}
+This is because we want to choose a normalization such that canonical commutator from
+quantum mechanics still holds, and that is exactly what we want to show now.
+%This can be seen easily by writing the action of $a^*_\pm(f)$ on a pure tensor:
+%\begin{align*}
+%	a^*_\pm(f)\phi_1\otimes\cdots\phi_N
+%	&= P_\pm a^*(f)\phi_1\otimes\cdots\otimes\phi_N\\
+%	&= \frac{1}{(N+1)!}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1}\sqrt{N+1}
+%	\phi_{\sigma(1)}\otimes\cdots\otimes\mathop{f}_{(j\mathrm{-th})}\otimes\cdots\otimes\phi_{\sigma(N)}\\
+%	&= \frac{1}{\sqrt{N+1}}\frac{1}{N!}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1}
+%	\phi_{\sigma(1)}\otimes\cdots\otimes\mathop{f}_{(j\mathrm{-th})}\otimes\cdots\otimes\phi_{\sigma(N)}\\
+%\end{align*}
+%but notice that the remaining factor of $N!$ is reabsorbed when restricting the action of
+%$a^*_\pm(f)$ to the (anti)symmetric subspace.
 Recall the definition of the commutator and anticommutator between two operators defined on a
-common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$.
+common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$. The anticommutator may
+be denoted by $[\,\cdot,\cdot\,]_+$ while the commutator by $[\,\cdot,\cdot\,]_-$, to
+accomodate for the more compact notation $[\,\cdot,\cdot\,]_\mp$ to indicate either of the
+two.
 
 \begin{proposition}[CCR/CAR]
 	The operators $a_-$ and $a^*_-$ satisfy the Canonical Commutation Relations (CCR), while
-	the operators $a_+$ and $a^*_+$ satisfy the Canonical Anticommutation Relations (CAR), i.e.
-	for all $f,g\in\mathfrak{h}$ it holds that
+	$a_+$ and $a^*_+$ the Canonical Anticommutation Relations (CAR), i.e. for all $f,g\in
+	\mathfrak{h}$ it holds that
 	\begin{align*}
-		&\{a_+(f),a^*_+(g)\} = \langle f,g \rangle_\mathfrak{h}, \quad \{a_+(f),a_+(g)\}=\{a^*_+(f),a^*_+(g)\}=0\\
-		&[a_-(f),a^*_-(g)\} = \langle f,g \rangle_\mathfrak{h}, \quad [a_-(f),a_-(g)]=[a^*_-(f),a^*_-(g)]=0\\
+		[a_\pm(f),a^*_\pm(g)]_\mp = \langle f,g \rangle_\mathfrak{h}\mathbbm{1},
+		\quad [a_\pm(f),a_\pm(g)]_\mp=[a^*_\pm(f),a^*_\pm(g)]_\mp=0\\
 	\end{align*}
 \end{proposition}
 \begin{proof}
-	\textcolor{red}{EXPLICIT CALCULATION?}
+	We prove the thesis on N-fold pure tensors. We compute the two terms in an (anti)commutator
+	separately to highlight the terms that simplify. Let $\phi_1,\ldots,\phi_N\in\mathfrak{h}$,
+	then
+	\begin{align*}
+		a_\pm(f)a^*_\pm(g)
+		&
+		(\phi_1\otimes\cdots\otimes\phi_N) =\\
+		&= a_\pm(f)\frac{1}{\sqrt{N+1}}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1}(\pm1)^\sigma(\pm1)^{j+1}
+			\phi_{\sigma(1)}\otimes\cdots\otimes\mathop{g}_{(j\mathrm{-th})}\otimes\cdots\otimes\phi_{\sigma(N)}\\ 
+		&= \sum_{\sigma\in S_N}\Bigg((\pm1)^\sigma\langle f,g\rangle\phi_{\sigma(1)}\otimes\cdots\otimes\phi_{\sigma(N)}\\
+		&\quad+\sum_{j=2}^{N+1}(\pm1)^\sigma(\pm1)^{j+1}\langle f,\phi_{\sigma(1)}\rangle\phi_{\sigma(1)}\otimes\cdots\otimes\mathop{g}_{(j\mathrm{-th})}\otimes\cdots\otimes\phi_{\sigma(N)}\Bigg)\\
+		&= \langle f,g\rangle N!P_\pm(\phi_1\otimes\cdots\otimes\phi_N)\\
+		&\quad+\sum_{\sigma\in S_N}\sum_{j=2}^{N+1}(\pm1)^\sigma(\pm1)^{j+1}\langle f,\phi_{\sigma(1)}\rangle\phi_{\sigma(2)}\otimes\cdots\otimes\mathop{g}_{(j\mathrm{-th})}\otimes\cdots\otimes\phi_{\sigma(N)}\\
+	\end{align*}
+	and also
+	\begin{align*}
+		a^*_\pm(g)a_\pm(f)
+		&
+		P_\pm(\phi_1\otimes\cdots\otimes\phi_N) =\\
+		&= a^*_\pm(g)\sqrt{N+1}\sum_{\sigma\in S_N}(\pm1)^\sigma\langle f,\phi_{\sigma(1)}\rangle
+		\phi_{\sigma(2)}\otimes\cdots\otimes\phi_{\sigma(N)}\\
+		&= \sum_{\sigma\in S_N}\sum_{j=2}^{N+1}
+		(\pm)^{\sigma}(\pm)^j\langle f,\phi_{\sigma(1)}\rangle\phi_{\sigma(2)}\otimes\cdots\otimes\mathop{g}_{(j\mathrm{-th})}\otimes\cdots\otimes\phi_{\sigma(N)}
+	\end{align*}
+	and note that in this last step, because the permutation that comes from summing over $j$
+	starts as positive for $g\otimes\phi_{\sigma(2)}\otimes\cdots$, it carries an overall minus
+	sign with respect to the permutation in the previous calculation, which started as
+	positive for $g\otimes\phi_{\sigma(1)}\otimes\cdots$. Consider now $[a_\pm(f),a^*_\pm(g)]_\mp$, it is
+	clear that in both bosonic and fermionic cases, the only term that survives is $\langle
+	f,g\rangle$ times the identity, as the other terms will always be equal but of opposite
+	sign. Note that the factor of $N!$ in the first term is due to the fact that we didn't
+	start from an (anti)symmetrized tensor, but now restricting ourselves to the correct
+	domain leads us exactly to the thesis.
 \end{proof}
 
 \begin{remark}
@@ -670,8 +715,9 @@ An important quantity we will come back to shortly is the number density operato
 operator $a^*(u)a(u)$, which means this operator ``counts" how many copies of a single-particle
 state compose a vector in $\mathcal{F}$. This is useful when considering the occupation number
 basis for a bosonic or fermionic Fock space, with the important distinction that bosonic modes
-can have arbitrary occupation number, while fermionic modes can only have occupation 0 or 1.
-The last statement is the content of Pauli's exclusion principle.
+can have arbitrary occupation number, while fermionic modes can only have occupation 0 or 1,
+since the CAR implies that $(a^*_-(f))^2=0$ for all $f$. This last statement is the content of
+Pauli's exclusion principle.
 
 \begin{proposition}
 	\label{occupation-number-basis}
@@ -1097,7 +1143,7 @@ introduce this generalization.
 		= \langle\Psi, (a^*_\pm(f_2)+a_\pm(g_2))(a_\pm(f_1)+a^*_\pm(g_1))\Psi\rangle_{\mathcal{F}^{\mathrm{F,B}}}
 	\end{align*}
 	where $J$ is the canonical isomorphism between $\mathfrak{h}$ and $\mathfrak{h}^*$ (see
-	Appendix (\ref{appendix:special-operators}).
+	Appendix \ref{appendix:special-operators}.
 \end{definition}
 
 Given the normalized vector $\Psi$ we may write
@@ -1296,10 +1342,9 @@ the physical system at hand.
 
 We are finally ready to discuss the most important result of this chapter: Wick's theorem.
 This is what, among other things, allows us to write perturbative series in the way described
-in the next chapter, and it motivates tools we will need to introduce. The content of this
-important theorem is, concretely, that all the expectations we are interested in reduce to
-products of the 2-point function. We first look at the case of pure states and then move onto
-Gibbs states.
+in the next chapter. The content of this important theorem is, concretely, that all the
+expectations we are interested in reduce to products of the 2-point function. We first look at
+the case of pure states and then move onto Gibbs states.
 
 \begin{definition}[Quasi-free pure state]
 	A vector $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ is called a \textit{quasi-free
@@ -1363,14 +1408,14 @@ physical modes.
 % \end{proposition}
 
 We may now extend the definition of quasi-free pure states to include non-pure ones, and we
-may as well use Wick's theorem as the defining property of quasi-free expectations. Surprisingly
-enough, Gibbs states are quasi-free, as illustrated by the theorem we are about to prove.
+may as well use Wick's theorem as the defining property of quasi-free expectations.
+Surprisingly enough, Gibbs states are quasi-free, as illustrated by the next theorem.
 
 \begin{definition}[General quasi-free states]
 	A \textit{quasi-free state} is a quantum state $\rho\in\mathfrak{B}^*(\mathcal{F}^{
 	\mathrm{F,B}}(\mathfrak{h}))$ that satisfies Wick's theorem, i.e. such that Equation
-	(\ref{wicks-theorem}) holds when replacing expectations $\langle\Psi,\cdot\Psi\rangle$
-	with mixed expectations $\langle\cdot\rangle_\rho$.
+	(\ref{wicks-theorem}) holds when replacing pure expectations $\langle\Psi,\cdot\,\Psi\rangle$
+	with mixed expectations $\langle\,\cdot\,\rangle_\rho$.
 \end{definition}
 
 \begin{theorem}
@@ -1404,4 +1449,5 @@ a theory whose $n$-point functions satisfy Wick's theorem.
 	is called the \textit{quadratic Hamiltonian associated to $\mathcal{A}$}.
 \end{definition}
 
-\textcolor{red}{yooo}
+\textcolor{red}{We only care about the basic results about quadratic Hamiltonians from Solovej's
+notes. Easy stuff, CHOP CHOP weather boy.}

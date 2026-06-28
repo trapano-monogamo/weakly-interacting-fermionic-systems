@@ -1,14 +1,105 @@
 \section{Ground state energy in the mean field limit}
-\label{second-order}
 
-We can now state more in detail our objective. 
+For a system of many interacting particles it can become extremely difficult to discuss the
+effect of every interaction a single particle may have with the rest of the system, and it is
+therefore a good idea to first try looking for meachanisms that either make the system easier
+to study or the mathematics better-behaved. An example that is very easy to picture is the
+screening of the Coulomb interaction between the nucleus of an atom and its orbiting electrons,
+be it in single atoms, molecules, crystal lattices, and so on.
+It is not at all a trivial endevour trying to compute exactly even just the ground state
+energy of the atom, but we can make some useful observations before attempting to do so. If we
+consider electrons in the innermost shells we can expect their binding energy to be mainly due
+to the strong electrostatic interaction with the protons inside the nucleus. But if we move to
+higher and higher energy levels, the electrons, while still being attracted by the nucleus,
+will also be repelled by the presence of more and more lower-energy electrons, which effectively
+\textit{screen} the total charge of the nucleus \cite[p.~51]{ManBook}. Thus, electrons in higher shells will not
+feel the full long-range effect of the Coulomb interaction, but rather an effective
+interaction that is suppressed depending on their energy level, assuming lower energy levels
+are occupied.
+\\
+The problem then becomes how this screened interaction behaves. This is where \textit{mean
+field methods} come into play. The easy example is once again that of many-electron atoms. To
+find the ground state energy without directly accounting for the very complicated correlations
+between each particle, one starts by assuming that electrons are found in independent
+single-electron atomic
+orbitals. Then, computing the overall effect of such a configuration on the energy of one of
+the electrons, one can look for a better configuration that minimizes this effect, and
+iterating this procedure leads to the Hartree-Fock approximation for electronic configurations
+\cite[pp.~48--50]{ManBook}. Hartree-Fock theory can be formulated more generally and applied
+to much more complicated systems, and in homogeneous systems it essentially corresponds to the
+first order contribution to the ground state energy of a system \cite[p.~81]{GiuVigBook}.
+\\
+This screening phenomenon is, of course, not limited to electrons in atomic orbitals. In any
+system with many interacting particles, one may ask whether the state of each particle can be
+described not by the true, \textit{bare}, interaction that characterizes the system, but
+rather by a rescaled, \textit{dressed}, interaction. If this is the case, it may also happen
+that ill-behaved quantities become well-behaved. We mentioned \textcolor{red}{in the
+introduction} that in an electron gas it is precisely the long range of the Coulomb
+interaction that makes perturbation theory badly divergent in the IR \cite[p.~38--39]{GiuVigBook}.
+The RPA is then just a way of computing the ground state energy of the gas once we account for
+the screening of the interaction due to the high number of particles. Indeed, today we also
+understand the RPA as a partial resummation at all orders in perturbation theory (which, for
+example, also removes the divergence at low momentum for the Coulomb interaction
+\cite[p.~293]{GiuVigBook}). Furthermore, by treating the dressed interaction in a mean field
+scaling limit, we arrive at the physical approach we take in this work.
+
+As already stated, our objective is to choose an effective scaling regime in the number of particles
+for both the kinetic and the interaction terms in the Hamiltonian, for a system that has a
+smooth, pair-wise interaction potential. We will rigorously prove that at second order the
+ground state energy indeed reproduces exactly the expected scaling,
+\textcolor{red}{and present arguments on how our results can be generalized to any order in
+perturbation theory}.
+\textcolor{green}{(Maybe this belongs in the introduction?)
+Our original work aims at taking a step further towards the proof of the validity of such a
+scaling limit by means of perturbative methods rather than exact computations. Our hope is
+that, by laying the groundwork with the present results, further developments can be achieved
+through renormalization group methods to tackle the full problem of the interacting Fermi gas.
+}
+\\
+Firstly, let us consider a system whose physical parameters, such as the mass of the fermions,
+are such that the kinetic energy is simply given by $H_0 = \sum_{i=1}^N -\hbar^2\Delta_i$ and
+the interaction by $\lambda \sum_{i<j} V(x_i-x_j)$. Secondly, because of Pauli's exclusion
+principle, we know that -- at least for free fermions -- the ground state in momentum space
+will be a ball centered around the origin whose radius depends on the number of particles, as
+each momentum state can be occupied by at most one fermion (ignoring the degeneracy introduced
+by other degrees of freedom, which are not relevant for our discussions). This is the Fermi
+ball, and in three spatial dimensions the energy of a completely filled Fermi ball scales with
+the number of particles as \textcolor{red}{$N^{2/3}$}.
+Introducing weak interactions between particles we get that the potential energy scales with
+$N^2$, because the number of pair-wise interactions will be $N(N-1)/2 \sim N^2$ \cite{BenArt}.
+Here, we are assuming that the potential itself $V$ is of order $\mathcal{O}(N^0)$ \cite{HPRArt}.
+\\
+To retrieve a sensible, non-trivial limit for the energy as $N\to\infty$, we need to rescale
+the physical parameters \cite{BenArt} as
+\begin{align*}
+	\hbar = N^{-1/3},\qquad\lambda = N^{-1}
+\end{align*}
+where the redefinition of $\hbar$ is to be understood not as a redefinition of a foundamental
+constant, but rather of a parameter of the system that ultimately represents the semiclassical
+behaviour of this scaling limit. Naming this parameter $\hbar$ is, at least in our setting,
+just a matter of convenience.
+With these prescriptions, the RPA ground state energy indeed scales with the correct powers in
+the number of particles. In particular, it holds that the ground state energy behaves
+(\cite{HPRArt}, \cite{BenArt}) as
+\begin{align}
+	\label{eq:mean-field-scaling}
+	E^{\mathrm{GS}}_N = E^{\mathrm{HF}}_N + E^{\mathrm{RPA}}_N
+	+ \mathcal{O}(N^{-\frac{1}{3}-\alpha})
+\end{align}
+where $E^{HF}_N$ is the Hartree-Fock approximation for the ground state energy, which contains
+a direct contribution of order $\mathcal{O}(N)$ and an exchange contribution of order
+$\mathcal{O}(N^0)$, and $E^{\mathrm{RPA}}_N$ is obviously the direct RPA contribution. Here
+$\alpha$ is a positive real number that signals how the exchange correction to the RPA is
+subleading in $N$ with respect to the RPA itself. The main result of this thesis is 
+Theorem (\ref{thm:main-result}), which fully proves this expression at second order within the
+aforementioned scaling regime.
 
 \subsection{Explicit calculation at second order}
+\label{second-order}
 
-The state space for a system of N identical fermions in a box of side length L with periodic
-boundary conditions is the space of completely antisymmetric $L^2$-functions on the torus
-$\mathbb{T}^{3N} = (\mathbb{R}^3/(2\pi\mathbb{Z}^3))^N$:
-
+The state space for a system of N identical fermions in a box of side length $2\pi$ (for
+convenience) with periodic boundary conditions is the space of completely antisymmetric
+$L^2$-functions on the torus $\mathbb{T}^{3N} = (\mathbb{R}^3/(2\pi\mathbb{Z}^3))^N$:
 \begin{align*}
 	L^2_a(\mathbb{T}^{3N}) := \{\psi\in L^2(\mathbb{T}^{3N})
 	: \psi(x_{\sigma(1)}, ..., x_{\sigma(N)})
@@ -20,15 +111,19 @@ the kinetic energy terms plus a sum of two-body interaction terms:
 	H = \hbar^2 \sum_{i=1}^{N}(-\Delta_{x_i}) + \lambda \sum_{1 \leq i <
 	j \leq N}V(x_i - x_j)
 \end{align*}
-where $V : \mathbb{R}^3 \to \mathbb{R}$ is of class $\mathcal{C}^m$ for some $m\geq1$ and
-with period $L$ in all variables, and we assume moreover that $V(x_i - x_j) = V(|x_i - x_j|)$,
-which implies that $\hat{V}(-k) = \hat{V}(k)$. Working in the grand canonical picture requires
-lifting this operator to the fermionic Fock space, and requiring that the ground state energy
-is attained for a fixed number of particles that is greater than zero means that the Hamiltonian
-picks up an additional term $-\mu\mathcal{N}$, where $\mu$ is the \textit{chemical potential}.
-We absorb the chemical potential in the new definition of the free Hamiltonian as
-$H_0=\sum_k(\hbar^2\vert k\vert^2-\mu)a^*_ka_k$. Putting this all together, the Hamiltonian
-for this system is written as
+where, at first, we may assume $V : \mathbb{R}^3 \to \mathbb{R}$ to be of class $\mathcal{C}^m$
+for some $m\geq1$, but we will later also assume that either $V$ is of class $\mathcal{C}^\infty$
+or its Fourier transform has compact support. This is motivated by the need to control the
+convergence of the perturbative series, as we will discuss in detail in the rest of our work.
+Of course, $V$ has period $L$ in all variables, and we assume moreover that $V(x_i - x_j) =
+V(|x_i - x_j|)$, which implies that $\hat{V}(-k) = \hat{V}(k)$.
+\\
+Working in the grand canonical picture requires lifting this operator to the fermionic Fock
+space, and requiring that the ground state energy is attained for a fixed number of particles
+that is greater than zero means that the Hamiltonian picks up an additional term $-\mu\mathcal{N}$,
+where $\mu$ is the \textit{chemical potential}. We absorb the chemical potential in the new
+definition of the free Hamiltonian as $H_0=\sum_k(\hbar^2\vert k\vert^2-\mu)a^*_ka_k$. Putting
+this all together, the Hamiltonian for this system is written as
 \begin{align*}
 	H = H_0 + \lambda V = \sum_{k \in \mathbb{Z}^3} (\hbar^2|k|^2 - \mu) a^*_k a_k
 	+ \sum_{k,p,q \in \mathbb{Z}^3} \lambda\hat{V}(k) a^*_{p-k} a^*_{q+k} a_q a_p
@@ -46,11 +141,11 @@ a system through the relation
 	= \vert \mathbb{B}_{k_{\mathrm{F}}}(0) \cap \mathbb{Z}^3\vert
 \end{align*}
 where $k_{\mathrm{F}}$ is the Fermi momentum, defined by $\epsilon_{k_{\mathrm{F}}}=\mu$.
-We rederive the Fermi-Dirac distribution in Section (\ref{sec:eval-exp-values}), and justify
-the zero temperature limit of $n_{\mathrm{F}}$. This constraint is then just a counting problem
-for which we can use a well-known argument by Gauss, which gives a lower and an upper bound
-to the number of points on a lattice inside a sphere. Namely, they are the number of unit cubes
-that are completely and at least partially inside the sphere, respectively. The result of such
+We rederive the Fermi-Dirac distribution further in this section and justify the zero
+temperature limit of $n_{\mathrm{F}}$. This constraint is then just a counting problem for
+which we can use a well-known argument by Gauss, which gives a lower and an upper bound to the
+number of points on a lattice inside a sphere. Namely, they are the number of unit cubes that
+are completely and at least partially inside the sphere, respectively. The result of such
 bounds can be summed up into the estimate given by the volume of the sphere plus an error
 proportional to the surface:
 \begin{align*}
@@ -75,7 +170,7 @@ we will compute this logarithm perturbatively. We start such a perturbative calc
 second order in the operator formalism using Duhamel's formula, but expectation values and
 higher orders will be dealt with using formal perturbation theory and Grassmann integrals.
 
-\begin{proposition}
+\begin{proposition}[Duhamel's formula]
 	Given $H = H_0 + \lambda V$ as defined above, the following approximation for the free
 	energy holds formally at second order $\lambda$, up to an overall factor of $-1/\beta$:
 	\begin{align}
@@ -169,11 +264,9 @@ higher orders will be dealt with using formal perturbation theory and Grassmann 
 	formalism are formally the same.
 \end{remark}
 
-\subsection{Evaluating expectation values}
-\label{sec:eval-exp-values}
-
-To introduce Grassmann variables without additional hiccups we need to have a finite number of
-physical modes in our system. This is achieved by means of a momentum cutoff $\Lambda$:
+To introduce Grassmann variables and proceed with formal perturbation theory without additional
+hiccups we need to have a finite number of physical modes in our system. This is achieved by
+means of a momentum cutoff $\Lambda$:
 \begin{align*}
 	\mathcal{D}_\Lambda := \{ k\in\mathbb{Z}^3 : \vert k\vert < \Lambda \} = \mathbb{Z}^3\cap\mathbb{B}_\Lambda(0),
 	\quad\mathrm{with}\;\vert\mathcal{D}_\Lambda\vert = M.
@@ -191,7 +284,7 @@ The full physical theory will then be recovered in the limit $\Lambda\to\infty$.
 
 We begin the calculation by building the gaussian measure for the expectations $\langle\,\cdot
 \,\rangle_{H_0}$. Note that expectations of the form $\langle V(\tau)V(\tau')\rangle_{H_0}$
-contains field operators at different temperatures.
+contain operators at different temperatures.
 
 \begin{lemma}
 	\label{two-point-function}
@@ -292,14 +385,15 @@ contains field operators at different temperatures.
 	This is exactly the Fermi-Dirac distribution, and the thesis follows immediately.
 \end{proof}
 
-With this quantity we can go over to the computation via Feynman diagrams. Recall the definition
-for the expectation of a function of Grassmann variables
+With the 2-point function determined we can go over to the computation via Feynman diagrams.
+Recall the definition for the expectation of a function of Grassmann variables
 \begin{align*}
 	\mathbb{E}_G(\,\cdot\,) = \int P_G(\dx\psi)(\,\cdot\,)\, , \quad \text{where}\;
 	P_G(\dx\psi) = \frac{1}{\mathrm{det}\,G} \left( \prod_{j=1}^N \dx\psi_j\dx\bar\psi_j \right)
 	e^{-\boldsymbol{\bar\psi}G^{-1}\boldsymbol{\psi}}
 \end{align*}
-and the graphical representation of the interaction term via a vertex:
+and the graphical representation of the interaction term via a vertex, which in our case is
+exactly the quartic term we discussed in Section \ref{sec:toy-model}:
 \begin{align*}
 	V = \sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p = \;
 	\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
@@ -663,6 +757,7 @@ its Fourier transform has compact support, but we may as well choose to assume t
 \sim e^{-\vert k\vert}$.
 
 \begin{theorem}
+	\label{thm:main-result}
 	Assuming $\mathrm{supp}(\hat{V})$ is compact, the ground state energy of a system of weakly
 	interacting fermions exhibits the following scalings in the number of particles $N$ at
 	second order in perturbation theory:
@@ -748,3 +843,5 @@ its Fourier transform has compact support, but we may as well choose to assume t
 		&= \textcolor{red}{NOPE}.
 	\end{align*}
 \end{proof}
+
+\subsection{On higher orders in perturbation theory}
