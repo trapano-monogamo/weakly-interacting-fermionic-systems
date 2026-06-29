@@ -1,8 +1,7 @@
 \section{Perturbation Theory}
 
 In the previous chapter we built the second quantization formalism to be able to introduce, in
-full generality, the key property that allows to greatly simplify the computation of expectation
-values of any observable. Looking at the Gibbs state functional
+full generality, this key property that is Wick's theorem. Looking at the Gibbs state functional
 \begin{align*}
 	\langle\cdot\rangle_\beta=\frac{\mathrm{Tr}(\,\cdot\,e^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
 \end{align*}
@@ -21,14 +20,14 @@ connection between the calculations done for such processes and the theory we bu
 it has to do with the link between the time evolution operator of quantum mechanics $e^{-iHt}$
 and its imaginary time version $e^{-\tau H}$, which defines a Gibbs state.
 \end{remark}
-The following definitions and theorems are taken, and partially reworked, from professor
-Gallone's lecture notes on quantum statistical mechanics [\cite{GalNotes}].
+The following definitions and theorems are taken, and partially reworked, from lecture notes
+on quantum statistical mechanics [\cite{GalNotes}].
 
 \subsection{A toy model: bosonic expectations}
 \label{sec:toy-model}
 
-We build the theory of Feynman diagrams, or graphs, by first analyzing at a simple model: a
-classical Hamiltonian given by polynomials of complex variables. We will introduce expectations
+We build the theory of Feynman diagrams by first analyzing at a simple model: a classical
+Hamiltonian given by polynomials of complex variables. We will introduce expectations
 as Gaussian integrals over such variables and show that they exactly reproduce Wick's theorem,
 in a sense that will be made clear below. After that, we will interpret this tool as a formal
 way of writing expectations of bosonic (i.e. \textit{commuting}) operators, and finally
@@ -223,9 +222,9 @@ To prove the next theorem we will need the two following identities:
 	\end{align*}
 	Now we can expand the exponential as a power series and derive term by term. In fact,
 	when deriving $2M$ times the $n$-th term of this series we have the following cases: if
-	$r<M$ we are taking derivatives of order higher than the degree of the polynomial so it
-	gives zero, if $r>M$ deriving will lead to a homogeneous polynomial evaluated at zero so
-	it gives zero, if $r=M$ some terms survive. Indeed, if we look at the derivatives with
+	$n<M$ we are taking derivatives of order higher than the degree of the polynomial so it
+	gives zero, if $n>M$ deriving will lead to a homogeneous polynomial evaluated at zero so
+	it gives zero, if $n=M$ some terms survive. Indeed, if we look at the derivatives with
 	respect to the $J^*$ we see that
 	\begin{align*}
 		\frac{\partial^{M}}{\partial J^*_{\alpha_1}\cdots\partial J^*_{\alpha_M}}
@@ -611,7 +610,7 @@ important diagrams are actually the connected ones.
 	Let $V$ be a polynomial of complex (or Grassmann) variables, and $P_G(\dx z)$ (or $P_G(\dx\psi)$)
 	be a complex (or Grassmann) Gaussian measure. Then
 	\begin{align*}
-		\int P_G(\dx z) e^{V(\boldsymbol{z},\boldsymbol{z}^*}
+		\int P_G(\dx z) e^{V(\boldsymbol{z},\boldsymbol{z}^*)}
 		= e^{\sum_{j=0}^\infty\frac{1}{j!}\mathbb{E}_G^{\mathrm{T}}(V;j)}.
 	\end{align*}
 \end{proposition}
@@ -699,11 +698,14 @@ important diagrams are actually the connected ones.
 	alone in the expression, concluding the proof.
 \end{proof}
 
-\begin{definition}
+\begin{definition}[Connected Feynman diagrams]
 	A Feynman diagram is said to be \textit{connected} if it is a connected graph.
 \end{definition}
 
-\begin{theorem}[Connected Feynman diagrams]
+In other words, in a connected Feynman diagrams, every vertex must be accessible to every other
+by following propagator lines.
+
+\begin{theorem}[Connected Feynman diagrams and trunacted expectations]
 	\begin{align*}
 		\mathbb{E}_G^{\mathrm{T}}(V_1;\ldots;V_s) = \sum_{\Gamma\in\mathcal{G}_{s,\mathrm{C}}}
 		\mathrm{val}(\Gamma)

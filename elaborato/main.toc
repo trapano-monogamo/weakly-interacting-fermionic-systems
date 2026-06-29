@@ -1,20 +1,20 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {2}Second Quantization}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Principles of quantum mechanics}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Canonical and grand canonical pictures}{6}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}One-particle density matrices}{15}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Bogolubov transformations and quasi-free pure states}{20}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Quadratic hamiltonians}{22}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Perturbation Theory}{23}{section.3}%
-\contentsline {subsection}{\numberline {3.1}A toy model: bosonic expectations}{23}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Grassmann integrals and fermionic expectations}{26}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Perturbative series and Feynman diagrams}{30}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Ground state energy in the mean field limit}{34}{section.4}%
+\contentsline {section}{\numberline {2}Second Quantization}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Principles of quantum mechanics}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Canonical and grand canonical pictures}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}One-particle density matrices}{16}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Bogolubov transformations and quasi-free pure states}{21}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Quadratic hamiltonians}{23}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Perturbation Theory}{24}{section.3}%
+\contentsline {subsection}{\numberline {3.1}A toy model: bosonic expectations}{24}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Grassmann integrals and fermionic expectations}{27}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Perturbative series and Feynman diagrams}{31}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Ground state energy in the mean field limit}{35}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Explicit calculation at second order}{35}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Mean field scaling}{43}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Mean field scaling}{44}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}On higher orders in perturbation theory}{46}{subsection.4.3}%
 \contentsline {section}{\numberline {A}More about Hilbert spaces}{46}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Special operators}{46}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Direct sums and tensor products of Hilbert spaces}{48}{subsection.A.2}%
-\contentsline {section}{\numberline {B}Integration of operator-valued functions}{50}{appendix.B}%
+\contentsline {subsection}{\numberline {A.1}Special operators}{47}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Direct sums and tensor products of Hilbert spaces}{49}{subsection.A.2}%
+\contentsline {section}{\numberline {B}Integration of operator-valued functions}{51}{appendix.B}%
 \contentsline {section}{\numberline {C}Matsubara Frequencies}{52}{appendix.C}%

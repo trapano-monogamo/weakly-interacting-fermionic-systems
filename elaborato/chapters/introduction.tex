@@ -1,1 +1,79 @@
 \section{Introduction}
+
+%From the first perturbative expansions in quantum systems
+%with finite degrees of freedom, to its modern formulation in QFT, perturbation
+%theory forces us to question the foundamental belief that, to understand the dynamical world
+%that surrounds us, we need to ground its description in the simplest mechanisms available, and
+%try to recover the ``macroscopic" phenomena as limits of a more elementary theory.
+
+The rigorous analysis of many body systems poses notoriously hard challanges that push us to
+develop more and more sofisticated tools, and to ask ourselves the true meaning of the
+mathematical objects that come out in the process. One of the most important and useful tools
+in theoretical physics that allows for an extremely close connection between theory and
+experiment is perturbation theory. It allows -- among other things -- for the analysis of
+coarse properties of a system starting from its most foundamental interactions, and his comes
+as an especially powerful process considering the mathematics behind quantum mechanics seems
+to get more and more complicated and intricate the deeper we analyze a system. Even just
+tackling the conceptually simple case of a gas with pair-wise interactions proves to be
+mathematically extremely challenging, and it is precisely this difficulty that motivates our
+work.
+
+For a system of many interacting particles it can become a nightmare to discuss the
+effect of every interaction a single particle may have with the rest of the system, and it is
+therefore a good idea to first try looking for meachanisms that either make the system easier
+to study or the mathematics better-behaved. An example that is very easy to picture is the
+screening of the Coulomb interaction between the nucleus of an atom and its orbiting electrons,
+be it in single atoms, molecules, crystal lattices, and so on.
+It is not at all a trivial endevour trying to compute exactly even just the ground state
+energy of the atom, but we can make some useful observations before attempting to do so. If we
+consider electrons in the innermost shells we can expect their binding energy to be mainly due
+to the strong electrostatic interaction with the protons inside the nucleus. But if we move to
+higher and higher energy levels, the electrons, while still being attracted by the nucleus,
+will also be repelled by the presence of more and more lower-energy electrons, which effectively
+\textit{screen} the total charge of the nucleus \cite[p.~51]{ManBook}. Thus, electrons in higher
+shells will not
+feel the full long-range effect of the Coulomb interaction, but rather an effective
+interaction that is suppressed depending on their energy level, assuming lower energy levels
+are occupied.
+\\
+The problem then becomes how this screened interaction behaves. This is where \textit{mean
+field methods} come into play. The easy example is once again that of many-electron atoms. To
+find the ground state energy without directly accounting for the very complicated correlations
+between each particle, one starts by assuming that electrons are found in independent
+single-electron atomic
+orbitals. Then, computing the overall effect of such a configuration on the energy of one of
+the electrons, one can look for a better configuration that minimizes this effect, and
+iterating this procedure leads to the Hartree-Fock approximation for electronic configurations
+\cite[pp.~48--50]{ManBook}. Hartree-Fock theory can be formulated more generally and applied
+to much more complicated settings. Furthermorre, it essentially corresponds to the first order
+contribution to the ground state energy in the case of homogeneous systems \cite[p.~81]{GiuVigBook}.
+
+This screening phenomenon is, of course, not limited to electrons in atomic orbitals. In any
+system with many interacting particles, one may ask whether the state of each particle can be
+described not by the true, \textit{bare}, interaction that characterizes the system, but
+rather by a rescaled, \textit{dressed}, interaction. If this is the case, it may also happen
+that ill-behaved quantities become well-behaved. As an example, in the case of an electron gas
+it is precisely the long range of the Coulomb interaction that makes perturbation theory badly
+divergent in the IR \cite[p.~38--39]{GiuVigBook}.
+In the computation of the ground state energy, the RPA comes as a way of carrying out such
+a computation once the screening of the interaction due to the high number of
+particles is accounted for; indeed, today we also understand the RPA as a partial resummation
+of perturbation theory at all orders. This resummation, coincidentally, also removes the
+divergence at low momentum of the Coulomb interaction \cite[p.~293]{GiuVigBook}).
+
+These are just some examples of how perturbation theory can help us see how our physical
+understanding of the simpler mechanisms should be gauged by our knowledge of the range of
+applicability of a theory. Ill-defined quantities, computations that are too difficult to carry
+out, effective phenomena that present themselves differently depending on energy scales, they
+can all be understood through the lenses of perturbation theory as foundamental tool. But
+perturbation theory alone is not enough: it needs to be carefully controlled and, at some
+point, perturbative results must be rigorously proved to be fully validated.
+\textcolor{red}{Alla faccia dei fisici delle particelle.}
+
+We now set out to introduce the mathematical formalism necessary to understand perturbation
+theory, and use it to prove -- perturbatively, of course -- that the mean field scaling
+limit we take in exam does reproduce, at second order, the known exact results for the ground
+state energy of an interacting Fermi gas. Our hope is that, by laying the groundwork with the
+present results, the full perturbative series can be treated and further developments can be
+achieved through renormalization group methods to tackle the bigger problem of interacting
+fermions.

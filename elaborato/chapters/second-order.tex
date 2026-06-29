@@ -1,60 +1,14 @@
 \section{Ground state energy in the mean field limit}
-
-For a system of many interacting particles it can become extremely difficult to discuss the
-effect of every interaction a single particle may have with the rest of the system, and it is
-therefore a good idea to first try looking for meachanisms that either make the system easier
-to study or the mathematics better-behaved. An example that is very easy to picture is the
-screening of the Coulomb interaction between the nucleus of an atom and its orbiting electrons,
-be it in single atoms, molecules, crystal lattices, and so on.
-It is not at all a trivial endevour trying to compute exactly even just the ground state
-energy of the atom, but we can make some useful observations before attempting to do so. If we
-consider electrons in the innermost shells we can expect their binding energy to be mainly due
-to the strong electrostatic interaction with the protons inside the nucleus. But if we move to
-higher and higher energy levels, the electrons, while still being attracted by the nucleus,
-will also be repelled by the presence of more and more lower-energy electrons, which effectively
-\textit{screen} the total charge of the nucleus \cite[p.~51]{ManBook}. Thus, electrons in higher shells will not
-feel the full long-range effect of the Coulomb interaction, but rather an effective
-interaction that is suppressed depending on their energy level, assuming lower energy levels
-are occupied.
-\\
-The problem then becomes how this screened interaction behaves. This is where \textit{mean
-field methods} come into play. The easy example is once again that of many-electron atoms. To
-find the ground state energy without directly accounting for the very complicated correlations
-between each particle, one starts by assuming that electrons are found in independent
-single-electron atomic
-orbitals. Then, computing the overall effect of such a configuration on the energy of one of
-the electrons, one can look for a better configuration that minimizes this effect, and
-iterating this procedure leads to the Hartree-Fock approximation for electronic configurations
-\cite[pp.~48--50]{ManBook}. Hartree-Fock theory can be formulated more generally and applied
-to much more complicated systems, and in homogeneous systems it essentially corresponds to the
-first order contribution to the ground state energy of a system \cite[p.~81]{GiuVigBook}.
-\\
-This screening phenomenon is, of course, not limited to electrons in atomic orbitals. In any
-system with many interacting particles, one may ask whether the state of each particle can be
-described not by the true, \textit{bare}, interaction that characterizes the system, but
-rather by a rescaled, \textit{dressed}, interaction. If this is the case, it may also happen
-that ill-behaved quantities become well-behaved. We mentioned \textcolor{red}{in the
-introduction} that in an electron gas it is precisely the long range of the Coulomb
-interaction that makes perturbation theory badly divergent in the IR \cite[p.~38--39]{GiuVigBook}.
-The RPA is then just a way of computing the ground state energy of the gas once we account for
-the screening of the interaction due to the high number of particles. Indeed, today we also
-understand the RPA as a partial resummation at all orders in perturbation theory (which, for
-example, also removes the divergence at low momentum for the Coulomb interaction
-\cite[p.~293]{GiuVigBook}). Furthermore, by treating the dressed interaction in a mean field
-scaling limit, we arrive at the physical approach we take in this work.
+\label{main-chapter}
 
 As already stated, our objective is to choose an effective scaling regime in the number of particles
 for both the kinetic and the interaction terms in the Hamiltonian, for a system that has a
 smooth, pair-wise interaction potential. We will rigorously prove that at second order the
-ground state energy indeed reproduces exactly the expected scaling,
-\textcolor{red}{and present arguments on how our results can be generalized to any order in
-perturbation theory}.
-\textcolor{green}{(Maybe this belongs in the introduction?)
+ground state energy indeed reproduces exactly the expected scaling, and we hope to tackle the
+full perturbative series in the future.
+\textcolor{green}{(Maybe this belongs in the abstract?)
 Our original work aims at taking a step further towards the proof of the validity of such a
-scaling limit by means of perturbative methods rather than exact computations. Our hope is
-that, by laying the groundwork with the present results, further developments can be achieved
-through renormalization group methods to tackle the full problem of the interacting Fermi gas.
-}
+scaling limit by means of perturbative methods rather than exact computations.}
 \\
 Firstly, let us consider a system whose physical parameters, such as the mass of the fermions,
 are such that the kinetic energy is simply given by $H_0 = \sum_{i=1}^N -\hbar^2\Delta_i$ and
@@ -65,10 +19,13 @@ each momentum state can be occupied by at most one fermion (ignoring the degener
 by other degrees of freedom, which are not relevant to our discussions). This is the Fermi
 ball, and in three spatial dimensions the energy of a completely filled Fermi ball scales with
 the number of particles as $N^{5/3}$ (the Fermi energy $\epsilon_{\mathrm{F}}$ scales as
-$N^{2/3}$, while the energy of the entire systems scales as $\epsilon_{\mathrm{F}}^{2/5}$).
+$N^{2/3}$, while the energy of the entire systems scales as $\epsilon_{\mathrm{F}}^{2/5}$
+\cite[p.~132]{ManBook}).
 Introducing weak interactions between particles we get that the potential energy scales with
 $N^2$, because the number of pair-wise interactions will be $N(N-1)/2 \sim N^2$ \cite{BenArt}.
-Here, we are assuming that the potential itself $V$ is of order $\mathcal{O}(N^0)$ \cite{HPRArt}.
+Here, we are assuming that the potential itself $V$ is of order $\mathcal{O}(N^0)$ \cite{HPRArt},
+an assumption that can be realized by considering potentials whose Fourier transform has
+compact support.
 \\
 To retrieve a sensible, non-trivial limit for the energy as $N\to\infty$, we need to rescale
 the physical parameters \cite{BenArt} as
@@ -88,11 +45,16 @@ the number of particles. In particular, it holds that the ground state energy be
 	E^{\mathrm{GS}}_N = E^{\mathrm{HF}}_N + E^{\mathrm{RPA}}_N
 	+ \mathcal{O}(N^{-\frac{1}{3}-\alpha})
 \end{align}
-where $E^{HF}_N$ is the Hartree-Fock approximation for the ground state energy, which contains
-the unperturbed energy and a direct contribution of order $\mathcal{O}(N)$, plus an exchange
-contribution of order $\mathcal{O}(N^0)$, while $E^{\mathrm{RPA}}_N$ is the direct RPA
-contribution. Here $\alpha$ is a positive real number that signals how the exchange correction
-to the RPA is subleading in $N$ with respect to the RPA itself. The main result of this thesis
+with
+\begin{itemize}
+	\item $E^{HF}_N$, the Hartree-Fock approximation for the ground state energy, containing
+		the unperturbed energy of order $\mathcal{O}(N)$, a direct excitation contribution of
+		order $\mathcal{O}(N)$ and a momentum exchange contribution of order $\mathcal{O}(N^0)$;
+	\item $E^{\mathrm{RPA}}_N$ the direct excitation contribution in the RPA
+	\item $\alpha$ a positive real number that signals how the exchange correction to the RPA
+		is subleading in $N$ with respect to the RPA itself
+\end{itemize}
+The main result of this thesis
 is Theorem (\ref{thm:main-result}), which fully proves this expression at second order within
 the aforementioned scaling regime.
 
@@ -281,9 +243,10 @@ introduce their own cutoff $\Omega$. We point to Appendix \ref{matsubara} for a 
 discussion on this topic.
 \\
 Usually this procedure doesn't cause any issues, and in the following calculations we do not
-concern ourselves with it. We will assume that we can remove the cutoff $\Omega$ and work
-directly with continuous temperature, meaning the integrals over $\tau$ and $\tau'$ that appear
-in Duhamel's formula do not turn into sums. 
+concern ourselves with it, instead we will assume that we can remove the cutoff $\Omega$ and
+work directly with continuous temperature. For our discussion of the second order this
+assumption doesn't cause any problem, but future efforts directed at higher perturbative
+orders will require such details to be carefully taken care of.
 
 Let then $\boldsymbol{\psi} = (\psi_1, ..., \psi_M)$ and
 $\boldsymbol{\bar\psi} = (\bar\psi_1, ..., \bar\psi_M)$ be the Grassmann variables
@@ -572,11 +535,11 @@ equation (\ref{eq:duhamel}), leads us to the following expression for the logari
 \end{align}
 
 Now that the computation is complete, we need to prove that removing the UV cutoff, i.e.
-taking the limit $\Lambda\to\infty$, leads to a well-defined expression. We remind that there
-should be an additional cutoff to remove: the one on Matsubara frequencies. Removing such a
-cutoff brings about much of the same challenges as removing $\Lambda$, and we will assume
-Equation (\ref{final-expression}) truly is the result of having used and then removed said
-frequencies.
+taking the limit $\Lambda\to\infty$, leads to a well-defined expression. We remind the reader
+that there should be an additional cutoff to remove: the one on Matsubara frequencies.
+Removing such a cutoff brings about much of the same challenges as removing $\Lambda$, and we
+will assume Equation (\ref{final-expression}) truly is the result of having used and then
+removed said frequencies.
 \\
 So far we have been considering the kinetic energy to be $\epsilon_k=\hbar^2\vert k\vert^2$,
 but this expression is relevant specifically for the limit $\beta\to\infty$, while in the
