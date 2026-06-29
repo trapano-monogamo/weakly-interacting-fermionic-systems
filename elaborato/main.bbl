@@ -68,6 +68,38 @@
       \verb ???
       \endverb
     \endentry
+    \entry{BlaBook}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=d7f5c0a44df7a681e3b6173d046f0392}{%
+           family={Blanchard},
+           familyi={B\bibinitperiod},
+           given={Philippe},
+           giveni={P\bibinitperiod}}}%
+        {{hash=cc2b2d81a8e55349bd29f759335a3866}{%
+           family={Brüning},
+           familyi={B\bibinitperiod},
+           given={Erwin},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser}%
+      }
+      \strng{namehash}{842a68238468494017f96b928e360804}
+      \strng{fullhash}{842a68238468494017f96b928e360804}
+      \strng{fullhashraw}{842a68238468494017f96b928e360804}
+      \strng{bibnamehash}{842a68238468494017f96b928e360804}
+      \strng{authorbibnamehash}{842a68238468494017f96b928e360804}
+      \strng{authornamehash}{842a68238468494017f96b928e360804}
+      \strng{authorfullhash}{842a68238468494017f96b928e360804}
+      \strng{authorfullhashraw}{842a68238468494017f96b928e360804}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Mathematical Methods in Physics}
+      \field{year}{2015}
+    \endentry
     \entry{ForBook}{book}{}{}
       \name{author}{2}{}{%
         {{hash=f059bfe158507db3f974228d09a512d8}{%

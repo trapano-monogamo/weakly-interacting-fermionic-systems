@@ -8,9 +8,9 @@ the probability amplitude for a system prepared in some state to be measured in 
 us define these objects and give the results necessary to build a theory of interacting quantum
 particles. The majority of the definitions and theorems presented in this chapter are taken,
 and often reworked, from professor Solovej's lectures notes on many body quantum theory
-\cite{SolNotes}, \textcolor{red}{and we will specify the page number for the proofs they
-provide. The proofs that do not have a page number are those that are not found in Solovej's
-notes and that we came up with as useful exercises}.
+\cite{SolNotes}. We will specify the page number for the proofs that are taken directly from
+Solvej's notes, while the proofs that do not have a page number are those that are not found
+there and that we came up with as useful exercises.
 
 \subsection{Principles of quantum mechanics}
 
@@ -172,7 +172,7 @@ will suffice to define the image of only the basis elements.
 
 \begin{remark}
 	From the self-adjointness of $A$ we have that  $\langle\psi,A\phi\rangle=\langle A\psi,
-	\phi\rangle$ for all $\phi,\psi\in\mathcal{H}$, which is equivalent to saying that
+	\phi\rangle$ for all $\phi,\psi\in\mathcal{H}$, which implies that
 	$\langle\psi,A\psi\rangle\in\mathbb{R}$ for all $\psi\in\mathcal{H}$, i.e. expectation
 	values of $A$ must be real numbers.
 \end{remark}
@@ -323,12 +323,12 @@ specifying the temperature, and we will also specify the Hamiltonian, when neede
 writing $\langle\cdot\rangle_{\beta,H}$.
 
 \begin{remark}
-	We could define Gibbs state following the standard thermodynamical approach. We would
-	define the entropy, for example as $S(\langle\,\cdot\,\rangle) = -\sum_{n}p_n\log(p_n)$,
-	then we would define the free energy as $F(T) = \inf_{\langle\,\cdot\,\rangle}
-	(\langle H\rangle - TS$) and say that a Gibbs state, if it exists for finite temperature,
-	as a minimizer for the free energy. We would find that such a minimizer is exactly the
-	functional we wrote in the definition.
+	We could introduce Gibbs state following the standard thermodynamical approach. We would
+	define the entropy as $S(\langle\,\cdot\,\rangle) = -\sum_{n}p_n\log(p_n)$, then the free
+	energy as $F(T) = \inf_{\langle\,\cdot\,\rangle}(\langle H\rangle - TS(\langle\,\cdot\,\rangle$)
+	and say that a Gibbs state is a minimizer for the free energy, if it exists at finite
+	temperature. We would find that such a minimizer is exactly the functional we wrote in the
+	definition.
 \end{remark}
 
 \begin{remark}
@@ -376,7 +376,7 @@ with
 \end{align*}
 which is dense in $\mathcal{H}_N$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for all $i$.
 
-\begin{theorem}[Ground state of non-interacting (distinguishable) particles]
+\begin{theorem}[Ground state of non-interacting (distinguishable) particles]\cite[p.~15]{SolNotes}
 	If the ground state energies of the Hamiltonians $h_1,\ldots,h_N$ are
 	\begin{align*}
 		e_j = \inf_{\phi\in D(h_j),\Vert\phi\Vert=1} \langle\phi,h_j\phi\rangle, \quad j=1,\ldots,N
@@ -410,7 +410,7 @@ which is dense in $\mathcal{H}_N$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for a
 \end{proof}
 
 If we consider interactions we need to lift additional operators. For pair-wise interactions
-(but this procedure can be easily generalized to N-body interactions) to each pair $(i,j)$ of
+(but this procedure can be easily generalized to $N$-body interactions) to each pair $(i,j)$ of
 distinct particles ($i\neq j$) we associate an operator $W_{ij}$ on a suitable domain. To lift
 this operator, consider the vectors $\phi_i\in\mathfrak{h}_i$ and identify $W_{ij}$ with the
 operator on $\mathcal{H}_N$ that acts as
@@ -420,7 +420,7 @@ operator on $\mathcal{H}_N$ that acts as
 \end{align*}
 in the case where $W_{ij}\phi_i\otimes\phi_j = \psi_i\otimes\psi_j$ (and express the image as
 a sum of simple tensors in the case where it is not factorizable as one). Without specifying
-the correct domain we arrive at the formal way of writing the Hamiltonian of a system of N
+the correct domain we arrive at the formal way of writing the Hamiltonian of a system of $N$
 pair-wise interacting particles:
 \begin{align}
 	\label{our-system}
@@ -520,12 +520,12 @@ $P_\pm^2 = P_\pm$.
 	pictures will be finite.
 \end{remark}
 
-With the restrictions we put on the N-body Hamiltonian, it is clear that $H_N$ maps the spaces
+With the conditions we put on the $N$-body Hamiltonian, it is clear that $H_N$ maps the spaces
 $\bigotimes_{\mathrm{sym}}^N\mathfrak{h}$ and $\bigwedge^N\mathfrak{h}$ into themselves, which
-means that we can restrict this N-body Hamiltonian to either of the two subspaces and get a
-well-defined operator (provided that a suitable domain for the starting Hamiltonian is chosen).
+means that we can restrict it to either of the two subspaces and get a well-defined operator
+(provided that a suitable domain for the starting Hamiltonian is chosen).
 The operators $P_+(H_N)$ and $P_-(H_N)$ are respectively called the \textit{bosonic} and
-\textit{fermionic} N-body Hamiltonians for interacting indistinguishable particles.
+\textit{fermionic} $N$-body Hamiltonians for pair-wise interacting indistinguishable particles.
 \\
 This way of defining the energy of the system characterises the \textit{canonical picture},
 where the number of particles is fixed. But in statistical mechanics, allowing the number of
@@ -543,8 +543,7 @@ particles to vary can actually make things easier. Allowing $N$ to vary defines 
 	\textit{vacuum state} and often denoted $|0\rangle$, $|\Omega\rangle$ or $\Omega$.
 \end{definition}
 
-On this space, the energy operator is naturally given by the sum of all possible N-body
-Hamiltonians:
+On this space, the energy operator is naturally given by the sum of all $N$-body Hamiltonians:
 \begin{align*}
 	H = \bigoplus_{N=0}^\infty H_N,\quad\text{with }
 	H\bigoplus_{N=0}^\infty\Psi_N = \bigoplus_{N=0}^\infty H_N\Psi_N,
@@ -557,10 +556,10 @@ energy), and its domain is
 		\sum_{N=0}^\infty\Vert H_N\Psi_N \Vert^2 < \infty
 	\right\}.
 \end{align*}
-Introducing indistinguishability in this picture means repeating the steps we took for the N-body
-case in each \textit{N-particle sector}, which gets us to the definition of the \textit{fermionic}
-and \textit{bosonic} Fock spaces. Given $\mathfrak{h}$ the state space for a single particle,
-these spaces are, respectively
+Introducing indistinguishability in this picture means repeating the steps we took for the
+$N$-body case in each \textit{N-particle sector}, which gets us to the definition of the
+\textit{fermionic} and \textit{bosonic} Fock spaces. Given $\mathfrak{h}$ the state space for
+a single particle, these spaces are, respectively
 \begin{align*}
 	&\mathcal{F}^\mathrm{F}(\mathfrak{h}) \coloneq \bigoplus_{N=0}^\infty \bigwedge^N\mathfrak{h}\\
 	&\mathcal{F}^\mathrm{B}(\mathfrak{h}) \coloneq \bigoplus_{N=0}^\infty \bigotimes_{\mathrm{sym}}^N\mathfrak{h}.
@@ -611,7 +610,7 @@ these operators, it is clear that if a state $\Psi_N\in D(a^\#(f))$ is completel
 or completely anti-symmetric then applying an annihilation operator produces a state that is
 still completely symmetric or anti-symmetric (as $\Psi_N$ can be written as a linear
 combination of all $N!$ permutations of $N$ states and thus $a(f)$ removes every particle
-exactly once), but applying a creation operator does introduces a state that is not yet
+exactly once), but applying a creation operator does introduce a state that is not yet
 accounted for in the (anti-)symmetrization. We then define \textit{bosonic (+)} and
 \textit{fermionic (-)} creation/annihilation operators as the projection onto the correct
 subspaces:
@@ -630,26 +629,15 @@ subspaces:
 \end{remark}
 
 The normalization we used in (\ref{eq:creation-annihilation}) changes slightly when
-using the (anti-)symmetric subspaces: \textcolor{red}{IS THERE A TYPO IN BENEDIKTER'S ARTICLE?}
+using the (anti-)symmetric subspaces. This is because we want to choose a normalization such
+that canonical commutator from quantum mechanics still holds, and we show that the following
+normalization achieves this in the next proposition. The choice of normalization is
 \begin{align*}
 	&a_\pm(f) P_\pm(f_1\otimes\cdots\otimes f_N)
 	= \sqrt{N} \sum_{\sigma\in S_N}\langle f,f_{\sigma(1)}\rangle f_{\sigma(2)}\otimes\cdots\otimes f_{\sigma(N)},\\
 	&a^*_\pm(f)f_1\otimes\cdots\otimes f_N
 	= \frac{1}{\sqrt{N+1}}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1} f_{\sigma(1)}\otimes\cdots\otimes \mathop{f}_{(j\mathrm{-th})} \otimes\cdots\otimes f_{\sigma(N)}.
 \end{align*}
-This is because we want to choose a normalization such that canonical commutator from
-quantum mechanics still holds, and that is exactly what we want to show now.
-%This can be seen easily by writing the action of $a^*_\pm(f)$ on a pure tensor:
-%\begin{align*}
-%	a^*_\pm(f)\phi_1\otimes\cdots\phi_N
-%	&= P_\pm a^*(f)\phi_1\otimes\cdots\otimes\phi_N\\
-%	&= \frac{1}{(N+1)!}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1}\sqrt{N+1}
-%	\phi_{\sigma(1)}\otimes\cdots\otimes\mathop{f}_{(j\mathrm{-th})}\otimes\cdots\otimes\phi_{\sigma(N)}\\
-%	&= \frac{1}{\sqrt{N+1}}\frac{1}{N!}\sum_{\sigma\in S_N}\sum_{j=1}^{N+1}
-%	\phi_{\sigma(1)}\otimes\cdots\otimes\mathop{f}_{(j\mathrm{-th})}\otimes\cdots\otimes\phi_{\sigma(N)}\\
-%\end{align*}
-%but notice that the remaining factor of $N!$ is reabsorbed when restricting the action of
-%$a^*_\pm(f)$ to the (anti)symmetric subspace.
 Recall the definition of the commutator and anticommutator between two operators defined on a
 common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$. The anticommutator may
 be denoted by $[\,\cdot,\cdot\,]_+$ while the commutator by $[\,\cdot,\cdot\,]_-$, to
@@ -799,9 +787,9 @@ We can now come back to a statement that we previously used as motivation for th
 of creation/annihilation operators, and show that indeed every observable in the grand
 canonical picture can be written in terms of such operators. We focus only on 1-body and 2-body
 observables because these are the types of operators that show up in the Hamiltonian we set
-out to study, but this procedure can be generalized to any N-body operator.
+out to study, but this procedure can be generalized to any $N$-body operator.
 
-\begin{theorem}[2nd quantization of 1-body operator]
+\begin{theorem}[2nd quantization of 1-body operator]\cite[p.~38]{SolNotes}
 	Let $h$ be an observable on $\mathfrak{h}$ and $\{u_\alpha\}_{\alpha=1}^\infty$
 	be an orthonormal basis for $\mathfrak{h}$ with elements in the dense domain $D(h)$.
 	Following the notation from the beginning of this section, we can write
@@ -887,7 +875,7 @@ out to study, but this procedure can be generalized to any N-body operator.
 	needs tools that go beyond the scope of our work.
 \end{remark}
 
-\begin{theorem}[2nd quantization of 2-body operator]
+\begin{theorem}[2nd quantization of 2-body operator]\cite[p.~40]{SolNotes}
 	Let $W$ be a 2-body potential for identical particles, i.e. an observable on
 	$\mathfrak{h}\otimes\mathfrak{h}$ such that $\mathrm{Ex}W\mathrm{Ex}=W$. Let
 	$\{u_\alpha\}_{\alpha=1}^\infty$ be an orthonormal basis for $\mathfrak{h}$ such that
@@ -957,8 +945,9 @@ the following definition.
 	\begin{align*}
 		\langle\Psi,\mathcal{N}\Psi\rangle = \sum_{N=0}^\infty N\Vert\Psi_N\Vert^2 < \infty.
 	\end{align*}
-	We define the \textit{1-particle density matrix} or \textit{2-point function} of $\Psi$ as
-	the operator $\gamma_\Psi$ on $\mathfrak{h}$ given, as a quadratic form, by
+	We define the \textit{1-particle density matrix} (or \textit{2-point function}, or
+	\textit{propagator}) of $\Psi$ as the operator $\gamma_\Psi$ on $\mathfrak{h}$ given, as a
+	quadratic form, by
 	\begin{align*}
 		\langle f,\gamma_\Psi g\rangle_\mathfrak{h} = \langle \Psi,a^*_\pm(g)a_\pm(f)\Psi\rangle
 	\end{align*}
@@ -980,7 +969,7 @@ the following definition.
 	range is a subspace of $X$.
 \end{lemma}
 
-\begin{lemma}
+\begin{lemma}\cite[p.~42]{SolNotes}
 	If $\Psi\in\mathcal{F}^{\mathrm{F}}(\mathfrak{h})$ is a normalized vector then $\gamma_\Psi$
 	satisfies the inequality
 	\begin{align*}
@@ -1009,7 +998,7 @@ the following definition.
 
 \begin{lemma}
 	If $u_1,\ldots,u_N$ are orthonormal vectors in $\mathfrak{h}$, then the 1pdm of $\Psi=
-	u_1\wedge\cdots\wedge u_N$ is the projection onto the N-dimensional space $\mathrm{span}\{
+	u_1\wedge\cdots\wedge u_N$ is the projection onto the $N$-dimensional space $\mathrm{span}\{
 	u_1,\ldots,u_N\}$.
 \end{lemma}
 
@@ -1017,7 +1006,7 @@ We are now ready to prove a fundamental theorem on which the treatment of any fe
 is built, especially if perturbation theory is involved: the ground state energy and
 eigenvector of non-interacting fermions.
 
-\begin{theorem}[Ground state of non-interacting fermions]
+\begin{theorem}[Ground state of non-interacting fermions]\cite[p.~42]{SolNotes}
 	Consider the Hamiltonian $H_N^{\mathrm{in}} = \sum_{j=1}^N h_j$ for $N$ particles,
 	introduced in Equation \ref{free-hamiltonian}, restricted to the anti-symmetric subspace
 	$\bigwedge^N\mathfrak{h}$, i.e. with domain
@@ -1028,10 +1017,10 @@ eigenvector of non-interacting fermions.
 	$E_0\in\mathbb{R}$ such that $h\geq E_0$. The ground state energy of this fermionic system
 	is
 	\begin{align*}
-		\inf \left\{ \mathrm{Tr}(Ph) : P \text{ is a projection onto an N-dimensional
+		\inf \left\{ \mathrm{Tr}(Ph) : P \text{ is a projection onto an $N$-dimensional
 		subspace of } D(h) \right\}.
 	\end{align*}
-	If the infimum is attained for an N-dimensional projection $P$ then $H_N^\mathrm{in}$ has
+	If the infimum is attained for an $N$-dimensional projection $P$ then $H_N^\mathrm{in}$ has
 	a ground state eigenvector $f_1\wedge\cdots\wedge f_N$, where $f_1,\ldots,f_N$ is an
 	orthonormal basis for $P(\mathfrak{h})$. In particular, these vectors can be chosen to be
 	eigenvectors of $h$, and the expectations of $h$ restricted to $P(\mathfrak{h})^\perp\cap D(h)$
@@ -1092,7 +1081,7 @@ eigenvector of non-interacting fermions.
 	\begin{align*}
 		\langle\phi,h\phi\rangle\leq\langle\psi,h\psi\rangle.
 	\end{align*}
-	Furthermore, consider the projection $Q$ onto the N-dimensional space where $\psi$ and $\phi$
+	Furthermore, consider the projection $Q$ onto the $N$-dimensional space where $\psi$ and $\phi$
 	are swapped, i.e. onto
 	\begin{align*}
 		\mathrm{span}(\{\psi\}\cup (P(\mathfrak{h})\cap\{\phi\}^\perp),

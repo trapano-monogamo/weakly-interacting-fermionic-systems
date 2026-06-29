@@ -35,7 +35,7 @@ way of writing expectations of bosonic (i.e. \textit{commuting}) operators, and 
 introduce an algebraic structure capable of carrying the results to the fermionic (i.e.
 \textit{anticommuting}) case.
 
-Suppose we are given a classical system of N coupled harmonic oscillators: a linear chain
+Suppose we are given a classical system of $N$ coupled harmonic oscillators: a linear chain
 model, with Hamiltonian
 \begin{align*}
 	H_0 = \sum_{j\in\mathbb{Z}_N} \left( \frac{p_j^2}{2} + (q_{j+1} - q_j)^2 \right).
@@ -376,7 +376,7 @@ meaning, as $\boldsymbol{\psi}\cdot\boldsymbol{\phi} \coloneq \sum_{i = 1}^k \ps
 		\frac{1}{N!} \sum_{\sigma,\tau \in \mathrm{S}_N} \prod_{j=1}^N (G^{-1})_{\sigma(j),\tau(j)} \bar\psi_{\sigma(j)} \psi_{\tau(j)}
 		= \star
 	\end{align*}
-	Where $\mathrm{S}_N$ is the set of permutations of N elements. We can split the product
+	Where $\mathrm{S}_N$ is the set of permutations of $N$ elements. We can split the product
 	into a product of matrix elements times a product of Grassmann variables, then we use that
 	\begin{align*}
 		\prod_{j=1}^N \bar\psi_{\sigma(j)}\psi_{\tau(j)} = (-1)^{\mathrm{sgn}(\sigma) + \mathrm{sgn}(\tau)} \prod_{j=1}^N \bar\psi_j \psi_j
@@ -445,7 +445,7 @@ from the definition of Grassmann integrals, and nothing more.
 
 Before defining expectations, we need one more operator on a Grassmann algebra to mimic the
 behaviour of these same integrals done in the complex variables case: derivatives of Grassmann
-functions. If we are given a polynomial of degree N in N variables, then deriving this
+functions. If we are given a polynomial of degree $N$ in $N$ variables, then deriving this
 polynomial in all of the variables should return the maximal degree term. We will take this as
 the defining property of derivation, as we defined functions to be nothing more than Taylor
 series. Now notice that integrating a Grassmann function in all variables (i.e., in all the
@@ -636,6 +636,7 @@ important diagrams are actually the connected ones.
 \end{proof}
 
 \begin{theorem}[Linked cluster theorem]
+	\label{thm:linked-cluster}
 	Let $V_1,\ldots,V_s$ be polynomials of complex (or Grassmann) variables. Then
 	\begin{align*}
 		\mathbb{E}_G^{\mathrm{T}}(V_1;\ldots;V_s) = \mathbb{E}_G(V_1V_2\cdots V_s)
@@ -697,6 +698,10 @@ important diagrams are actually the connected ones.
 	\ldots,V_{i_{r-1}})$ and iteratively make all possible partitions in which $i_r$ is left
 	alone in the expression, concluding the proof.
 \end{proof}
+
+\begin{definition}
+	A Feynman diagram is said to be \textit{connected} if it is a connected graph.
+\end{definition}
 
 \begin{theorem}[Connected Feynman diagrams]
 	\begin{align*}

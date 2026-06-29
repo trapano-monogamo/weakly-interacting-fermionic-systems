@@ -6,8 +6,9 @@ We group in this appendix a series of definitions and theorems that are not nece
 of the basic foundations of quantum mechanics, but are still crucial in understanding how
 exactly some computations are carried out and why they hold true. Some of the results
 presented here go beyond the scope of our work as far as their proof is concerned, and only
-serve the purpose of painting a clearer picture of what some tools actually are without just
-referencing an entire course on functional analysis.
+serve the purpose of painting a clearer picture of what some tools actually are.
+
+The following definitions and propositions are taken from \cite{BlaBook}.
 
 \subsection{Special operators}
 \label{appendix:special-operators}
@@ -166,110 +167,6 @@ of our work.
 	involution $*$, via the adjoint of bounded operators.
 \end{theorem}
 
-\subsection{Integration of operator-valued functions}
-\label{appendix:bochner-integral}
-
-We want to define integration for functions of the type $f:X\to\mathcal{B}$, where $(X,\Sigma,\mu)$
-is a measure space and $\mathcal{B}$ is a Banach space (while differentiation is automatic if
-the measure space is $\mathbb{R}^n$ via the usual definition as limit of the incremental ratio).
-First we define \textit{simple functions}: let $\{E_1,\ldots,E_n\}$ be elements of the
-$\sigma$-algebra $\Sigma$ and $\{b_1,\ldots,b_n\}$ elements of $\mathcal{B}$, then the function
-\begin{align*}
-	s(x) \coloneq \sum_{i=1}^n \chi_{E_i} b_i
-\end{align*}
-is called a simple function and its integral is defined as
-\begin{align*}
-	\int_X s\dx\mu \coloneq \sum_{i=1}^n \mu(E_i) b_i.
-\end{align*}
-
-\begin{definition}[Bochner integral]
-	A measurable function $f:X\to\mathcal{B}$ is called \textit{Bochner integrable} if there
-	exists a sequence of simple functions $\{s_n:n\mathbb{N}\}$ such that
-	\begin{align*}
-		\lim_{n\to\infty} \int_X \Vert f - s_n\Vert_{\mathcal{B}}\dx\mu = 0,
-	\end{align*}
-	i.e. if its point-wise norm is Lebesgue integrable. In this case, the \textit{integral of f}
-	is defined as
-	\begin{align*}
-		\int_X f\dx\mu \coloneq \lim_{n\to\infty}\int s_n\dx\mu.
-	\end{align*}
-	It can be shown that $\{\int_X s_n\dx\mu:n\in\mathbb{N}\}$ is a Cauchy sequence, hence the
-	integral is well-defined.
-\end{definition}
-
-\begin{remark}
-	The integration rules for ``nice" functions like powers and exponentials are identical to
-	the case of scalar functions, just like for differentiation, but we will not prove this.
-\end{remark}
-
-\begin{proposition}
-	Bochner integration satisfies the following properties:
-	\begin{enumerate}
-		\item a function $f:X\to\mathcal{B}$ is Bochner integrable if, and only if,
-			$\int_X\Vert f\Vert_{\mathcal{B}}\dx\mu < \infty$;
-		\item if $T:\mathcal{B}\to\mathcal{B}'$ is a continuous linear operator between Banach
-			spaces and $f:X\to\mathcal{B}$ is Bochner integrable, then $Tf$ is also Bochner
-			integrable and it holds that
-			\begin{align*}
-				T\int_E f\dx\mu = \int_X Tf\dx\mu
-			\end{align*}
-			for all $E\in\Sigma$;
-		\item (Dominated convergence theorem) if $\{f_n\}$ is a sequence of Bochner integrable
-			functions that converges almost everywhere to a limit function $f$, and if there
-			exists an integrable function $g$ such that $\Vert f_n(x)\Vert_{\mathcal{B}} \leq g(x)$
-			almost everywhere on $X$, then it holds that
-			\begin{align*}
-				\int_E \Vert f - f_n\Vert_{\mathcal{B}} \dx\mu \to 0,
-				\quad\text{and}\quad
-				\int_E f_n\dx\mu \to \int_E f\dx\mu
-			\end{align*}
-			for all $E\in\Sigma$;
-		\item (Fundamental theorem of calculus) if $f:X\to\mathcal{B}$ is Bochner integrable
-			over $[a,b]\subseteq\mathbb{R}$ and $F:X\to\mathcal{B}$ is an antiderivative for
-			$f$, then
-			\begin{align*}
-				\int_{[a,b]} f\dx\mu = F(b)-F(a).
-			\end{align*}
-	\end{enumerate}
-\end{proposition}
-
-\begin{remark}
-	In particular, since functionals in the dual of a Hilbert space are also continuous
-	operators between Banach spaces, given $f:X\to\mathcal{B}(\mathcal{H})$ a Bochner
-	integrable function, it holds that
-	\begin{align*}
-		\langle\phi,\left(\int_X f\dx\mu\right)\psi\rangle_{\mathcal{H}} = \int_X\langle\phi,f\psi\rangle_{\mathcal{H}}\dx\mu.
-	\end{align*}
-\end{remark}
-
-\begin{remark}
-	An important property, which we make use of in our work, is that the set of trace-class
-	operators is a Banach space with the trace norm, and the trace is a continuous operator
-	from this space to the base field. This means that, because of the above proposition,
-	whenever we take the trace of an integral of an operator-valued function, we can take the
-	trace inside the integral.
-\end{remark}
-
-With this notion of integration (and with the usual notion of differentiation) we can give an
-important theorem on ordinary differential equations that we used in our work. The proof of
-this theorem is completely analogous to the case where the Banach space is just $\mathbb{R}^n$,
-with the only difference being that the point-wise norm of a function is given by the norm on
-$\mathcal{B}$.
-
-\begin{theorem}[Existence and uniqueness of a solution to an ODE]
-	Let $f:[a,b]\times\mathcal{B}\to\mathcal{B}$ be a Lipschitz continuous function on $[a,b]$
-	uniformly on $\mathcal{B}$, and let it define the following Cauchy problem for
-	$(x_0,y_0)\in[a,b]\times\mathcal{B}$:
-	\begin{align*}
-		\begin{cases}
-			y'(x) = f(x,y(x))\\
-			y(x_0) = y_0
-		\end{cases}
-	\end{align*}
-	where $y:[a,b]\to\mathcal{B}$. Then there exists a unique solution for the Cauchy problem
-	over $[a,b]$.
-\end{theorem}
-
 \subsection{Direct sums and tensor products of Hilbert spaces}
 \label{appendix:direct-sum-tensor-product}
 
@@ -396,3 +293,166 @@ on the set of pure pure tensors, i.e.
 \begin{align*}
 	D(A\otimes B) = \{\phi\otimes\psi : \phi\in D(A),\;\psi\in D(B)\}.
 \end{align*}
+
+\section{Integration of operator-valued functions}
+\label{appendix:bochner-integral}
+
+We want to define integration for functions of the type $f:X\to\mathcal{B}$, where $(X,\Sigma,\mu)$
+is a measure space and $\mathcal{B}$ is a Banach space (while differentiation is automatic if
+the measure space is $\mathbb{R}^n$ via the usual definition as limit of the incremental ratio).
+First we define \textit{simple functions}: let $\{E_1,\ldots,E_n\}$ be elements of the
+$\sigma$-algebra $\Sigma$ and $\{b_1,\ldots,b_n\}$ elements of $\mathcal{B}$, then the function
+\begin{align*}
+	s(x) \coloneq \sum_{i=1}^n \chi_{E_i} b_i
+\end{align*}
+is called a simple function and its integral is defined as
+\begin{align*}
+	\int_X s\dx\mu \coloneq \sum_{i=1}^n \mu(E_i) b_i.
+\end{align*}
+
+\begin{definition}[Bochner integral]
+	A measurable function $f:X\to\mathcal{B}$ is called \textit{Bochner integrable} if there
+	exists a sequence of simple functions $\{s_n:n\mathbb{N}\}$ such that
+	\begin{align*}
+		\lim_{n\to\infty} \int_X \Vert f - s_n\Vert_{\mathcal{B}}\dx\mu = 0,
+	\end{align*}
+	i.e. if its point-wise norm is Lebesgue integrable. In this case, the \textit{integral of f}
+	is defined as
+	\begin{align*}
+		\int_X f\dx\mu \coloneq \lim_{n\to\infty}\int s_n\dx\mu.
+	\end{align*}
+	It can be shown that $\{\int_X s_n\dx\mu:n\in\mathbb{N}\}$ is a Cauchy sequence, hence the
+	integral is well-defined.
+\end{definition}
+
+\begin{remark}
+	The integration rules for ``nice" functions like powers and exponentials are identical to
+	the case of scalar functions, just like for differentiation, but we will not prove this.
+\end{remark}
+
+\begin{proposition}
+	Bochner integration satisfies the following properties:
+	\begin{enumerate}
+		\item a function $f:X\to\mathcal{B}$ is Bochner integrable if, and only if,
+			$\int_X\Vert f\Vert_{\mathcal{B}}\dx\mu < \infty$;
+		\item if $T:\mathcal{B}\to\mathcal{B}'$ is a continuous linear operator between Banach
+			spaces and $f:X\to\mathcal{B}$ is Bochner integrable, then $Tf$ is also Bochner
+			integrable and it holds that
+			\begin{align*}
+				T\int_E f\dx\mu = \int_X Tf\dx\mu
+			\end{align*}
+			for all $E\in\Sigma$;
+		\item (Dominated convergence theorem) if $\{f_n\}$ is a sequence of Bochner integrable
+			functions that converges almost everywhere to a limit function $f$, and if there
+			exists an integrable function $g$ such that $\Vert f_n(x)\Vert_{\mathcal{B}} \leq g(x)$
+			almost everywhere on $X$, then it holds that
+			\begin{align*}
+				\int_E \Vert f - f_n\Vert_{\mathcal{B}} \dx\mu \to 0,
+				\quad\text{and}\quad
+				\int_E f_n\dx\mu \to \int_E f\dx\mu
+			\end{align*}
+			for all $E\in\Sigma$;
+		\item (Fundamental theorem of calculus) if $f:X\to\mathcal{B}$ is Bochner integrable
+			over $[a,b]\subseteq\mathbb{R}$ and $F:X\to\mathcal{B}$ is an antiderivative for
+			$f$, then
+			\begin{align*}
+				\int_{[a,b]} f\dx\mu = F(b)-F(a).
+			\end{align*}
+	\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+	In particular, since functionals in the dual of a Hilbert space are also continuous
+	operators between Banach spaces, given $f:X\to\mathcal{B}(\mathcal{H})$ a Bochner
+	integrable function, it holds that
+	\begin{align*}
+		\langle\phi,\left(\int_X f\dx\mu\right)\psi\rangle_{\mathcal{H}} = \int_X\langle\phi,f\psi\rangle_{\mathcal{H}}\dx\mu.
+	\end{align*}
+\end{remark}
+
+\begin{remark}
+	An important property, which we make use of in our work, is that the set of trace-class
+	operators is a Banach space with the trace norm, and the trace is a continuous operator
+	from this space to the base field. This means that, because of the above proposition,
+	whenever we take the trace of an integral of an operator-valued function, we can take the
+	trace inside the integral.
+\end{remark}
+
+With this notion of integration (and with the usual notion of differentiation) we can give an
+important theorem on ordinary differential equations that we used in our work. The proof of
+this theorem is completely analogous to the case where the Banach space is just $\mathbb{R}^n$,
+with the only difference being that the point-wise norm of a function is given by the norm on
+$\mathcal{B}$.
+
+\begin{theorem}[Existence and uniqueness of a solution to an ODE]
+	Let $f:[a,b]\times\mathcal{B}\to\mathcal{B}$ be a Lipschitz continuous function on $[a,b]$
+	uniformly on $\mathcal{B}$, and let it define the following Cauchy problem for
+	$(x_0,y_0)\in[a,b]\times\mathcal{B}$:
+	\begin{align*}
+		\begin{cases}
+			y'(x) = f(x,y(x))\\
+			y(x_0) = y_0
+		\end{cases}
+	\end{align*}
+	where $y:[a,b]\to\mathcal{B}$. Then there exists a unique solution for the Cauchy problem
+	over $[a,b]$.
+\end{theorem}
+
+\section{Matsubara Frequencies}
+\label{matsubara}
+
+We reference the discussion on finite temperature perturbation theory from
+\cite[pp.~319--324]{GiuVigBook}.
+
+Following the standard notation, we call $\rho = Z^{-1}e^{-\beta H}$ the Gibbs state at
+temperature $\beta$, where $Z = \mathrm{Tr}(e^{-\beta(H-\mu\mathcal{N})}) = \mathrm{Tr}(
+e^{-\beta K})$ is the grand canonical partition function. Recall that the temperature
+evolution (i.e. imaginary time evolution) of an operator $A$ in Heisenberg's picture is given
+by
+\begin{align*}
+	A(\tau) = e^{-\tau K} A e^{\tau K}.
+\end{align*}
+Then, given $A(\tau)$ a polynomial of creation/annihilation operators at temperature $\beta+\tau$
+and $B$ a polynomial of creation/annihilation operators at temperature \beta, we ask how can
+we write the correlation function
+\begin{align*}
+	G_{AB}(\tau) = \langle \mathcal{T}[A(\tau)B]\rangle = \mathrm{Tr}(\rho \mathcal{T}[A(\tau)B]),
+\end{align*}
+also called the \textit{temperature propagator}.
+We have the following remarkable identity \textcolor{red}{(Is this the KMS condition?)}:
+\begin{align*}
+	G_{AB}(\tau) = (-1)^f G_{AB}(\tau - \beta\mathrm{sign}(\tau)),
+\end{align*}
+where $f$ is the number of fermionic interchanges that occur when $A$ and $B$ are interchanged.
+This identity states that $G_{AB}(\tau)$ is actually periodic in $\tau$ (with period $\beta$)
+if $f$ is even, and antiperiodic if $f$ is odd. Indeed, if we consider -- as an example -- the
+case where $\beta>\tau>0$ (so that $\tau-\beta>0$), we can make use of the cyclic property of
+the trace and the form of the Gibbs state to get that
+\begin{align*}
+	G_{AB}(\tau-\beta)
+	&= \mathrm{Tr}(\rho\mathcal{T}[A(\tau-\beta)B])\\
+	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{-\beta K}Be^{-K(\tau-\beta)}Ae^{K(\beta-\tau)})\\
+	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{-K\tau}Ae^{K\tau}Be^{-\beta K}e^{-\beta K}Be^{\beta K})\\
+	&= (-1)^f \mathrm{Tr}(\rho\mathcal{T}[A(\tau)B]).
+\end{align*}
+Similar steps prove that case where $\tau<0$. Becaues $G_{AB}(\tau)$ is periodic, we may want
+to write it as a Fourier series:
+\begin{align*}
+	G_{AB}(\tau) = \frac{1}{\beta} \sum_{k=1}^\infty \tilde{G}_{AB}(i\omega_k) e^{-i\omega_k \tau}.
+\end{align*}
+Here, $\omega_k$ are called \textit{Matsubara frequencies}, and they are \textit{even} integer
+multiples of $1/\beta$ if $f$ is even, and \textit{odd} multiples if $f$ is odd:
+\begin{align*}
+	\omega_k = \begin{cases}
+		\frac{2k}{\beta}&\quad\text{if $f$ is even}\\
+		\frac{2k+1}{\beta}&\quad\text{if $f$ is odd}
+	\end{cases}.
+\end{align*}
+
+In formal perturbation theory with Grassmann integrals, we want the system to be composed of
+a finite number of modes. Then, to make the number of temperature modes finite, we can simply
+introduce a cutoff $\Omega$ on Matsubara frequencies
+\begin{align*}
+	\mathcal{D}_\Omega = \left\{ k\in\mathbb{Z} : \omega_k < \Omega \right\},
+\end{align*}
+and recover the original physical theory by taking the limit $\Omega\to\infty$.

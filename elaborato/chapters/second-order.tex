@@ -62,18 +62,20 @@ the interaction by $\lambda \sum_{i<j} V(x_i-x_j)$. Secondly, because of Pauli's
 principle, we know that -- at least for free fermions -- the ground state in momentum space
 will be a ball centered around the origin whose radius depends on the number of particles, as
 each momentum state can be occupied by at most one fermion (ignoring the degeneracy introduced
-by other degrees of freedom, which are not relevant for our discussions). This is the Fermi
+by other degrees of freedom, which are not relevant to our discussions). This is the Fermi
 ball, and in three spatial dimensions the energy of a completely filled Fermi ball scales with
-the number of particles as \textcolor{red}{$N^{2/3}$}.
+the number of particles as $N^{5/3}$ (the Fermi energy $\epsilon_{\mathrm{F}}$ scales as
+$N^{2/3}$, while the energy of the entire systems scales as $\epsilon_{\mathrm{F}}^{2/5}$).
 Introducing weak interactions between particles we get that the potential energy scales with
 $N^2$, because the number of pair-wise interactions will be $N(N-1)/2 \sim N^2$ \cite{BenArt}.
 Here, we are assuming that the potential itself $V$ is of order $\mathcal{O}(N^0)$ \cite{HPRArt}.
 \\
 To retrieve a sensible, non-trivial limit for the energy as $N\to\infty$, we need to rescale
 the physical parameters \cite{BenArt} as
-\begin{align*}
-	\hbar = N^{-1/3},\qquad\lambda = N^{-1}
-\end{align*}
+\begin{align}
+	\label{eq:mean-field-scaling}
+	\hbar = N^{-1/3},\quad\lambda = N^{-1}
+\end{align}
 where the redefinition of $\hbar$ is to be understood not as a redefinition of a foundamental
 constant, but rather of a parameter of the system that ultimately represents the semiclassical
 behaviour of this scaling limit. Naming this parameter $\hbar$ is, at least in our setting,
@@ -82,17 +84,17 @@ With these prescriptions, the RPA ground state energy indeed scales with the cor
 the number of particles. In particular, it holds that the ground state energy behaves
 (\cite{HPRArt}, \cite{BenArt}) as
 \begin{align}
-	\label{eq:mean-field-scaling}
+	\label{eq:ground-state-energy}
 	E^{\mathrm{GS}}_N = E^{\mathrm{HF}}_N + E^{\mathrm{RPA}}_N
 	+ \mathcal{O}(N^{-\frac{1}{3}-\alpha})
 \end{align}
 where $E^{HF}_N$ is the Hartree-Fock approximation for the ground state energy, which contains
-a direct contribution of order $\mathcal{O}(N)$ and an exchange contribution of order
-$\mathcal{O}(N^0)$, and $E^{\mathrm{RPA}}_N$ is obviously the direct RPA contribution. Here
-$\alpha$ is a positive real number that signals how the exchange correction to the RPA is
-subleading in $N$ with respect to the RPA itself. The main result of this thesis is 
-Theorem (\ref{thm:main-result}), which fully proves this expression at second order within the
-aforementioned scaling regime.
+the unperturbed energy and a direct contribution of order $\mathcal{O}(N)$, plus an exchange
+contribution of order $\mathcal{O}(N^0)$, while $E^{\mathrm{RPA}}_N$ is the direct RPA
+contribution. Here $\alpha$ is a positive real number that signals how the exchange correction
+to the RPA is subleading in $N$ with respect to the RPA itself. The main result of this thesis
+is Theorem (\ref{thm:main-result}), which fully proves this expression at second order within
+the aforementioned scaling regime.
 
 \subsection{Explicit calculation at second order}
 \label{second-order}
@@ -115,7 +117,7 @@ where, at first, we may assume $V : \mathbb{R}^3 \to \mathbb{R}$ to be of class 
 for some $m\geq1$, but we will later also assume that either $V$ is of class $\mathcal{C}^\infty$
 or its Fourier transform has compact support. This is motivated by the need to control the
 convergence of the perturbative series, as we will discuss in detail in the rest of our work.
-Of course, $V$ has period $L$ in all variables, and we assume moreover that $V(x_i - x_j) =
+Of course, $V$ has period $2\pi$ in all variables, and we assume moreover that $V(x_i - x_j) =
 V(|x_i - x_j|)$, which implies that $\hat{V}(-k) = \hat{V}(k)$.
 \\
 Working in the grand canonical picture requires lifting this operator to the fermionic Fock
@@ -257,20 +259,32 @@ higher orders will be dealt with using formal perturbation theory and Grassmann 
 	then taking into account the symmetry under $\tau \longleftrightarrow \tau'$
 	we could remove the factor $1/2$ by integrating only over the lower triangle $\{(\tau,\tau')\in[0,\beta]^2 : \tau' \leq \tau\}$.
 \end{proof}
-\begin{remark}
-	It is easy to see that taking this iterative process further leads exactly to the definition
-	of the $\tau$-ordered exponential with truncated expectations at all orders, which ultimately
-	shows that, in fact, the perturbative series in the operator formalism and in the Grassmann
-	formalism are formally the same.
-\end{remark}
 
-To introduce Grassmann variables and proceed with formal perturbation theory without additional
-hiccups we need to have a finite number of physical modes in our system. This is achieved by
-means of a momentum cutoff $\Lambda$:
+It is easy to see that iterating Duhamel's formula leads exactly to the definition of the
+$\tau$-ordered exponential $\mathcal{T}\{e^{-\beta H}\}$, and at every order the integrand looks
+exactly like the content of Theorem (\ref{thm:linked-cluster}). To prove that the perturbative
+series in the operator formalism and in Grassmann variables are formally identical, we need to
+identify operator expectations $\langle\,\cdot\,\rangle_\beta$ with Grassmann expectations
+$\mathbb{E}_G(\,\cdot\,)$, but also identify the propagator $\langle a^*_k(\tau)a_{k'}(\tau')
+\rangle_\beta$ with the covariance $G_{k,k'}(\tau,\tau')$.
+\\
+To introduce Grassmann variables and proceed with formal perturbation theory we need to have a
+finite number of physical modes in our system. Momentum modes can be made finite by
+introducing a cutoff $\Lambda$:
 \begin{align*}
 	\mathcal{D}_\Lambda := \{ k\in\mathbb{Z}^3 : \vert k\vert < \Lambda \} = \mathbb{Z}^3\cap\mathbb{B}_\Lambda(0),
-	\quad\mathrm{with}\;\vert\mathcal{D}_\Lambda\vert = M.
+	\quad\mathrm{with}\;\vert\mathcal{D}_\Lambda\vert = M,
 \end{align*}
+but the propagator depends on the temperature of the operators, which is a continuous
+parameter. To fix this issue we should resort to using \textit{Matsubara frequencies} and
+introduce their own cutoff $\Omega$. We point to Appendix \ref{matsubara} for a brief
+discussion on this topic.
+\\
+Usually this procedure doesn't cause any issues, and in the following calculations we do not
+concern ourselves with it. We will assume that we can remove the cutoff $\Omega$ and work
+directly with continuous temperature, meaning the integrals over $\tau$ and $\tau'$ that appear
+in Duhamel's formula do not turn into sums. 
+
 Let then $\boldsymbol{\psi} = (\psi_1, ..., \psi_M)$ and
 $\boldsymbol{\bar\psi} = (\bar\psi_1, ..., \bar\psi_M)$ be the Grassmann variables
 associated to the families of operators $a$ and $a^*$ respectively.
@@ -558,7 +572,11 @@ equation (\ref{eq:duhamel}), leads us to the following expression for the logari
 \end{align}
 
 Now that the computation is complete, we need to prove that removing the UV cutoff, i.e.
-taking the limit $\Lambda\to\infty$, leads to a well-defined expression.
+taking the limit $\Lambda\to\infty$, leads to a well-defined expression. We remind that there
+should be an additional cutoff to remove: the one on Matsubara frequencies. Removing such a
+cutoff brings about much of the same challenges as removing $\Lambda$, and we will assume
+Equation (\ref{final-expression}) truly is the result of having used and then removed said
+frequencies.
 \\
 So far we have been considering the kinetic energy to be $\epsilon_k=\hbar^2\vert k\vert^2$,
 but this expression is relevant specifically for the limit $\beta\to\infty$, while in the
@@ -680,7 +698,7 @@ direct term at order $i$ and $F_{\mathrm{X}}^{(i)}$ is the exchange term at orde
 
 With the convergence of the free energy under control, the next step is to look at the limit
 $\beta\to\infty$ to retrieve the ground state energy and complete our perturbative proof of
-the mean field scaling in the number of particles $N$.
+the mean field scaling of Equation (\ref{eq:ground-state-energy}).
 
 \begin{lemma}
 	With the same hypotheses as in Theorem (\ref{big-thm-1}), all the series in Equation
@@ -764,7 +782,7 @@ its Fourier transform has compact support, but we may as well choose to assume t
 	\begin{itemize}
 		\item $F^{(0)} = \mathcal{O}(N)$,
 		\item $F_{\mathrm{D}}^{(1)} = \mathcal{O}(N)$ and $F_{\mathrm{X}}^{(1)} = \mathcal{O}(N^0)$,
-		\item $F_{\mathrm{D}}^{(2)} =\mathcal{O}(N^{-\frac{1}{3}})$ and $F_{\mathrm{X}}^{(2)} = \mathcal{O}(N^{-\frac{1}{3}})$ \textcolor{red}{CHECK SPECIFIC POWER OF N for $F_{2,\mathrm{X}}$}.
+		\item $F_{\mathrm{D}}^{(2)} =\mathcal{O}(N^{-\frac{1}{3}})$ and $F_{\mathrm{X}}^{(2)} = \mathcal{O}(N^{-\frac{4}{3}})$ \textcolor{red}{CHECK SPECIFIC POWER OF N for $F_{\mathrm{X}}^{(2)}$}.
 	\end{itemize}
 \end{theorem}
 \begin{proof}
@@ -840,7 +858,7 @@ its Fourier transform has compact support, but we may as well choose to assume t
 		\frac{\hat{V}(k-q)\hat{V}(p-q)}{\hbar^2(2q^2+p^2+(q-k)^2-4k_{\mathrm{F}}^2)}\\
 		&=N^{-1}\sum_{k\in\mathbb{Z}^3}\sum_{p\in B_{\mathrm{F}}}\frac{1}{N}\sum_{\substack{q\in N^{-1/3}\mathbb{Z}^3:\\|q|\leq C\\|q-N^{-1/3}k|\leq C}}
 		\frac{\hat{V}(k-q)\hat{V}(p-q)}{N^{-\frac{2}{3}}(2N^{\frac{2}{3}}q^2+p^2+(N^{\frac{1}{3}}q+k)^2-4C^2N^{\frac{2}{3}})}\\
-		&= \textcolor{red}{NOPE}.
+		&= \textcolor{red}{really?}.
 	\end{align*}
 \end{proof}
 
