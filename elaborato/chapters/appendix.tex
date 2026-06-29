@@ -428,6 +428,8 @@ This identity states that $G_{AB}(\tau)$ is actually periodic in $\tau$ (with pe
 if $f$ is even, and antiperiodic if $f$ is odd. Indeed, if we consider -- as an example -- the
 case where $\beta>\tau>0$ (so that $\tau-\beta>0$), we can make use of the cyclic property of
 the trace and the form of the Gibbs state to get that
+\textcolor{red}{(check $e^{-\beta K}Be^{\beta K}=B$ and sign of exponents in imaginary time
+Heisenber picture)}
 \begin{align*}
 	G_{AB}(\tau-\beta)
 	&= \mathrm{Tr}(\rho\mathcal{T}[A(\tau-\beta)B])\\
@@ -453,6 +455,6 @@ In formal perturbation theory with Grassmann integrals, we want the system to be
 a finite number of modes. Then, to make the number of temperature modes finite, we can simply
 introduce a cutoff $\Omega$ on Matsubara frequencies
 \begin{align*}
-	\mathcal{D}_\Omega = \left\{ k\in\mathbb{Z} : \omega_k < \Omega \right\},
+	\mathcal{D}_\Omega = \left\{ k\in\mathbb{Z} : \vert\omega_k\vert < \Omega \right\},
 \end{align*}
 and recover the original physical theory by taking the limit $\Omega\to\infty$.
