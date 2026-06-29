@@ -433,7 +433,7 @@ Heisenber picture)}
 \begin{align*}
 	G_{AB}(\tau-\beta)
 	&= \mathrm{Tr}(\rho\mathcal{T}[A(\tau-\beta)B])\\
-	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{-\beta K}Be^{-K(\tau-\beta)}Ae^{K(\beta-\tau)})\\
+	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{-\beta K}Be^{-K(\tau-\beta)}Ae^{K(\tau-\beta)})\\
 	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{-K\tau}Ae^{K\tau}Be^{-\beta K}e^{-\beta K}Be^{\beta K})\\
 	&= (-1)^f \mathrm{Tr}(\rho\mathcal{T}[A(\tau)B]).
 \end{align*}
@@ -455,6 +455,6 @@ In formal perturbation theory with Grassmann integrals, we want the system to be
 a finite number of modes. Then, to make the number of temperature modes finite, we can simply
 introduce a cutoff $\Omega$ on Matsubara frequencies
 \begin{align*}
-	\mathcal{D}_\Omega = \left\{ k\in\mathbb{Z} : \vert\omega_k\vert < \Omega \right\},
+	\mathcal{D}_\Omega = \mathbb{Z} \cap [-\Omega,\Omega],
 \end{align*}
 and recover the original physical theory by taking the limit $\Omega\to\infty$.
