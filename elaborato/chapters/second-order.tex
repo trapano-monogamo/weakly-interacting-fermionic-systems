@@ -1,14 +1,9 @@
-\section{Ground state energy in the mean field limit}
+\chapter{Ground state energy in the mean field limit}
 \label{main-chapter}
 
-As already stated, our objective is to choose an effective scaling regime in the number of particles
-for both the kinetic and the interaction terms in the Hamiltonian, for a system that has a
-smooth, pair-wise interaction potential. We will rigorously prove that at second order the
-ground state energy indeed reproduces exactly the expected scaling, and we hope to tackle the
-full perturbative series in the future.
-\textcolor{green}{(Maybe this belongs in the abstract?)
-Our original work aims at taking a step further towards the proof of the validity of such a
-scaling limit by means of perturbative methods rather than exact computations.}
+Our objective is to choose a mean field scaling regime in the number of particles for both the
+kinetic and the interaction terms in the Hamiltonian, for a system that has a smooth,
+two-body interaction potential.
 \\
 Firstly, let us consider a system whose physical parameters, such as the mass of the fermions,
 are such that the kinetic energy is simply given by $H_0 = \sum_{i=1}^N -\hbar^2\Delta_i$ and
@@ -38,27 +33,27 @@ constant, but rather of a parameter of the system that ultimately represents the
 behaviour of this scaling limit. Naming this parameter $\hbar$ is, at least in our setting,
 just a matter of convenience.
 With these prescriptions, the RPA ground state energy indeed scales with the correct powers in
-the number of particles. In particular, it holds that the ground state energy behaves
+the number of particles $N$. In particular, it holds that the ground state energy behaves
 (\cite{HPRArt}, \cite{BenArt}) as
 \begin{align}
 	\label{eq:ground-state-energy}
 	E^{\mathrm{GS}}_N = E^{\mathrm{HF}}_N + E^{\mathrm{RPA}}_N
 	+ \mathcal{O}(N^{-\frac{1}{3}-\alpha})
 \end{align}
-with
+where
 \begin{itemize}
-	\item $E^{HF}_N$, the Hartree-Fock approximation for the ground state energy, containing
+	\item $E^{HF}_N$ is the Hartree-Fock approximation for the ground state energy, containing
 		the unperturbed energy of order $\mathcal{O}(N)$, a direct excitation contribution of
 		order $\mathcal{O}(N)$ and a momentum exchange contribution of order $\mathcal{O}(N^0)$;
-	\item $E^{\mathrm{RPA}}_N$ the direct excitation contribution in the RPA
-	\item $\alpha$ a positive real number that signals how the exchange correction to the RPA
-		is subleading in $N$ with respect to the RPA itself
+	\item $E^{\mathrm{RPA}}_N$ is the direct excitation contribution in the RPA;
+	\item $\alpha$ is a positive real number that signals how the exchange correction to the RPA
+		is subleading in $N$ with respect to the RPA itself.
 \end{itemize}
-The main result of this thesis
-is Theorem (\ref{thm:main-result}), which fully proves this expression at second order within
-the aforementioned scaling regime.
+In Theorem (\ref{thm:main-result}) -- the main result of this thesis -- we give an original
+proof that each term in Equation (\ref{eq:ground-state-energy}) is of the expected order in
+$N$, within the aforementioned scaling regime at second order in perturbation theory.
 
-\subsection{Explicit calculation at second order}
+\section{Explicit calculation at second order}
 \label{second-order}
 
 The state space for a system of N identical fermions in a box of side length $2\pi$ (for
@@ -92,8 +87,11 @@ this all together, the Hamiltonian for this system is written as
 	H = H_0 + \lambda V = \sum_{k \in \mathbb{Z}^3} (\hbar^2|k|^2 - \mu) a^*_k a_k
 	+ \sum_{k,p,q \in \mathbb{Z}^3} \lambda\hat{V}(k) a^*_{p-k} a^*_{q+k} a_q a_p
 \end{align*}
-where $a^\#_k$ are creation/annihilation operators on the Fock space that create/annihilate
-states of definite momentum $k\in\mathbb{Z}^3$.
+where $a^\#_k=a^\#_-(\psi_k)$ are creation/annihilation operators on the fermionic Fock space
+that create/annihilate states of definite momentum $k\in\mathbb{Z}^3$:
+\begin{align*}
+	\psi_k(x) = (2\pi)^{-\frac{3}{2}}e^{ik\cdot x}\quad\text{for}\,x\in\mathbb{T}^3.
+\end{align*}
 \\
 In the limit of zero temperature for a system of identical fermions, the chemical potential is
 also the value of the highest energy level occupied. We can therefore express it in terms of
@@ -130,13 +128,11 @@ Gibbs state functional
 	{\mathrm{Tr}(e^{-\beta H})}.
 \end{align*}
 The free energy is given by the logarithm of the partition function divided by $-\beta$, and
-we will compute this logarithm perturbatively. We start such a perturbative calculation up to
-second order in the operator formalism using Duhamel's formula, but expectation values and
-higher orders will be dealt with using formal perturbation theory and Grassmann integrals.
+we will compute this logarithm perturbatively.
 
 \begin{proposition}[Duhamel's formula]
 	Given $H = H_0 + \lambda V$ as defined above, the following approximation for the free
-	energy holds formally at second order $\lambda$, up to an overall factor of $-1/\beta$:
+	energy holds formally at second order in $\lambda$, up to an overall factor of $-1/\beta$:
 	\begin{align}
 		\mathrm{log}\,\mathrm{Tr}\,e^{-\beta H}
 		= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}-\beta\lambda\langle V\rangle
@@ -230,9 +226,8 @@ identify operator expectations $\langle\,\cdot\,\rangle_\beta$ with Grassmann ex
 $\mathbb{E}_G(\,\cdot\,)$, but also identify the propagator $\langle a^*_k(\tau)a_{k'}(\tau')
 \rangle_\beta$ with the covariance $G_{k,k'}(\tau,\tau')$.
 \\
-To introduce Grassmann variables and proceed with formal perturbation theory we need to have a
-finite number of physical modes in our system. Momentum modes can be made finite by
-introducing a cutoff $\Lambda$:
+To introduce Grassmann variables we need to have a finite number of physical modes in our
+system. Momentum modes can be made finite by introducing a cutoff $\Lambda$:
 \begin{align*}
 	\mathcal{D}_\Lambda := \{ k\in\mathbb{Z}^3 : \vert k\vert < \Lambda \} = \mathbb{Z}^3\cap\mathbb{B}_\Lambda(0),
 	\quad\mathrm{with}\;\vert\mathcal{D}_\Lambda\vert = M,
@@ -275,9 +270,9 @@ contain operators at different temperatures.
 \end{lemma}
 \begin{proof}
 	Let us first focus on finding an expression for field operators at a given temperature
-	$a^\#(\tau)$. Recall that in the Heisenberg picture with imaginary time one has that for
-	an operator $A$ its evolution at temperature $\tau$ is given by $A(\tau)=e^{-\tau H_0}A
-	e^{\tau H_0}$. Once again we will make use of the fundamental theorem of calculus to write
+	$a^\#(\tau)$. Recall that for an operator $A$ its evolution at temperature $\tau$ is given
+	by $A(\tau)=e^{-\tau H_0}A e^{\tau H_0}$. Once again we will make use of the fundamental
+	theorem of calculus to write
 	\begin{align*}
 		e^{-\tau H_0}a_k e^{\tau H_0}
 		&= a_k + \int_0^\tau \dx\lambda\, \frac{\dx}{\dx\lambda}\left( e^{-\lambda H_0}a_k e^{\lambda H_0} \right) \\
@@ -310,9 +305,8 @@ contain operators at different temperatures.
 			a_k(0) = a_k
 		\end{cases}.
 	\end{align*}
-	By the theorem of existence and uniqueness of the solution to an ODE on a closed interval,
-	it suffices to find one such solution explicitly. This is a well known differential
-	equation:
+	Using Theorem \ref{thm:ODE}, it suffices to find one such solution explicitly. This is a
+	well known differential equation:
 	\begin{align*}
 		a_k(\tau) = e^{\tau(\epsilon_k-\mu)}a_k(0) = e^{\tau(\epsilon_k-\mu)}a_k.
 	\end{align*}
@@ -391,11 +385,11 @@ exactly the quartic term we discussed in Section \ref{sec:toy-model}:
 	\end{tikzpicture}.
 \end{align*}
 We can evaluate the expectations that show up in Duhamel's formula separately by following the
-diagrammatic rules we discussed in the previous chapter. Let's start with $\langle V
-\rangle_{H_0}$. Omitting the temperatures when writing two-point functions and calling $n_k =
-n_\text{F}(\epsilon_k)$ the calculation is as follows:
+diagrammatic rules we discussed in the previous chapter. Let's start with $\langle V\rangle$.
+Omitting the temperatures when writing two-point functions and calling $n_k=n_\text{F}(
+\epsilon_k)$ the calculation is as follows:
 \begin{align*}
-	\langle V \rangle_{\beta,H_0}
+	\langle V \rangle
 	&= \mathbb{E}_G \biggl(
 		\sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p
 		\biggr)
@@ -454,8 +448,8 @@ n_\text{F}(\epsilon_k)$ the calculation is as follows:
 \end{align*}
 
 Let us now consider the term $\langle V(\tau')V(\tau) \rangle - \langle V(\tau') \rangle\langle V(\tau) \rangle$
-in the double integral now. This time we have terms with two vertices, and recalling the
-linked cluster theorem the expression factorizes as follows:
+in the double integral now. This time we have terms with two vertices, and using Theorem
+\ref{thm:linked-cluster} the expression factorizes as follows:
 \begin{align*}
 	\langle V(\tau')V(\tau) \rangle - \langle V(\tau') \rangle\langle V(\tau) \rangle
 	&= \mathbb{E}_G(V(\tau')V(\tau)) - \mathbb{E}_G(V(\tau'))\mathbb{E}_G(V(\tau)) \\
@@ -473,7 +467,8 @@ For the second group, there are 4 ways to form a loop on a vertex, and given a (
 diagram with two vertices and two loops there exists only one way to complete it. Therefore
 the second group contains 16 diagrams (all possible ways to put one loop on each vertex).
 Moreover, all diagrams within their respective groups have the same sign, since they differ
-by an even permutation of Grassmann variables.
+by an even permutation of Grassmann variables. Specifying the temperatures $\tau$ and $\tau'$
+of the interaction operators on the side of their respective vertex, we have:
 \begin{align*}
 	\star
 	&= 4 \vcenter{\hbox{
@@ -546,8 +541,8 @@ but this expression is relevant specifically for the limit $\beta\to\infty$, whi
 following theorem we will consider a more general form with one condition on the asymptotic
 behaviour at high momentum. The reason for this choice is that, at this level, we are not yet
 interested in the scaling of this expression in the number of particles, and having the
-possibility of proving the well-defined-ness of the perturbative series for systems that have
-a different kinetic term is worth the very little trouble this generalization costs.
+possibility of proving a more general case is worth the very little trouble this generalization
+costs.
 \\
 A quick comment on a slightly less standard notation we will use to state some of the following
 results. We say that two real or complex sequences $\{x_n\}_n$ and $\{y_n\}_n$ are asymptotic
@@ -597,17 +592,19 @@ use of the following property:
 	\end{align*}
 	By the positivity of the general terms for all $k\in\mathbb{Z}^3$ we can bound the sums by
 	the respective series over $\mathbb{Z}^3$, and because the general terms only depend on
-	the modulus of the momentum we can employ the following strategy. Define the spherical shell
-	$A_n = \{k\in\mathbb{Z}^3 : n \leq \vert k\vert < n+1\}$ and write
+	the modulus of the momentum we can employ the following strategy. Define the spherical
+	shell $A_n = \{k\in\mathbb{Z}^3 : n \leq \vert k\vert < n+1\}$ and write a series with
+	general term $b_{\vert k\vert}$ as
 	\begin{align*}
-		\sum_{k\in\mathbb{Z}^3} a_{\vert k\vert} = \sum_{n=0}^\infty \sum_{k\in A_n} a_{\vert k\vert}.
+		\sum_{k\in\mathbb{Z}^3} b_{\vert k\vert} = \sum_{n=0}^\infty \sum_{k\in A_n} b_{\vert k\vert}.
 	\end{align*}
-	Because $c_1\vert A_n\vert a_{n+1} \leq \sum_{k\in A_n}a_{\vert k\vert} \leq c_2\vert A_{n+1}\vert a_n$
-	for all $n$ if $a_n$ is decreasing, and because $\vert A_n\vert\asymp n^2$, we can conclude
-	that the behaviour of $\sum_{k\in\mathbb{Z}^3} a_{\vert k\vert}$ and $\sum_{n=0}^\infty n^2 a_n$
-	is the same. Note that $\sum_{k\in\mathbb{Z}^3}n_k$ converges if, and only if, the series $\sum_{\ell\in\mathbb{N}} \ell^2 e^{-\beta
-	\epsilon_\ell}$ converges, by the asymptotic comparison test. The latter does converge
-	absolutely as shown by the root test:
+	Because $c_1\vert A_n\vert b_{n+1} \leq \sum_{k\in A_n}b_{\vert k\vert} \leq c_2
+	\vert A_{n+1}\vert b_n$ for all $n$ if $a_n$ is decreasing, and because $\vert A_n\vert
+	\asymp n^2$, we can conclude that the behaviour of $\sum_{k\in\mathbb{Z}^3}
+	b_{\vert k\vert}$ and $\sum_{n=0}^\infty n^2 b_n$ is the same. Note that
+	$\sum_{k\in\mathbb{Z}^3}n_k$ converges if, and only if, the series $\sum_{\ell\in\mathbb{N}}
+	\ell^2 e^{-\beta \epsilon_\ell}$ converges, by the asymptotic comparison test. The latter
+	does converge absolutely as shown by the root test:
 	\begin{align*}
 		\left\vert \ell^2 e^{-\beta\epsilon_{\ell}}\right\vert^{1/\ell}
 		= e^{\frac{2\log(\ell) - \beta\epsilon_\ell}{\ell}}
@@ -657,14 +654,14 @@ where each term has been named appropriately following the order in which they a
 is the free energy of the unperturbed system (no interactions), $F_{\mathrm{D}}^{(i)}$ is the
 direct term at order $i$ and $F_{\mathrm{X}}^{(i)}$ is the exchange term at order $i$.
 
-\subsection{Mean field scaling}
+\section{Mean field scaling}
 
 With the convergence of the free energy under control, the next step is to look at the limit
 $\beta\to\infty$ to retrieve the ground state energy and complete our perturbative proof of
 the mean field scaling of Equation (\ref{eq:ground-state-energy}).
 
 \begin{lemma}
-	With the same hypotheses as in Theorem (\ref{big-thm-1}), all the series in Equation
+	With the same hypotheses as in Theorem \ref{big-thm-1}, all the series in Equation
 	(\ref{free-energy}) converge uniformly in $\beta$ over $[\delta,\infty)$ for some
 	$\delta>0$, and the limit $\beta \to \infty$ can thus be taken inside the sums.
 \end{lemma}
@@ -715,7 +712,7 @@ the mean field scaling of Equation (\ref{eq:ground-state-energy}).
 	Let's now discuss $B$. Distributing the product at the numerator, the first term is a
 	product of Fermi-Dirac distributions divided by $\beta$, which means it is monotonically
 	decreasing in $\beta$ for all $q,p,k$ outside the Fermi ball. As for
-	the explonential term it is easy to check that the resulting general term is monotonically
+	the exponential term it is easy to check that the resulting general term is monotonically
 	decreasing in $\beta$ far enough from the origin, as the only extremal point is a maximum
 	that moves towards the origin as $k$ grows. Therefore, once again, the supremum is found
 	at $\beta=\delta$ and we are left with
@@ -736,6 +733,17 @@ At last, using this fact we arrive at the ground state energy scaling in $N$, wh
 a couple of estimates away. We will assume a stronger condition on the potential, namely that
 its Fourier transform has compact support, but we may as well choose to assume that $\hat{V}(k)
 \sim e^{-\vert k\vert}$.
+
+\begin{lemma}[Riemann sum approximation]
+	Let $f:\mathbb{R}^d\to\mathbb{R}$ be a Lipschitz continuous function. Then for
+	$N\in\mathbb{N}$ we have the following approximation by integration:
+	\begin{align*}
+		\frac{1}{N}\sum_{k\in N^{-1/d}\mathbb{Z}^3} f(N^{\frac{1}{d}}k)
+		= \int_{\mathbb{R}^d}\dx^dx f(x) + \mathcal{O}(N^{-\frac{1}{d}}).
+	\end{align*}
+\end{lemma}
+\begin{proof}
+\end{proof}
 
 \begin{theorem}
 	\label{thm:main-result}
@@ -786,7 +794,7 @@ its Fourier transform has compact support, but we may as well choose to assume t
 	expression we can conclude that the first order indeed contributes to order $\mathcal{O}(
 	N)$ with the direct term and to order $\mathcal{O}(N^0)$ with the exchange term.
 
-	To tackle the second order we use the same strategies that worked for the zero-th and
+	To tackle the second order we use the same strategies that worked for the zeroth and
 	first orders. Note that, when using the integral approximation for the sums over $p$
 	and $q$, the domain of integration will carry an order of $N^{-1/3}$ for each integral,
 	because it involves imposing that some momentum $N^{-1/3}p$ \textit{and its translation}
@@ -824,5 +832,3 @@ its Fourier transform has compact support, but we may as well choose to assume t
 		&= \textcolor{red}{really?}.
 	\end{align*}
 \end{proof}
-
-\subsection{On higher orders in perturbation theory}

@@ -1,6 +1,6 @@
-\appendix
+\begin{appendices}
 
-\section{More about Hilbert spaces}
+\chapter{More about Hilbert spaces}
 
 We group in this appendix a series of definitions and theorems that are not necessarily part
 of the basic foundations of quantum mechanics, but are still crucial in understanding how
@@ -10,7 +10,7 @@ serve the purpose of painting a clearer picture of what some tools actually are.
 
 The following definitions and propositions are taken from \cite{BlaBook}.
 
-\subsection{Special operators}
+\section{Special operators}
 \label{appendix:special-operators}
 
 \begin{definition}[Self-adjoint operators]
@@ -116,6 +116,7 @@ three more results whose importance we will not discuss further, as it goes beyo
 of our work.
 
 \begin{theorem}[Riesz representation theorem]
+	\label{thm:riesz}
 	Let $\mathcal{H}$ be a complex Hilbert space. For every $x\in\mathcal{H}$ the map
 	\begin{alignat*}{1}
 		F : \mathcal{H} &\longrightarrow \mathbb{C}\\
@@ -150,7 +151,7 @@ of our work.
 \begin{remark}
 	In the case where $A$ is also compact, then the spectrum $\sigma(A)$ is discrete and the
 	function $f$ could be seen as mapping an index over $\sigma(A)$ to an eigenvalue, and the
-	thesis would read as $(M_f\psi)_i = f_i \psi_i$, which tells us that $\psi_i$ is an
+	claim would read as $(M_f\psi)_i = f_i \psi_i$, which tells us that $\psi_i$ is an
 	eigenvector with eigenvalue $f_i$. This special case makes it easier to understand this
 	version of the spectral theorem as a generalization to the case of self-adjoint operators
 	with possibly continuous spectrum.
@@ -167,7 +168,7 @@ of our work.
 	involution $*$, via the adjoint of bounded operators.
 \end{theorem}
 
-\subsection{Direct sums and tensor products of Hilbert spaces}
+\section{Direct sums and tensor products of Hilbert spaces}
 \label{appendix:direct-sum-tensor-product}
 
 Recall that, given two vector spaces $V$ and $W$ over a field $\mathbb{K}$, their
@@ -294,7 +295,7 @@ on the set of pure pure tensors, i.e.
 	D(A\otimes B) = \{\phi\otimes\psi : \phi\in D(A),\;\psi\in D(B)\}.
 \end{align*}
 
-\section{Integration of operator-valued functions}
+\chapter{Integration of operator-valued functions}
 \label{appendix:bochner-integral}
 
 We want to define integration for functions of the type $f:X\to\mathcal{B}$, where $(X,\Sigma,\mu)$
@@ -385,6 +386,7 @@ with the only difference being that the point-wise norm of a function is given b
 $\mathcal{B}$.
 
 \begin{theorem}[Existence and uniqueness of a solution to an ODE]
+	\label{thm:ODE}
 	Let $f:[a,b]\times\mathcal{B}\to\mathcal{B}$ be a Lipschitz continuous function on $[a,b]$
 	uniformly on $\mathcal{B}$, and let it define the following Cauchy problem for
 	$(x_0,y_0)\in[a,b]\times\mathcal{B}$:
@@ -398,7 +400,7 @@ $\mathcal{B}$.
 	over $[a,b]$.
 \end{theorem}
 
-\section{Matsubara Frequencies}
+\chapter{Matsubara Frequencies}
 \label{matsubara}
 
 We reference the discussion on finite temperature perturbation theory from
@@ -458,3 +460,5 @@ introduce a cutoff $\Omega$ on Matsubara frequencies
 	\mathcal{D}_\Omega = \mathbb{Z} \cap [-\Omega,\Omega],
 \end{align*}
 and recover the original physical theory by taking the limit $\Omega\to\infty$.
+
+\end{appendices}

@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 
 \usepackage[a4paper, total={6in, 8.6in}]{geometry}
 % \usepackage[utf8]{inputenc}
@@ -8,6 +8,8 @@
 \usepackage{amsthm}
 \usepackage{xcolor}
 \usepackage{mathtools}
+\usepackage{bbm} % blackboard bold '1'
+\usepackage{hyperref}
 
 % for feynman diagrams
 \usepackage{fontspec}
@@ -16,19 +18,15 @@
 \usetikzlibrary{arrows.meta}
 \usepackage[compat=1.1.0]{tikz-feynman}
 
-\usepackage{bbm} % blackboard bold '1'
-
-\usepackage{hyperref}
-
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \newcommand{\dx}{\mathrm{d}}
 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
+\newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 \theoremstyle{remark}
@@ -37,6 +35,8 @@
 % Bibliography setup
 \usepackage[backend=biber]{biblatex}
 \addbibresource{refs.bib}
+
+\usepackage[toc,page]{appendix}
 
 \title{A Perturbative Approach to the Ground State of Interacting Fermions in the Mean Field
 Limit}
