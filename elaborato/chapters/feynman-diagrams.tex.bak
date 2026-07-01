@@ -85,7 +85,7 @@ Looking at this first order correction, we could interpret the expression
 		\frac{\left(\prod_{k\in\mathcal{D}}\dx z^*_k\,\dx z_k\right)e^{-\beta H_0}}{Z_0(\beta)}
 		\eqcolon P_0(\dx z)
 \end{align*}
-as some Gaussian probability measure, and correspondingly interpret $\int P_0(\dx z) V$ as a
+as some Gaussian probability measure, and correspondigly interpret $\int P_0(\dx z) V$ as a
 kind of average of $V$. Higher order corrections can also be interpreted as higher moments of
 V with respect to this Gaussian probability measure.
 
@@ -148,15 +148,15 @@ $\boldsymbol{z}\cdot \boldsymbol{w}=\sum_{j=1}^N z_j w_j$.
 	is called \textit{complex Gaussian measure} of covariance $G$.
 \end{definition}
 \begin{remark}
-	The matrix $G$ is also called a propagator because, as will be made clear by the theorems
+	The matrix $G$ is alsa called a propagator because, as will be made clear by the theorems
 	we prove, its matrix elements form exactly the 2-point function for a given system.
 \end{remark}
 
 Note that a complex Gaussian measure is ``normalized", in the sense that $\int P_G(\dx z)=1$.
-We are now ready to define expectation values and prove their fundamental properties.
+We are now ready to define expectation values and prove their foundamental properties.
 
 \begin{definition}[Complex/bosonic expectation]
-	Given $P_G(\dx z)$ and a measurable function $f$, the \textit{expectation of f} with
+	Given $P_G(\dx z)$ and a measureable function $f$, the \textit{expectation of f} with
 	respect to $P_G(\dx z)$ is defined as
 	\begin{align*}
 		\mathbb{E}_G(f) \coloneq \int P_G(\dx z) f(\boldsymbol{z},\boldsymbol{z}^*).
@@ -242,7 +242,7 @@ To prove the next theorem we will need the two following identities:
 		\star = \frac{\partial^M}{\partial J_{\beta_1}\cdots\partial J_{\beta_M}}
 		\left(\prod_{j=1}^M\sum_{k=1}^MG_{\alpha_j,\tau_k}J_{\tau_k}\right)\Bigg|_{J=J^*=0}
 	\end{align*}
-	and applying Leibniz rule we arrive at the thesis.
+	and applying Leibnitz rule we arrive at the thesis.
 \end{proof}
 
 \section{Grassmann integrals and fermionic expectations}
@@ -347,7 +347,7 @@ highest degree term of the integrand.
 \end{remark}
 
 Having defined integration, we can now introduce a \textit{Gaussian measure}, again in a purely
-algebraic sense. To make the notation lighter, we define a ``dot product", without any geometric
+algebraic sense. To make the notation ligher, we define a ``dot product", without any geometric
 meaning, as $\boldsymbol{\psi}\cdot\boldsymbol{\phi} \coloneq \sum_{i = 1}^k \psi_i\phi_i$.
 
 \begin{definition}[Grassmann covariance]
@@ -445,7 +445,7 @@ from the definition of Grassmann integrals, and nothing more.
 \end{lemma}
 
 Before defining expectations, we need one more operator on a Grassmann algebra to mimic the
-behavior of these same integrals done in the complex variables case: derivatives of Grassmann
+behaviour of these same integrals done in the complex variables case: derivatives of Grassmann
 functions. If we are given a polynomial of degree $N$ in $N$ variables, then deriving this
 polynomial in all of the variables should return the maximal degree term. We will take this as
 the defining property of derivation, as we defined functions to be nothing more than Taylor
@@ -486,7 +486,7 @@ We can substitute this in the integral to get that
 	(\bar\eta_i G_{ij} \eta_j) \bigg|_0 \\
 	&= G_{ij}
 \end{align*}
-which is exactly the initial claim.
+which is exactly the intial claim.
 \end{proof}
 
 We are finally ready to prove that Gaussian Grassmann integrals satisfy Wick's theorem.
@@ -528,8 +528,8 @@ present some slight differences here and there, which we shall point out when ne
 
 Suppose we have an interaction potential $V$, formally written as a homogeneous polynomial of
 complex or Grassmann variables. We can represent such a potential as a \textit{vertex}, i.e. a
-node in a graph, with as many labeled outgoing lines as there are conjugate variables in the
-expression of $V$, and as many labeled incoming lines as there are plain variables. For
+node in a graph, with as many labelled outgoing lines as there are conjugate variables in the
+expression of $V$, and as many labelled incoming lines as there are plain variables. For
 example, our quartic correction of Section \ref{sec:toy-model} would be the formal way of
 writing a two-body interaction potential $V=\sum_{p,q,k}\hat{V}(k)a^*_{q+k}a^*_{p-k}a_pa_q$
 and its vertex would be
@@ -555,12 +555,12 @@ and its vertex would be
 The \textit{value} of a vertex is defined exactly as the specific expression of $V$. In a
 diagram, vertices can be connected by lines called \textit{propagators} or even
 \textit{contractions}, and as the name suggests the value of such propagators is given by the
-2-point function. In particular, if a line labeled $i$ exits a vertex and enters another
-as a line labeled $j$, then to such a line we associate the value $G_{ij}$. A vertex may
+2-point function. In particular, if a line labelled $i$ exits a vertex and enters another
+as a line labelled $j$, then to such a line we associate the value $G_{ij}$. A vertex may
 have an outgoing leg connecting back to an incoming line in the same vertex, and in this work
 we will call this \textit{a loop}. The \textit{value of a diagram $\Gamma$}, denoted
 $\mathrm{val}(\Gamma)$, is obtained by multiplying the values of vertices and propagators
-following the labeling and contractions dictated by the diagram.
+following the labelling and contractions dictated by the diagram.
 \\
 The definitions of the vertices and the propagators involved in the diagrams are called
 \textit{Feynman rules}. Finally, even though we will not make use of such a definition in our

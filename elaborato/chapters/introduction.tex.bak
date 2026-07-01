@@ -1,6 +1,6 @@
 \section*{Introduction}
 
-The rigorous analysis of many body systems poses notoriously hard challenges, even just
+The rigorous analysis of many body systems poses notoriously hard challanges, even just
 tackling the conceptually simple case of a gas with pair-wise interactions proves to be
 mathematically extremely challenging. This difficulty forces us to develop more and more
 sophisticated tools to overcome the obstacles that appear along the way: an example of a tool
@@ -8,16 +8,16 @@ that has proved itself invaluable in physics, and that allows for a close connec
 theory and experiment, is perturbation theory. It allows for the analysis of complicated
 interactions, dominant contributions to specific processes, coarse properties of a system
 starting from more elementary interactions, and more. In the present work, we take a
-perturbative approach to analyze the behavior of the ground state energy of the interacting
+perturbative approach to analyse the behaviour of the ground state energy of the interacting
 Fermi gas under specific assumptions, which we shall motivate here.
 
 For a system of many interacting particles it can become a nightmare to discuss the effect of
 every interaction a single particle may have with the rest of the system, and it is therefore
-a good idea to first try looking for mechanisms that either make the system easier
+a good idea to first try looking for meachanisms that either make the system easier
 to study or the mathematics better behaved. An example that is very easy to picture is the
 screening of the Coulomb interaction between the nucleus of an atom and its orbiting electrons,
 be it in single atoms, molecules, crystal lattices, and so on.
-It is not at all a trivial endeavor trying to compute exactly even just the ground state
+It is not at all a trivial endevour trying to compute exactly even just the ground state
 energy of the atom, but one can make some useful observations before attempting to do so. If we
 consider electrons in the innermost shells we can expect their binding energy to be mainly due
 to the strong electrostatic interaction with the protons inside the nucleus. But if we move to
@@ -49,7 +49,7 @@ rather by a rescaled, \textit{dressed}, interaction. If this is the case, it may
 that ill-behaved quantities become well-behaved. As an example, in the case of an electron gas
 it is precisely the long range of the Coulomb interaction that makes perturbation theory badly
 divergent in the IR \cite[p.~38--39]{GiuVigBook}.
-When computing the ground state energy, the Random Phase Approximation (RPA) comes as a
+When computating the ground state energy, the Random Phase Approximation (RPA) comes as a
 way of carrying out such a computation once the screening of the interaction due to the high
 number of particles is accounted for; in fact, today we also understand the RPA as a partial
 resummation of perturbation theory at all orders. This resummation, coincidentally, also
@@ -60,22 +60,19 @@ potential that governs the dynamics of the system is not taken to be the bare po
 dressed potential whose strength depends, in some way or another, on the number of particles
 that partake in the interactions.
 
-Our study of the Fermi gas in a mean field regime is structured as follows. We will cover the
-bread and butter of a many-body theorist: second quantization, a formalism that allows to adapt
-powerful concepts from
+Our study is structured as follows. We will cover the bread and butter of a many-body
+theorist: second quantization, a formalism that allows to adapt powerful concepts from
 statistical mechanics to the quantum world. By then we will have the tools necessary to
 understand why perturbation theory can be formulated using the clever diagrammatic approach
 first employed by Richard Feynman, which we introduce using complex Gaussian integrals and
 Grassmann Gaussian integrals. This approach is to be understood as a way of writing a formal
 perturbative series that is, in some way, identical to the one written in the operator
-formalism. Lastly we present the explicit computation at second order for the free energy $F$
-of the gas at arbitrary (inverse) temperature $\beta$, showing how to control
-the values of the diagrams that contribute to this order. This
+formalism. Lastly we give the explicit computation at second order, showing how to control
+the values of the diagrams that contribute to this order, and writing the resulting expression
+for the free energy $F$ of a Fermi gas at an arbitrary (inverse) temperature $\beta$. This
 will lead to the main result of this thesis, which proves that the perturbative expansion of
 the ground state energy -- obtained by taking the limit of $F$ as $\beta\to\infty$ -- in the
-mean field limit scales with the correct powers of the number of particles in the system. Such
-a scaling has been rigorously proved with exact methods, our role is to bring rigorous
-perturbation theory into the picture.
+mean field limit scales with the correct powers of the number of particles in the system.
 \\
 Our hope is that, by laying the groundwork with the present results, all higher orders can be
 taken treated systematically, ultimately moving us closer to a more complete and rigorous

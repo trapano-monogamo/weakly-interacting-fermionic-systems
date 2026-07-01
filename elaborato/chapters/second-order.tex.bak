@@ -28,9 +28,9 @@ the physical parameters \cite{BenArt} as
 	\label{eq:mean-field-scaling}
 	\hbar = N^{-1/3},\quad\lambda = N^{-1}
 \end{align}
-where the redefinition of $\hbar$ is to be understood not as a redefinition of a fundamental
-constant, but rather of a parameter of the system that ultimately represents the semi-classical
-behavior of this scaling limit. Naming this parameter $\hbar$ is, at least in our setting,
+where the redefinition of $\hbar$ is to be understood not as a redefinition of a foundamental
+constant, but rather of a parameter of the system that ultimately represents the semiclassical
+behaviour of this scaling limit. Naming this parameter $\hbar$ is, at least in our setting,
 just a matter of convenience.
 With these prescriptions, the RPA ground state energy indeed scales with the correct powers in
 the number of particles $N$. In particular, it holds that the ground state energy behaves
@@ -103,7 +103,7 @@ a system through the relation
 	= \vert \mathbb{B}_{k_{\mathrm{F}}}(0) \cap \mathbb{Z}^3\vert
 \end{align*}
 where $k_{\mathrm{F}}$ is the Fermi momentum, defined by $\epsilon_{k_{\mathrm{F}}}=\mu$.
-We re-derive the Fermi-Dirac distribution further in this section and justify the zero
+We rederive the Fermi-Dirac distribution further in this section and justify the zero
 temperature limit of $n_{\mathrm{F}}$. This constraint is then just a counting problem for
 which we can use a well-known argument by Gauss, which gives a lower and an upper bound to the
 number of points on a lattice inside a sphere. Namely, they are the number of unit cubes that
@@ -254,7 +254,7 @@ bounded operator:
 \end{align*}
 The full physical theory will then be recovered in the limit $\Lambda\to\infty$.
 
-We begin the calculation by building the Gaussian measure for the expectations $\langle\,\cdot
+We begin the calculation by building the gaussian measure for the expectations $\langle\,\cdot
 \,\rangle_{H_0}$. Note that expectations of the form $\langle V(\tau)V(\tau')\rangle_{H_0}$
 contain operators at different temperatures.
 
@@ -346,7 +346,7 @@ contain operators at different temperatures.
 	$\{\vert\boldsymbol{n}\rangle\}$, and that $a^*_k a_k\vert\boldsymbol{n}\rangle=n_k\vert\boldsymbol{n}\rangle$.
 	Using many of the same steps for the denominator, we find that
 	$Z=\prod_{p\in\mathcal{D}_\Lambda}(1+e^{-\beta(\epsilon_p-\mu)})$, and thus the expression
-	simplifies to
+	simplyfies to
 	\begin{align*}
 		\langle a^*_k a_{k'}\rangle_{\beta,H_0}
 		&= \delta_{k,k'} \frac{e^{-\beta(\epsilon_k-\mu)}\prod_{p\neq k}(1 + e^{-\beta(\epsilon_p-\mu)})}{\prod_{p}(1 + e^{-\beta(\epsilon_p-\mu)})}\\
@@ -539,7 +539,7 @@ removed said frequencies.
 So far we have been considering the kinetic energy to be $\epsilon_k=\hbar^2\vert k\vert^2$,
 but this expression is relevant specifically for the limit $\beta\to\infty$, while in the
 following theorem we will consider a more general form with one condition on the asymptotic
-behavior at high momentum. The reason for this choice is that, at this level, we are not yet
+behaviour at high momentum. The reason for this choice is that, at this level, we are not yet
 interested in the scaling of this expression in the number of particles, and having the
 possibility of proving a more general case is worth the very little trouble this generalization
 costs.
@@ -602,7 +602,7 @@ use of the following property:
 	decay as $\Lambda\to\infty$. As for the energy terms, we are assuming that $\epsilon_k
 	\geq C_2\vert k\vert$ for all $k$ outside of the ball of radius $K$ for some $K,C_2>0$.
 	Finally, the Fermi-Dirac distribution is controlled by an exponential decay in $\epsilon_k$,
-	which is bounded at least by an exponential decay in $\vert k\vert$.
+	which is bounded at least by an explonential decay in $\vert k\vert$.
 
 	Looking at the first order, we can write
 	\begin{align*}
@@ -622,7 +622,7 @@ use of the following property:
 	\end{align*}
 	Because $c_1\vert A_n\vert b_{n+1} \leq \sum_{k\in A_n}b_{\vert k\vert} \leq c_2
 	\vert A_{n+1}\vert b_n$ for all $n$ if $a_n$ is decreasing, and because $\vert A_n\vert
-	\asymp n^2$, we can conclude that the behavior of $\sum_{k\in\mathbb{Z}^3}
+	\asymp n^2$, we can conclude that the behaviour of $\sum_{k\in\mathbb{Z}^3}
 	b_{\vert k\vert}$ and $\sum_{n=0}^\infty n^2 b_n$ is the same. Note that
 	$\sum_{k\in\mathbb{Z}^3}n_k$ converges if, and only if, the series $\sum_{\ell\in\mathbb{N}}
 	\ell^2 e^{-\beta \epsilon_\ell}$ converges, by the asymptotic comparison test. The latter
@@ -724,8 +724,8 @@ the mean field scaling of Equation (\ref{eq:ground-state-energy}).
 		B\coloneq\sum_k \left|\frac{\hat{V}(k)^2n_{q+k}n_{p-k}(1-e^{-\beta(\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu)})}
 		{\beta(\epsilon_{q+k} + \epsilon_{p-k} - 2\mu)^2}\right|.
 	\end{align*}
-	The exchange term $F_{\mathrm{X}}^{(2)}$ will exhibit the same behavior, both in terms of
-	dependence on $\beta$ and in terms of point-wise convergence. The series $A$ is very
+	The exchange term $F_{\mathrm{X}}^{(2)}$ will exhibit the same behaviour, both in terms of
+	dependence on $\beta$ and in terms of pointwise convergence. The series $A$ is very
 	simple: we bound the Fermi-Dirac distributions with their supremum and notice that
 	\begin{align*}
 		A \leq \sum_k \frac{4\hat{V}(k)^2e^{-\delta(\epsilon_{q+k}+\epsilon_{p-k}-2\mu)}}
@@ -757,14 +757,12 @@ its Fourier transform has compact support, but we may as well choose to assume t
 \sim e^{-\vert k\vert}$.
 
 \begin{lemma}[Riemann sum approximation]
-	Let $f:\mathbb{R}^d\to\mathbb{R}$ be a compactly supported, Lipschitz continuous function,
-	with Lipschitz constant L. Then for $N\in\mathbb{N}$ we have the following approximation
-	by integration:
+	Let $f:\mathbb{R}^d\to\mathbb{R}$ be a Lipschitz continuous, compactly supported function.
+	Then for $N\in\mathbb{N}$ we have the following approximation by integration:
 	\begin{align*}
-		\frac{1}{N}\sum_{k\in N^{-1/d}\mathbb{Z}^3} f(k)
-		= \int_{\mathbb{R}^d}\dx^dx\,f(x) + c_N,
+		\frac{1}{N}\sum_{k\in N^{-1/d}\mathbb{Z}^3} f(N^{\frac{1}{d}}k)
+		= \int_{\mathbb{R}^d}\dx^dx\,f(x) + \mathcal{O}(N^{-\frac{1}{d}}).
 	\end{align*}
-	where $c_N$ is bounded as $|c_N|\leq N^{-\frac{1}{d}}L\sqrt{d}\,\mathrm{vol}(\mathrm{supp}(f))$.
 \end{lemma}
 \begin{proof}
 	Let $h=N^{-1/d}$ be the lattice spacing in $N^{-1/d}\mathbb{Z}^d$. Then define, at each
@@ -778,22 +776,25 @@ its Fourier transform has compact support, but we may as well choose to assume t
 	can be split as a sum of integrals over the individual cells. Changing variables as
 	$k\mapsto k'=k/h$ we can write
 	\begin{align*}
-		\left\vert \frac{1}{N}\sum_{k\in h\mathbb{Z}^d}f(k) - \int_{\mathbb{R}^d}\dx^dx\,f(x) \right\vert
-		&= \left\vert \frac{1}{N}\sum_{k'\in \mathbb{Z}^d}f(hk') - \sum_{k'\in\mathbb{Z}^d}\int_{C_{k'}}\dx^dx\,f(x) \right\vert\\
-		&= \left\vert \sum_{k'\in\mathbb{Z}^d}\int_{C_{k'}}\dx^dx\,\chi_{\mathrm{supp}(f)}(x)(f(hk')-f(x))\right\vert\\
-		&\leq L\sum_{k'\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(hk')\int_{C_{k'}}\dx^dx\,\chi_{\mathrm{supp}(f)}(x)\vert k'-x\vert
-		= \star,
+		\left\vert \frac{1}{N}\sum_{k\in h\mathbb{Z}^d}f(\frac{k}{h}) - \int_{\mathbb{R}^d}\dx^dx\,f(x) \right\vert
+		&= \left\vert \frac{1}{N}\sum_{k'\in \mathbb{Z}^d}f(k') - \sum_{k'\in\mathbb{Z}^d}\int_{C_{k'}}\dx^dx\,f(x) \right\vert\\
+		&= \left\vert \sum_{k'\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(k')\int_{C_{k'}}\dx^dx\,(f(k')-f(x))\right\vert\\
+		&\leq L\sum_{k'\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(k')\int_{C_{k'}}\dx^dx\,\vert k'-x\vert = \star,
 	\end{align*}
-	where in the last step we used Lipschitz continuity. Now we can bound the integral of
-	$\vert k-x\vert$ on $C_{k'}$ by $h\sqrt{d}=\max_{C_{k'}}(\vert k'-x\vert)$ times the
-	volume of a cell $C_k$, which is $N^{-1}$, to get that
+	where in the last step we used Lipschitz continuity, with $L$ being the Lipschitz
+	constant. Now we can bound the integral of $\vert k-x\vert$ by
+	$h\sqrt{d}=\max_{C_{k'}}(\vert k'-x\vert)$ times the volume of a cell $C_k$, which is
+	$N^{-1}$, to get that
 	\begin{align*}
-		\star \leq L\sum_{k'\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(hk')h\sqrt{d}\left(\int_{C_{k'}}\dx^dx\right)
-		= hL\sqrt{d}.
+		\star \leq L\sum_{k'\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(k')h\sqrt{d}\left(\int_{C_{k'}}\dx^dx\right)
+		= C h N^{-1},
 	\end{align*}
-	where we used that $\sum_{k'\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(hk')$ is of order $N$
-	because $f$ is compactly supported. The thesis follows immediately from this bound, as
-	$h = N^{-1/d}$.
+	where we called $C=\sqrt{d}L\sum_{k'\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(k')$, which is
+	finite because $f$ is compactly supported. Thus we conclude that
+	\begin{align*}
+		\frac{1}{N}\sum_{k\in h\mathbb{Z}^d}f(\frac{k}{h})
+		= \int_{\mathbb{R}^d}\dx^dx\, f(x) + \mathcal{O}(N^{-\frac{1}{d}-1}).
+	\end{align*}
 \end{proof}
 
 \begin{theorem}
@@ -822,7 +823,6 @@ its Fourier transform has compact support, but we may as well choose to assume t
 	$\hbar=N^{-1/3}$ and $k_{\mathrm{F}}= \mathcal{O}(N^{1/3})$, then take $p\mapsto p'=
 	N^{-1/3}p$, and since in the Fermi ball one has $\vert p\vert\leq CN^{1/3}$ this leads to
 	$\vert p'\vert\leq C$. This allows for the following known approximation by integration:
-	\textcolor{red}{CORREGGI L'UTILIZZO DELLA SOMMA DI RIEMANN}
 	\begin{align*}
 		\sum_{p\in B_{\mathrm{F}}}(\hbar^2p^2-\mu)
 		&= N^{-\frac{2}{3}}\sum_{p\in\mathbb{Z}^3:\vert k\vert\leq CN^{1/3}}p^2 -\mu\sum_{p\in B_{\mathrm{F}}}1\\
@@ -831,10 +831,9 @@ its Fourier transform has compact support, but we may as well choose to assume t
 		&= \tilde{C}N + \mathcal{O}(N^{\frac{2}{3}}) = \mathcal{O}(N)
 	\end{align*}
 	where we used that, from Equation (\ref{fermi-surface}), $\mu=\hbar^2k_{\mathrm{F}}^2=\mathcal{O}(N^{0})$.
-	This shows that indeed $F^{(0)}$ is of order $N$.
+	This shows that indeed $F^{(0)}\asymp N$.
 
 	Onto the first order, recall the scaling limit $\lambda=N^{-1}$ to see that
-	\textcolor{red}{CONTROLLA ORDINE DELLA SOMMA DI $\hat{V}(k)$}
 	\begin{align*}
 		F_{\mathrm{D}}^{(1)}+F_{\mathrm{X}}^{(1)} &= \lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{p-k}
 		= \lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{p-k}\\
@@ -843,7 +842,7 @@ its Fourier transform has compact support, but we may as well choose to assume t
 		&= \hat{V}(0)N + N^{-1}\mathcal{O}(N) = \hat{V}(0)N + \mathcal{O}(N^0).
 	\end{align*}
 	where in the last steps we used the condition that $\mathrm{supp}(\hat{V})$ is compact, so
-	that $\sum_k\hat{V}(k)=\mathcal{O}(N^0)$ and $\sum_{p,k}\hat{V}(k)=\mathcal{O}(N)$. With this
+	that $\sum_k\hat{V}(k)=\mathcal{O}(N^0)$ and $\sum_{q,k}\hat{V}(k)=\mathcal{O}(N)$. With this
 	expression we can conclude that the first order indeed contributes to order $\mathcal{O}(
 	N)$ with the direct term and to order $\mathcal{O}(N^0)$ with the exchange term.
 

@@ -129,7 +129,7 @@ of our work.
 \end{theorem}
 
 \begin{remark}
-	The map $J:\mathcal{H}\to\mathcal{H}^*$ that sends a vector to its uniquely identified
+	The map $J:\mathcal{H}\to\mathcal{H}^*$ that sends a vector to its uniquely identifed
 	continuous functional on $\mathcal{H}$ defines a canonical ``isomorphism" between a
 	Hilbert space and its dual, which means Hilbert spaces are self-dual. Technically $J$ is
 	not even a homomorphism since it is conjugate-linear rather than linear, and calling it an
@@ -193,7 +193,7 @@ result
 \end{proposition}
 
 We can extend this definition of direct sum to the case where we consider a countable set of
-Hilbert spaces $\{\mathcal{H}_i:i\in\mathbb{N}\}$ over the same field $\mathbb{K}$.
+Hilber spaces $\{\mathcal{H}_i:i\in\mathbb{N}\}$ over the same field $\mathbb{K}$.
 \begin{proposition}
 	The set $\mathcal{H}$ of sequences $x=\{x_i:x_i\in\mathcal{H}_i,\;i\in\mathbb{N}\}$ that
 	satisfy
@@ -216,7 +216,7 @@ define the vector space of finite linear combinations of ordered pairs in $V\tim
 	\Lambda(V,W) \coloneq \left\{ \sum_{i=1}^N a_i (x_i,y_i) : a_i\in\mathbb{K},\;
 	x_i\in V,\;y_i\in W\;\forall i=1,\ldots,N\right\}.
 \end{align*}
-On this space we impose algebraic relations through the quotient space
+On this space we impose algebraic relations through the quotien space
 \begin{align*}
 	V\otimes W \coloneq \Lambda(V,W)/\Lambda_0
 \end{align*}
@@ -412,7 +412,7 @@ e^{-\beta K})$ is the grand canonical partition function. Recall that the temper
 evolution (i.e. imaginary time evolution) of an operator $A$ in Heisenberg's picture is given
 by
 \begin{align*}
-	A(\tau) = e^{\tau K} A e^{-\tau K}.
+	A(\tau) = e^{-\tau K} A e^{\tau K}.
 \end{align*}
 Then, given $A(\tau)$ a polynomial of creation/annihilation operators at temperature $\beta+\tau$
 and $B$ a polynomial of creation/annihilation operators at temperature \beta, we ask how can
@@ -420,7 +420,8 @@ we write the correlation function
 \begin{align*}
 	G_{AB}(\tau) = \langle \mathcal{T}[A(\tau)B]\rangle = \mathrm{Tr}(\rho \mathcal{T}[A(\tau)B]),
 \end{align*}
-also called the \textit{temperature propagator}. We have the following remarkable identity:
+also called the \textit{temperature propagator}.
+We have the following remarkable identity \textcolor{red}{(Is this the KMS condition?)}:
 \begin{align*}
 	G_{AB}(\tau) = (-1)^f G_{AB}(\tau - \beta\mathrm{sign}(\tau)),
 \end{align*}
@@ -429,15 +430,16 @@ This identity states that $G_{AB}(\tau)$ is actually periodic in $\tau$ (with pe
 if $f$ is even, and antiperiodic if $f$ is odd. Indeed, if we consider -- as an example -- the
 case where $\beta>\tau>0$ (so that $\tau-\beta>0$), we can make use of the cyclic property of
 the trace and the form of the Gibbs state to get that
+\textcolor{red}{(check $e^{-\beta K}Be^{\beta K}=B$ and sign of exponents in imaginary time
+Heisenber picture)}
 \begin{align*}
 	G_{AB}(\tau-\beta)
 	&= \mathrm{Tr}(\rho\mathcal{T}[A(\tau-\beta)B])\\
-	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{-\beta K}Be^{K(\tau-\beta)}Ae^{-K(\tau-\beta)})\\
-	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{K\tau}Ae^{-K\tau}e^{\beta K}e^{-\beta K}Be^{-\beta K})\\
-	&= (-1)^f Z^{-1} \mathrm{Tr}(A(\tau)Be^{-\beta K})\\
+	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{-\beta K}Be^{-K(\tau-\beta)}Ae^{K(\tau-\beta)})\\
+	&= (-1)^f Z^{-1} \mathrm{Tr}(e^{-K\tau}Ae^{K\tau}Be^{-\beta K}e^{-\beta K}Be^{\beta K})\\
 	&= (-1)^f \mathrm{Tr}(\rho\mathcal{T}[A(\tau)B]).
 \end{align*}
-Similar steps prove the case where $\tau<0$. Because $G_{AB}(\tau)$ is periodic, we may want
+Similar steps prove that case where $\tau<0$. Becaues $G_{AB}(\tau)$ is periodic, we may want
 to write it as a Fourier series:
 \begin{align*}
 	G_{AB}(\tau) = \frac{1}{\beta} \sum_{k\in\mathbb{Z}}\tilde{G}_{AB}(i\omega_k) e^{-i\omega_k \tau}.

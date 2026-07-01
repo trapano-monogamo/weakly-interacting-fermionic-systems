@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026/Arch Linux)  (format=lualatex 2026.5.9)  30 JUN 2026 18:53
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026/Arch Linux)  (format=lualatex 2026.7.1)  1 JUL 2026 17:14
  system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -989,52 +989,51 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write6
 
 \openout6 = main.toc
- (./chapters/introduction.tex [3]) (./chapters/second-quantization.tex [4]
-Chapter 1.
-[5
+ (./chapters/introduction.tex [3]) (./chapters/second-quantization.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [6] [7]
+ [4] [5] [6
+
+]
+Chapter 1.
+[7] [8] [9]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 279.
  (/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [8] [9]
+) [10] [11]
 LaTeX Font Info:    Trying to load font information for U+bbm on input line 380.
  (/usr/share/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-) [10] [11] [12] [13]
+) [12] [13] [14] [15]
 Underfull \vbox (badness 2894) has occurred while \output is active []
 
- [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]) (./chapters/feynman-diagrams.tex [26]
+ [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]) (./chapters/feynman-diagrams.tex [28]
 Chapter 2.
-[27
+[29
 
-] [28] [29] [30] [31] [32] [33] [34] [35] [36]) (./chapters/second-order.tex [37] [38]
+] [30] [31] [32] [33] [34] [35] [36] [37] [38]) (./chapters/second-order.tex [39] [40]
 Chapter 3.
-[39
+[41
 
-] [40] [41] [42] [43] [44]
+] [42] [43] [44] [45] [46]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [45] [46] [47] [48] [49]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [47] [48] [49] [50] [51] [52] [53]) (./chapters/appendix.tex [54] [55
 
- [50]) (./chapters/appendix.tex [51] [52
 
-] [53
-
-] [54]
+] [56]
 Appendix A.
-[55
+[57
 
-] [56] [57] [58] [59] [60
+] [58] [59] [60] [61] [62
 
 ]
 Appendix B.
-[61] [62]
+[63] [64]
 Appendix C.
-[63
+[65
 
-]) [64] [65
+]) [66] [67
 
 ] (./main.aux)
  ***********
@@ -1042,27 +1041,27 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FDAAF66F332570164FD299CFFC1C79A8;4090.
+(rerunfilecheck)             Checksum: 27E2737D140F147B0725E6ACF4152855;4090.
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 36089 strings out of 476076
+ 36091 strings out of 476076
  125016,1977958 words of node,token memory allocated
  981 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 102 attribute, 71 glue_spec, 102 attribute_list, 2 write, 1 pdf_action nodes
-   avail lists: 1:8,2:2541,3:995,4:72,5:695,6:71,7:10575,8:103,9:1401,10:15,11:844
+   avail lists: 1:9,2:2541,3:995,4:72,5:709,6:71,7:10809,8:103,9:1401,10:17,11:851
  57448 multiletter control sequences out of 65536+600000
  88 fonts using 6728231 bytes
  102i,19n,101p,692b,1401s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmromancaps10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf><</home/chiara/.texlive/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmromanslant10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/public/ams
 fonts/euler/eufm7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (65 pages, 578865 bytes).
+Output written on main.pdf (67 pages, 586523 bytes).
 
-PDF statistics: 818 PDF objects out of 1000 (max. 8388607)
- 690 compressed objects within 7 object streams
- 241 named destinations out of 1000 (max. 1048576)
+PDF statistics: 827 PDF objects out of 1000 (max. 8388607)
+ 697 compressed objects within 7 object streams
+ 243 named destinations out of 1000 (max. 1048576)
  168 words of extra memory for PDF output out of 10000 (max. 100000000)
 

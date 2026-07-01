@@ -90,7 +90,7 @@ $\mathcal{H}$). When speaking of Hilbert spaces we will always assume that they 
 	\end{align*}
 	\textcolor{red}{WHY CAN I TAKE OUT THE LIMIT?}
 	which implies that $(\sum_{k=1}^N\lambda_k u^{(k)}_m)_{m,N\in\mathbb{N}}\subseteq X$
-	converges to $x$. Lastly, recall the infinite-dimensional version of the Gram-Schmidt
+	converges to $x$. Lastly, recall the infinite-dimensional version of the Grahm-Schmidt
 	orthonormalization procedure, then it is clear that to $\mathcal{S}$ we can associate a
 	complete orthonormal system.
 \end{proof}
@@ -164,7 +164,7 @@ definition, and will therefore need to be specified case by case.
 	\end{align*}
 \end{proof}
 
-It is worth pointing out that from Proposition \ref{extension-of-densely-defined-operators}
+It is worth pointint out that from Proposition \ref{extension-of-densely-defined-operators}
 follows that for bounded operators it is possible to deal with dense subspaces without losing
 generality. In particular, since we are always assuming the Hilbert space to be separable, it
 will suffice to define the image of only the basis elements.
@@ -248,7 +248,7 @@ probability amplitudes as integrals of a \textit{probability density}, given as 
 modulus squared of the wave function: $\vert\psi(x)\vert^2$.
 
 Going back to the definition of expectation values, we can now make an important
-generalization motivated by the following formal argument. Suppose the system has probability
+generalization moivated by the following formal argument. Suppose the system has probability
 $p_i$ of being prepared in some initial state $\psi_i$, of course given the normalization
 condition $\sum_i p_i = 1$, then the expectation of an observable $A$ would be the weighted
 average of the expectations on each initial state. We call these statistical mixtures
@@ -359,7 +359,7 @@ operators are compact, which makes $e^{-\beta H}$ a very well-behaved operator i
 
 \section{Canonical and grand canonical pictures}
 \label{canonical-grand-canonical}
-So far we talked about a generic (separable) Hilbert space, but for the most part we will deal
+So far we talked about a generic (separable) Hilber space, but for the most part we will deal
 with Hilbert spaces constructed in a specific way: tensor products, which are the natural
 spaces in which to set physical systems composed of multiple degrees of freedom. We are
 particularly interested in two special subspaces of a tensor product that encode the
@@ -541,7 +541,7 @@ domain for the starting Hamiltonian is chosen). The operators $P_+(H_N)$ and $P_
 respectively called the \textit{bosonic} and \textit{fermionic} $N$-body Hamiltonians for
 pair-wise interacting indistinguishable particles.
 \\
-This way of defining the energy of the system characterizes the \textit{canonical picture},
+This way of defining the energy of the system characterises the \textit{canonical picture},
 where the number of particles is fixed. But in statistical mechanics, allowing the number of
 particles to vary can actually make things easier. Allowing $N$ to vary defines the
 \textit{grand canonical picture}, and we shall now discuss its state space.
@@ -657,7 +657,7 @@ normalization achieves this in the next proposition. The choice of normalization
 Recall the definition of the commutator and anticommutator between two operators defined on a
 common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$. The anticommutator may
 be denoted by $[\,\cdot,\cdot\,]_+$ while the commutator by $[\,\cdot,\cdot\,]_-$, to
-accommodate for the more compact notation $[\,\cdot,\cdot\,]_\mp$ to indicate either of the
+accomodate for the more compact notation $[\,\cdot,\cdot\,]_\mp$ to indicate either of the
 two.
 
 \begin{proposition}[CCR/CAR]
@@ -670,7 +670,7 @@ two.
 	\end{align*}
 \end{proposition}
 \begin{proof}
-	We prove the claim on N-fold pure tensors. We compute the two terms in an (anti)commutator
+	We prove the clain on N-fold pure tensors. We compute the two terms in an (anti)commutator
 	separately to highlight the terms that simplify. Let $\phi_1,\ldots,\phi_N\in\mathfrak{h}$,
 	then
 	\begin{align*}
@@ -1301,7 +1301,7 @@ $\mathcal{V}$ is invertible, we can also write
 	\mathcal{V}^{-1} = \mathcal{S}_\pm\mathcal{V}^*\mathcal{S}_\pm.
 \end{align*}
 In particular, $\mathcal{V}^{-1}=\mathcal{V}^*$ in the fermionic case. With these properties
-we immediately get to the following proposition, for which the proof can be read through what
+we immediatly get to the following proposition, for which the proof can be read through what
 we just said:
 \begin{proposition}
 	A linear map $\mathcal{V}$ on $\mathfrak{h}\oplus\mathfrak{h}^*$ is a Bogolubov map if,
@@ -1353,7 +1353,7 @@ What this means is that, under suitable conditions on the block-matrix form of a
 map, there exists a ``change of basis" on the Fock space that sends generalized annihilation
 and - by taking the adjoint - creation operators to operators that annihilate/create a
 superposition of states determined by the linear map $\mathcal{V}$. We will not prove this
-theorem, as it is quite a long endeavor that ultimately doesn't add to our discussion of
+theorem, as it is quite a long endevour that ultimately doesn't add to our discussion of
 the physical system at hand.
 
 We are finally ready to discuss the most important result of this chapter: Wick's theorem.
@@ -1516,9 +1516,9 @@ Surprisingly enough, Gibbs states are quasi-free, as illustrated by the next the
 	\textcolor{red}{LOOK AT GIULIANI AND VIGNALE.}
 \end{proof}
 
-\section{Quadratic Hamiltonians}
+\section{Quadratic hamiltonians}
 
-Having introduced all the necessary results regarding Bogolubov maps, we can now move onto
+Having introduced all the necessary results reguarding Bogolubov maps, we can now move onto
 the study of generic quadratic Hamiltonians, which can be easily expressed in terms of
 generalized creation and annihilation operators.
 They play a crucial role in perturbative calculations, which are all about dealing with
@@ -1526,7 +1526,7 @@ complicated interactions on top of an easy and well-defined ``free theory", i.e.
 whose $n$-point functions satisfy Wick's theorem.
 \\
 We will not provide proofs for the following results, as they serve the purpose of giving a
-more complete picture of the tools at hand rather than being of fundamental importance to us.
+more complete picture of the tools at hand rather than being of foundamental importrance to us.
 
 \begin{definition}[Quadratic Hamiltonian]
 	Let $\mathcal{A}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ be a
@@ -1579,17 +1579,17 @@ more complete picture of the tools at hand rather than being of fundamental impo
 The definition of quadratic Hamiltonians naturally includes kinetic terms that contain the
 so-called \textit{anomalous} correlators $a_ia_j$ and $a^*_ia^*_j$, which are
 number-non-preserving terms. Usually, if a Hamiltonian contains such terms, one could try to
-find a Bogolubov transformation that takes it to the above form.
+find a Bogolubov transformation that diagonalizes it, taking it to the above form.
 \begin{example}
-	An important example of such a procedure is the particle-hole transformation, which also
-	represents an alternative approach to the calculations we carry out in our work. The
-	transformation is as follows: consider a set of momentum states inside a ball of fixed
-	radius $k_{\mathrm{F}}$, the Fermi ball $B_{\mathrm{F}} =\{k\in\mathbb{Z}^3:|k|<
-	k_{\mathrm{F}}\}$, then define a \textit{hole} as the annihilation of a state inside
-	$B_{\mathrm{F}}$, and a \textit{particle} as the creation of a state outside
-	$B_{\mathrm{F}}$. This is the result of the Bogolubov transformation $R$ which acts as
-	(calling $a^*_k=a^*_-(\psi_k)$ the creation of a particle in the state $\psi_k$ of
-	definite momentum $k$)
+	An important example of such a diagonalization procedure is the one obtained by the
+	particle-hole transformation, which also represents an alternative approach to the
+	calculations we carry out in our work. The transformation is as follows: consider a set of
+	momentum states inside a ball of fixed radius $k_{\mathrm{F}}$, the Fermi ball
+	$B_{\mathrm{F}} =\{k\in\mathbb{Z}^3:|k|<k_{\mathrm{F}}\}$, then define a \textit{hole} as
+	the annihilation of a state inside $B_{\mathrm{F}}$, and a \textit{particle} as the
+	creation of a state outside $B_{\mathrm{F}}$. This is the result of the Bogolubov
+	transformation $R$ which acts as (calling $a^*_k=a^*_-(\psi_k)$ the creation of a particle
+	in the state $\psi_k$ of definite momentum $k$)
 	\begin{align*}
 		R^*a^*_k R = \begin{cases}
 			a^*_k\quad&\text{if}\;k\not\in B_{\mathrm{F}}\\

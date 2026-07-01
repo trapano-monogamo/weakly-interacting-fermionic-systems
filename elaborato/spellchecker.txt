@@ -1,0 +1,3 @@
+use the following command
+
+$ aspell --mode=tex check <file.tex>
