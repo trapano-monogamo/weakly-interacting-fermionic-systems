@@ -1458,18 +1458,16 @@ physical modes.
 	\end{align*}
 \end{theorem}
 \begin{proof}
-	It follows from $\Psi$ being a quasi-free pure state that there exists a Bogolubov map
-	$\mathcal{V}$ with unitary implementation $\mathbb{U}_\mathcal{V}$ such that $\Psi =
-	\mathbb{U}_\mathcal{V}\Omega$. Using Theorem (\ref{thm:bogolubov-unitary}) we may rewrite
-	the expectation on $\Psi$ as
-	\begin{align*}
-		\langle\Psi,A_\pm(F_1)\cdots A_\pm(F_{2m})\Psi\rangle
-		&= \langle\Omega,\mathbb{U}_\mathcal{V}^*A_\pm(F_1)\mathbb{U}_\mathcal{V}\mathbb{U}_\mathcal{V}^*
-		\cdots\mathbb{U}_\mathcal{V}\mathbb{U}_\mathcal{V}^*A_\pm(F_{2m})\mathbb{U}_\mathcal{V}\Omega\rangle\\
-		&= \langle\Omega,A_\pm(\mathcal{V}^{-1}F_1)\cdots A_\pm(\mathcal{V}^{-1}F_{2m})\Omega\rangle,
-	\end{align*}
-	which implies that it suffices to prove the claim for vacuum states.
-	\textcolor{red}{CONTINUE.}
+	For every $F=f\oplus Jg\in\mathfrak{h}\oplus\mathfrak{h}^*$, we have $A_\pm(F) = a_\pm(f)
+	+ a^*_\pm(g)$, and we can split the creation and annihilation part as $A_\pm(F)^- = a_\pm(f)$
+	and $A_\pm(F)^+ = a^*_\pm(g)$. Calling now $A_\pm(F_i) = A_i$ we notice the following
+	relations
+	\begin{gather*}
+		[A_i^-,A_j^-]_\mp = 0,\quad[A_i^+,A_j^+]_\mp = 0\\
+		[A_i^-,A_j^+]_\mp = \langle\Psi,A_iA_j\Psi\rangle\\
+		[A_i^-
+	\end{gather*}
+	\textcolor{red}{EMH... WHAT?}
 \end{proof}
 
 % Despite dreaming of resisting the urge to characterize \textit{something}, the mathematician
@@ -1507,10 +1505,11 @@ Surprisingly enough, Gibbs states are quasi-free, as illustrated by the next the
 \end{definition}
 
 \begin{theorem}
+	\label{mixed-quasi-free-wick}
 	Let $\{F_n\}_{n\in\mathbb{N}}$ be an orthonormal basis for $\mathfrak{h}\oplus\mathfrak{h}^*$
 	and define the Hamiltonian $H=\sum_{n=0}^\infty\epsilon_nA^*_\pm(F_n)A_\pm(F_n)$, where
 	$\mathrm{Tr}(e^{-\beta H})=\sum_ne^{-\beta\epsilon_n}<\infty$. The Gibbs state
-	$\langle\cdot\rangle_{\beta,H}$ is quasi-free.
+	$\langle\,\cdot\,\rangle_{\beta,H}$ is quasi-free.
 \end{theorem}
 \begin{proof}
 	\textcolor{red}{LOOK AT GIULIANI AND VIGNALE.}
@@ -1558,6 +1557,7 @@ more complete picture of the tools at hand rather than being of fundamental impo
 \end{theorem}
 
 \begin{theorem}[Ground state eigenvector for quadratic Hamiltonians]
+	\label{quadratic-ground-state}
 	Let $\mathcal{A}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ be
 	self-adjoint. Assume moreover, in the bosonic case, that it is positive definite. Then
 	the Hamiltonian $H^\pm_{\mathcal{A}}$ admits a ground state eigenvector that is a

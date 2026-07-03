@@ -69,7 +69,7 @@ Note that this condition is stronger that being symmetric.
 		\item[b)] $P$ is a projector if, and only if, $\mathbbm{1} - P$ is a projector;
 		\item[c)] if $P$ is a projector, then
 			\begin{align*}
-				\mathcal{H} = \mathrm{ran} P \oplus \ker P,
+				\mathcal{H} = \mathrm{ran}\, P \oplus \ker P,
 				\quad P|_{\mathrm{ran}P} = \mathbbm{1},
 				\quad P|_{\mathrm{ker}P} = 0.
 			\end{align*}
@@ -308,19 +308,19 @@ $\sigma$-algebra $\Sigma$ and $\{b_1,\ldots,b_n\}$ elements of $\mathcal{B}$, th
 \end{align*}
 is called a simple function and its integral is defined as
 \begin{align*}
-	\int_X s\dx\mu \coloneq \sum_{i=1}^n \mu(E_i) b_i.
+	\int_X s\dx\,\mu \coloneq \sum_{i=1}^n \mu(E_i) b_i.
 \end{align*}
 
 \begin{definition}[Bochner integral]
 	A measurable function $f:X\to\mathcal{B}$ is called \textit{Bochner integrable} if there
 	exists a sequence of simple functions $\{s_n:n\mathbb{N}\}$ such that
 	\begin{align*}
-		\lim_{n\to\infty} \int_X \Vert f - s_n\Vert_{\mathcal{B}}\dx\mu = 0,
+		\lim_{n\to\infty} \int_X \Vert f - s_n\Vert_{\mathcal{B}}\,\dx\mu = 0,
 	\end{align*}
 	i.e. if its point-wise norm is Lebesgue integrable. In this case, the \textit{integral of f}
 	is defined as
 	\begin{align*}
-		\int_X f\dx\mu \coloneq \lim_{n\to\infty}\int s_n\dx\mu.
+		\int_X f\,\dx\mu \coloneq \lim_{n\to\infty}\int s_n\,\dx\mu.
 	\end{align*}
 	It can be shown that $\{\int_X s_n\dx\mu:n\in\mathbb{N}\}$ is a Cauchy sequence, hence the
 	integral is well-defined.
@@ -335,12 +335,12 @@ is called a simple function and its integral is defined as
 	Bochner integration satisfies the following properties:
 	\begin{enumerate}
 		\item a function $f:X\to\mathcal{B}$ is Bochner integrable if, and only if,
-			$\int_X\Vert f\Vert_{\mathcal{B}}\dx\mu < \infty$;
+			$\int_X\Vert f\Vert_{\mathcal{B}}\,\dx\mu < \infty$;
 		\item if $T:\mathcal{B}\to\mathcal{B}'$ is a continuous linear operator between Banach
 			spaces and $f:X\to\mathcal{B}$ is Bochner integrable, then $Tf$ is also Bochner
 			integrable and it holds that
 			\begin{align*}
-				T\int_E f\dx\mu = \int_X Tf\dx\mu
+				T\int_E f\,\dx\mu = \int_X Tf\,\dx\mu
 			\end{align*}
 			for all $E\in\Sigma$;
 		\item (Dominated convergence theorem) if $\{f_n\}$ is a sequence of Bochner integrable
@@ -348,16 +348,16 @@ is called a simple function and its integral is defined as
 			exists an integrable function $g$ such that $\Vert f_n(x)\Vert_{\mathcal{B}} \leq g(x)$
 			almost everywhere on $X$, then it holds that
 			\begin{align*}
-				\int_E \Vert f - f_n\Vert_{\mathcal{B}} \dx\mu \to 0,
+				\int_E \Vert f - f_n\Vert_{\mathcal{B}}\,\dx\mu \to 0,
 				\quad\text{and}\quad
-				\int_E f_n\dx\mu \to \int_E f\dx\mu
+				\int_E f_n\,\dx\mu \to \int_E f\,\dx\mu
 			\end{align*}
 			for all $E\in\Sigma$;
 		\item (Fundamental theorem of calculus) if $f:X\to\mathcal{B}$ is Bochner integrable
 			over $[a,b]\subseteq\mathbb{R}$ and $F:X\to\mathcal{B}$ is an antiderivative for
 			$f$, then
 			\begin{align*}
-				\int_{[a,b]} f\dx\mu = F(b)-F(a).
+				\int_{[a,b]} f\,\dx\mu = F(b)-F(a).
 			\end{align*}
 	\end{enumerate}
 \end{proposition}
