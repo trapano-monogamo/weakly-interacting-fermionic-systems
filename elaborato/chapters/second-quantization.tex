@@ -335,9 +335,9 @@ Thermal equilibrium states are called Gibbs states, and we can define the quantu
 \end{definition}
 
 For $\beta<\infty$ they are generally mixed, while in the limit $\beta\to\infty$ we find the,
-usually pure, ground state. We will denote Gibbs states by $\langle\cdot\rangle_\beta$,
+usually pure, ground state. We will denote Gibbs states by $\langle\,\cdot\,\rangle_\beta$,
 specifying the temperature, and we will also specify the Hamiltonian, when needed, by
-writing $\langle\cdot\rangle_{\beta,H}$.
+writing $\langle\,\cdot\,\rangle_{\beta,H}$.
 \begin{remark}
 	We could introduce Gibbs state following the standard thermodynamical approach. We would
 	define the entropy as $S(\langle\,\cdot\,\rangle) = -\sum_{n}p_n\log(p_n)$, then the free
@@ -1343,7 +1343,7 @@ states in a Fock space for which Wick's theorem will hold in its most general fo
 	\end{align*}
 	such that, for $F\in\mathfrak{h}\oplus\mathfrak{h}^*$,
 	\begin{align*}
-		\mathbb{U}_\mathcal{V} A_\pm(F)\mathbb{U}_\mathcal{V}^* = A_\pm(\mathcal{V}F)
+		\mathbb{U}_\mathcal{V}^* A_\pm(F)\mathbb{U}_\mathcal{V} = A_\pm(\mathcal{V}F)
 	\end{align*}
 	if, and only if, $V^*V$ is trace-class. This trace-class condition is also referred to as
 	the Shale-Stinespring condition.
@@ -1458,16 +1458,61 @@ physical modes.
 	\end{align*}
 \end{theorem}
 \begin{proof}
-	For every $F=f\oplus Jg\in\mathfrak{h}\oplus\mathfrak{h}^*$, we have $A_\pm(F) = a_\pm(f)
-	+ a^*_\pm(g)$, and we can split the creation and annihilation part as $A_\pm(F)^- = a_\pm(f)$
-	and $A_\pm(F)^+ = a^*_\pm(g)$. Calling now $A_\pm(F_i) = A_i$ we notice the following
-	relations
-	\begin{gather*}
-		[A_i^-,A_j^-]_\mp = 0,\quad[A_i^+,A_j^+]_\mp = 0\\
-		[A_i^-,A_j^+]_\mp = \langle\Psi,A_iA_j\Psi\rangle\\
-		[A_i^-
-	\end{gather*}
-	\textcolor{red}{EMH... WHAT?}
+	From $\Psi$ being quasi-free we know there exists some Bogolubov map $\mathcal{V}$ with
+	unitary implementation $\mathbb{U}_\mathcal{V}$ such that $\mathbb{U}_\mathcal{V}^*
+	A_\pm(F_i)\mathbb{U}_\mathcal{V} = A_\pm(\mathcal{V}F_i)$, let us call $G_i=
+	\mathcal{V}F_i$. It follows that we may restrict our proof to the case of the vacuum
+	state, as
+	\begin{align*}
+		\langle\Psi,A_\pm(F_1)\cdots A_\pm(F_{2m})\Psi\rangle
+		&= \langle\Omega,\mathbb{U}_\mathcal{V}^*A_\pm(F_1)\mathbb{U}_\mathcal{V}^*\mathbb{U}_\mathcal{V}
+		\cdots\mathbb{U}_\mathcal{V}^*\mathbb{U}_\mathcal{V}A_\pm(F_{2m})\mathbb{U}_\mathcal{V}\Omega\rangle\\
+		&= \langle\Omega,A_\pm(G_1)\cdots A_\pm(G_{2m})\Omega\rangle.
+	\end{align*}
+	Because $G_i\in\mathfrak{h}\oplus\mathfrak{h}^*$ there exist $f_i,g_i\in\mathfrak{h}$ such
+	that
+	\begin{align*}
+		A_\pm(G_i) = a_\pm(f_i) + a^*_\pm(g_i) = a_i + a^*_i,
+	\end{align*}
+	where we called $a_i=a_\pm(f_i)$ and $a^*_i=a_\pm(g_i)$. The odd case is straightforward:
+	because we have an odd number of operators $A_\pm(G_i)$, expanding the expression of each
+	one of them will always produce a product with an odd number of either creation or
+	annihilation operators, therefore the product will take the state $\Omega$ to an
+	$(N>0)$-particle sector, which is orthogonal to $\Omega$, or directly annihilate it. Thus
+	\begin{align*}
+		\langle\Omega,A_\pm(G_1)\cdots A_\pm(G_{2m-1})\Omega\rangle = 0.
+	\end{align*}
+	The even case is more involved and we proceed by induction. Assume that the claim holds
+	for $2m-2$, with the base case $m=2$ being trivially true. Note that the (anti)commutator
+	between an operator $a_j$ and an operator $A_k$ is a scalar times the identity operator:
+	\begin{align*}
+		[a_j,A_k]_\mp = [a_j,a_k+a^*_k] = \langle f_j,g_k\rangle\mathbbm{1} =
+		\langle\Omega,a_jA_k\Omega\rangle\mathbbm{1} \eqcolon C_{jk}\mathbbm{1},
+	\end{align*}
+	We expand the expression for the first operator in the product, calling $A_i=A_\pm(G_i)$,
+	to get
+	\begin{align*}
+		\langle\Omega,(a_1+a^*_1)A_2\cdots A_{2m}\Omega\rangle
+		= \langle\Omega,A_2a_1A_3\cdots A_{2m}\Omega\rangle \pm
+		C_{12}\langle\Omega,A_2A_3\cdots A_{2m}\Omega\rangle,
+	\end{align*}
+	where the $a^*_1$ term vanishes as it annihilates the vacuum on the left side of the inner
+	product. Repeating this procedure we get all $2m-1$ terms where the $k$-th operator
+	has been replaced with the scalar $C_{1k}$, i.e., all pairings that involve the operator
+	$A_1$:
+	\begin{align*}
+		\langle\Omega,A_1\cdots A_{2m}\Omega\rangle
+		= \sum_{k=2}^{2m}(\pm)^k C_{1k}\langle\Omega,A_2\cdots \widehat{A_k}\cdots A_{2m}\Omega\rangle,
+	\end{align*}
+	where the hat symbol means omission. By the inductive hypothesis, the claim holds for the
+	product of operators from $A_2$ to $A_{2m}$, and whenever the $j$-th operator is
+	``taken out" from the product, all the pairings between $A_j$ and an $A_{k>j}$ are
+	produced. Thus we arrive at the thesis
+	\begin{align*}
+		\langle\Omega,A_1\cdots A_{2m}\Omega\rangle
+		= \sum_{\sigma\in P_{2m}}(\pm)^\sigma\langle\Omega,A_{\sigma(1)}A_{\sigma(2)}\Omega\rangle
+		\cdots\langle\Omega,A_{\sigma(2m-1)}A_{\sigma(2m)}\Omega\rangle.
+	\end{align*}
 \end{proof}
 
 % Despite dreaming of resisting the urge to characterize \textit{something}, the mathematician
@@ -1511,8 +1556,70 @@ Surprisingly enough, Gibbs states are quasi-free, as illustrated by the next the
 	$\mathrm{Tr}(e^{-\beta H})=\sum_ne^{-\beta\epsilon_n}<\infty$. The Gibbs state
 	$\langle\,\cdot\,\rangle_{\beta,H}$ is quasi-free.
 \end{theorem}
-\begin{proof}
-	\textcolor{red}{LOOK AT GIULIANI AND VIGNALE.}
+\begin{proof}[Sketch of the Proof]
+	We give a sketch of the proof, omitting details about why some algebraic manipulations are
+	well defined in our case. Because $F_i\in\mathfrak{h}\oplus\mathfrak{h}^*$ there exist
+	$f_i,g_i\in\mathfrak{h}$ such that $A_\pm(F_i) = a_\pm(f_i) + a^*_\pm(g_i)$, so let us
+	call $a_i = a_\pm(f_i)$ and $a^*_i = a^*_\pm(g_i)$. We firt note the following identites.
+	By making use of the commutator $[H,a_k]=-\epsilon_k a_k$, we can write (we actually
+	derive this fact in a special case in Lemma \ref{two-point-function})
+	\begin{align*}
+		e^{\beta H}a_k e^{-\beta H} = e^{-\beta\epsilon_k}a_k.
+	\end{align*}
+	Then, by the cyclic property of the trace we have, for all bounded operators $X$,
+	\begin{align*}
+		\langle a_k X\rangle_{\beta,H}
+		&= \frac{\mathrm{Tr}(a_k X e^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
+		= \frac{\mathrm{Tr}(X (e^{-\beta H}e^{\beta H}) e^{-\beta H} a_k)}{\mathrm{Tr}(e^{-\beta H})}
+		= e^{-\beta\epsilon_k}\frac{\mathrm{Tr}(Xa_ke^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
+		= e^{-\beta\epsilon_k}\langle Xa_k\rangle_{\beta,H}.
+	\end{align*}
+	Using this cyclic property of Gibbs expectations, we can move the first operator all the
+	way on the right and then ``commute" it all the way back to the left.
+	%Without loss of
+	%generality may restrict to the case where $A_\pm(F_i)$ is either an annihilation operator
+	%$a_i$ or a creation operator $a^*_i$.
+	Calling $A_i=A_\pm(F_i)$, we proceed by induction. Let $n\in\mathbb{N}$ and assume that
+	the claim holds for $n-1$. Then
+	\begin{align*}
+		\langle A_1\cdots A_n\rangle_{\beta,H}
+		&= e^{-\beta\epsilon_1}\langle A_2\cdots A_nA_1\rangle_{\beta,H}\\
+		&= e^{-\beta\epsilon_1}\left\langle
+		(\pm)^{n-1} + \sum_{j=2}^n (\pm)^{n-j}[A_j,A_1]_\mp A_2\cdots\widehat{A_j}\cdots A_n
+		\right\rangle_{\beta,H}.
+	\end{align*}
+	We may factor the term on the left side with the last term of the right side to get that,
+	recalling that we may treat $[A_j,A_k]$ as a scalar,
+	\begin{align*}
+		(1 - (\pm)^{k-1}e^{-\beta\epsilon_1})\langle A_1\cdots A_n\rangle_{\beta,H}
+		= e^{-\beta\epsilon_1}\sum_{j=2}^n(\pm)^{n-j}[A_j,A_1]_\mp\langle A_2\cdots\widehat{A_j}\cdots A_n\rangle_{\beta,H}.
+	\end{align*}
+	In the special case $n=2$ we have that
+	\begin{align*}
+		(1 \mp e^{-\beta\epsilon_1})\langle A_1A_2\rangle_{\beta,H} = e^{-\beta\epsilon_1}[A_j,A_1]_\mp,
+	\end{align*}
+	which implies, substituting it back into the equation, that
+	\begin{align*}
+		\langle A_1\cdots A_n\rangle_{\beta,H}
+		= e^{-\beta\epsilon_1}\sum_{j=2}^n(\pm)^{n-j}\langle A_jA_1\rangle_{\beta,H}
+		\langle A_2\cdots\widehat{A_j}\cdots A_n\rangle_{\beta,H}.
+	\end{align*}
+	By the inductive hypothesis, the expectation of $A_2\cdots A_n$ produces all the pairings
+	that do not involve $A_1$, and thus we arrive at the thesis. If $n$ is odd, every term
+	will contain an expectation of a single operator, which is zero as can be seen by the
+	relation
+	\begin{align*}
+		&\langle A_1\rangle_{\beta,H} = \langle A_1\mathbb{1}\rangle_{\beta,H}
+		= e^{-\beta\epsilon_1}\langle A_1\rangle_{\beta,H}\\
+		&\implies (1-e^{-\beta\epsilon_1})\langle A_1\rangle_{\beta,H} = 0.
+	\end{align*}
+	If $n$ is even, we instead produce all possible pairings, just as we did in Theorem
+	\ref{thm:wicks}:
+	\begin{align*}
+		\langle A_1\cdots A_n\rangle = \sum_{\sigma\in P_n}(\pm)^\sigma
+		\langle A_{\sigma(1)}A_{\sigma(2)}\rangle_{\beta,H}\cdots\langle A_{\sigma(n-1)}A_{\sigma(n)}\rangle_{\beta,H}
+	\end{align*}
+	This concludes the proof.
 \end{proof}
 
 \section{Quadratic Hamiltonians}
