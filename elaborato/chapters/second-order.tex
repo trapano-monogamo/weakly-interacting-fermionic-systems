@@ -1,11 +1,11 @@
-\chapter{Ground state energy in the mean field limit}
+\chapter{Ground State Energy in the Mean Field Limit}
 \label{main-chapter}
 
-\textcolor{red}{CHECK MISSING LINKS IN REFERENCES.}
-Our objective is to choose a mean field scaling regime in the number of particles for both the
-kinetic and the interaction terms in the Hamiltonian, for a system that has a smooth,
-two-body interaction potential.
-\\
+To start our discussion of the ground state energy, we choose -- as stated in the introduction
+-- a mean field scaling regime in the number of particles for both the kinetic and the
+interaction terms in the Hamiltonian, for a system that has a smooth, two-body interaction
+potential.
+
 First, let us consider a system whose physical parameters, such as the mass of the fermions,
 are such that the kinetic energy is simply given by $H_0 = \sum_{i=1}^N -\hbar^2\Delta_i$ and
 the interaction by $\lambda \sum_{i<j} V(x_i-x_j)$. Second, because of Pauli's exclusion
@@ -22,7 +22,7 @@ $N^2$, because the number of pair-wise interactions will be $N(N-1)/2 \sim N^2$ 
 Here, we are assuming that the potential itself $V$ is of order $\mathcal{O}(N^0)$\cite{HPRArt},
 an assumption that can be realized by considering potentials such that the support of their
 Fourier transform is compact and doesn't depend on $N$.
-\\
+
 To retrieve a sensible, non-trivial limit for the energy as $N\to\infty$, we choose to rescale
 the physical parameters \cite{BenArt} as
 \begin{align}
@@ -51,9 +51,10 @@ where
 	\item $\alpha$ is a positive real number that signals how the exchange correction to the RPA
 		is subleading in $N$ with respect to the RPA itself.
 \end{itemize}
-In Theorem \ref{thm:main-result} -- the main result of this thesis -- we give an original
-proof that second order perturbation theory reprduces the expected scaling of each term in
-Equation (\ref{eq:ground-state-energy}), within the aforementioned scaling regime.
+In Theorem \ref{thm:main-result} -- the main result of this thesis -- we prove that the first
+order in perturbation theory reproduces the expected scaling of Equation
+(\ref{eq:ground-state-energy}) within the aforementioned scaling regime. We then comment on
+the scaling of the non-problematic terms of the second order.
 
 \section{Explicit calculation at second order}
 \label{second-order}
@@ -64,7 +65,7 @@ $L^2$-functions on the torus $\mathbb{T}^{3N} = (\mathbb{R}^3/(2\pi\mathbb{Z}^3)
 \begin{align*}
 	L^2_a(\mathbb{T}^{3N}) := \{\psi\in L^2(\mathbb{T}^{3N})
 	: \psi(x_{\sigma(1)}, ..., x_{\sigma(N)})
-	= \mathrm{sgn}(\sigma)\psi(x_1, ..., x_N) \,\forall \sigma \in S_N\}
+	= \mathrm{sgn}(\sigma)\psi(x_1, ..., x_N) \,\forall \sigma \in S_N\}.
 \end{align*}
 The Hamiltonian for weakly interacting particles can be written as a sum of
 the kinetic energy terms plus a sum of two-body interaction terms:
@@ -78,7 +79,7 @@ transform to have compact support. This is motivated by the need to control the
 convergence of the perturbative series, as we will discuss in detail in the rest of our work.
 Of course, $V$ has period $2\pi$ in all variables, and we assume moreover that $V(x_i - x_j) =
 V(|x_i - x_j|)$, which implies that $\hat{V}(-k) = \hat{V}(k)$.
-\\
+
 Working in the grand canonical picture requires lifting this operator to the fermionic Fock
 space, and requiring that the ground state energy is attained for a fixed number of particles
 that is greater than zero means that the Hamiltonian picks up an additional term $-\mu\mathcal{N}$,
@@ -112,8 +113,7 @@ We re-derive the Fermi-Dirac distribution in Lemma \ref{two-point-function}. Equ
 Gauss, which gives a lower and an upper bound to the number of points on a lattice inside a
 sphere. Namely, they are the number of unit cubes that are completely and at least partially
 inside the sphere, respectively. The result of such bounds can be summed up into the estimate
-given by the volume of the sphere plus an error proportional to the surface \textcolor{red}{
-CITATION NEEDED}:
+given by the volume of the sphere plus an error proportional to the surface area:
 \begin{align*}
 	N = \vert B_{\mathrm{F}}\vert
 	= \frac{4\pi}{3}k_{\mathrm{F}}^3 + \mathcal{O}(k_{\mathrm{F}}^2)
@@ -140,6 +140,7 @@ state is given by
 \end{align*}
 
 \begin{proposition}[Duhamel's formula]
+	\label{prop:duhamel}
 	Given $H = H_0 + \lambda V$ as defined above, the following approximation for the free
 	energy holds formally at second order in $\lambda$, up to an overall factor of $-1/\beta$:
 	\begin{align}
@@ -168,13 +169,14 @@ state is given by
 			- \lambda\int_0^\beta\dx\tau
 			e^{-\tau H}e^{\tau H_0}V(\tau) = \star
 	\end{align*}
-	Note that the integral is well defined as $\tau\mapsto\Vert e^{-\tau H}e^{\tau H_0}V(\tau)\Vert$
-	is a continuous function on the compact domain $[0,\beta]$ and is therefore Lebesgue integrable,
-	which implies that $\tau\mapsto e^{-\tau H}e^{\tau H_0}V(\tau)$ is Bochner integrable. We
-	briefly discuss integration of functions $\mathbb{R}^n\to\mathfrak{B}(\mathcal{H})$ in
-	Appendix \ref{appendix:bochner-integral}.
-	Now we can see that in the integral we have the same term that appears in the l.h.s. but
-	at a generic temperature $\tau$. Iterating this procedure just once gives us
+	where we defined $V(\tau)=e^{-\tau H_0}Ve^{\tau H_0}$. The integral is well
+	defined as $\tau\mapsto\Vert e^{-\tau H}e^{\tau H_0}V(\tau)\Vert$ is a continuous function
+	on the compact domain $[0,\beta]$ and is therefore Lebesgue integrable, which implies that
+	$\tau\mapsto e^{-\tau H}e^{\tau H_0}V(\tau)$ is Bochner integrable. We briefly discuss
+	integration of functions $\mathbb{R}^n\to\mathfrak{B}(\mathcal{H})$ in Appendix
+	\ref{appendix:bochner-integral}. Now we can see that in the integral we have the same term
+	that appears in the l.h.s. but at a generic temperature $\tau$. Iterating this procedure
+	just once gives us
 	\begin{align*}
 		\star &= \mathbbm{1}
 				- \lambda\int_0^\beta\dx\tau
@@ -227,15 +229,15 @@ state is given by
 \end{proof}
 
 It is possible to see that iterating Duhamel's formula leads exactly to the definition of the
-$\tau$-ordered exponential $\mathcal{T}\{e^{-\beta H}\}$, and at every order the integrand looks
+$\tau$-ordered exponential $\mathcal{T}[e^{-\beta H}]$, and at every order the integrand looks
 exactly like the content of Theorem \ref{thm:linked-cluster}. To prove that the perturbative
 series in the operator formalism and in Grassmann variables are formally identical, we need to
 identify operator expectations $\langle\,\cdot\,\rangle_\beta$ with Grassmann expectations
 $\mathbb{E}_G(\,\cdot\,)$, but also identify the propagator $\langle a^*_k(\tau)a_{k'}(\tau')
 \rangle_\beta$ with the covariance $G_{k,k'}(\tau,\tau')$.
 \\
-To introduce Grassmann variables we need to have a finite number of physical modes in our
-system. Momentum modes can be made finite by introducing a cutoff $\Lambda$:
+To introduce Grassmann variables we require the system to have a finite number of physical
+modes. Momentum modes can be made finite by introducing a cutoff $\Lambda$:
 \begin{align*}
 	\mathcal{D}_\Lambda := \{ k\in\mathbb{Z}^3 : \vert k\vert < \Lambda \} = \mathbb{Z}^3\cap\mathbb{B}_\Lambda(0),
 	\quad\mathrm{with}\;\vert\mathcal{D}_\Lambda\vert = M,
@@ -253,7 +255,7 @@ Let then $\boldsymbol{\psi} = (\psi_1, ..., \psi_M)$ and
 $\boldsymbol{\bar\psi} = (\bar\psi_1, ..., \bar\psi_M)$ be the Grassmann variables
 associated to the families of operators $a$ and $a^*$ respectively.
 Having introduced the cutoff, the kinetic part of the Hamiltonian can now be written as a
-simple finite linear combination of fermionic number density operators, which makes it a
+simple finite linear combination of fermionic number operators, which makes it a
 bounded operator:
 \begin{align*}
 	H_0 = \sum_{k \in \mathcal{D}_\Lambda} (\epsilon_k-\mu) a^*_k a_k
@@ -271,15 +273,16 @@ contain operators at different temperatures.
 	\begin{equation}
 		G_{k,k'}(\tau,\tau')
 		= \langle a^*_k(\tau) a_{k'}(\tau') \rangle_\beta
-		= \delta_{k,k'} n_{\mathrm{F}}(\epsilon_k) e^{-(\tau-\tau')(\epsilon_{k}-\mu)}
+		= \delta_{k,k'} n_{\mathrm{F}}(\epsilon_k) e^{(\tau'-\tau)(\epsilon_{k}-\mu)}
 	\end{equation}
-	where $n_\mathrm{F}(\epsilon) = (e^{\beta(\epsilon-\mu)}+1)^{-1}$ is the Fermi-Dirac distribution.
+	where $n_\mathrm{F}(\epsilon) = (e^{\beta(\epsilon-\mu)}+1)^{-1}$ is the Fermi-Dirac distribution
+	at temperature $\beta$.
 \end{lemma}
 \begin{proof}
 	Let us first focus on finding an expression for field operators at a given temperature
-	$a^\#(\tau)$. Recall that for an operator $A$ its evolution at temperature $\tau$ is given
-	by $A(\tau)=e^{-\tau H_0}A e^{\tau H_0}$. Once again we will make use of the fundamental
-	theorem of calculus to write
+	$a^\#(\tau)$. Recall from the proof of Theorem \ref{prop:duhamel} that for an operator $A$
+	its evolution at temperature $\tau$ is given by $A(\tau)=e^{-\tau H_0}A e^{\tau H_0}$. Once
+	again we will make use of the fundamental theorem of calculus to write
 	\begin{align*}
 		e^{-\tau H_0}a_k e^{\tau H_0}
 		&= a_k + \int_0^\tau \dx\lambda\, \frac{\dx}{\dx\lambda}\left( e^{-\lambda H_0}a_k e^{\lambda H_0} \right) \\
@@ -329,10 +332,9 @@ contain operators at different temperatures.
 	\end{align*}
 
 	It remains to determine the expectation $\langle a^*_k a_{k'}\rangle_\beta$. Recall that
-	the spectrum of the number density operators $a^*_k a_k$ is $\mathbb{N}_0$, and in the
-	fermionic case the occupation number basis decomposes the Fock space like we discussed in
-	Proposition (\ref{occupation-number-basis}). Using the cutoff on high momentum, the trace
-	in the Gibbs state functional becomes a sum over a finite amount of states. Let
+	in the fermionic case the occupation number basis decomposes the Fock space like we
+	discussed in Proposition \ref{occupation-number-basis}. Using the cutoff on high momentum,
+	the trace in the Gibbs state functional becomes a sum over a finite amount of states. Let
 	$\{\vert\boldsymbol{n}\rangle = \vert n_1\rangle\otimes\cdots\otimes\vert n_M\rangle
 	: n_i\in\{0,1\}\;\forall i=1,\ldots,M\}$
 	be the complete orthonormal set of eigenvectors of $M$ independent number density operators
@@ -389,12 +391,13 @@ exactly the quartic term we discussed in Section \ref{sec:toy-model}:
 		\filldraw[black] (0,0) circle (2pt);
 	\end{tikzpicture}.
 \end{align*}
+
 We can evaluate the expectations that show up in Duhamel's formula separately by following the
-diagrammatic rules we discussed in the previous chapter. Let's start with $\langle V\rangle$.
-Omitting the temperatures when writing two-point functions and calling $n_k=n_\text{F}(
-\epsilon_k)$ the calculation is as follows:
+diagrammatic rules we discussed in the previous chapter. Let's start with $\langle V\rangle_\beta$.
+Omitting the temperatures when writing two-point functions (as they are evaluated at the same
+temperatures) and calling $n_k=n_\text{F}(\epsilon_k)$ the calculation is as follows:
 \begin{align*}
-	\langle V \rangle
+	\langle V \rangle_\beta
 	&= \mathbb{E}_G \biggl(
 		\sum_{k,p,q} \hat{V}(k) \bar\psi_{p-k} \bar\psi_{q+k} \psi_q \psi_p
 		\biggr)
@@ -453,7 +456,8 @@ Omitting the temperatures when writing two-point functions and calling $n_k=n_\t
 \end{align*}
 
 Let us now consider the term $\langle V(\tau')V(\tau)\rangle_\beta-\langle V(\tau')
-\rangle_\beta\langle V(\tau)\rangle$ in the double integral now. This time we have terms with
+\rangle_\beta\langle V(\tau)\rangle_\beta$ in the double integral, and explain exactly where
+the problems with the second order arise. This time we have terms with
 two vertices, and using Theorem \ref{thm:linked-cluster} the expression factorizes as follows,
 recalling the identification of Gibbs expectations $\langle\,\cdot\,\rangle_\beta$ with
 Grassmann expectations $\mathbb{E}_G(\,\cdot\,)$:
@@ -461,95 +465,254 @@ Grassmann expectations $\mathbb{E}_G(\,\cdot\,)$:
 	\langle V(\tau')V(\tau) \rangle_\beta - \langle V(\tau') \rangle_\beta\langle V(\tau) \rangle_\beta
 	&= \mathbb{E}_G(V(\tau')V(\tau)) - \mathbb{E}_G(V(\tau'))\mathbb{E}_G(V(\tau)) \\
 	&= \mathbb{E}^{\mathrm{T}}_G(V(\tau');V(\tau))\\
-	&= \sum_{\Gamma\in\mathcal{G}_{\mathrm{C},2}} \mathrm{val}(\Gamma) = \star
+	&= \sum_{\Gamma\in\mathcal{G}_{\mathrm{C},2}} \mathrm{val}(\Gamma).
 \end{align*}
-Since $V$ is such that $\hat{V}(-k)=\hat{V}(k)$, the connected diagrams with two vertices are
-exactly divided in two groups, up to a renaming of the indices in the resulting sums. Indeed,
-on one hand we have diagrams that have no loops, i.e. each vertex only has contractions with
-the other vertex and never with itself, and on the other we have diagrams with two loops.
-Consider the first group. Fixing an incoming and an outgoing leg on one vertex, there are 4
-ways to contract them with legs of the other vertex, and in each case there is only one way
-to complete the diagram without introducing loops, therefore this group contains 4 diagrams.
-For the second group, there are 4 ways to form a loop on a vertex, and given a (connected)
-diagram with two vertices and two loops there exists only one way to complete it. Therefore
-the second group contains 16 diagrams (all possible ways to put one loop on each vertex).
-Moreover, all diagrams within their respective groups have the same sign, since they differ
-by an even permutation of Grassmann variables. Specifying the temperatures $\tau$ and $\tau'$
-of the interaction operators on the side of their respective vertex, we have:
+There are exactly two distinct topologies for the second order connected diagrams: those with
+no tadpoles, and those with two tadpoles. To see this, let us call A and B the two vertices
+of a connected diagram, and analyze the two topologies separately.
+\begin{itemize}
+	\item{\textbf{No tadpoles.}} Consider one propagator exiting A (the other exiting A will be
+		fixed by this choice): it has two possible destinations in B, both of which leave only
+		two possible ways to complete the diagram. If, at first, we choose the other leg
+		exiting A we would produce exact duplicates of the diagrams we obtained so far. We
+		conclude that this topology admits 4 diagrams.
+	\item{\textbf{Two tadpoles.}} There are 4 ways to put a tadpole on a vertex, up to a total
+		of 16 possible ways of having a diagram with two tadpoles. Each of this configurations
+		has to a unique way to complete the diagram, thus we conclude that this topology
+		admits 16 diagrams.
+\end{itemize}
 \begin{align*}
-	\star
-	&= 4 \vcenter{\hbox{
-		\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
-			\node[shape=coordinate] (a) at (-1.1,0) {} node[scale=1] at (-1.5,0) {$\tau$};
-			\node[shape=coordinate] (b) at ( 1.1,0) {} node[scale=1] at ( 1.5,0) {$\tau'$};
-			\begin{scope}[very thick, decoration={
-					markings,
-					mark=at position 0.55 with {\arrow{>}}}
-				]
-				\filldraw[] (-1.1,0) circle (.05);
-				\filldraw[] ( 1.1,0) circle (.05);
-				\draw[thick, postaction={decorate}] (a) .. controls +( 80:1.3) and +(100:1.3) .. (b);
-				\draw[thick, postaction={decorate}] (b) .. controls +(260:1.3) and +(280:1.3) .. (a);
-				\draw[thick, postaction={decorate}] (a) .. controls +( 60:0.7) and +(120:0.7) .. (b);
-				\draw[thick, postaction={decorate}] (b) .. controls +(240:0.7) and +(300:0.7) .. (a);
-			\end{scope}
-		\end{tikzpicture}
-	}} + 16 \vcenter{\hbox{
-		\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
-			\node[shape=coordinate] (a) at (-0.9,0) {} node[scale=1] at (-1.2,0) {$\tau$};
-			\node[shape=coordinate] (b) at ( 0.9,0) {} node[scale=1] at ( 1.2,0) {$\tau'$};
-			\begin{scope}[very thick, decoration={
-					markings,
-					mark=at position 0.55 with {\arrow{>}}}
-				]
-				\filldraw[] (-0.9,0) circle (.05);
-				\filldraw[] ( 0.9,0) circle (.05);
-				\draw[thick, postaction={decorate}] (a) .. controls +(125:2) and +(235:2) .. (a);
-				\draw[thick, postaction={decorate}] (b) .. controls +(305:2) and +( 55:2) .. (b);
-				\draw[thick, postaction={decorate}] (a) .. controls +( 60:1) and +(120:1) .. (b);
-				\draw[thick, postaction={decorate}] (b) .. controls +(240:1) and +(300:1) .. (a);
-			\end{scope}
-		\end{tikzpicture}
-	}}\\
-	&= \sum_{\substack{k,p,q\\k',p',q'}}
-		\hat{V}(k')\hat{V}(k) \left(
-		4 \, G_{p-k,p'}G_{q'+k',q}G_{q+k,q'}G_{p'-k',p}
-		+ 16 \, G_{p-k,q}G_{q+k,q'}G_{p'-k',p}G_{q'+k',p'}
-	\right)\\
-	&= \sum_{p,q,p'} \Bigl(
-		4\,\hat{V}(p-k)^2 e^{(\tau'-\tau)(\epsilon_p+\epsilon_q+\epsilon_k+\epsilon_{p+q-k}-4\mu)} n_p n_q n_k n_{p+q-k} \\
-	&\qquad\qquad + 16\,\hat{V}(q-k)\hat{V}(p-q) e^{(\tau'-\tau)(2\epsilon_p+\epsilon_q+\epsilon_{q-k}-4\mu)} n_q^2 n_p n_{q-k}
-	\Bigr)
+	\textrm{No tadpoles:}\quad
+	\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
+		\node[shape=coordinate] (a) at (-1.1,0) {};
+		\node[shape=coordinate] (b) at ( 1.1,0) {};
+		\begin{scope}[very thick, decoration={
+				markings,
+				mark=at position 0.55 with {\arrow{>}}}
+			]
+			\filldraw[] (-1.1,0) circle (.05);
+			\filldraw[] ( 1.1,0) circle (.05);
+			\draw[thick, postaction={decorate}] (a) .. controls +( 80:1.3) and +(100:1.3) .. (b);
+			\draw[thick, postaction={decorate}] (b) .. controls +(260:1.3) and +(280:1.3) .. (a);
+			\draw[thick, postaction={decorate}] (a) .. controls +( 60:0.7) and +(120:0.7) .. (b);
+			\draw[thick, postaction={decorate}] (b) .. controls +(240:0.7) and +(300:0.7) .. (a);
+		\end{scope}
+	\end{tikzpicture}
+	\qquad\qquad
+	\textrm{Two tadpoles:}\quad
+	\begin{tikzpicture}[scale=.8, baseline=(current bounding box.center)]
+		\node[shape=coordinate] (a) at (-0.9,0) {};
+		\node[shape=coordinate] (b) at ( 0.9,0) {};
+		\begin{scope}[very thick, decoration={
+				markings,
+				mark=at position 0.55 with {\arrow{>}}}
+			]
+			\filldraw[] (-0.9,0) circle (.05);
+			\filldraw[] ( 0.9,0) circle (.05);
+			\draw[thick, postaction={decorate}] (a) .. controls +(125:2) and +(235:2) .. (a);
+			\draw[thick, postaction={decorate}] (b) .. controls +(305:2) and +( 55:2) .. (b);
+			\draw[thick, postaction={decorate}] (a) .. controls +( 60:1) and +(120:1) .. (b);
+			\draw[thick, postaction={decorate}] (b) .. controls +(240:1) and +(300:1) .. (a);
+		\end{scope}
+	\end{tikzpicture}
 \end{align*}
-Renaming some of the indices at both orders and integrating this last expression, as per
-Equation \eqref{eq:duhamel}, leads us to the following expression for the logarithm:
+Here we encounter the first challenges with the second order in this context: the second
+topology contains only divergent diagrams, and to see this we shall discuss the
+effect of a tadpole on the value of a diagram. Consider the tadpole diagram shown below.
+\begin{align*}
+	\begin{tikzpicture}[scale=.8, baseline=(current bounding box.south)]
+		\node[shape=coordinate] (a) at (-1.4, 0) {};
+		\node[shape=coordinate] (b) at ( 1.4, 0) {};
+		\node[shape=coordinate] (v) at (   0, 0) {};
+		%\node[shape=coordinate] (k) at (0.3,1.3) {} node[scale=1] at (0.3,1.3) {$k$};
+		\begin{scope}[very thick, decoration={
+				markings,
+				mark=at position 0.55 with {\arrow{>}}}
+			]
+			\filldraw[] (v) circle (.05);
+			\draw[thick, postaction={decorate}] (a) -- (v);
+			\draw[thick, postaction={decorate}] (v) -- (b);
+			\draw[thick, postaction={decorate}] (v) .. controls +(45:2) and +(135:2) .. (v);
+		\end{scope}
+	\end{tikzpicture}
+\end{align*}
+Using Lemma \ref{two-point-function} we can see that the Kronecker delta introduced by the
+tadpole propagator, connecting the vertex to itself, can only be either $\delta_{q+k,q}$,
+which implies $k=0$ (similarly for $\delta_{p-k,p}$), or $\delta_{q+k,p}$, which implies
+$k=p-q$ (similarly for $\delta_{p-k,q}$). Thus, adding a tadpole on each vertex in a second
+order connected diagram will lead to one of the four following cases, calling $p,q,k$ the
+momenta that appear in the first vertex and $p',q',k'$ the ones that appear in the second:
+\begin{align*}
+	\begin{cases}
+		k = 0 \\ k' = 0
+	\end{cases}
+	\quad
+	\begin{cases}
+		k = 0 \\ k' = p' - q'
+	\end{cases}
+	\quad
+	\begin{cases}
+		k = p - q \\ k' = 0
+	\end{cases}
+	\quad
+	\begin{cases}
+		k = p - q \\ k' = p' - q'
+	\end{cases}.
+\end{align*}
+Note that each one of these conditions identifies 4 diagrams, up to a total of 16, as expected.
+Explicit calculation -- of which we will give an example shortly -- shows that in each of the
+above cases, the exponential will have exponent equal to zero, meaning the value of the entire
+diagram is a sum of two potentials $\hat{V}$ times four distributions $n_{\mathrm{F}}$.
+If we assume that the UV cutoff can be removed, the following example showcases where the
+divergence at zero temperature arises. We defer to Theorem \ref{removing-cutoff} and Theorem
+\ref{zero-temperature} for the proofs about removing the cutoff and taking the limit
+$\beta\to\infty$ in the cases of finite diagrams.
+\begin{align*}
+	&\begin{tikzpicture}[scale=.7, baseline=(current bounding box.center)]
+		\node[shape=coordinate] (a) at (-1.4,0) {} node[scale=1] at (-0.9,0) {$\tau$};
+		\node[shape=coordinate] (b) at ( 1.4,0) {} node[scale=1] at ( 0.9,0) {$\tau'$};
+		\node[scale=0.7] (m1) at (-2.2, 0.3) {$p-k$};
+		\node[scale=0.7] (m2) at (-1.1, 1.1) {$q+k$};
+		\node[scale=0.7] (m3) at (-2.0,-0.3) {$p$};
+		\node[scale=0.7] (m4) at (-1.0,-1.1) {$q$};
+		\node[scale=0.7] (n1) at ( 2.0, 0.3) {$q'$};
+		\node[scale=0.7] (n2) at ( 1.0, 1.1) {$p'$};
+		\node[scale=0.7] (n3) at ( 2.2,-0.3) {$q'+k'$};
+		\node[scale=0.7] (n4) at ( 1.1,-1.1) {$p'-k'$};
+		\begin{scope}[very thick, decoration={
+				markings,
+				mark=at position 0.55 with {\arrow{>}}}
+			]
+			\filldraw[] (a) circle (.05);
+			\filldraw[] (b) circle (.05);
+			\draw[thick, postaction={decorate}] (a) .. controls +(125:3) and +(235:3) .. (a);
+			\draw[thick, postaction={decorate}] (b) .. controls +(305:3) and +( 55:3) .. (b);
+			\draw[thick, postaction={decorate}] (a) .. controls +( 60:1.5) and +(120:1.5) .. (b);
+			\draw[thick, postaction={decorate}] (b) .. controls +(240:1.5) and +(300:1.5) .. (a);
+		\end{scope}
+	\end{tikzpicture}\\
+	&= \sum_{\substack{p,q,k\\p',q',k'\in\mathbb{Z}^3}} \hat{V}(k)\hat{V}(k')
+	G_{p-k,p}(\tau,\tau)G_{q'+k',q'}(\tau',\tau')G_{q+k,p'}(\tau,\tau')G_{p'-k',q}(\tau',\tau)\\
+	&= \sum_{\substack{p,q,k\\p',q',k'\in\mathbb{Z}^3}} \hat{V}(k)\hat{V}(k')
+	\delta_{p-k,p}\delta_{q'+k',q'}\delta_{q+k,p'}\delta_{p'-k',q}n_pn_{q'}n_{p'}n_q
+	e^{(\tau'-\tau)(\epsilon_{p'}-\epsilon_{q})} = \star,
+\end{align*}
+but now notice that the Kronecker deltas impose $k=k'=0$, which in turn implies $p'=q$. Thus,
+the exponential has a vanishing exponent, and we are left with
+\begin{align*}
+	\star = \sum_{p,q,q'\in\mathbb{Z}^3}\hat{V}(0)^2 n^2_qn_pn_{q'}.
+\end{align*}
+To retrieve the free energy contribution we integrate the above, as per Equation \eqref{eq:duhamel},
+in $\tau$ and $\tau'$, but since there is no dependence on these two variables, the integrals
+reduce to a factor of $\beta^2/2$ in the final expression. Integrating, diving by $-\beta$,
+and carrying out these limits gets us to
+\begin{align*}
+	\lim_{\beta\to\infty}\;\sum_{p,q,q'\in\mathbb{Z}^3}
+	\hat{V}(0)^2\left(-\frac{\beta}{2}n^2_qn_pn_q\right) = \infty.
+\end{align*}
+The source of this divergence is the fact that, inside the Fermi ball, $\beta\,n_{\mathrm{F}}(
+\epsilon)$ diverges, and this implies that even point-wise convergence fails.
+
+We may now look at the first topology, where a similar phenomenon partially afflicts its
+diagrams. The four diagrams evaluate to just two distinct terms up to renaming of some
+indices, and each with multiplicity two. Let us evaluate them explicitly:
+\begin{align*}
+	\begin{tikzpicture}[scale=.7, baseline=(current bounding box.center)]
+		\node[shape=coordinate] (a) at (-1.4,0) {} node[scale=1] at (-1.7,0) {$\tau$};
+		\node[shape=coordinate] (b) at ( 1.4,0) {} node[scale=1] at ( 1.7,0) {$\tau'$};
+		\node[scale=0.7] (m1) at (-1.0, 1.2) {$p-k$};
+		\node[scale=0.7] (m2) at (-0.7, 0.6) {$q+k$};
+		\node[scale=0.7] (m3) at (-0.8,-0.6) {$p$};
+		\node[scale=0.7] (m4) at (-1.1,-1.2) {$q$};
+		\node[scale=0.7] (n1) at ( 1.0, 1.2) {$q'$};
+		\node[scale=0.7] (n2) at ( 0.7, 0.6) {$p'$};
+		\node[scale=0.7] (n3) at ( 0.6,-0.6) {$q'+k'$};
+		\node[scale=0.7] (n4) at ( 1.0,-1.2) {$p'-k'$};
+		\begin{scope}[very thick, decoration={
+				markings,
+				mark=at position 0.55 with {\arrow{>}}}
+			]
+			\filldraw[] (a) circle (.05);
+			\filldraw[] (b) circle (.05);
+			\draw[thick, postaction={decorate}] (a) .. controls +( 80:1.6) and +(100:1.6) .. (b);
+			\draw[thick, postaction={decorate}] (b) .. controls +(260:1.6) and +(280:1.6) .. (a);
+			\draw[thick, postaction={decorate}] (a) .. controls +( 60:0.7) and +(120:0.7) .. (b);
+			\draw[thick, postaction={decorate}] (b) .. controls +(240:0.7) and +(300:0.7) .. (a);
+		\end{scope}
+	\end{tikzpicture}
+	&=\sum_{\substack{p,q,k\\p',q',k'}}\hat{V}(k)\hat{V}(k')
+	G_{p-k,q'}(\tau,\tau')G_{q+k,p'}(\tau,\tau')G_{q'+k',p}(\tau',\tau)G_{p'-k',q}(\tau',\tau)\\
+	&=\sum_{p,q,k}\hat{V}(k)^2n_qn_pn_{q+k}n_{p-k}\exp\big((\tau'-\tau)(\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_p-\epsilon_q)\big)\\
+	\begin{tikzpicture}[scale=.7, baseline=(current bounding box.center)]
+		\node[shape=coordinate] (a) at (-1.4,0) {} node[scale=1] at (-1.7,0) {$\tau$};
+		\node[shape=coordinate] (b) at ( 1.4,0) {} node[scale=1] at ( 1.7,0) {$\tau'$};
+		\node[scale=0.7] (m1) at (-1.0, 1.2) {$q+k$};
+		\node[scale=0.7] (m2) at (-0.7, 0.6) {$p-k$};
+		\node[scale=0.7] (m3) at (-0.8,-0.6) {$p$};
+		\node[scale=0.7] (m4) at (-1.1,-1.2) {$q$};
+		\node[scale=0.7] (n1) at ( 1.0, 1.2) {$q'$};
+		\node[scale=0.7] (n2) at ( 0.7, 0.6) {$p'$};
+		\node[scale=0.7] (n3) at ( 0.6,-0.6) {$q'+k'$};
+		\node[scale=0.7] (n4) at ( 1.0,-1.2) {$p'-k'$};
+		\begin{scope}[very thick, decoration={
+				markings,
+				mark=at position 0.55 with {\arrow{>}}}
+			]
+			\filldraw[] (a) circle (.05);
+			\filldraw[] (b) circle (.05);
+			\draw[thick, postaction={decorate}] (a) .. controls +( 80:1.6) and +(100:1.6) .. (b);
+			\draw[thick, postaction={decorate}] (b) .. controls +(260:1.6) and +(280:1.6) .. (a);
+			\draw[thick, postaction={decorate}] (a) .. controls +( 60:0.7) and +(120:0.7) .. (b);
+			\draw[thick, postaction={decorate}] (b) .. controls +(240:0.7) and +(300:0.7) .. (a);
+		\end{scope}
+	\end{tikzpicture}
+	&=-\sum_{\substack{p,q,k\\p',q',k'}}\hat{V}(k)\hat{V}(k')
+	G_{q+k,q'}(\tau,\tau')G_{p-k,p'}(\tau,\tau')G_{q'+k',p}(\tau',\tau)G_{p'-k',q}(\tau',\tau)\\
+	&=-\sum_{p,q,k}\hat{V}(k)\hat{V}(p-q-k)n_qn_pn_{p-k}n_{q+k}\exp\big((\tau'-\tau)(\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_p-\epsilon_q)\big).
+\end{align*}
+We immediately notice that there are multiple terms in both diagrams that do not depend on
+$\tau$ and $\tau'$, which means integrating gives an overall factor of $\beta^2/2$ just like
+in the tadpole diagrams. The reason is that for all $k\in\mathbb{Z}^3$ there exist
+momenta $p$ and $q$ such that $\epsilon_{p-k}=\epsilon_p$ and $\epsilon_{q+k}=\epsilon_q$.
+These momenta lie on the same spherical shell identified by the modulus of $k$.
+We group all these problematic terms with trivial exponential in a term
+$Q(\lambda,V,\beta)$:
 \begin{align}
 	\label{final-expression}
-	\mathrm{log}\,\mathrm{Tr}\,e^{-\beta H}
-	&= \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}\nonumber\\
-	&\quad-\beta\lambda\sum_{p,k\in\mathcal{D}_\Lambda} \left( \hat{V}(0) -\hat{V}(k) \right) n_p n_{p-k} \nonumber\\
-	&\quad - \lambda^2\sum_{p,q,k\in\mathcal{D}_\Lambda} \Biggr(
-	\frac{4\hat{V}(k)^2 n_p n_q n_{q+k} n_{p-k}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu} \biggl( \beta + \frac{1 - e^{-\beta (\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu)}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu} \biggr) \nonumber\\
-	&\quad +
-	\frac{16\hat{V}(q-k)\hat{V}(p-q) n^2_q n_p n_{q-k}}{2\epsilon_q+\epsilon_p+\epsilon_{q-k}-4\mu} \biggl(\beta+\frac{1-e^{-\beta(2\epsilon_q+\epsilon_p+\epsilon_{q-k}-4\mu)}}{2\epsilon_q+\epsilon_p+\epsilon_{q-k}-4\mu}\biggr)
-	\Biggl).
+	&\mathrm{log}\,\mathrm{Tr}\,e^{-\beta H}\nonumber\\
+	&= Q(\lambda,V,\beta) + \mathrm{log}\,\mathrm{Tr}\,e^{-\beta H_0}
+	-\beta\lambda\sum_{p,k\in\mathcal{D}_\Lambda} \left( \hat{V}(0) -\hat{V}(k) \right) n_p n_{p-k} \nonumber\\
+	&\quad + 2\lambda^2\sum_{\substack{p,q\in\mathcal{D}_\Lambda\\k\in\mathcal{D}_\Lambda\setminus\mathcal{M}}}
+	\Biggr(
+	\frac{(\hat{V}(k)^2-\hat{V}(k)\hat{V}(p-q-k)) n_p n_q n_{q+k} n_{p-k}}
+	{\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p}
+	\biggl(\beta + \frac{1-e^{-\beta(\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p)}}{\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p} \biggr)
+	\Biggl)
 \end{align}
-Note that terms of the form $\epsilon_p-\mu$ are never zero and thus do not pose any problem
-in the denominators. This is because $\mu$ is chosen to lie in the spectral gap between the
-Fermi energy and the first excited energy level.
+where
+\begin{align*}
+	\mathcal{M} = \left\{ k\in\mathbb{Z}^3 :
+	\exists\,p,q\in\mathbb{Z}^3 \;\textrm{such that}\; \epsilon_{p-k}=\epsilon_p \;\textrm{and}\; \epsilon_{q+k}=\epsilon_q \right\}.
+\end{align*}
 
+We proceed with the analysis of the zeroth and first orders in this expression, and postpone
+the comments on the peculiarities of the second order to the next, and last, section.
+\\
 The next step is to show that removing the UV cutoff, i.e., taking the limit
 $\Lambda\to\infty$, leads to a well-defined expression. To prove this we do not need to use
 the specific expression $\epsilon_k=\hbar^2|k|^2$ for the kinetic energy, instead we only
-assume a condition on its asymptotic behaviour for high momentum. A slight generalization
-which costs us nothing.
+assume a condition on its asymptotic behavior for high momentum. A slight generalization
+which costs us nothing. In fact, we may also assume a weaker condition on the potential and
+drop the condition that $\hat{V}$ has compact support, as we can control its growth quite
+effectively -- at least until we get to the zero temperature limit, when we will restore the
+initial condition.
 \\
 A quick comment on a slightly less standard notation we will use. We say that two real or
 complex sequences $\{x_n\}_n$ and $\{y_n\}_n$ are asymptotic if, and only if, $x_n/y_n
 \longrightarrow 1$. We will indicate that two quantities are asymptotic only up to a
 proportionality constant by adopting the following notation:
 \begin{align*}
-	x_n \asymp y_n \iff \exists C\neq0 : \frac{x_n}{y_n} \longrightarrow C.
+	x_n \asymp y_n \iff \exists\, C\neq0 : \frac{x_n}{y_n} \longrightarrow C.
 \end{align*}
 \\
 To control terms that contain the Fourier transform of the interaction potential we will make
@@ -589,9 +752,10 @@ use of the following property:
 We now prove that we can remove the UV cutoff.
 
 \begin{theorem}
-	\label{big-thm-1}
-	Assume that $\epsilon_k$ depends only on $\vert k\vert$ and that it satisfies
-	$\lim_{\vert k\vert\to\infty}\epsilon_k/\vert k\vert>0$. Then the expression in Equation
+	\label{removing-cutoff}
+	Asuume that $\hat{V}$ is a Schwartz function, and assume moreover that $\epsilon_k$
+	depends only on $\vert k\vert$ and that it satisfies
+	$\lim_{\vert k\vert\to\infty}\epsilon_k/\vert k\vert>0$. Then the first order in Equation
 	(\ref{final-expression}) converges in the limit $\Lambda\to\infty$.
 \end{theorem}
 \begin{proof}
@@ -605,7 +769,7 @@ We now prove that we can remove the UV cutoff.
 	$K$ for some $K,C_{2,m}>0$ that again do not depend on $\Lambda$. Finally, the Fermi-Dirac
 	distribution is controlled by an exponential decay in $\epsilon_k$, which is bounded at
 	least by an exponential decay in $\vert k\vert$.
-
+	\\
 	Looking at the first order, we can write
 	\begin{align*}
 		\sum_{p,k\in\mathcal{D}_\Lambda} \left\vert\left(\hat{V}(0)-\hat{V}(k)\right) n_p n_{p-k}\right\vert
@@ -643,52 +807,32 @@ We now prove that we can remove the UV cutoff.
 		\leq \sum_{k\in D^\mathrm{C}} C_1 n_k.
 	\end{align*}
 	Thus, in the limit in $\Lambda\to\infty$, the first order is an absolutely convergent series.
-
-	Very similar arguments can be used to show that the second order has an absolutely convergent
-	series as a limit. Indeed, we can bound the first term in the sum (the second order direct
-	term) by
-	\begin{align*}
-		\sum_{p,q,k\in\mathcal{D}_\Lambda} \hat{V}(k)^2(\ldots)
-		&\leq \sum_p \frac{4n_p}{\epsilon_p-\mu} \sum_q n_q \sum_k \hat{V}(k)^2 n_{q+k}n_{p-k}
-		\left(\beta + \frac{1}{\epsilon_p-\mu}\right),
-	\end{align*}
-	and turning once more sums over $\mathbb{Z}^3$ into series over spherical shells, this is
-	absolutely convergent, because the additional factor $(\epsilon_p-\mu)^{-1}$ does not change the
-	result of any of the comparison tests done before. The exact same argument can be applied to the other term (second order exchange
-	term), and this concludes the proof.
 \end{proof}
 
-We can then essentially replace the sums over $\mathcal{D}_\Lambda$ in Equation \eqref{final-expression}
-with series over $\mathbb{Z}^3$. Inserting the factor of $-1/\beta$ to get the free energy
-leads us to its complete expression:
+This second order should, in principle, contain direct and exchange contributions, as we
+discussed at the beginning of this chapter, but let us simply truncate to first order this
+expression, at least for now. Dividing by $-\beta$ to get the free energy leads to:
 \begin{align}
 	\label{free-energy}
-	F
-	&\eqcolon F^{(0)} + F_{\mathrm{D}}^{(1)} + F_{\mathrm{X}}^{(1)} + F_{\mathrm{D}}^{(2)}
-	+ F_{\mathrm{X}}^{(2)}\nonumber\\
-	&= F^{(0)}
+	F = F^{(0)} + F_{\mathrm{D}}^{(1)} + F_{\mathrm{X}}^{(1)}
+	= F^{(0)}
 	+\lambda\sum_{p,k\in\mathbb{Z}^3} \hat{V}(0) n_p n_{p-k}
-	-\lambda\sum_{p,k\in\mathbb{Z}^3} \hat{V}(k) n_p n_{p-k} \nonumber\\
-	&\quad +\lambda^2\sum_{p,q,k\in\mathbb{Z}^3}
-	\frac{4\hat{V}(k)^2 n_p n_q n_{q+k} n_{p-k}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu}
-	\biggl( 1 + \beta^{-1}\frac{1 - e^{-\beta (\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu)}}{\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} -4\mu} \biggr)\nonumber\\
-	&\quad +\lambda^2\sum_{p,q,k\in\mathbb{Z}^3}
-	\frac{16\hat{V}(k-q)\hat{V}(p-q) n^2_q n_p n_{q-k}}{2\epsilon_q+\epsilon_p+\epsilon_{q-k}-4\mu}
-	\biggl( 1 + \beta^{-1}\frac{1 - e^{-\beta (2\epsilon_q+\epsilon_p+\epsilon_{q-k}-4\mu)}}{2\epsilon_q+\epsilon_p+\epsilon_{q-k}-4\mu} \biggr)
+	-\lambda\sum_{p,k\in\mathbb{Z}^3} \hat{V}(k) n_p n_{p-k}
 \end{align}
 where each term has been named appropriately following the order in which they appear: $F^{(0)}$
-is the free energy of the unperturbed system (no interactions), $F_{\mathrm{D}}^{(i)}$ is the
-direct term at order $i$ and $F_{\mathrm{X}}^{(i)}$ is the exchange term at order $i$.
+is the free energy of the unperturbed system (no interactions), $F_{\mathrm{D}}^{(1)}$ is the
+direct term at first order and $F_{\mathrm{X}}^{(1)}$ is the exchange term at second order.
 
 \section{Mean field scaling}
 
 With the convergence of the free energy under control, the next step is to look at the limit
-$\beta\to\infty$ to retrieve the ground state energy and complete our perturbative proof of
-the mean field scaling of Equation (\ref{eq:ground-state-energy}).
+$\beta\to\infty$ to retrieve the ground state energy and complete our proof of the first order
+of Equation (\ref{eq:ground-state-energy}).
 
 \begin{lemma}
-	With the same hypotheses as in Theorem \ref{big-thm-1}, all the series in Equation
-	(\ref{free-energy}) converge uniformly in $\beta$ over $[\delta,\infty)$ for some
+	\label{zero-temperature}
+	With the same hypotheses as in Theorem \ref{removing-cutoff}, each term in Equation
+	(\ref{free-energy}) converges uniformly in $\beta$ over $[\delta,\infty)$ for some
 	$\delta>0$, and the limit $\beta \to \infty$ can thus be taken inside the sums.
 \end{lemma}
 \begin{proof}
@@ -705,13 +849,13 @@ the mean field scaling of Equation (\ref{eq:ground-state-energy}).
 		\leq \sum_k e^{-\delta(\epsilon_k-\mu)}
 	\end{align*}
 	and the upper bound converges absolutely by the same arguments used in the previous
-	theorem. Modifying this series with a prefactor of $1/(\epsilon_k-\mu)$, $\hat{V}(k)$ or
-	$\hat{V}^2(k)$ in the general term does not change the result, as these factors do not
-	depend on $\beta$ and still lead to an absolutely convergent series as an upper bound.
-	We can see that, by rewriting sums of the form $\sum_{p,q,k}(...)$ as $\sum_q(...\sum_p
-	(...\sum_k(...)))$, we only need to check the convergence of the innermost series in
-	all the terms of Equation (\ref{free-energy}), and the rest will follow from arguments that
-	we already covered. Consider the term $F^{(1)}_{\mathrm{D}}+F^{(1)}_{\mathrm{X}}$:
+	theorem. Modifying this series by multiplying the general term by $\hat{V}(k)$ does not
+	change the result, as it does not depend on $\beta$ and still lead to an absolutely
+	convergent series as an upper bound. We can see that, by rewriting sums of the form
+	$\sum_{p,q}(...)$ as $\sum_q(...\sum_p(...))$, we only need to check the
+	convergence of the innermost series in all the terms of Equation (\ref{free-energy}), and
+	the rest will follow from arguments that we already covered. Consider the term
+	$F^{(1)}_{\mathrm{D}}+F^{(1)}_{\mathrm{X}}$:
 	\begin{align*}
 		\sum_{p,k} \left|\hat{V}(0)-\hat{V}(k)\right| n_p n_{p-k}
 		&= \sum_p n_p \sum_k \left|\hat{V}(0)-\hat{V}(k)\right| n_{p-k}\\
@@ -719,34 +863,8 @@ the mean field scaling of Equation (\ref{eq:ground-state-energy}).
 		= \star
 	\end{align*}
 	but the series containing $\sup_\beta(...)$ converges to some $C>0$ as we discussed above,
-	and we can therefore write $\star = \sum_p C n_p$, which again converges. For the term
-	$F_{\mathrm{D}}^{(2)}$, we can identify two terms that need our attention, up to trivial
-	bounds:
-	\begin{align*}
-		A\coloneq\sum_k \frac{\hat{V}(k)^2n_{q+k}n_{p-k}}{\epsilon_{q+k}+\epsilon_{p-k}-2\mu}
-		\quad\text{and}\quad
-		B\coloneq\sum_k \left|\frac{\hat{V}(k)^2n_{q+k}n_{p-k}(1-e^{-\beta(\epsilon_p + \epsilon_q + \epsilon_{q+k} + \epsilon_{p-k} - 4\mu)})}
-		{\beta(\epsilon_{q+k} + \epsilon_{p-k} - 2\mu)^2}\right|.
-	\end{align*}
-	The exchange term $F_{\mathrm{X}}^{(2)}$ will exhibit the same behavior, both in terms of
-	dependence on $\beta$ and in terms of point-wise convergence. The series $A$ is very
-	simple: we bound the Fermi-Dirac distributions with their supremum and notice that
-	\begin{align*}
-		A \leq \sum_k \frac{\hat{V}(k)^2e^{-\delta(\epsilon_{q+k}+\epsilon_{p-k}-2\mu)}}
-		{\epsilon_{q+k}+\epsilon_{p-k}-2\mu}.
-	\end{align*}
-	Let's now discuss $B$. Distributing the product at the numerator, the first term is a
-	product of Fermi-Dirac distributions divided by $\beta$, which means it is monotonically
-	decreasing in $\beta$ for all $q,p,k$ outside the Fermi ball. As for
-	the exponential term one can check that the resulting general term is monotonically
-	decreasing in $\beta$ far enough from the origin, as the only extremal point is a maximum
-	that moves towards the origin as $k$ grows. Therefore, once again, the supremum is found
-	at $\beta=\delta$ and we are left with
-	\begin{align*}
-		B \leq \sum_k \frac{\hat{V}(k)^2 e^{-\delta(\epsilon_{q+k}+\epsilon_{p-k}-2\mu)}}{\delta(\epsilon_{q+k}+\epsilon_{p-k})^2}
-		+ \sum_k \frac{\hat{V}(k)^2 e^{-\delta(\epsilon_p+\epsilon_q+2\epsilon_{q+k}+2\epsilon_{p-k}-6\mu)}}{\delta(\epsilon_{q+k}+\epsilon_{p-k})^2},
-	\end{align*}
-	which finally shows that the second order is uniformly convergent too, completing the proof.
+	and we can therefore write $\star = \sum_p C n_p$, which again converges. With this,
+	the first term converges uniformly in $\beta$ over $[\delta,\infty)$.
 \end{proof}
 
 Now that we have proved that we can take the limit of zero temperature inside the series, we
@@ -755,9 +873,9 @@ the characteristic function of the Fermi ball $B_{\mathrm{F}}$:
 \begin{align*}
 	n_{\mathrm{F}}(\epsilon) \xrightarrow[\beta\to\infty]{} \chi(\epsilon\leq\mu).
 \end{align*}
-This turns every sum in Equation \eqref{free-energy} into a finite sum over intersecting Fermi
+This turns sums in Equation \eqref{free-energy} into finite sums over intersecting Fermi
 balls. We present a useful lemma that will help us control the growth of these sums as $N$
-approaches infinity.
+grows.
 
 \begin{lemma}[Riemann sum approximation]
 	\label{riemann}
@@ -786,7 +904,7 @@ approaches infinity.
 		\left\vert N^{-\frac{d}{m}}\sum_{k\in h\mathbb{Z}^d}f(k) - \int_{\mathbb{R}^d}\dx^dx\,f(x) \right\vert
 		&= \left\vert N^{-\frac{d}{m}}\sum_{k\in \mathbb{Z}^d}f(hk) - \sum_{k\in\mathbb{Z}^d}\int_{C_k}\dx^dx\,f(x) \right\vert\\
 		&= \left\vert \sum_{k\in\mathbb{Z}^d}\int_{C_k}\dx^dx\,\chi_{\mathrm{supp}(f)}(x)(f(hk)-f(x))\right\vert\\
-		&\leq L\sum_{k\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(hk)\int_{C_k}\dx^dx\,\vert hk-x\vert
+		&\leq L\sum_{k\in\mathbb{Z}^d}\chi_{\mathrm{supp}(f)}(hk)\int\limits_{C_k\,\cap\,\mathrm{supp}(f)}\dx^dx\,\vert hk-x\vert
 		= \star,
 	\end{align*}
 	where in the last step we used Lipschitz continuity. Now we can bound the integral of
@@ -801,87 +919,22 @@ approaches infinity.
 	$h = N^{-1/m}$.
 \end{proof}
 
-\textcolor{red}{ADD NOTE TO INCLUDE CASES WHERE THE COMPACT SUPPORT IS DETERMINED BY AN
-INDICATOR FUNCTION, WHICH IS NOT LIPSCHITZ BUT STILL ALLOWS FOR THIS APPROXIMATION.}
-
-%We will need another version of this lemma, as the functions we will deal with are not
-%Lipschitz everywhere and instead need to be carefully analyzed near the boundary of domain.
-%
-%\begin{lemma}[Boundary integration error]
-%	\label{boundary-lemma}
-%	Let $f:\mathbb{R}^d\to\mathbb{R}$ be an integrable, compactly supported function. Let
-%	$\mathcal{S}=\mathrm{supp}(f)$ and assume the following properties:
-%	\begin{itemize}
-%		\item $\partial\mathcal{S}$ is \textcolor{red}{regular};
-%		\item for every compact subset $K\subsetneq\mathrm{supp}(f)$, $f|_K$ is Lipschitz
-%			continuous;
-%		\item near the boundary, $f$ is bounded by
-%			\begin{align*}
-%				\vert f(x)\vert \leq \frac{C}{\mathrm{dist}(x,\partial\mathcal{S})^\gamma}
-%			\end{align*}
-%		for some constants $C>0$ and $0<\gamma<1$.
-%	\end{itemize}
-%	Then the integral approximation of Lemma \ref{riemann} still holds.
-%\end{lemma}
-%\begin{proof}
-%	Let $\delta>0$, define the ``bulk" of $\mathrm{supp}(f)$ as the subset of points that
-%	are at a distance greater or equal to $\delta$ from the boundary, and the boundary shell
-%	as the remaining part of the support of $f$. Namely, let
-%	$\mathcal{S} = \mathrm{supp}(f) = \Omega_\delta \cup \mathcal{B}_\delta$, with
-%	\begin{align*}
-%		\Omega_\delta = \{
-%			x\in\mathcal{S} : \mathrm{dist}(x,\partial\mathcal{S})\geq\delta
-%		\}
-%		\quad\text{and}\quad\mathcal{B}_\delta=\mathcal{S}\setminus\Omega_\delta.
-%	\end{align*}
-%	The set $\Omega_\delta$ is a compact proper subset of the support of $f$, and thus $f$ is
-%	Lipschitz continuous over it, with Lipschitz constant $L_\delta=\mathcal{O}(\delta^{-\gamma})$.
-%	It then follows from Lemma \ref{riemann} that, with $h=N^{-1/m}$,
-%	\begin{align*}
-%		\left| N^{-\frac{d}{m}}\sum_{k\in h\mathbb{Z}^d}f(k) - \int_{\mathbb{R}^d}\dx^dxf(x) \right|
-%		\leq \left| \int_{\mathcal{B}_\delta}\dx^dxf(x) \right| + \mathcal{E}(\delta,h)
-%	\end{align*}
-%	if we choose $\delta$ such that \textcolor{red}{WHAT CONDITION DO I NEED?}. Here
-%	$\mathcal{E}(\delta,h)$ is of order $h$ for fixed $\delta$.
-%\end{proof}
-
 For each term in Equation \eqref{free-energy}, we write $E$ instead of $F$ to indicate the
 same term in the limit $\beta\to\infty$. That is, $E_\mathrm{gs} = \lim_{\beta\to\infty}F =
-E^{(0)} + E^{(1)}_\mathrm{D} + E^{(1)}_\mathrm{X} + E^{(2)}_\mathrm{D} + E^{(2)}_\mathrm{X}$.
-\\
-Recall that the chemical potential $\mu$ is chosen to sit inside the spectral gap between
-the Fermi energy (highest occupied energy level in the ground state) and the first excited
-energy level. Any value inside the spectral gap can be chosen, but since this gap closes as
-$N$ grows, we may choose the specific scaling
-\begin{align}
-	\label{mu-scaling}
-	\mu
-	&\coloneq \left(\max_{p\in B_{\mathrm{F}}}\epsilon_p\right) + \frac{\hbar^2}{2}\nonumber\\
-	&= \hbar^2\left(\frac{3}{4\pi}N\right)^{\frac{2}{3}} + \frac{\hbar^2}{2}\nonumber\\
-	&= C^2 + \frac{1}{2}N^{-\frac{2}{3}},
-\end{align}
-with $C=3/4\pi$. Such a definition avoids, for all $N$, the singularity of the form $(\epsilon
--\mu)^{-1}$ in the denominators of Equation \eqref{free-energy} and also allows to control
-the growth of the domains of the sums over momenta that appear in the limit $\beta\to\infty$.
-\textcolor{green}{Note, however, that summing over a Fermi ball with this new definition of
-the chemical potential does not introduce new terms. In fact, $\hbar^2/2$ being smaller than
-the spectral gap between the Fermi energy and the first excited level means that no new
-momenta will lie in the Fermi ball by enlarging its radius by such amount}.
+E^{(0)} + E^{(1)}_\mathrm{D} + E^{(1)}_\mathrm{X}$.
 
 \begin{theorem}
 	\label{thm:main-result}
 	The ground state energy of the Hamiltonian in (\ref{eq:hamiltonian}) exhibits the
-	following scalings in the number of particles $N$ at second order in perturbation theory:
+	following scalings in the number of particles $N$ at first order in perturbation theory:
 	\begin{itemize}
 		\item $E^{(0)} = \mathcal{O}(N)$,
 		\item $E_{\mathrm{D}}^{(1)} = \mathcal{O}(N)$ and $E_{\mathrm{X}}^{(1)} = \mathcal{O}(N^0)$,
-		\item $E_{\mathrm{D}}^{(2)} =\mathcal{O}(N^{-\frac{1}{3}})$ and $E_{\mathrm{X}}^{(2)} = $ \textcolor{red}{CHECK}.
 	\end{itemize}
 \end{theorem}
 \begin{proof}
-	Of course we proceed order by order, starting from the unperturbed free energy to make
-	sure that everything is in order. Recall that $B_{\mathrm{F}}=\{p\in\mathbb{Z}^3:\vert p
-	\vert<k_{\mathrm{F}}\}$ and expand the expression for $F^{(0)}$ as
+	Recall that $B_{\mathrm{F}}=\{p\in\mathbb{Z}^3:\vert p\vert<k_{\mathrm{F}}\}$, we can
+	expand the expression for $F^{(0)}$ as
 	\begin{align*}
 		F_0
 		&= -\frac{\log(Z)}{\beta} = -\sum_{p\in\mathbb{Z}^3} \frac{1}{\beta}\log(1+e^{-\beta(\epsilon_p-\mu)})
@@ -901,96 +954,180 @@ momenta will lie in the Fermi ball by enlarging its radius by such amount}.
 		&= \mathcal{O}(N)
 	\end{align*}
 	where we used that, from Equation (\ref{fermi-surface}), $\mu=\hbar^2k_{\mathrm{F}}^2=
-	\mathcal{O}(1)$. This shows that indeed $E^{(0)}$ is of order $N$.
-	Onto the first order, recall the scaling limit $\lambda=N^{-1}$ to see that
+	\mathcal{O}(1)$. This shows that indeed $E^{(0)}$ is of order $N$. Onto the first order,
+	recall the scaling limit $\lambda=N^{-1}$ to see that
 	\begin{align*}
-		F_{\mathrm{D}}^{(1)}+F_{\mathrm{X}}^{(1)}
-		&= \lambda\sum_{p,k\in\mathbb{Z}^3}(\hat{V}(0)-\hat{V}(k))n_p n_{p-k}
-		\xrightarrow[\beta\to\infty]{} N^{-1}\hat{V}(0)\left(\sum_{p,k\in B_{\mathrm{F}}}1\right)
-		- N^{-1}\sum_{\substack{p,k\in B_{\mathrm{F}}:\\p-k\in B_{\mathrm{F}}}}\hat{V}(k)\\
-		&= \hat{V}(0)N + N^{-1}\mathcal{O}(N) = \hat{V}(0)N + \mathcal{O}(N^0).
+		E_{\mathrm{D}}^{(1)}+E_{\mathrm{X}}^{(1)}
+		&= \lambda\sum_{\substack{k\in\mathbb{Z}^3,p\in B_{\mathrm{F}}:\\p-k\in B_{\mathrm{F}}}}\left(\hat{V}(0)-\hat{V}(k)\right)
+		= N^{-1}\hat{V}(0)\left(\sum_{p,k\in B_{\mathrm{F}}}1\right)
+		- N^{-1}\sum_{\substack{k\in\mathbb{Z}^3,p\in B_{\mathrm{F}}:\\p-k\in B_{\mathrm{F}}}}\hat{V}(k)\\
+		&= \mathcal{O}(N) + N^{-1}\mathcal{O}(N) = \mathcal{O}(N) + \mathcal{O}(N^0).
 	\end{align*}
 	where in the last steps we used the condition that $\mathrm{supp}(\hat{V})$ is compact, so
 	that $\sum_k\hat{V}(k)=\mathcal{O}(1)$ and $\sum_{p,k}\hat{V}(k)=\mathcal{O}(N)$. With
 	this expression we can conclude that the first order indeed contributes to order
 	$\mathcal{O}(N)$ with the direct term and to order $\mathcal{O}(1)$ with the exchange term.
-
-	To tackle the second order we use the same strategies that worked for the zeroth and
-	first orders. Consider the expression for $E^{(2)}_{\mathrm{D}}$, it follows from the
-	definition in Equation \eqref{mu-scaling} that we may write
-	\begin{align*}
-		E_{\mathrm{D}}^{(2)}
-		&= \lambda^2 \sum_{k\in \mathbb{Z}^3} \sum_{\substack{p,q\in B_{\mathrm{F}}:\\q+k,p-k\in B_{\mathrm{F}}}}
-		\frac{\hat{V}(k)^2}{\hbar^2(p^2 + q^2 + (q+k)^2 + (p-k)^2) - 4\mu}\\
-		&= N^{-2} \sum_{k\in\mathbb{Z}^3} \sum_{\substack{p,q\in B_{\mathrm{F}}:\\q+k,p-k\in B_{\mathrm{F}}}}
-		\frac{\hat{V}(k)^2}{\hbar^2(p^2 + q^2 + (q+k)^2 + (p-k)^2 - 4C^2N^{\frac{2}{3}} - 2)},
-	\end{align*}
-	and changing variables like before with ($p\mapsto p'=\hbar p$, same for $q$) we get
-	\begin{align*}
-		E^{(2)}_{\mathrm{D}}
-		&= \frac{1}{N^2}\sum_{k\in \mathbb{Z}^3}
-		\sum_{\substack{q\in \hbar\mathbb{Z}^3:\\|q|\leq C\\|q+\hbar k|\leq C}}
-		\sum_{\substack{p\in \hbar\mathbb{Z}^3:\\|p|\leq C\\|p-\hbar k|\leq C}}
-		\frac{\hat{V}(k)^2}{p^2 + q^2 + (q+\hbar k)^2 + (p-\hbar k)^2 - 4C^2 - 2N^{-\frac{2}{3}}}\\
-		&= \frac{1}{N^2}\sum_{k\in \mathbb{Z}^3}\hat{V}(k)^2
-		\sum_{\substack{q\in \hbar\mathbb{Z}^3:\\|q|\leq C}}
-		\sum_{\substack{p\in \hbar\mathbb{Z}^3:\\|p|\leq C}}
-		\frac{\chi(|p-\hbar k|\leq C)\,\chi(|q+\hbar k|\leq C)}
-		{2p^2 + 2q^2 + 2\hbar^2k^2 + \hbar k\cdot(q-p) - 4C^2 - 2N^{-\frac{2}{3}}}
-	\end{align*}
-	Let us call $I_N(k)$ the general term without the factor $\hat{V}(k)^2$. We may bound the
-	modulus by removing the indicator functions, since they only restrict the domain of the
-	sums to something smaller than the original Fermi balls:
-	\begin{align*}
-		\vert I_N(k)\vert
-		\leq \frac{1}{\vert 2p^2 + 2q^2 + 2k^2 N^{\frac{2}{3}} + k\cdot(q-p)N^{\frac{1}{3}} - 4C^2 - 2N^{-2/3}\vert}
-		\sim \frac{1}{\vert k\cdot(q-p) - 4C^2\vert}N^{-\frac{1}{3}}.
-	\end{align*}
-	Furthermore, this bound is 
-
-	%Note that the general term remains smooth and bounded, as the summation domain stays
-	%away, for all $N$, from the singularity of the denominator. In particular, this general
-	%term is Lipschitz continuous on the compact domain
-	%\begin{align*}
-	%	\mathcal{D}_{k,\hbar} = \left\{\,(p,q)\in\hbar\mathbb{Z}^6:
-	%		q\in \hbar B_{\mathrm{F}}\cap\left(\hbar B_{\mathrm{F}}+k\right),\;
-	%		p\in \hbar B_{\mathrm{F}}\cap\left(\hbar B_{\mathrm{F}}-k\right)\,
-	%	\right\}
-	%\end{align*}
-	%with Lipschitz constant $L_N = \mathcal{O}(N^{4/3})$ \textcolor{green}{(from explicit
-	%computation)}.
-	%Then, from Lemma \ref{riemann} follows the approximation
-	%\begin{align*}
-	%	E^{(2)}_{\mathrm{D}}
-	%	&= \sum_{k\in \hbar\mathbb{Z}^3}\hat{V}(\hbar^{-1}k)^2
-	%	\Bigg\{\mathcal{E}(k,h)\\
-	%	&\quad +
-	%	\iint\limits_{\substack{|q|,|p|\leq C\\|q+k|\leq C,\,|p-k|\leq C}}\dx^3p\,\dx^3q\,
-	%	\frac{1}{p^2+q^2+(q+k)^2+(p-k)^2-4C^2 - 2N^{-2/3}}
-	%	\Bigg\}.
-	%\end{align*}
-	%It follows from Lemma \ref{riemann} that the error $\mathcal{E}(k,\hbar)$ scales, for
-	%fixed $k$ as
-	%\begin{align*}
-	%	\forall k \quad \mathcal{E}(\hbar,k) = \mathcal{O}(N^{\frac{4}{3}}\hbar)
-	%	= \mathcal{O}(N).
-	%\end{align*}
-	%Let us call $I_N(k)$ the double integral. By the dominated convergence theorem, we
-	%consider the limit of $I_N(k)$ by taking the limit of the integrand, which is identically
-	%zero. Indeed, the dominating integrable function can be obtained by the bound
-	%\begin{align*}
-	%	|I_N(k)|
-	%	&\leq \iint\limits_{|q|,|p|\leq C}\dx^3p\,\dx^3q
-	%	\frac{\chi(|p-k|\leq C)\chi(|q+k|\leq C)}{\vert 2N^{-2/3} + 4C^2 - p^2 - q^2 - (p-k)^2 - (q+k)^2 \vert}\\
-	%	&\leq \iint\limits_{|q|,|p|\leq C}\dx^3p\,\dx^3q
-	%	\frac{1}{4C^2 - p^2 - q^2 - (p-k)^2 - (q+k)^2}
-	%\end{align*}
-	%Thus
-	%\begin{align*}
-	%	\sum_{k\in \mathbb{Z}^3}\hat{V}(k)^2I(\hbar k) = \textcolor{green}{\mathcal{O}(1)} + \mathcal{O}(\hbar^3)
-	%	\quad\text{and}\quad
-	%	\sum_{k\in \hbar\mathbb{Z}^3}\hat{V}(\hbar^{-1}k)^2\mathcal{E}(k,\hbar) = \mathcal{O}(\hbar),
-	%\end{align*}
-	%because $\hat{V}(\hbar^{-1}k)$ is of order $\mathcal{O}(1)$ and the sum over $k$ is finite.
-	%\textcolor{red}{EXCHANGE TERM UNDER CONSTRUCTION. PLEASE RETURN AT A LATER TIME.}
 \end{proof}
+
+\section{On this first attempt at second order perturbation theory}
+
+If we look at the second order we can immediately see what difficulties arise in applying the
+proofs we covered so far to its expression.
+We briefly discuss the UV cutoff and the zero temperature limit, and then point out the core
+question that we will leave unanswered in this work: the $N$-scaling of the second order.
+Let us call the two well defined contributions the direct $F^{(2)}_{\mathrm{D}}$ and the
+exchange $F^{(2)}_{\mathrm{X}}$ contributions:
+\begin{align}
+	\label{bad-second-order}
+	F^{(2)}_{\mathrm{D}} + F^{(2)}_{\mathrm{X}}
+	&= 2\lambda^2\sum_{\substack{p,q\in\mathcal{D}_\Lambda\\k\in\mathcal{D}_\Lambda\setminus\mathcal{M}}}
+	\frac{\hat{V}(k)^2 n_p n_q n_{q+k} n_{p-k}}{\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p}
+	\biggl(1 + \frac{1-e^{-\beta(\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p)}}{\beta(\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p)} \biggr)\nonumber\\
+	&\quad+ 2\lambda^2\sum_{\substack{p,q\in\mathcal{D}_\Lambda\\k\in\mathcal{D}_\Lambda\setminus\mathcal{M}}}
+	\frac{\hat{V}(k)\hat{V}(p-q-k) n_p n_q n_{q+k} n_{p-k}}{\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p}
+	\biggl(1 + \frac{1-e^{-\beta(\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p)}}{\beta(\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p)} \biggr).
+\end{align}
+
+We first discuss the removal of the UV cutoff. The proof for the second order can only be
+partial, as the expression is not well defined for all momenta in the series, in particular,
+we are explicitly removing the set $\mathcal{M}$ from the allowed momenta. For direct term we
+can observe that, for fixed $p$ and $q$, the energy terms that depend on $k$ dominate the
+denominator for $k$ far enough from the origin:
+\begin{align*}
+	\frac{\hat{V}(k)^2n_pn_qn_{p-k}n_{q+k}}{\vert \epsilon_{q+k}+\epsilon_{p-k}-\epsilon_q-\epsilon_p\vert}
+	\sim \frac{\hat{V}(k)^2n_pn_qn_{p-k}n_{q+k}}{\vert \epsilon_{q+k}+\epsilon_{p-k}\vert}
+\end{align*}
+and the factor $(\beta+(\ldots))$ doesn't change the asymptotics of this expression.
+Turning sums over $\mathbb{Z}^3$ into series over spherical shells while avoiding the
+problematic momeanta leads to an absolutely convergent series by the same arguments used in
+the proof of Theorem \ref{removing-cutoff}. The same argument can be applied to the exchange
+term, again avoiding momenta for which the denominators are zero. We will still replace the
+sums over $\mathcal{D}_\Lambda$ in Equation \eqref{bad-second-order} with series over
+$\mathbb{Z}^3$ and move onto the zero temperature limit.
+\\
+At first order, we carried out the zero temperature limit by proving that the series were
+uniformly convergent in $\beta$. We now discuss how a similar procedure may apply at second
+order. Focusing on the innermost series in $k$ in the direct term, we have the two following
+series to discuss:
+\begin{align*}
+	A&\coloneq\sum_k \frac{\hat{V}(k)^2n_pn_qn_{q+k}n_{p-k}}{\epsilon_{q+k}+\epsilon_{p-k}-\epsilon_p-\epsilon_q}
+	\\
+	B&\coloneq\sum_k \frac{\hat{V}(k)^2n_pn_qn_{q+k}n_{p-k}(1-e^{\epsilon_{q+k}+\epsilon_{p-k}-\epsilon_p-\epsilon_q})}
+	{\beta(\epsilon_{q+k}+\epsilon_{p-k}-\epsilon_p-\epsilon_q)^2}
+\end{align*}
+while the exchange term will exhibit the same behavior, both in terms of dependence on $\beta$
+and in terms of point-wise convergence. The series $A$ is quite straightforward: we bound the
+Fermi-Dirac distributions with their supremum and write
+\begin{align*}
+	A \leq \sum_k \frac{\hat{V}(k)^2e^{-\delta(\epsilon_{q+k}+\epsilon_{p-k}-\epsilon_p-\epsilon_q)}}
+	{\epsilon_{q+k}+\epsilon_{p-k}-\epsilon_p-\epsilon_q}.
+\end{align*}
+Let's now discuss $B$. Distributing the product at the numerator, the first term is a
+product of Fermi-Dirac distributions divided by $\beta$, which means it is monotonically
+decreasing in $\beta$ for all $q,p,k$ outside the Fermi ball (again with the caveat that
+$k\not\in\mathcal{M}$). As for the exponential term one can check that the resulting general
+term is monotonically decreasing in $\beta$ far enough from the origin, as the only extremal
+point is a maximum that moves towards the origin as $k$ grows. Therefore, once again, the
+supremum is found at $\beta=\delta$ and the series of the supremum converges, which shows that
+the second order is almost entirely uniformly convergent too.
+\\
+Following the steps taken for the first order, we call $E^{(2)}_{\mathrm{D}}$ the direct
+contribution to the ground state energy and $E^{(2)}_{\mathrm{X}}$ the exchange contribution:
+\begin{align*}
+	E^{(2)}_{\mathrm{D}} + E^{(2)}_{\mathrm{X}}
+	&= 2\lambda^2\sum_{\substack{p,q\in\mathbb{Z}^3\\k\in\mathbb{Z}^3\setminus\mathcal{M}}}
+	\frac{\hat{V}(k)^2 n_p n_q n_{q+k} n_{p-k}}{\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p}\\
+	&\quad+ 2\lambda^2\sum_{\substack{p,q\in\mathbb{Z}^3\\k\in\mathbb{Z}^3\setminus\mathcal{M}}}
+	\frac{\hat{V}(k)\hat{V}(p-q-k) n_p n_q n_{q+k} n_{p-k}}{\epsilon_{p-k}+\epsilon_{q+k}-\epsilon_q-\epsilon_p}.
+\end{align*}
+
+We are now left with the scaling in the number of particles of the second order, where we must
+conclude that the approach we followed so far must, in some capacity, have flaws. Indeed, the
+second order does not reproduce the expected $N$-scaling of the mean field regime, which
+suggests the expression we wrote does not faithfully represent the second order contributions
+to the ground state energy. Consider the direct term in $E^{(2)}$: from our discussion on
+Equation \eqref{eq:ground-state-energy} we expect an $N$ dependence of order
+$\mathcal{O}(N^{-1/3})$, but our expression leads to
+\begin{align*}
+	E_{\mathrm{D}}^{(2)}
+	&= -2\lambda^2 \sum_{k\in\mathbb{Z}^3} \sum_{\substack{p,q\in B_{\mathrm{F}}:\\q+k,p-k\in B_{\mathrm{F}}}}
+	\frac{\hat{V}(k)^2}{\hbar^2((p-k)^2+(q+k)^2-q^2-p^2)}\\
+	&= N^{-2}N^{2/3} \sum_{k\in\mathbb{Z}^3} \sum_{\substack{p,q\in B_{\mathrm{F}}:\\q+k,p-k\in B_{\mathrm{F}}}}
+	\frac{\hat{V}(k)^2}{k^2+k\cdot(q-p)},
+\end{align*}
+and changing variables like before with ($p\mapsto p'=\hbar p$, same for $q$) we get
+\begin{align*}
+	E^{(2)}_{\mathrm{D}}
+	&= N^{2/3}\sum_{k\in\mathbb{Z}^3}\hat{V}(k)^2
+	\frac{1}{N}\sum_{\substack{p\in\hbar\mathbb{Z}^3:\\|p|\leq C\\|p-k|\leq C}}
+	\frac{1}{N}\sum_{\substack{q\in\hbar\mathbb{Z}^3:\\|q|\leq C\\|q+k|\leq C}}
+	\frac{1}{k^2+N^{1/3}k\cdot(q-p)}\\
+	&\approx N^{1/3}\sum_{k\in\mathbb{Z}^3}\hat{V}(k)^2
+	\int\limits_{\substack{|p|\leq C\\|p-N^{-1/3}k|\leq C}}\dx^3p
+	\int\limits_{\substack{|q|\leq C\\|q+N^{-1/3}k|\leq C}}\dx^3q
+	\frac{1}{N^{-1/3}k^2+k\cdot(q-p)}.
+\end{align*}
+This suggests that $E^{(2)}_{\mathrm{D}}$ will be of order $N^{1/3}$. We must take this
+result and direct our future efforts to a careful analysis of the assumptions we made and the
+methods we used to compute the second perturbative order. We remind the reader that there are
+still stones that have been left unturned, for example: we did not cover in detail the
+identification between Grassmannian and operatorial perturbative series, and we avoided the
+use of Matsubara frequencies. Most importantly, there are still alternative approaches, chief
+among all: the particle-hole transformation, which is what has been used to derive the exact
+results in \cite{HPRArt} and \cite{BenArt}.
+
+%Let us call $I_N(k)$ the general term without the factor $\hat{V}(k)^2$. We may bound the
+%modulus by removing the indicator functions, since they only restrict the domain of the
+%sums to something smaller than the original Fermi balls:
+%\begin{align*}
+%	\vert I_N(k)\vert
+%	\leq \frac{1}{\vert 2p^2 + 2q^2 + 2k^2 N^{\frac{2}{3}} + k\cdot(q-p)N^{\frac{1}{3}} - 4C^2 - 2N^{-2/3}\vert}
+%	\sim \frac{1}{\vert k\cdot(q-p) - 4C^2\vert}N^{-\frac{1}{3}}.
+%\end{align*}
+%Furthermore, this bound is 
+
+%Note that the general term remains smooth and bounded, as the summation domain stays
+%away, for all $N$, from the singularity of the denominator. In particular, this general
+%term is Lipschitz continuous on the compact domain
+%\begin{align*}
+%	\mathcal{D}_{k,\hbar} = \left\{\,(p,q)\in\hbar\mathbb{Z}^6:
+%		q\in \hbar B_{\mathrm{F}}\cap\left(\hbar B_{\mathrm{F}}+k\right),\;
+%		p\in \hbar B_{\mathrm{F}}\cap\left(\hbar B_{\mathrm{F}}-k\right)\,
+%	\right\}
+%\end{align*}
+%with Lipschitz constant $L_N = \mathcal{O}(N^{4/3})$ \textcolor{green}{(from explicit
+%computation)}.
+%Then, from Lemma \ref{riemann} follows the approximation
+%\begin{align*}
+%	E^{(2)}_{\mathrm{D}}
+%	&= \sum_{k\in \hbar\mathbb{Z}^3}\hat{V}(\hbar^{-1}k)^2
+%	\Bigg\{\mathcal{E}(k,h)\\
+%	&\quad +
+%	\iint\limits_{\substack{|q|,|p|\leq C\\|q+k|\leq C,\,|p-k|\leq C}}\dx^3p\,\dx^3q\,
+%	\frac{1}{p^2+q^2+(q+k)^2+(p-k)^2-4C^2 - 2N^{-2/3}}
+%	\Bigg\}.
+%\end{align*}
+%It follows from Lemma \ref{riemann} that the error $\mathcal{E}(k,\hbar)$ scales, for
+%fixed $k$ as
+%\begin{align*}
+%	\forall k \quad \mathcal{E}(\hbar,k) = \mathcal{O}(N^{\frac{4}{3}}\hbar)
+%	= \mathcal{O}(N).
+%\end{align*}
+%Let us call $I_N(k)$ the double integral. By the dominated convergence theorem, we
+%consider the limit of $I_N(k)$ by taking the limit of the integrand, which is identically
+%zero. Indeed, the dominating integrable function can be obtained by the bound
+%\begin{align*}
+%	|I_N(k)|
+%	&\leq \iint\limits_{|q|,|p|\leq C}\dx^3p\,\dx^3q
+%	\frac{\chi(|p-k|\leq C)\chi(|q+k|\leq C)}{\vert 2N^{-2/3} + 4C^2 - p^2 - q^2 - (p-k)^2 - (q+k)^2 \vert}\\
+%	&\leq \iint\limits_{|q|,|p|\leq C}\dx^3p\,\dx^3q
+%	\frac{1}{4C^2 - p^2 - q^2 - (p-k)^2 - (q+k)^2}
+%\end{align*}
+%Thus
+%\begin{align*}
+%	\sum_{k\in \mathbb{Z}^3}\hat{V}(k)^2I(\hbar k) = \textcolor{green}{\mathcal{O}(1)} + \mathcal{O}(\hbar^3)
+%	\quad\text{and}\quad
+%	\sum_{k\in \hbar\mathbb{Z}^3}\hat{V}(\hbar^{-1}k)^2\mathcal{E}(k,\hbar) = \mathcal{O}(\hbar),
+%\end{align*}
+%because $\hat{V}(\hbar^{-1}k)$ is of order $\mathcal{O}(1)$ and the sum over $k$ is finite.
+%\textcolor{red}{EXCHANGE TERM UNDER CONSTRUCTION. PLEASE RETURN AT A LATER TIME.}

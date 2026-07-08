@@ -1,0 +1,54 @@
+% "EDITORIAL" STUFF
+
+\usepackage[a-1b]{pdfx}
+\usepackage[pdfa]{hyperref}
+
+%\usepackage[a4paper, total={6in, 8.6in}]{geometry}
+\usepackage[a4paper,
+	left=2cm,
+	right=2.5cm,
+	top=3cm,
+	bottom=3cm]{geometry}
+
+%\usepackage[utf8]{inputenc}
+
+\usepackage{setspace}
+
+% "PO-TA-TOES"
+\hyphenation{fermi-on-ic}
+
+% CONTENT
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bbm} % blackboard bold '1'
+
+% for feynman diagrams
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcommand{\dx}{\mathrm{d}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\theoremstyle{remark}
+\newtheorem{example}{Example}
+
+% Bibliography setup
+\usepackage[backend=biber]{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage[toc,page]{appendix}
+

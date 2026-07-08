@@ -1,60 +1,31 @@
-\documentclass{book}
+\documentclass[11pt,a4paper,openright]{book}
 
-\usepackage[a4paper, total={6in, 8.6in}]{geometry}
-% \usepackage[utf8]{inputenc}
-
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{xcolor}
-\usepackage{mathtools}
-\usepackage{bbm} % blackboard bold '1'
-\usepackage{hyperref}
-
-% for feynman diagrams
-\usepackage{fontspec}
-\usepackage{tikz}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{arrows.meta}
-\usepackage[compat=1.1.0]{tikz-feynman}
-
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcommand{\dx}{\mathrm{d}}
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}
-\newtheorem{remark}{Remark}
-\theoremstyle{remark}
-\newtheorem{example}{Example}
-
-% Bibliography setup
-\usepackage[backend=biber]{biblatex}
-\addbibresource{refs.bib}
-
-\usepackage[toc,page]{appendix}
-
-\title{A Perturbative Approach to the Ground State of Interacting Fermions in the Mean Field
-Limit}
-\author{Filippo Cozzi}
-%\date{???}
-
+\input{sections/preamble.tex}
 
 \begin{document}
 
-\maketitle
+\frontmatter
+\input{sections/title-page}
+\cleardoublepage
+
+\input{sections/abstract}
+\cleardoublepage
+
 \tableofcontents
+\cleardoublepage
+
+\mainmatter
 
 \input{chapters/introduction.tex}
+\addcontentsline{toc}{chapter}{Introduction}
+\cleardoublepage
 \input{chapters/second-quantization.tex}
 \input{chapters/feynman-diagrams.tex}
 \input{chapters/second-order.tex}
 \input{chapters/appendix.tex}
 
+\backmatter
 \printbibliography
+\addcontentsline{toc}{chapter}{Bibliography}
 
 \end{document}

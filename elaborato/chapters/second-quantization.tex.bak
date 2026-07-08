@@ -90,7 +90,7 @@ $\mathcal{H}$). When speaking of Hilbert spaces we will always assume that they 
 	\end{align*}
 	\textcolor{red}{WHY CAN I TAKE OUT THE LIMIT?}
 	which implies that $(\sum_{k=1}^N\lambda_k u^{(k)}_m)_{m,N\in\mathbb{N}}\subseteq X$
-	converges to $x$. Lastly, recall the infinite-dimensional version of the Grahm-Schmidt
+	converges to $x$. Lastly, recall the infinite-dimensional version of the Gram-Schmidt
 	orthonormalization procedure, then it is clear that to $\mathcal{S}$ we can associate a
 	complete orthonormal system.
 \end{proof}
@@ -101,9 +101,9 @@ physical observable, the result of an experiment is the collapse of the system o
 associated to a well-defined value of $A$. A generic state $\psi$ will be a superposition of
 such vectors, which we may call $\{\psi_i\}_{i\in\mathbb{N}}$, and let us call
 $\{\lambda_i\}_{i\in\mathbb{N}}\subset\mathbb{R}$ the well-defined values of $A$ associated to such vectors.
-The generic state $\psi$ then encodes the probability amplitudes for the system to collapse in
-each $\psi_i$, which suggests that the statistical expectation for the measurement of $A$,
-when the system is in the state $\psi=\sum_{i}\lambda_i\psi_i$, would read something like
+The generic state $\psi$ then encodes the probability amplitudes $\langle\psi_i,\psi_i\rangle$
+for the system to collapse in each $\psi_i$, which suggests that the statistical expectation
+for the measurement of $A$ would read something like
 \begin{align*}
 	\langle A\rangle_\psi=\sum_{i\in\mathbb{N}}\lambda_i\langle\psi_i,\psi_i\rangle=\langle\psi,A\psi\rangle
 \end{align*}
@@ -164,7 +164,7 @@ definition, and will therefore need to be specified case by case.
 	\end{align*}
 \end{proof}
 
-It is worth pointint out that from Proposition \ref{extension-of-densely-defined-operators}
+It is worth pointing out that from Proposition \ref{extension-of-densely-defined-operators}
 follows that for bounded operators it is possible to deal with dense subspaces without losing
 generality. In particular, since we are always assuming the Hilbert space to be separable, it
 will suffice to define the image of only the basis elements.
@@ -233,22 +233,21 @@ will suffice to define the image of only the basis elements.
 \end{remark}
 
 We point to Appendix \ref{appendix:special-operators} for a discussion on the most important
-definitions and properties of special types of operators, and end here the introduction of the
-basic objects used. A key role in the discussion of quantum systems is played by the space of
-square integrable functions on $\mathbb{R}^n$ modulo the equivalence relation $\sim$ that
-identifies functions that are equal almost everywhere:
+definitions and properties of special types of operators. A key role in the discussion of
+quantum systems is played by the space of square integrable functions on $\mathbb{R}^n$ modulo
+the equivalence relation $\sim$ that identifies functions that are equal almost everywhere:
 \begin{align*}
 	&L^2(\mathbb{R}^n) = \left\{ f : \mathbb{R}^n \to \mathbb{C}
 	\;\Big| \left(\int_{\mathbb{R}^n} \dx x\, |f(x)|^2\right)^{1/2} < \infty \right\}\bigg/\sim \\
 	&\mathrm{with}\quad\langle f,g\rangle \coloneq \int_{\mathbb{R}^n}\dx x \overline{f(x)}g(x),
 \end{align*}
-whose elements are called wavefunctions. Its relevance stands from the fact, that in
+whose elements are called wave functions. Its relevance stands from the fact that, in
 this space, the squared norm of a state $\psi\in L^2(\mathbb{R}^n)$ makes it possible to write
 probability amplitudes as integrals of a \textit{probability density}, given as the point-wise
 modulus squared of the wave function: $\vert\psi(x)\vert^2$.
 
 Going back to the definition of expectation values, we can now make an important
-generalization moivated by the following formal argument. Suppose the system has probability
+generalization motivated by the following formal argument. Suppose the system has probability
 $p_i$ of being prepared in some initial state $\psi_i$, of course given the normalization
 condition $\sum_i p_i = 1$, then the expectation of an observable $A$ would be the weighted
 average of the expectations on each initial state. We call these statistical mixtures
@@ -266,7 +265,7 @@ eigenvectors of $A$, then
 \end{align*}
 The expectation of $A$ on the mixed state $\{(p_i,\psi_i)\}$ becomes
 \begin{align*}
-	\langle A \rangle = \sum_{i\in I} p_i \langle\psi_i,A\psi_i\rangle
+	\langle A \rangle = \sum_{i\in\mathbb{N}} p_i \langle\psi_i,A\psi_i\rangle
 	= \sum_{i\in\mathbb{N},\lambda\in\sigma(A)}p_i\langle\psi_i,\lambda\langle\phi_\lambda,\psi_i\rangle\phi_\lambda\rangle
 	= \sum_{\lambda\in\sigma(A)} \lambda\langle\phi_\lambda,\rho\phi_\lambda\rangle
 	= \mathrm{Tr}(\rho A)
@@ -295,7 +294,7 @@ This argument brings us to a general definition of a quantum state. Recall that 
 \end{definition}
 
 There is a correspondence between the set of mixed states (pure states are just a special case)
-and the set of quantum states (i.e. a subset of the dual of $\mathfrak{B}(\mathcal{H})$). We
+and the set of quantum states (i.e., a subset of the dual of $\mathfrak{B}(\mathcal{H})$). We
 are interested in the state the system is found in when at thermal equilibrium, and from
 statistical mechanics we know this state is such that the energy spectrum is populated
 according to Boltzmann's distribution $p(\epsilon)=e^{-\beta\epsilon}/Z$. With the
@@ -305,7 +304,7 @@ Thermal equilibrium states are called Gibbs states, and we can define the quantu
 \textit{stable} systems by presenting their associated expectation functional.
 
 \begin{definition}[Stability and ground state]
-	A physical system governed by a Hamiltonian, i.e. energy operator, $H$ on $\mathcal{H}$ is
+	A physical system governed by a Hamiltonian, i.e., energy operator, $H$ on $\mathcal{H}$ is
 	said to be \textit{stable} if
 	\begin{align*}
 		\inf_{\phi\in D(H),\Vert\phi\Vert=1} \langle\phi,H\phi\rangle > -\infty.
@@ -315,13 +314,13 @@ Thermal equilibrium states are called Gibbs states, and we can define the quantu
 		E = \inf_{\phi\in D(H),\Vert\phi\Vert=1} \langle\phi,H\phi\rangle,
 	\end{align*}
 	and the \textit{ground state}, \textbf{if it exists}, as a (normalized) minimizer for the
-	energy expectation, i.e. a unit vector $\psi_0\in D(H)$ such that $\langle\psi_0,H\psi_0
+	energy expectation, i.e., a unit vector $\psi_0\in D(H)$ such that $\langle\psi_0,H\psi_0
 	\rangle = E$.
 \end{definition}
 
 \begin{remark}
 	If the ground state $\psi_0$ exists and the ground state energy is $E$ then it holds that
-	$H\psi_0 = E\psi_0$, i.e. $\psi_0$ is an eigenvector of the energy operator with
+	$H\psi_0 = E\psi_0$, i.e., $\psi_0$ is an eigenvector of the energy operator with
 	eigenvalue equal to the ground state energy.
 \end{remark}
 
@@ -335,22 +334,22 @@ Thermal equilibrium states are called Gibbs states, and we can define the quantu
 \end{definition}
 
 For $\beta<\infty$ they are generally mixed, while in the limit $\beta\to\infty$ we find the,
-usually pure, ground state. We will denote Gibbs states by $\langle\cdot\rangle_\beta$,
+usually pure, ground state. We will denote Gibbs states by $\langle\,\cdot\,\rangle_\beta$,
 specifying the temperature, and we will also specify the Hamiltonian, when needed, by
-writing $\langle\cdot\rangle_{\beta,H}$.
+writing $\langle\,\cdot\,\rangle_{\beta,H}$.
 \begin{remark}
-	We could introduce Gibbs state following the standard thermodynamical approach. We would
+	We could introduce Gibbs states following the standard thermodynamical approach. We would
 	define the entropy as $S(\langle\,\cdot\,\rangle) = -\sum_{n}p_n\log(p_n)$, then the free
-	as $F(T) = \inf_{\langle\,\cdot\,\rangle}(\langle H\rangle - TS(\langle\,\cdot\,\rangle$),
+	energy as $F(T) = \inf_{\langle\,\cdot\,\rangle}(\langle H\rangle - TS(\langle\,\cdot\,\rangle$),
 	and say that a Gibbs state is a minimizer for the free energy, if it exists at finite
 	temperature. We would find that such a minimizer is exactly the functional we wrote in the
 	definition.
 \end{remark}
 \begin{remark}
-	A free particle with state space $L^2(\mathbb{R})$ and governed by the Hamiltonian
+	A free particle with state space $L^2(\mathbb{R}^n)$ and governed by the Hamiltonian
 	$H=-\Delta$ is stable but does not admit a ground state. However, this Hamiltonian does
 	admit a ground state when restricting the state space to wavefunctions on a compact
-	interval with periodic boundary conditions. The stability of free particles is essential,
+	box with periodic boundary conditions. The stability of free particles is essential,
 	as it will be implicitly assumed in Chapter \ref{main-chapter}.
 \end{remark}
 
@@ -359,7 +358,7 @@ operators are compact, which makes $e^{-\beta H}$ a very well-behaved operator i
 
 \section{Canonical and grand canonical pictures}
 \label{canonical-grand-canonical}
-So far we talked about a generic (separable) Hilber space, but for the most part we will deal
+So far we talked about a generic (separable) Hilbert space, but for the most part we will deal
 with Hilbert spaces constructed in a specific way: tensor products, which are the natural
 spaces in which to set physical systems composed of multiple degrees of freedom. We are
 particularly interested in two special subspaces of a tensor product that encode the
@@ -423,15 +422,15 @@ which is dense in $\mathcal{H}_N$ if $D(h_i)$ is dense in $\mathfrak{h}_i$ for a
 \end{proof}
 
 If we consider interactions we need to lift additional operators. For pair-wise interactions
-(but this procedure can be easily generalized to $N$-body interactions) to each pair $(i,j)$ of
+(but this procedure can be readily generalized to $N$-body interactions) to each pair $(i,j)$ of
 distinct particles ($i\neq j$) we associate an operator $W_{ij}$ on a suitable domain. To lift
-this operator, consider the vectors $\phi_i\in\mathfrak{h}_i$ and identify $W_{ij}$ with the
+this operator, consider vectors $\phi_i\in\mathfrak{h}_i$ and identify $W_{ij}$ with the
 operator on $\mathcal{H}_N$ that acts as
 \begin{align*}
 	W_{ij}(\phi_1\otimes\cdots\otimes\phi_i\otimes\cdots\otimes\phi_j\otimes\cdots\otimes\phi_N)
 	= \phi_1\otimes\cdots\otimes\psi_i\otimes\cdots\otimes\psi_j\otimes\cdots\otimes\phi_N
 \end{align*}
-in the case where $W_{ij}\phi_i\otimes\phi_j = \psi_i\otimes\psi_j$ (and express the image as
+where $\psi_i\otimes\psi_j = W_{ij}\phi_i\otimes\phi_j$ (and express the image as
 a sum of simple tensors in the case where it is not factorizable as one). Without specifying
 the correct domain we arrive at the formal way of writing the Hamiltonian of a system of $N$
 pair-wise interacting particles:
@@ -442,11 +441,12 @@ pair-wise interacting particles:
 Requiring that particles be indistinguishable from one another means that both their internal
 energy operators and the pair-wise interactions do not depend on the specific particle
 considered. This means that
-\begin{align*}
-	&\mathfrak{h}_1 = \ldots = \mathfrak{h}_N \eqcolon \mathfrak{h},\\
+\begin{align}
+	\label{indistinguishable-operators}
+	&\mathfrak{h}_1 = \ldots = \mathfrak{h}_N \eqcolon \mathfrak{h},\nonumber\\
 	&h_1 = \ldots = h_N \eqcolon h,\\
-	&W_{ij} = W_{kl} \eqcolon W \quad \forall i\neq j, k\neq l.
-\end{align*}
+	&W_{ij} = W_{kl} \eqcolon W \quad \forall i\neq j, k\neq l.\nonumber
+\end{align}
 To make the definition of indistinguishability complete we also require an additional property
 that states must satisfy, so let us take the time to recall a formal explanation of what this
 property is, following the reasoning in \cite[p.~302]{ForBook}. Consider the simplest case of
@@ -459,7 +459,7 @@ an exchange operator that flips the order in a simple tensor in $\mathfrak{h}\ot
 	\mathrm{Ex}(\phi\otimes\psi) = \psi\otimes\phi
 \end{align*}
 and say that two indistinguishable particles only admit physical states that differ at most by
-an overall phase from their exchanged version, i.e. there must exist some $\alpha$ such that
+an overall phase from their exchanged version, i.e., there must exist some $\alpha$ such that
 \begin{align*}
 	\mathrm{Ex}(\phi\otimes\psi) = e^{i\alpha}\phi\otimes\psi.
 \end{align*}
@@ -527,21 +527,22 @@ $P_\pm^2 = P_\pm$.
 
 \begin{remark}
 	If $\mathrm{dim}(\mathfrak{h}) < N$ then $\bigwedge^N\mathfrak{h} = \{0\}$,
-	i.e. the anti-symmetrization of $N$ vectors in a space of dimension less than $N$ is always
+	i.e., the anti-symmetrization of $N$ vectors in a space of dimension less than $N$ is always
 	the null vector. Thus, if the Hilbert space of a single fermionic particle is
 	finite-dimensional, the allowed number of particles in the canonical and grand canonical
 	pictures will be finite.
 \end{remark}
 
-With the conditions on the $N$-body Hamiltonian that we impose when introducing
-indistinguishability, it is clear that $H_N$ maps the spaces $\bigotimes_{\mathrm{sym}}^N
-\mathfrak{h}$ and $\bigwedge^N\mathfrak{h}$ into themselves, which means that we can restrict
+With the conditions in Equation \eqref{indistinguishable-operators} that we impose when
+introducing indistinguishability, it is clear that $H_N$ maps the spaces
+$\bigotimes_{\mathrm{sym}}^N\mathfrak{h}$ and $\bigwedge^N\mathfrak{h}$ into themselves, which
+means that we can restrict
 it to either of the two subspaces and get a well-defined operator (provided that a suitable
 domain for the starting Hamiltonian is chosen). The operators $P_+(H_N)$ and $P_-(H_N)$ are
 respectively called the \textit{bosonic} and \textit{fermionic} $N$-body Hamiltonians for
 pair-wise interacting indistinguishable particles.
 \\
-This way of defining the energy of the system characterises the \textit{canonical picture},
+This way of defining the energy of the system characterizes the \textit{canonical picture},
 where the number of particles is fixed. But in statistical mechanics, allowing the number of
 particles to vary can actually make things easier. Allowing $N$ to vary defines the
 \textit{grand canonical picture}, and we shall now discuss its state space.
@@ -592,7 +593,7 @@ we define operators that add or remove a single particle state $f\in\mathfrak{h}
 Here, for every $f\in\mathcal{\mathfrak{h}}$, $a(f)$ is called \textit{annihilation operator}
 and $a^*(f)$ is called \textit{creation operator}. Note the very important special case where
 an annihilation operator acts on the vacuum: $a(f)|0\rangle = 0$ for all $f\in\mathfrak{h}$,
-i.e. annihilation operators annihilate the vacuum. To indicate an operator that could be
+i.e., annihilation operators annihilate the vacuum. To indicate an operator that could be
 either of the two, we write $a^\#(f)$. With this definition the domain would be the set of
 pure tensors, but by linearity we can extend this to the space
 $\cup_{M=0}^\infty \bigoplus_{N=0}^M \mathcal{H}_N$, which is dense in $\mathcal{F}$.
@@ -644,6 +645,7 @@ subspaces:
 	a_\pm(f)$ is conjugate linear.
 \end{remark}
 
+\textcolor{red}{CHECKKKKKKKKK.}
 The normalization we used in (\ref{eq:creation-annihilation}) changes slightly when
 using the (anti-)symmetric subspaces. This is because we want to choose a normalization such
 that canonical commutator from quantum mechanics still holds, and we show that the following
@@ -657,12 +659,12 @@ normalization achieves this in the next proposition. The choice of normalization
 Recall the definition of the commutator and anticommutator between two operators defined on a
 common domain: $\{A,B\}\coloneq AB + BA$ and $[A,B]\coloneq AB - BA$. The anticommutator may
 be denoted by $[\,\cdot,\cdot\,]_+$ while the commutator by $[\,\cdot,\cdot\,]_-$, to
-accomodate for the more compact notation $[\,\cdot,\cdot\,]_\mp$ to indicate either of the
+accommodate for the more compact notation $[\,\cdot,\cdot\,]_\mp$ to indicate either of the
 two.
 
 \begin{proposition}[CCR/CAR]
 	The operators $a_-$ and $a^*_-$ satisfy the Canonical Commutation Relations (CCR), while
-	$a_+$ and $a^*_+$ the Canonical Anticommutation Relations (CAR), i.e. for all $f,g\in
+	$a_+$ and $a^*_+$ the Canonical Anticommutation Relations (CAR), i.e., for all $f,g\in
 	\mathfrak{h}$ it holds that
 	\begin{align*}
 		[a_\pm(f),a^*_\pm(g)]_\mp = \langle f,g \rangle_\mathfrak{h}\mathbbm{1},
@@ -670,7 +672,7 @@ two.
 	\end{align*}
 \end{proposition}
 \begin{proof}
-	We prove the clain on N-fold pure tensors. We compute the two terms in an (anti)commutator
+	We prove the claim on N-fold pure tensors. We compute the two terms in an (anti)commutator
 	separately to highlight the terms that simplify. Let $\phi_1,\ldots,\phi_N\in\mathfrak{h}$,
 	then
 	\begin{align*}
@@ -698,7 +700,7 @@ two.
 	starts as positive for $g\otimes\phi_{\sigma(2)}\otimes\cdots$, it carries an overall minus
 	sign with respect to the permutation in the previous calculation, which started as
 	positive for $g\otimes\phi_{\sigma(1)}\otimes\cdots$. Consider now $[a_\pm(f),a^*_\pm(g)]_\mp$, it is
-	clear that in both bosonic and fermionic cases, the only term that survives is $\langle
+	clear that both in the bosonic and fermionic cases, the only term that survives is $\langle
 	f,g\rangle$ times the identity, as the other terms will always be equal but of opposite
 	sign. Note that the factor of $N!$ in the first term is due to the fact that we didn't
 	start from an (anti)symmetrized tensor, but now restricting ourselves to the correct
@@ -713,7 +715,7 @@ two.
 		= -\langle\Psi,a_-(f)a^*_-(f)\Psi\rangle + \langle\Psi,\{a_-(f),a^*_-(f)\}\Psi\rangle \\
 								&= -\langle a^*_-(f)\Psi,a^*_-(f)\Psi\rangle + 1 \leq 1,
 	\end{align*}
-	which implies that $\Vert a_-(f)\Vert \leq 1$, i.e. $a_-(f)$ is bounded for all
+	which implies that $\Vert a_-(f)\Vert \leq 1$, i.e., $a_-(f)$ is bounded for all
 	$f\in\mathfrak{h}$. Similarly for $a^*_-(f)$.
 \end{remark}
 
@@ -801,7 +803,7 @@ exclusion principle.
 \end{remark}
 
 We can now come back to a statement that we previously used as motivation for the introduction
-of creation/annihilation operators, and show that indeed every observable in the grand
+of creation/annihilation operators, and show that indeed observables in the grand
 canonical picture can be written in terms of such operators. We focus only on 1-body and 2-body
 observables because these are the types of operators that show up in the Hamiltonian we set
 out to study, but this procedure can be generalized to any $N$-body operator.
@@ -894,7 +896,7 @@ out to study, but this procedure can be generalized to any $N$-body operator.
 \end{remark}
 
 \begin{theorem}[2nd quantization of 2-body operator]\cite[p.~40]{SolNotes}
-	Let $W$ be a 2-body potential for identical particles, i.e. an observable on
+	Let $W$ be a 2-body potential for identical particles, i.e., an observable on
 	$\mathfrak{h}\otimes\mathfrak{h}$ such that $\mathrm{Ex}W\mathrm{Ex}=W$. Let
 	$\{u_\alpha\}_{\alpha=1}^\infty$ be an orthonormal basis for $\mathfrak{h}$ such that
 	$u_\alpha\otimes u_\beta \in D(W)$ for all $\alpha\text{ and }\beta$. Then as a quadratic
@@ -950,7 +952,7 @@ out to study, but this procedure can be generalized to any $N$-body operator.
 \section{One-particle density matrices}
 
 It is clear from our discussion of the second quantization of an operator, that expectation
-values of any observable will inevitably reduce to expectation values of products of
+values of observables will inevitably reduce to expectation values of products of
 creation and annihilation operators. An important result that we will discuss in the next
 section states that -- under appropriate conditions which are discussed in Theorem
 \ref{thm:wicks} -- the expectation of an observable can be written in terms of expectations of
@@ -973,7 +975,7 @@ expectations, starting from the following definition.
 \end{definition}
 
 \begin{proposition}
-	The operator $\gamma_\Psi$ is positive semi-definite, i.e. $\gamma_\Psi\geq0$, and trace
+	The operator $\gamma_\Psi$ is positive semi-definite, i.e., $\gamma_\Psi\geq0$, and trace
 	class, with
 	\begin{align*}
 		\mathrm{Tr}(\gamma_\Psi) = \langle \Psi,\mathcal{N}\Psi \rangle.
@@ -1027,11 +1029,11 @@ eigenvector of non-interacting fermions.
 \begin{theorem}[Ground state of non-interacting fermions]\cite[p.~42]{SolNotes}
 	Consider the Hamiltonian $H_N^{\mathrm{in}} = \sum_{j=1}^N h_j$ for $N$ particles,
 	introduced in Equation \eqref{free-hamiltonian}, restricted to the anti-symmetric subspace
-	$\bigwedge^N\mathfrak{h}$, i.e. with domain
+	$\bigwedge^N\mathfrak{h}$, i.e., with domain
 	\begin{align*}
 		D_-(H_N^{\mathrm{in}}) = P_-D(H_N^{\mathrm{in}}).
 	\end{align*}
-	Assume that the one-body operator $h$ is bounded below, i.e. there exists some constant
+	Assume that the one-body operator $h$ is bounded below, i.e., there exists some constant
 	$E_0\in\mathbb{R}$ such that $h\geq E_0$. The ground state energy of this fermionic system
 	is
 	\begin{align*}
@@ -1104,7 +1106,7 @@ eigenvector of non-interacting fermions.
 		\langle\phi,h\phi\rangle\leq\langle\psi,h\psi\rangle.
 	\end{align*}
 	Furthermore, consider the projection $Q$ onto the $N$-dimensional space where $\psi$ and $\phi$
-	are swapped, i.e. onto
+	are swapped, i.e., onto
 	\begin{align*}
 		\mathrm{span}(\{\psi\}\cup (P(\mathfrak{h})\cap\{\phi\}^\perp),
 	\end{align*}
@@ -1149,7 +1151,7 @@ matrix, and the aim of this section is precisely to introduce this generalizatio
 \begin{definition}[Generalized 1-pdm]
 	\label{generalized-1pdm}
 	Given a normalized vector $\Psi\in\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$ with finite
-	particle number expectation, i.e. $\langle\Psi,\mathcal{N}\Psi\rangle<\infty$, we define
+	particle number expectation, i.e., $\langle\Psi,\mathcal{N}\Psi\rangle<\infty$, we define
 	the \textit{generalized one-particle density matrix} as the positive semi-definite
 	operator $\Gamma_\Psi : \mathfrak{h}\oplus\mathfrak{h}^* \to \mathfrak{h}\oplus\mathfrak{h}^*$
 	defined by
@@ -1208,7 +1210,7 @@ With this operator we come to the following lemma.
 
 The usefulness of this new object is that it allows for a very simple way to write this
 quantity in a way that closely resembles the standard one-particle density matrix. We just
-need to define the generalized creation and annihilation operators:
+need to define the generalized creation and annihilation operators to see this.
 
 \begin{definition}
 	Let $f,g\in\mathfrak{h}$ be one-particle states. The generalized annihilation and creation
@@ -1301,7 +1303,7 @@ $\mathcal{V}$ is invertible, we can also write
 	\mathcal{V}^{-1} = \mathcal{S}_\pm\mathcal{V}^*\mathcal{S}_\pm.
 \end{align*}
 In particular, $\mathcal{V}^{-1}=\mathcal{V}^*$ in the fermionic case. With these properties
-we immediatly get to the following proposition, for which the proof can be read through what
+we immediately get to the following proposition, for which the proof can be read through what
 we just said:
 \begin{proposition}
 	A linear map $\mathcal{V}$ on $\mathfrak{h}\oplus\mathfrak{h}^*$ is a Bogolubov map if,
@@ -1331,7 +1333,8 @@ and the conditions (\ref{bogolubov-map-conditions}) can then be read as
 Defining Bogolubov maps is not sufficient though, as such a map need not, in general,
 correspond to a unitary \textit{on the Fock space}. Thus we come to the following theorem
 which tells us when this is possible, and which we will use to define an important class of
-states in a Fock space for which Wick's theorem will hold in its most general form.
+states in a Fock space for which Wick's theorem, which we will come to shortly, will hold in
+its most general form.
 
 \begin{theorem}[Unitary implementability of Bogolubov maps]
 	\label{thm:bogolubov-unitary}
@@ -1343,7 +1346,7 @@ states in a Fock space for which Wick's theorem will hold in its most general fo
 	\end{align*}
 	such that, for $F\in\mathfrak{h}\oplus\mathfrak{h}^*$,
 	\begin{align*}
-		\mathbb{U}_\mathcal{V} A_\pm(F)\mathbb{U}_\mathcal{V}^* = A_\pm(\mathcal{V}F)
+		\mathbb{U}_\mathcal{V}^*A_\pm(F)\mathbb{U}_\mathcal{V} = A_\pm(\mathcal{V}F)
 	\end{align*}
 	if, and only if, $V^*V$ is trace-class. This trace-class condition is also referred to as
 	the Shale-Stinespring condition.
@@ -1353,7 +1356,7 @@ What this means is that, under suitable conditions on the block-matrix form of a
 map, there exists a ``change of basis" on the Fock space that sends generalized annihilation
 and - by taking the adjoint - creation operators to operators that annihilate/create a
 superposition of states determined by the linear map $\mathcal{V}$. We will not prove this
-theorem, as it is quite a long endevour that ultimately doesn't add to our discussion of
+theorem, as it is quite a long endeavor that ultimately doesn't add to our discussion of
 the physical system at hand.
 
 We are finally ready to discuss the most important result of this chapter: Wick's theorem.
@@ -1371,68 +1374,6 @@ the case of pure states and then move onto Gibbs states.
 
 That is, a pure state is quasi-free if it is the vacuum state under an appropriate choice of
 physical modes.
-%Before moving onto the big theorem, we define an operation we will use to
-%prove the theorem.
-%\begin{definition}[Normal ordering]
-%	Given the operators $A^\#_\pm(F_1),\ldots,A^\#_\pm(F_n)$, we say hat their product
-%	$A^\#_\pm(F_1)\cdots A^\#_\pm(F_n)$ is \textit{normal ordered} if all the creation
-%	operators are on the left, and all the annihilation operators are on the right. If their
-%	product is not normal ordered we define its \textit{normal ordering} as
-%	\begin{align*}
-%		\colon A^\#_\pm(F_1)\cdots A^\#_\pm(F_n)\colon \coloneq
-%		(\pm1)^\sigma A^\#_\pm(F_{\sigma(1)})\cdots A^\#_\pm(F_{\sigma(n)}),
-%	\end{align*}
-%	where $\sigma\in S_n$ is a permutation that makes $A^\#_\pm(F_{\sigma(1)})\cdots A^\#_\pm
-%	(F_{\sigma(n)})$ a normal ordered product.
-%\end{definition}
-%\begin{remark}
-%	This definition seems to depend on the choice of permutation $\sigma$ in the fermionic
-%	case. We reassure the reader by pointing out that, once a permutation is chosen, every
-%	other permutation can be achieved by repeatedly (anti)commuting the operators, resulting
-%	in an overall permutation $\sigma'$ of sign $(-1)^{\sigma'}$. Then $(-1)^{\sigma'}
-%	(-1)^\sigma = (-1)^{\sigma'\sigma}$ implies that any other choice of permutation will
-%	lead to the same operator.
-%\end{remark}
-%\begin{example}
-%	Consider the operators $A_-(F_1),A^*_-(F_2),A^*_-(F_3)$. Their normal ordered product is
-%	\begin{align*}
-%		\colon A_-(F_1)A^*_-(F_2)A^*_-(F_3)\colon = A^*_-(F_2)A^*_-(F_3)A_-(F_1)
-%	\end{align*}
-%	but we may also choose a permutation that places $A^*_-(F_2)$ and $A^*_-(F_3)$ differently
-%	and anticommute them to see that it doesn't change anything:
-%	\begin{align*}
-%		\colon A_-(F_1)A^*_-(F_2)A^*_-(F_3)\colon = (-1)A^*_-(F_3)A^*_-(F_2)A_-(F_1)
-%		= A^*_-(F_2)A^*_-(F_3)A_-(F_1)
-%	\end{align*}
-%\end{example}
-%\begin{remark}
-%	Note that the vacuum expectation of a normal ordered product is always zero.
-%	Indeed, if a normal ordered product contains annihilation operators, the vacuum
-%	state on the right will be annihilated, similarly, if the product contains creation
-%	operators, moving the first to the left hand side of the inner product leads to an
-%	annihilation operator acting on the other vacuum on the left. For example, choosing a
-%	specific permutation (the identity in this case) for a product of the form
-%	$\colon A^*A^*\colon$ we have
-%	\begin{align*}
-%		\langle\Omega,\colon A^*_\pm(F_1)A^*_\pm(F_2)\colon\Omega\rangle
-%		= \langle\Omega,A^*_\pm(F_1)A^*_\pm(F_2)\Omega\rangle
-%		= \langle A_\pm(F_1)\Omega,A^*_\pm(F_2)\Omega\rangle
-%		= 0.
-%	\end{align*}
-%\end{remark}
-%
-%\newcommand{\dotr}{\mbox{$\boldsymbol{\cdot}$}}
-%\begin{definition}[Wick's contraction]
-%	Given the creation or annihilation operators $A_1$ and $A_2$, we define their
-%	\textit{contraction}, or \textit{Wick contraction} as
-%	\begin{align*}
-%		A_1^{\dotr} A_2^{\dotr} \coloneq A_1 A_2 - \colon A_1 A_2\colon
-%	\end{align*}
-%\end{definition}
-%\begin{remark}
-%	We can easily see that $\langle\Omega,A_1^{\dotr}A_2^{\dotr}\Omega\rangle=\langle\Omega,
-%	A_1A_2\Omega\rangle$.
-%\end{remark}
 
 \begin{theorem}[Wick's theorem]
 	\label{thm:wicks}
@@ -1458,18 +1399,61 @@ physical modes.
 	\end{align*}
 \end{theorem}
 \begin{proof}
-	It follows from $\Psi$ being a quasi-free pure state that there exists a Bogolubov map
-	$\mathcal{V}$ with unitary implementation $\mathbb{U}_\mathcal{V}$ such that $\Psi =
-	\mathbb{U}_\mathcal{V}\Omega$. Using Theorem (\ref{thm:bogolubov-unitary}) we may rewrite
-	the expectation on $\Psi$ as
+	From $\Psi$ being quasi-free we know there exists some Bogolubov map $\mathcal{V}$ with
+	unitary implementation $\mathbb{U}_\mathcal{V}$ such that $\mathbb{U}_\mathcal{V}^*
+	A_\pm(F_i)\mathbb{U}_\mathcal{V} = A_\pm(\mathcal{V}F_i)$, let us call $G_i=
+	\mathcal{V}F_i$. It follows that we may restrict our proof to the case of the vacuum
+	state, as
 	\begin{align*}
 		\langle\Psi,A_\pm(F_1)\cdots A_\pm(F_{2m})\Psi\rangle
 		&= \langle\Omega,\mathbb{U}_\mathcal{V}^*A_\pm(F_1)\mathbb{U}_\mathcal{V}\mathbb{U}_\mathcal{V}^*
 		\cdots\mathbb{U}_\mathcal{V}\mathbb{U}_\mathcal{V}^*A_\pm(F_{2m})\mathbb{U}_\mathcal{V}\Omega\rangle\\
-		&= \langle\Omega,A_\pm(\mathcal{V}^{-1}F_1)\cdots A_\pm(\mathcal{V}^{-1}F_{2m})\Omega\rangle,
+		&= \langle\Omega,A_\pm(G_1)\cdots A_\pm(G_{2m})\Omega\rangle.
 	\end{align*}
-	which implies that it suffices to prove the claim for vacuum states.
-	\textcolor{red}{CONTINUE.}
+	Because $G_i\in\mathfrak{h}\oplus\mathfrak{h}^*$ there exist $f_i,g_i\in\mathfrak{h}$ such
+	that
+	\begin{align*}
+		A_\pm(G_i) = a_\pm(f_i) + a^*_\pm(g_i) = a_i + a^*_i,
+	\end{align*}
+	where we called $a_i=a_\pm(f_i)$ and $a^*_i=a_\pm(g_i)$. The odd case is straightforward:
+	because we have an odd number of operators $A_\pm(G_i)$, expanding the expression of each
+	one of them will always produce a product with an odd number of either creation or
+	annihilation operators, therefore the product will take the state $\Omega$ to an
+	$(N>0)$-particle sector, which is orthogonal to $\Omega$, or directly annihilate it. Thus
+	\begin{align*}
+		\langle\Omega,A_\pm(G_1)\cdots A_\pm(G_{2m-1})\Omega\rangle = 0.
+	\end{align*}
+	The even case is more involved and we proceed by induction. Assume that the claim holds
+	for $2m-2$, with the base case $m=2$ being trivially true. Note that the (anti)commutator
+	between an operator $a_j$ and an operator $A_k$ is a scalar times the identity operator:
+	\begin{align*}
+		[a_j,A_k]_\mp = [a_j,a_k+a^*_k] = \langle f_j,g_k\rangle\mathbbm{1} =
+		\langle\Omega,a_jA_k\Omega\rangle\mathbbm{1} \eqcolon C_{jk}\mathbbm{1}.
+	\end{align*}
+	We expand the expression for the first operator in the product, calling $A_i=A_\pm(G_i)$,
+	to get
+	\begin{align*}
+		\langle\Omega,(a_1+a^*_1)A_2\cdots A_{2m}\Omega\rangle
+		= \langle\Omega,A_2a_1A_3\cdots A_{2m}\Omega\rangle \pm
+		C_{12}\langle\Omega,A_2A_3\cdots A_{2m}\Omega\rangle,
+	\end{align*}
+	where the $a^*_1$ term vanishes as it annihilates the vacuum on the left side of the inner
+	product. Repeating this procedure we get all $2m-1$ terms where the $k$-th operator
+	has been replaced with the scalar $C_{1k}$, i.e., all pairings that involve the operator
+	$A_1$:
+	\begin{align*}
+		\langle\Omega,A_1\cdots A_{2m}\Omega\rangle
+		= \sum_{k=2}^{2m}(\pm)^k C_{1k}\langle\Omega,A_2\cdots \widehat{A_k}\cdots A_{2m}\Omega\rangle,
+	\end{align*}
+	where the hat symbol means omission. By the inductive hypothesis, the claim holds for the
+	product of operators from $A_2$ to $A_{2m}$, and whenever the $j$-th operator is
+	``taken out" from the product, all the pairings between $A_j$ and an $A_{k>j}$ are
+	produced. Thus we arrive at the thesis
+	\begin{align*}
+		\langle\Omega,A_1\cdots A_{2m}\Omega\rangle
+		= \sum_{\sigma\in P_{2m}}(\pm)^\sigma\langle\Omega,A_{\sigma(1)}A_{\sigma(2)}\Omega\rangle
+		\cdots\langle\Omega,A_{\sigma(2m-1)}A_{\sigma(2m)}\Omega\rangle.
+	\end{align*}
 \end{proof}
 
 % Despite dreaming of resisting the urge to characterize \textit{something}, the mathematician
@@ -1501,32 +1485,92 @@ Surprisingly enough, Gibbs states are quasi-free, as illustrated by the next the
 
 \begin{definition}[General quasi-free states]
 	A \textit{quasi-free state} is a state $\rho\in\mathfrak{B}^*(\mathcal{F}^{
-	\mathrm{F,B}}(\mathfrak{h}))$ that satisfies Wick's theorem, i.e. such that Equation
+	\mathrm{F,B}}(\mathfrak{h}))$ that satisfies Wick's theorem, i.e., such that Equation
 	(\ref{wicks-theorem}) holds when replacing pure expectations $\langle\Psi,\cdot\,\Psi\rangle$
 	with mixed expectations $\langle\,\cdot\,\rangle_\rho$.
 \end{definition}
 
 \begin{theorem}
+	\label{mixed-quasi-free-wick}
 	Let $\{F_n\}_{n\in\mathbb{N}}$ be an orthonormal basis for $\mathfrak{h}\oplus\mathfrak{h}^*$
 	and define the Hamiltonian $H=\sum_{n=0}^\infty\epsilon_nA^*_\pm(F_n)A_\pm(F_n)$, where
 	$\mathrm{Tr}(e^{-\beta H})=\sum_ne^{-\beta\epsilon_n}<\infty$. The Gibbs state
-	$\langle\cdot\rangle_{\beta,H}$ is quasi-free.
+	$\langle\,\cdot\,\rangle_{\beta,H}$ is quasi-free.
 \end{theorem}
-\begin{proof}
-	\textcolor{red}{LOOK AT GIULIANI AND VIGNALE.}
+\begin{proof}[Sketch of the Proof]
+	We give a sketch of the proof, omitting details about why some algebraic manipulations are
+	well defined in our case. Because $F_i\in\mathfrak{h}\oplus\mathfrak{h}^*$ there exist
+	$f_i,g_i\in\mathfrak{h}$ such that $A_\pm(F_i) = a_\pm(f_i) + a^*_\pm(g_i)$, so let us
+	call $a_i = a_\pm(f_i)$ and $a^*_i = a^*_\pm(g_i)$. We firt note the following identities.
+	By making use of the commutator $[H,a_k]=-\epsilon_k a_k$, we can write (we actually
+	derive this fact in a special case in Lemma \ref{two-point-function})
+	\begin{align*}
+		e^{\beta H}a_k e^{-\beta H} = e^{-\beta\epsilon_k}a_k.
+	\end{align*}
+	Then, by the cyclic property of the trace we have, for all bounded operators $X$,
+	\begin{align*}
+		\langle a_k X\rangle_{\beta,H}
+		&= \frac{\mathrm{Tr}(a_k X e^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
+		= \frac{\mathrm{Tr}(X (e^{-\beta H}e^{\beta H}) e^{-\beta H} a_k)}{\mathrm{Tr}(e^{-\beta H})}
+		= e^{-\beta\epsilon_k}\frac{\mathrm{Tr}(Xa_ke^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
+		= e^{-\beta\epsilon_k}\langle Xa_k\rangle_{\beta,H}.
+	\end{align*}
+	Using this cyclic property of Gibbs expectations, we can move the first operator all the
+	way on the right and then ``commute" it all the way back to the left.
+	Calling $A_i=A_\pm(F_i)$, we proceed by induction. Let $n\in\mathbb{N}$ and assume that
+	the claim holds for $n-1$. Then
+	\begin{align*}
+		\langle A_1\cdots A_n\rangle_{\beta,H}
+		&= e^{-\beta\epsilon_1}\langle A_2\cdots A_nA_1\rangle_{\beta,H}\\
+		&= e^{-\beta\epsilon_1}\left\langle
+		(\pm)^{n-1} + \sum_{j=2}^n (\pm)^{n-j}[A_j,A_1]_\mp A_2\cdots\widehat{A_j}\cdots A_n
+		\right\rangle_{\beta,H}.
+	\end{align*}
+	We may factor the term on the left side with the last term of the right side to get that,
+	recalling that we may treat $[A_j,A_k]$ as a scalar,
+	\begin{align*}
+		(1 - (\pm)^{k-1}e^{-\beta\epsilon_1})\langle A_1\cdots A_n\rangle_{\beta,H}
+		= e^{-\beta\epsilon_1}\sum_{j=2}^n(\pm)^{n-j}[A_j,A_1]_\mp\langle A_2\cdots\widehat{A_j}\cdots A_n\rangle_{\beta,H}.
+	\end{align*}
+	In the special case $n=2$ we have that
+	\begin{align*}
+		(1 \mp e^{-\beta\epsilon_1})\langle A_1A_2\rangle_{\beta,H} = e^{-\beta\epsilon_1}[A_j,A_1]_\mp,
+	\end{align*}
+	which implies, substituting it back into the equation, that
+	\begin{align*}
+		\langle A_1\cdots A_n\rangle_{\beta,H}
+		= e^{-\beta\epsilon_1}\sum_{j=2}^n(\pm)^{n-j}\langle A_jA_1\rangle_{\beta,H}
+		\langle A_2\cdots\widehat{A_j}\cdots A_n\rangle_{\beta,H}.
+	\end{align*}
+	By the inductive hypothesis, the expectation of $A_2\cdots A_n$ produces all the pairings
+	that do not involve $A_1$, and thus we arrive at the thesis. If $n$ is odd, every term
+	will contain an expectation of a single operator, which is zero as can be seen by the
+	relation
+	\begin{align*}
+		&\langle A_1\rangle_{\beta,H} = \langle A_1\mathbbm{1}\rangle_{\beta,H}
+		= e^{-\beta\epsilon_1}\langle A_1\rangle_{\beta,H}\\
+		&\implies (1-e^{-\beta\epsilon_1})\langle A_1\rangle_{\beta,H} = 0.
+	\end{align*}
+	If $n$ is even, we instead produce all possible pairings, just as we did in Theorem
+	\ref{thm:wicks}:
+	\begin{align*}
+		\langle A_1\cdots A_n\rangle = \sum_{\sigma\in P_n}(\pm)^\sigma
+		\langle A_{\sigma(1)}A_{\sigma(2)}\rangle_{\beta,H}\cdots\langle A_{\sigma(n-1)}A_{\sigma(n)}\rangle_{\beta,H}.
+	\end{align*}
+	This concludes the proof.
 \end{proof}
 
-\section{Quadratic hamiltonians}
+\section{Quadratic Hamiltonians}
 
-Having introduced all the necessary results reguarding Bogolubov maps, we can now move onto
+Having introduced all the necessary results regarding Bogolubov maps, we can now move onto
 the study of generic quadratic Hamiltonians, which can be easily expressed in terms of
 generalized creation and annihilation operators.
 They play a crucial role in perturbative calculations, which are all about dealing with
-complicated interactions on top of an easy and well-defined ``free theory", i.e. a theory
+complicated interactions on top of an easy and well-defined ``free theory", i.e., a theory
 whose $n$-point functions satisfy Wick's theorem.
 \\
 We will not provide proofs for the following results, as they serve the purpose of giving a
-more complete picture of the tools at hand rather than being of foundamental importrance to us.
+more complete picture of the tools at hand rather than being of fundamental importance to us.
 
 \begin{definition}[Quadratic Hamiltonian]
 	Let $\mathcal{A}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ be a
@@ -1558,6 +1602,7 @@ more complete picture of the tools at hand rather than being of foundamental imp
 \end{theorem}
 
 \begin{theorem}[Ground state eigenvector for quadratic Hamiltonians]
+	\label{quadratic-ground-state}
 	Let $\mathcal{A}:\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ be
 	self-adjoint. Assume moreover, in the bosonic case, that it is positive definite. Then
 	the Hamiltonian $H^\pm_{\mathcal{A}}$ admits a ground state eigenvector that is a
@@ -1571,7 +1616,7 @@ more complete picture of the tools at hand rather than being of foundamental imp
 	$\mathcal{F}^{\mathrm{F,B}}(\mathfrak{h})$, then for all self-adjoint $\mathcal{A}:
 	\mathfrak{h}\oplus\mathfrak{h}^*\to\mathfrak{h}\oplus\mathfrak{h}^*$ it holds that
 	\begin{align*}
-		\mathbb{U}_{\mathcal{V}}H^\pm_{\mathcal{A}}\mathbb{U}_{\mathcal{V}}^*
+		\mathbb{U}_{\mathcal{V}}^*H^\pm_{\mathcal{A}}\mathbb{U}_{\mathcal{V}}
 		= H^\pm_{\mathcal{VAV}^*}
 	\end{align*}
 \end{theorem}
@@ -1579,17 +1624,17 @@ more complete picture of the tools at hand rather than being of foundamental imp
 The definition of quadratic Hamiltonians naturally includes kinetic terms that contain the
 so-called \textit{anomalous} correlators $a_ia_j$ and $a^*_ia^*_j$, which are
 number-non-preserving terms. Usually, if a Hamiltonian contains such terms, one could try to
-find a Bogolubov transformation that diagonalizes it, taking it to the above form.
+find a Bogolubov transformation that takes it to the above form.
 \begin{example}
-	An important example of such a diagonalization procedure is the one obtained by the
-	particle-hole transformation, which also represents an alternative approach to the
-	calculations we carry out in our work. The transformation is as follows: consider a set of
-	momentum states inside a ball of fixed radius $k_{\mathrm{F}}$, the Fermi ball
-	$B_{\mathrm{F}} =\{k\in\mathbb{Z}^3:|k|<k_{\mathrm{F}}\}$, then define a \textit{hole} as
-	the annihilation of a state inside $B_{\mathrm{F}}$, and a \textit{particle} as the
-	creation of a state outside $B_{\mathrm{F}}$. This is the result of the Bogolubov
-	transformation $R$ which acts as (calling $a^*_k=a^*_-(\psi_k)$ the creation of a particle
-	in the state $\psi_k$ of definite momentum $k$)
+	An important example of such a procedure is the particle-hole transformation, which also
+	represents an alternative approach to the calculations we carry out in our work. The
+	transformation is as follows: consider a set of momentum states inside a ball of fixed
+	radius $k_{\mathrm{F}}$, the Fermi ball $B_{\mathrm{F}} =\{k\in\mathbb{Z}^3:|k|<
+	k_{\mathrm{F}}\}$, then define a \textit{hole} as the annihilation of a state inside
+	$B_{\mathrm{F}}$, and a \textit{particle} as the creation of a state outside
+	$B_{\mathrm{F}}$. This is the result of the Bogolubov transformation $R$ which acts as
+	(calling $a^*_k=a^*_-(\psi_k)$ the creation of a particle in the state $\psi_k$ of
+	definite momentum $k$)
 	\begin{align*}
 		R^*a^*_k R = \begin{cases}
 			a^*_k\quad&\text{if}\;k\not\in B_{\mathrm{F}}\\

@@ -1,81 +1,62 @@
-\section*{Introduction}
+\chapter*{Introduction}
 
-The rigorous analysis of many body systems poses notoriously hard challenges, even just
-tackling the conceptually simple case of a gas with pair-wise interactions proves to be
-mathematically extremely challenging. This difficulty forces us to develop more and more
-sophisticated tools to overcome the obstacles that appear along the way: an example of a tool
-that has proved itself invaluable in physics, and that allows for a close connection between
-theory and experiment, is perturbation theory. It allows for the analysis of complicated
-interactions, dominant contributions to specific processes, coarse properties of a system
-starting from more elementary interactions, and more. In the present work, we take a
-perturbative approach to analyze the behavior of the ground state energy of the interacting
-Fermi gas under specific assumptions, which we shall motivate here.
+Understanding the behavior of quantum systems composed of a large number of particles
+is one of the most challenging problems in modern physics. The complexiy of a system generally
+grows very rapidly the more degrees of freedom the wavefunction depends on, so much so that
+a direct analytical or numerical treatment soon becomes impractical. As a consequence, even
+basic questions about the energy, correlations or structure of the ground state may be out of
+reach without suitable approximations.
+Even without considernig interactions between particles, the difference in bosonic and
+fermionic statistics are remarkable and are approached differently. For instance, at very low
+temperatures, bosons may undergo a phase transition that leads to the Bose-Einstein
+condensate, while fermions do not. Already at this level we see that,
+even if the microscopic laws are similar, the macroscopic features of the system may differ.
+When interactions are included, the problem becomes even more complex, and one has to
+understand the combined effects of statistics, correlations, and collective behavior.
 
-For a system of many interacting particles it can become a nightmare to discuss the effect of
-every interaction a single particle may have with the rest of the system, and it is therefore
-a good idea to first try looking for mechanisms that either make the system easier
-to study or the mathematics better behaved. An example that is very easy to picture is the
-screening of the Coulomb interaction between the nucleus of an atom and its orbiting electrons,
-be it in single atoms, molecules, crystal lattices, and so on.
-It is not at all a trivial endeavor trying to compute exactly even just the ground state
-energy of the atom, but one can make some useful observations before attempting to do so. If we
-consider electrons in the innermost shells we can expect their binding energy to be mainly due
-to the strong electrostatic interaction with the protons inside the nucleus. But if we move to
-higher and higher energy levels, the electrons, while still being attracted by the nucleus,
-will also be repelled by the presence of more and more lower-energy electrons, which effectively
-\textit{screen} the total charge of the nucleus \cite[p.~51]{ManBook}. Thus, electrons in higher
-shells will not
-feel the full long-range effect of the Coulomb interaction, but rather an effective
-interaction that is suppressed depending on their energy level, assuming lower energy levels
-are occupied.
-\\
-The problem then becomes how this screened interaction behaves. This is where \textit{mean
-field methods} come into play. To find the ground state energy without directly accounting for
-the very complicated correlations between each particle, one starts by assuming that electrons
-are found in independent single-electron atomic
-orbitals. Then, computing the overall effect of such a configuration on the energy of one of
-the electrons, one can look for a better configuration that minimizes this effect, and
-iterating this procedure leads to the Hartree-Fock approximation for electronic configurations
-\cite[pp.~48--50]{ManBook}. Hartree-Fock theory can be formulated more generally and applied
-to other settings, furthermore it essentially corresponds to the first order contribution to
-the ground state energy in the case of homogeneous systems \cite[p.~81]{GiuVigBook}, like a
-gas of uniform density.
+In many cases, a natural way to account for these mechanisms is to identify regimes in which
+the full, interacting theory can be replaced -- at least approximately -- by a simpler,
+effective theory. The idea is that not all microscopic features of a system contribute equally
+to the macroscopic behavior, and one may look for suitable asymptotic regimes in which
+the collective effect of many particles can be described by effective quantities that can
+be treated directly.
 
-This screening phenomenon is, of course, not limited to electrons in atomic orbitals. In any
-system with many interacting particles, one may ask whether the state of each particle can be
-described not by the true, \textit{bare}, interaction that characterizes the system, but
-rather by a rescaled, \textit{dressed}, interaction. If this is the case, it may also happen
-that ill-behaved quantities become well-behaved. As an example, in the case of an electron gas
-it is precisely the long range of the Coulomb interaction that makes perturbation theory badly
-divergent in the IR \cite[p.~38--39]{GiuVigBook}.
-When computing the ground state energy, the Random Phase Approximation (RPA) comes as a
-way of carrying out such a computation once the screening of the interaction due to the high
-number of particles is accounted for; in fact, today we also understand the RPA as a partial
-resummation of perturbation theory at all orders. This resummation, coincidentally, also
-removes the divergence at low momentum of the Coulomb interaction \cite[p.~293]{GiuVigBook}).
-\\
-Mean field theories are an example of \textit{effective theories}, where the interaction
-potential that governs the dynamics of the system is not taken to be the bare potential, but a
-dressed potential whose strength depends, in some way or another, on the number of particles
-that partake in the interactions.
+An example of such regimes, and the one which we will explore in this thesis, is that of the
+\textit{mean field}. In this regime, the number of particles in the system is
+very large, and the interaction between them is rescaled such that the total effect on the
+energy of a single particle remains of order one. As a consequence, even though the strength
+of the interaction becomes weak, the cumulative effect on each particle is still significant.
+One may think of each particle as moving, to leading order, through a field that avareges the
+contributions of every other particle. In fermionic systems, the mean field limit combines
+two different effects: the averaging of the interaction produced by the scaling in the number
+of particles, and the strong constraints imposed by the Pauli exclusion principle.
 
-Our study of the Fermi gas in a mean field regime is structured as follows. We will cover the
-bread and butter of a many-body theorist: second quantization, a formalism that allows to adapt
-powerful concepts from
-statistical mechanics to the quantum world. By then we will have the tools necessary to
-understand why perturbation theory can be formulated using the clever diagrammatic approach
-first employed by Richard Feynman, which we introduce using complex Gaussian integrals and
-Grassmann Gaussian integrals. This approach is to be understood as a way of writing a formal
-perturbative series that is, in some way, identical to the one written in the operator
-formalism. Lastly we present the explicit computation at second order for the free energy $F$
-of the gas at arbitrary (inverse) temperature $\beta$, showing how to control
-the values of the diagrams that contribute to this order. This
-will lead to the main result of this thesis, which proves that the perturbative expansion of
-the ground state energy -- obtained by taking the limit of $F$ as $\beta\to\infty$ -- in the
-mean field limit scales with the expected expression of the number of particles in the system.
-The expected scaling has been rigorously proved with exact methods, and our role is to bring
-rigorous perturbation theory into the picture.
-\\
-Our hope is that, by laying the groundwork with the present results, all higher orders can be
-taken treated systematically, ultimately moving us closer to a more complete and rigorous
-understanding of interacting fermions.
+Even in the mean field limit, however, the physical properties of a system may still be
+hard to understand, and this motivates the perturbative approach. One starts from a
+sufficiently well understood problem, such as a non-interacting or mean field regime, and
+introduces corrections to study the effects of the interactions on the true interacting
+ground state. Perturbation theory then allows to gradually introduce and identify finer and
+finer corrections to physical quantities, and offers a way to go beyond the leading-order
+approximation.
+
+Nevertheless, perturbative arguments are often formal unless they are accompanied by precise
+estimates that validate the approximation. Indeed, small errors may accumulate and
+perturbative expansions may even fail to converge, and the validity of an approximation may
+depend in subtle ways on the scaling of the interaction. For this reason, a mathematically
+rigorous approach is not only a matter of formal precision, but rather an essential tool
+to determine when the perturbative description is reliable and in what sense. With well
+defined and controlled perturbative expansions of physical quantities, one can then make
+precise statements about the validity of an approximation and quantify the error between the
+effective model and the original problem.
+
+In the present thesis we take a perturbative approach to the study of the ground state
+energy of an interacting Fermi gas in the mean field limit. To carry out the computation we
+introduce and discuss the main features of second quantization, a convenient formalism in
+which to set up perturbation theory. The perturbative parameter is given by the strength of
+the two-particle interaction, which is related -- in the mean field limit -- to an inverse
+power of the number of particles. We then obtain the scaling of the first order corrections
+to the non-interacting ground state energy in agreement with known results obtained via
+exact methods. We also begin a preliminary investigation of the second order, but its analysis
+remains incomplete because of the difficulties in controlling divergent quantities. We isolate
+the problematic terms and discuss the next steps we intend to take in the future to complete
+their analysis.

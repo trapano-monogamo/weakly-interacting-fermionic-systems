@@ -1,27 +1,27 @@
 \chapter{Perturbation Theory}
+\label{perturbation-theory}
 
 In the previous chapter we built the second quantization formalism to be able to introduce, in
 full generality, this key property that is Wick's theorem. Looking at the Gibbs state functional
 \begin{align*}
-	\langle\cdot\rangle_\beta=\frac{\mathrm{Tr}(\,\cdot\,e^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
+	\langle\,\cdot\,\rangle_\beta=\frac{\mathrm{Tr}(\,\cdot\,e^{-\beta H})}{\mathrm{Tr}(e^{-\beta H})}
 \end{align*}
 we can imagine expanding the exponential in the numerator as (something similar to) a power
 series, and consider each term as a contribution at a specific order. Such terms will contain
-powers of the interaction term, i.e. polynomials of creation/annihilation operators. Then
+powers of the interaction term, i.e., polynomials of creation/annihilation operators. Then
 Wick's theorem tells us that at all orders we can write the correct contribution using more
 and more complicated combinations of the 2-point function. These combinations can be easily
-found by means of the very clever diagrammatic approach first employed by Richard Feynman, and
-the aim of this chapter is to outline the inner workings of this approach in the specific case
-of a fermionic system at thermal equilibrium.
+found by means of Feynman diagrams, and the aim of this chapter is to outline the inner
+workings of this approach in the specific case of a fermionic system at thermal equilibrium.
 \begin{remark}
 The idea behind the tools we will introduce and the way we will write the perturbative series
-is the same as the one used for scattering processes in any QFT. In fact, there is a beautiful
+are the same as the ones used for scattering processes in any QFT. In fact, there is a beautiful
 connection between the calculations done for such processes and the theory we build below, and
 it has to do with the link between the time evolution operator of quantum mechanics $e^{-iHt}$
 and its imaginary time version $e^{-\tau H}$, which defines a Gibbs state.
 \end{remark}
 The following definitions and theorems are taken, and partially reworked, from lecture notes
-on quantum statistical mechanics [\cite{GalNotes}].
+on quantum statistical mechanics \cite{GalNotes}.
 
 \section{A toy model: bosonic expectations}
 \label{sec:toy-model}
@@ -30,8 +30,8 @@ We build the theory of Feynman diagrams by first analyzing at a simple model: a 
 Hamiltonian given by polynomials of complex variables. We will introduce expectations
 as Gaussian integrals over such variables and show that they exactly reproduce Wick's theorem,
 in a sense that will be made clear below. After that, we will interpret this tool as a formal
-way of writing expectations of bosonic (i.e. \textit{commuting}) operators, and finally
-introduce an algebraic structure capable of carrying the results to the fermionic (i.e.
+way of writing expectations of bosonic (i.e., \textit{commuting}) operators, and finally
+introduce an algebraic structure capable of carrying the results to the fermionic (i.e.,
 \textit{anticommuting}) case.
 
 Suppose we are given a classical system of $N$ coupled harmonic oscillators: a linear chain
@@ -103,7 +103,7 @@ We start our discussion of bosonic expectations by recalling some properties of 
 Gaussian integrals.
 
 \begin{definition}[Complex covariance]
-	A matrix $G\in\mathrm{Mat}_{N\times N}$ is said to be a \textit{complex covariance} if
+	A matrix $G\in\mathrm{Mat}_{N\times N}(\mathbb{C})$ is said to be a \textit{complex covariance} if
 	\begin{itemize}
 		\item[(i)] there exists a matrix $U$ that diagonalizes $G$;
 		\item[(ii)] all eigenvalues of $G$ have positive real part.
@@ -117,11 +117,11 @@ $\boldsymbol{z}\cdot \boldsymbol{w}=\sum_{j=1}^N z_j w_j$.
 	Let $G\in\mathcal{C}_N$ and $\boldsymbol{z}\in\mathbb{C}^N$, then
 	\begin{align*}
 		\int\left(\prod_{j=1}^N\frac{\dx z^*_j\,\dx z_j}{2\pi i}\right)
-		e^{-\boldsymbol{z}\cdot G^{-1}\boldsymbol{z}} = \det(G).
+		e^{-\boldsymbol{z}^*\cdot G^{-1}\boldsymbol{z}} = \det(G).
 	\end{align*}
 \end{lemma}
 \begin{proof}
-	Because $G\in\mathcal{C}_N$ there exists $U$ that diagonalizes $G$, i.e. there exist
+	Because $G\in\mathcal{C}_N$ there exists $U$ that diagonalizes $G$, i.e., there exist
 	$\xi$ such that $\boldsymbol{z}=U\boldsymbol{\xi}$. Then
 	\begin{gather*}
 		\boldsymbol{z}^* \cdot G^{-1}\boldsymbol{z}
@@ -336,7 +336,7 @@ highest degree term of the integrand.
 \end{example}
 
 \begin{remark}
-	Repeated integration, i.e. the composition of multiple integral operators, inherits some form of
+	Repeated integration, i.e., the composition of multiple integral operators, inherits some form of
 	anticommutativity when acting on the basis elements. Indeed in $\mathcal{G}_1$, for example, we have
 	\begin{align}
 		\label{anticommuting-integrals}
@@ -403,7 +403,7 @@ meaning, as $\boldsymbol{\psi}\cdot\boldsymbol{\phi} \coloneq \sum_{i = 1}^k \ps
 \end{definition}
 
 \begin{remark}
-	The factor in front of the differentials guarantees a ``normalized" measure, i.e.\\
+	The factor in front of the differentials guarantees a ``normalized" measure, i.e.,\\
 	$\int P_G(\dx\psi) = (1/\mathrm{det}(G^{-1})) \mathrm{det}(G^{-1}) = 1$.
 \end{remark}
 
@@ -501,7 +501,7 @@ We are finally ready to prove that Gaussian Grassmann integrals satisfy Wick's t
 	\end{align*}
 \end{theorem}
 \begin{proof}
-	The proof is almost identical to the one for Theorem (\ref{thm:isserlis}), with the only
+	The proof is almost identical to the one for Theorem \ref{thm:isserlis}, with the only
 	difference being that now we have to be careful with the sign of the permutations. In
 	particular, deriving the $M$-th term of the exponential carries an additional factor of
 	$(-1)^M$:
@@ -510,7 +510,7 @@ We are finally ready to prove that Gaussian Grassmann integrals satisfy Wick's t
 		\frac{\partial}{\partial\bar{J}_\alpha} \frac{\partial}{\partial J_\beta}\right)
 		e^{\boldsymbol{\bar J}\cdot G\boldsymbol{J}} \bigg|_{\boldsymbol{J}=\boldsymbol{\bar{J}}=0}.
 	\end{align*}
-	The rest of the proof follows exactly as in Theorem (\ref{thm:isserlis}).
+	The rest of the proof follows exactly as in Theorem \ref{thm:isserlis}.
 \end{proof}
 
 At this point, we can take this notion of Gaussian integrals to write the fermionic version
@@ -521,13 +521,13 @@ of Section \ref{sec:toy-model}.
 In this section we are finally going to look at how the order-by-order corrections introduced
 by a term like $e^{-\beta\lambda V}$ in Equation (\ref{eq:partition-function-correction}) can,
 in fact, be written in terms of Feynman diagrams, which are nothing more than a graphical
-way to use Wick's theorem and produce valid contractions in n-point functions. To do so, we
+way to use Wick's theorem and produce valid contractions in $n$-point functions. To do so, we
 introduce the concept of a truncated expectation. This is the object that ultimately will
 contain the important diagrams. Both bosonic and fermionic cases follow the same procedure but
 present some slight differences here and there, which we shall point out when needed.
 
 Suppose we have an interaction potential $V$, formally written as a homogeneous polynomial of
-complex or Grassmann variables. We can represent such a potential as a \textit{vertex}, i.e. a
+complex or Grassmann variables. We can represent such a potential as a \textit{vertex}, i.e., a
 node in a graph, with as many labeled outgoing lines as there are conjugate variables in the
 expression of $V$, and as many labeled incoming lines as there are plain variables. For
 example, our quartic correction of Section \ref{sec:toy-model} would be the formal way of
@@ -558,7 +558,7 @@ diagram, vertices can be connected by lines called \textit{propagators} or even
 2-point function. In particular, if a line labeled $i$ exits a vertex and enters another
 as a line labeled $j$, then to such a line we associate the value $G_{ij}$. A vertex may
 have an outgoing leg connecting back to an incoming line in the same vertex, and in this work
-we will call this \textit{a loop}. The \textit{value of a diagram $\Gamma$}, denoted
+we will call this \textit{a tadpole}. The \textit{value of a diagram $\Gamma$}, denoted
 $\mathrm{val}(\Gamma)$, is obtained by multiplying the values of vertices and propagators
 following the labeling and contractions dictated by the diagram.
 \\
@@ -569,14 +569,12 @@ associated propagators. This means that in the vertex there might be both fermio
 variables, and some of them may belong to different sets of variables (for example different
 Grassmann algebras to represent different families of fermions). Each type of line gets its
 own propagator, and they should be distinguished graphically.
-\\
 We will compute values of Feynman diagrams explicitly in the next chapter, specifically in
 Section \ref{second-order}, so we refer to those computations as examples of
-the general rules we just laid out. \textcolor{red}{substitute this with an example, maybe
-that same calculation, but put it HERE.}
+the general rules we just laid out.
 
 We use diagrams to compute expectations. If $V$ is our interaction potential, its expectation
-$\mathbb{E}_G(V)$ is the sum of all possible Wick contractions, as we proved, i.e. all
+$\mathbb{E}_G(V)$ is the sum of all possible Wick contractions, as we proved, i.e., all
 possible diagrams with one vertex and all lines contracted. Adding more copies of $V$ inside
 the expectation means adding vertices, while multiplying by other expectations means
 multiplying the values of the respective sums of diagrams. We will prove that the most
@@ -593,8 +591,8 @@ important diagrams are actually the connected ones.
 		\right)\bigg|_{\boldsymbol{t}=0}.
 	\end{align*}
 	In the fermionic case, let $P_G(\dx\psi)$ be a Grassmann Gaussian measure, and let
-	$V_1,\ldots,V_s$ be $s$ polynomials of Grassmann variables. We define the \textit{truncated
-	expectation} of $V_1,\ldots,V_s$ as
+	$V_1,\ldots,V_s$ be $s$ even polynomials of Grassmann variables. We define the
+	\textit{truncated expectation} of $V_1,\ldots,V_s$ as
 	\begin{align*}
 		\mathbb{E}_G^{\mathrm{T}}(V_1;\ldots;V_s)\coloneq
 		\frac{\partial^s}{\partial t_1\cdots\partial t_s}\log\left(

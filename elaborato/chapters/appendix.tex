@@ -2,7 +2,7 @@
 
 \chapter{More about Hilbert spaces}
 
-We group in this appendix a series of definitions and theorems that are not necessarily part
+We collect in this appendix a series of definitions and theorems that are not necessarily part
 of the basic foundations of quantum mechanics, but are still crucial in understanding how
 exactly some computations are carried out and why they hold true. Some of the results
 presented here go beyond the scope of our work as far as their proof is concerned, and only
@@ -52,14 +52,15 @@ Note that this condition is stronger that being symmetric.
 	The rigorous derivation of the quantities used in this work relies heavily on the properties
 	of the operator $e^{-\beta H}$, given $H$ a self-adjoint operator (in our case $H$ is also
 	bounded, but spectral theory can extend this to the unbounded case).
-	This operator is trace-class, and it is strictly positive definite. Moreover, if $V$ is a
-	bounded operator defined on the image of $e^{-\beta H}$ then it also holds that
-	$Ve^{-\beta H}$ is trace class.
+	This operator is trace-class when $H$ has purely discrete spectrum, and it is strictly
+	positive definite. Moreover, if $V$ is a bounded operator defined on the image of
+	$e^{-\beta H}$ then it also holds that $Ve^{-\beta H}$ is trace class.
 \end{remark}
 
 \begin{definition}[Projection]
-	A linear operator $P$ on a Hilbert space $\mathcal{H}$ which is self-adjoint ($P^*=P$) and
-	idempotent ($P^2=P$) is called a \textit{projection operator} or \textit{projector}.
+	A linear operator $P$ on a Hilbert space $\mathcal{H}$ that is idempotent ($P^2=P$) is
+	called a \textit{projection operator} or \textit{projector}. If $P$ is also self-adjoint
+	it is called \textit{orthogonal projection}.
 \end{definition}
 \begin{proposition}
 	Given a Hilbert space $\mathcal{H}$, projectors defined on $\mathcal{H}$ have the following
@@ -103,7 +104,7 @@ that need to preserve probability amplitudes.
 	following statements are equivalent:
 	\begin{enumerate}
 		\item[a)] $U$ is a unitary operator;
-		\item[b)] $U^*U = \mathbbm{1}_{\mathcal{K}}$ and $UU^* = \mathbbm{1}_{\mathcal{H}}$;
+		\item[b)] $U^*U = \mathbbm{1}_{\mathcal{H}}$ and $UU^* = \mathbbm{1}_{\mathcal{K}}$;
 		\item[c)] $U\mathcal{H}=\mathcal{K}$ and $\langle x,y\rangle_{\mathcal{H}}=\langle Ux,Uy\rangle_{\mathcal{K}}$, for all $x,y\in\mathcal{H}$.
 	\end{enumerate}
 \end{proposition}
@@ -144,7 +145,7 @@ of our work.
 	\begin{align*}
 		A = U M_f U^*
 	\end{align*}
-	where $M_f$ is the multiplication by $f$, i.e. the operator defined by
+	where $M_f$ is the multiplication by $f$, i.e., the operator defined by
 	$(M_f\psi)(x) = f(x)\psi(x)$.
 \end{theorem}
 
@@ -162,10 +163,10 @@ of our work.
 	\begin{align*}
 		\mathfrak{B}(\mathcal{H}) = \left\{ A:\mathcal{H}\to\mathcal{H} : A \text{ is bounded } \right\}
 	\end{align*}
-	is a Banach space, i.e. a complete normed space, via the usual definition of addition
-	between operators (assuming the domain is the entire space $\mathcal{H}$) and
-	multiplication by a scalar. It is also a C*-algebra, i.e. a normed algebra with an
-	involution $*$, via the adjoint of bounded operators.
+	is a Banach space (i.e., a complete normed space) when equipped with the operator norm and
+	the usual definition of addition between operators (assuming the domain is the entire
+	space $\mathcal{H}$) and multiplication by a scalar. It is also a C*-algebra (i.e., a
+	normed algebra with an involution $*$) via the adjoint of bounded operators.
 \end{theorem}
 
 \section{Direct sums and tensor products of Hilbert spaces}
@@ -183,7 +184,7 @@ Suppose now $\mathcal{H}_1$ and $\mathcal{H}_2$ are Hilbert spaces, then we have
 result
 \begin{proposition}
 	If $\langle\cdot,\cdot\rangle_i$ denotes the inner product on $\mathcal{H}_i$ for $i=1,2$,
-	then the bilinear $\langle\cdot,\cdot\rangle$ given by
+	then the bilinear form $\langle\cdot,\cdot\rangle$ given by
 	\begin{align*}
 		\langle (x_1,x_2),(y_1,y_2)\rangle \coloneq \langle x_1,y_1\rangle_1 + \langle x_2,y_2\rangle_2
 	\end{align*}
@@ -233,6 +234,7 @@ $x\otimes y=\chi((x,y))$. Once again we can now extend this definition to the ca
 spaces.
 
 \begin{proposition}
+	\label{tensor-product}
 	Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be two Hilbert spaces over the same field. If
 	$\langle\cdot,\cdot\rangle_i$ denotes the inner product on $\mathcal{H}_i$ for $i=1,2$,
 	then the bilinear $\langle\cdot,\cdot\rangle$ given by
@@ -262,13 +264,14 @@ respectively. Then it holds that
 	}
 \end{align*}
 which means that, in this scenario, the tensor product can be naturally identified with the
-closure of the space of finite linear combinations of elements $u\otimes v$, where $u\in\mathcal{H}_1$
-and $v\in\mathcal{H}_2$, which are called \textit{simple tensors} or \textit{pure tensors}.
+closure (in the norm induced by the inner product of Proposition \ref{tensor-product}) of the
+space of finite linear combinations of elements $u\otimes v$, where $u\in\mathcal{H}_1$ and
+$v\in\mathcal{H}_2$, which are called \textit{simple tensors} or \textit{pure tensors}.
 Moreover, the set of simple tensors with factors taken from the respective complete
 orthonormal systems forms a complete orthonormal system for the tensor product.
 
 \begin{remark}
-	With a simple inductive process one can conclude that the N-fold tensor product of Hilbert
+	With a simple inductive process one can conclude that the $N$-fold tensor product of Hilbert
 	spaces is a Hilbert space, and the closure of the set of finite linear combinations of
 	simple tensors still coincides with that tensor product.
 \end{remark}
@@ -290,7 +293,7 @@ tensor product as
 \begin{align*}
 	(A\otimes B)(\phi\otimes\psi) \coloneq (A\phi)\otimes(B\psi)
 \end{align*}
-on the set of pure pure tensors, i.e.
+on the set of pure pure tensors, i.e.,
 \begin{align*}
 	D(A\otimes B) = \{\phi\otimes\psi : \phi\in D(A),\;\psi\in D(B)\}.
 \end{align*}
@@ -313,11 +316,11 @@ is called a simple function and its integral is defined as
 
 \begin{definition}[Bochner integral]
 	A measurable function $f:X\to\mathcal{B}$ is called \textit{Bochner integrable} if there
-	exists a sequence of simple functions $\{s_n:n\mathbb{N}\}$ such that
+	exists a sequence of simple functions $\{s_n:n\in\mathbb{N}\}$ such that
 	\begin{align*}
 		\lim_{n\to\infty} \int_X \Vert f - s_n\Vert_{\mathcal{B}}\,\dx\mu = 0,
 	\end{align*}
-	i.e. if its point-wise norm is Lebesgue integrable. In this case, the \textit{integral of f}
+	i.e., if its point-wise norm is Lebesgue integrable. In this case, the \textit{integral of f}
 	is defined as
 	\begin{align*}
 		\int_X f\,\dx\mu \coloneq \lim_{n\to\infty}\int s_n\,\dx\mu.
@@ -340,7 +343,7 @@ is called a simple function and its integral is defined as
 			spaces and $f:X\to\mathcal{B}$ is Bochner integrable, then $Tf$ is also Bochner
 			integrable and it holds that
 			\begin{align*}
-				T\int_E f\,\dx\mu = \int_X Tf\,\dx\mu
+				T\int_E f\,\dx\mu = \int_E Tf\,\dx\mu
 			\end{align*}
 			for all $E\in\Sigma$;
 		\item (Dominated convergence theorem) if $\{f_n\}$ is a sequence of Bochner integrable
@@ -353,9 +356,9 @@ is called a simple function and its integral is defined as
 				\int_E f_n\,\dx\mu \to \int_E f\,\dx\mu
 			\end{align*}
 			for all $E\in\Sigma$;
-		\item (Fundamental theorem of calculus) if $f:X\to\mathcal{B}$ is Bochner integrable
-			over $[a,b]\subseteq\mathbb{R}$ and $F:X\to\mathcal{B}$ is an antiderivative for
-			$f$, then
+		\item (Fundamental theorem of calculus) if $f:\mathbb{R}\to\mathcal{B}$ is Bochner
+			integrable over $[a,b]\subseteq\mathbb{R}$ and $F:\mathbb{R}\to\mathcal{B}$ is an
+			antiderivative for $f$, then
 			\begin{align*}
 				\int_{[a,b]} f\,\dx\mu = F(b)-F(a).
 			\end{align*}
@@ -409,18 +412,19 @@ We reference the discussion on finite temperature perturbation theory from
 Following the standard notation, we call $\rho = Z^{-1}e^{-\beta H}$ the Gibbs state at
 temperature $\beta$, where $Z = \mathrm{Tr}(e^{-\beta(H-\mu\mathcal{N})}) = \mathrm{Tr}(
 e^{-\beta K})$ is the grand canonical partition function. Recall that the temperature
-evolution (i.e. imaginary time evolution) of an operator $A$ in Heisenberg's picture is given
+evolution (i.e., imaginary time evolution) of an operator $A$ in Heisenberg's picture is given
 by
 \begin{align*}
 	A(\tau) = e^{\tau K} A e^{-\tau K}.
 \end{align*}
-Then, given $A(\tau)$ a polynomial of creation/annihilation operators at temperature $\beta+\tau$
+Then, given $A(\tau)$ a polynomial of creation/annihilation operators at temperature $\tau$
 and $B$ a polynomial of creation/annihilation operators at temperature \beta, we ask how can
 we write the correlation function
 \begin{align*}
 	G_{AB}(\tau) = \langle \mathcal{T}[A(\tau)B]\rangle = \mathrm{Tr}(\rho \mathcal{T}[A(\tau)B]),
 \end{align*}
-also called the \textit{temperature propagator}. We have the following remarkable identity:
+also called the \textit{temperature propagator}. Here, $\mathcal{T}$ denotes $\tau$-ordering.
+We have the following remarkable identity:
 \begin{align*}
 	G_{AB}(\tau) = (-1)^f G_{AB}(\tau - \beta\mathrm{sign}(\tau)),
 \end{align*}
@@ -437,6 +441,7 @@ the trace and the form of the Gibbs state to get that
 	&= (-1)^f Z^{-1} \mathrm{Tr}(A(\tau)Be^{-\beta K})\\
 	&= (-1)^f \mathrm{Tr}(\rho\mathcal{T}[A(\tau)B]).
 \end{align*}
+
 Similar steps prove the case where $\tau<0$. Because $G_{AB}(\tau)$ is periodic, we may want
 to write it as a Fourier series:
 \begin{align*}

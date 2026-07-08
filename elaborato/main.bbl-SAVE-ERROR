@@ -26,10 +26,10 @@
            familyi={B\bibinitperiod},
            given={Niels},
            giveni={N\bibinitperiod}}}%
-        {{hash=7c5ce3406294db38c8665b1915b037f3}{%
+        {{hash=c7e0ef00929e921ca113f6158ef6a979}{%
            family={Nam},
            familyi={N\bibinitperiod},
-           given={Phan\bibnamedelima Than},
+           given={Phan\bibnamedelima Thành},
            giveni={P\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
         {{hash=849c9e05a55571d8cc03cbfc81d55f58}{%
            family={Porta},
@@ -41,31 +41,45 @@
            familyi={S\bibinitperiod},
            given={Benjamin},
            giveni={B\bibinitperiod}}}%
-        {{hash=782bc3123cbdf61d594ba945ed1fe7da}{%
+        {{hash=d9f165650b1bea0ab5b74a7911223c2f}{%
            family={Seiringer},
            familyi={S\bibinitperiod},
-           given={Rober},
+           given={Robert},
            giveni={R\bibinitperiod}}}%
       }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
       \strng{namehash}{5d11f23499cc10689efe41dc53fbad7c}
-      \strng{fullhash}{b4d464b3df9ba792db5ea8686042857b}
-      \strng{fullhashraw}{b4d464b3df9ba792db5ea8686042857b}
+      \strng{fullhash}{b5b7761f6ce4e32d6738363e27160b8e}
+      \strng{fullhashraw}{b5b7761f6ce4e32d6738363e27160b8e}
       \strng{bibnamehash}{5d11f23499cc10689efe41dc53fbad7c}
       \strng{authorbibnamehash}{5d11f23499cc10689efe41dc53fbad7c}
       \strng{authornamehash}{5d11f23499cc10689efe41dc53fbad7c}
-      \strng{authorfullhash}{b4d464b3df9ba792db5ea8686042857b}
-      \strng{authorfullhashraw}{b4d464b3df9ba792db5ea8686042857b}
+      \strng{authorfullhash}{b5b7761f6ce4e32d6738363e27160b8e}
+      \strng{authorfullhashraw}{b5b7761f6ce4e32d6738363e27160b8e}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Correlation Energy of a Weakly Interacting Fermi Gas}
+      \field{issn}{1432-1297}
+      \field{journaltitle}{Inventiones mathematicae}
+      \field{month}{5}
+      \field{number}{3}
+      \field{title}{Correlation energy of a weakly interacting Fermi gas}
+      \field{volume}{225}
       \field{year}{2021}
+      \field{pages}{885\bibrangedash 979}
+      \range{pages}{95}
+      \verb{doi}
+      \verb 10.1007/s00222-021-01041-5
+      \endverb
       \verb{urlraw}
-      \verb ???
+      \verb http://dx.doi.org/10.1007/s00222-021-01041-5
       \endverb
       \verb{url}
-      \verb ???
+      \verb http://dx.doi.org/10.1007/s00222-021-01041-5
       \endverb
     \endentry
     \entry{BlaBook}{book}{}{}
@@ -151,7 +165,7 @@
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Dipartimento di Matematica, Università degli Studi di Milano}
+      \field{note}{Dipartimento di Matematica ``Federigo Enriques", Università degli Studi di Milano}
       \field{title}{Lecture Notes: Quantum Statistical Mechanics}
     \endentry
     \entry{GiuVigBook}{book}{}{}
@@ -203,6 +217,10 @@
            given={Felix},
            giveni={F\bibinitperiod}}}%
       }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
       \strng{namehash}{8ed67c0fb7f5bb35a612053e0e8131de}
       \strng{fullhash}{8ed67c0fb7f5bb35a612053e0e8131de}
       \strng{fullhashraw}{8ed67c0fb7f5bb35a612053e0e8131de}
@@ -215,13 +233,23 @@
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{On the Correlation Energy of Interacting Fermionic Systems in the Mean Field Regime}
-      \field{year}{2019}
+      \field{issn}{1432-0916}
+      \field{journaltitle}{Communications in Mathematical Physics}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{On the Correlation Energy of Interacting Fermionic Systems in the Mean-Field Regime}
+      \field{volume}{374}
+      \field{year}{2020}
+      \field{pages}{485\bibrangedash 524}
+      \range{pages}{40}
+      \verb{doi}
+      \verb 10.1007/s00220-019-03654-7
+      \endverb
       \verb{urlraw}
-      \verb ???
+      \verb http://dx.doi.org/10.1007/s00220-019-03654-7
       \endverb
       \verb{url}
-      \verb ???
+      \verb http://dx.doi.org/10.1007/s00220-019-03654-7
       \endverb
     \endentry
     \entry{ManBook}{book}{}{}
@@ -251,7 +279,7 @@
       \field{title}{Introduction to the Physics of Matter}
       \field{year}{2020}
     \endentry
-    \entry{SolNotes}{article}{}{}
+    \entry{SolNotes}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=b99f54e7ecc01c688c710f0fcf3d828d}{%
            family={Solovej},
@@ -271,8 +299,7 @@
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Many Body Quantum Mechanics}
-      \field{year}{2014}
+      \field{title}{Lecture Notes: Many Body Quantum Mechanics}
       \verb{urlraw}
       \verb https://web.math.ku.dk/~solovej/MANYBODY/mbnotes-ptn-5-3-14.pdf
       \endverb

@@ -1,0 +1,84 @@
+% =====================================================================
+% PREAMBOLO PER TESI conforme alle NormeTesi
+% =====================================================================
+
+% Margini
+\usepackage[a4paper,
+    left=3.5cm,
+    right=3cm,
+    top=3cm,
+    bottom=3cm]{geometry}
+
+% Italiano
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Interlinea
+\usepackage{setspace}
+\onehalfspacing % inter.: 1.5
+
+% Header e Footer
+\usepackage[headings]{fancyhdr}
+\pagestyle{headings}
+
+% Figure e grafici
+\usepackage{graphicx}
+\graphicspath{{immagini/}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% Tabelle
+%\usepackage{tabularx}
+%\usepackage{booktabs}
+
+% Note a pié pagina
+\usepackage{footmisc}
+\renewcommand{\footnotesize}{\fontsize{10}{12}\selectfont}
+
+% Citazioni lunghe (blockquote)
+\usepackage{quoting}
+\quotingsetup{
+    vskip=6pt,
+    leftmargin=20pt,
+    rightmargin=20pt,
+    font=small
+}
+
+% Matematica
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\numberwithin{equation}{chapter}
+
+% Font Times + formula eleganti
+\usepackage{newtxtext,newtxmath}
+
+% Fisica
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem} % reazioni 
+
+% Microtipografia
+\usepackage{microtype}
+
+% Codici sorgenti
+\usepackage{minted}
+\usemintedstyle{friendly}
+\setminted{
+    linenos,        % numeri di riga
+    breaklines,     % va a capo automaticamente
+    fontsize=\small,
+    frame=lines,    % cornice superiore e inferiore
+    framesep=3mm,
+    baselinestretch=1.1,
+}
+
+% Testo fittizzio
+\usepackage{lipsum}
+
+% Hyperref
+\usepackage[hidelinks]{hyperref}
+
+% Custom commands
