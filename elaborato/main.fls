@@ -432,6 +432,9 @@ INPUT ./chapters/second-order.tex
 INPUT ./chapters/appendix.tex
 INPUT /home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmromancaps10-regular.luc
 INPUT /home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc
+INPUT ./sections/ringraziamenti.tex
+INPUT ./grafico-tia.jpeg
+INPUT ./grafico-tia.jpeg
 INPUT ./main.aux
 INPUT ./main.run.xml
 OUTPUT main.run.xml

@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1783546195.68523 "main.bcf" "main.bbl" "main" 1783550882.0687 0
-  "main.bcf" 1783550881.90807 109673 6bd142c948c49ad372774ced3c58ec9b "pdflatex"
+["biber main"] 1783591731.83338 "main.bcf" "main.bbl" "main" 1783595932.78784 0
+  "main.bcf" 1783595932.63191 109673 6bd142c948c49ad372774ced3c58ec9b "pdflatex"
   "refs.bib" 1783498353.80003 2046 c36e8e391d8a83e71f2369de9dd8bbd1 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1783550878.57964 "main.tex" "main.pdf" "main" 1783550882.06891 0
+["pdflatex"] 1783595929.36721 "main.tex" "main.pdf" "main" 1783595932.78805 0
   "/home/chiara/.texlive/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1783508448.08153 7808 feb9ae1405ecb738805fe17406c70abe ""
   "/home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc" 1782637558.55544 81824 2fc419936fbca23a4af140905084b7a2 ""
   "/home/chiara/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1778698970.58931 128397 dc8cded2bbafe8195c86cdaea92e40b2 ""
@@ -415,21 +415,23 @@
   "/usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload.lua" 1775415801 13566 16df94dd2de231b2bca0aaa0190941fe ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1782905117 5385779 47c0c393a77fd4a098bacfd57d66b88a ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1782905049 5657124 bc374ed54130b013ccc6c8eb5732fe0c ""
-  "chapters/appendix.tex" 1783550877.80804 22056 7ba8d4beb72c57af1a13407de796913c ""
+  "chapters/appendix.tex" 1783552858.77425 22056 883b427aff39d3f9a7f4992878413823 ""
   "chapters/feynman-diagrams.tex" 1783545931.5967 38699 6ec99da5689c55a3f69a8268801ae132 ""
   "chapters/introduction.tex" 1783549688.76436 4651 6b29fca58158794b0e265da1c88fd309 ""
   "chapters/second-order.tex" 1783550097.79924 63381 0ff527ed2d2cef18b0349a9850aaada3 ""
   "chapters/second-quantization.tex" 1783525081.05864 88226 fc7258e8656a581a5a74dc7cb9dc15df ""
+  "grafico-tia.jpeg" 1783594514.4101 181486 815aaf474e5b748378fd593799f98f87 ""
   "images/tesiSCIENZE_TECNOLOGIE.jpg" 1783505348.10097 151126 6aaf40e13c5552fffc380ab31d9b98c8 ""
-  "main.aux" 1783550881.90474 9939 a0c007fa7f602c3dbbf19bd52262d362 "pdflatex"
-  "main.bbl" 1783546196.1582 12114 4f6c5414e8353c315c9a04c1f90079a7 "biber main"
-  "main.out" 1783550881.90474 4637 f134baa77922827706477669f0218719 "pdflatex"
-  "main.run.xml" 1783550881.90807 2334 495085e3091aac17e7ead29a73d4107a "pdflatex"
-  "main.tex" 1783519753.95331 578 a67eaa91cec8b1bb8474b12bb75d10ed ""
-  "main.toc" 1783550881.90807 1938 efac3e11276e76c682ef32c9275cf3d0 "pdflatex"
-  "pdfa.xmpi" 1783550879.00805 5042 4ff0f368f4a21408c934fe62465d3c1a "pdflatex"
+  "main.aux" 1783595932.62858 10635 799c2397ad1edde0151f38e58ef5a297 "pdflatex"
+  "main.bbl" 1783591732.32208 12114 4f6c5414e8353c315c9a04c1f90079a7 "biber main"
+  "main.out" 1783595932.62858 4637 f134baa77922827706477669f0218719 "pdflatex"
+  "main.run.xml" 1783595932.63191 2334 495085e3091aac17e7ead29a73d4107a "pdflatex"
+  "main.tex" 1783591727.8253 611 f1021b12fa5fc7423d96326e00009e4b ""
+  "main.toc" 1783595932.63191 1938 efac3e11276e76c682ef32c9275cf3d0 "pdflatex"
+  "pdfa.xmpi" 1783595929.80189 5042 f22b5c49dab2449b7905255144c72e51 "pdflatex"
   "sections/abstract.tex" 1783520342.0107 944 44fae90593ef74c1e232ab98e96d3d3e ""
-  "sections/preamble.tex" 1783548104.22931 1144 a1deb3692aebbd5d3f2cdf1e42429663 ""
+  "sections/preamble.tex" 1783551036.57932 1144 a1deb3692aebbd5d3f2cdf1e42429663 ""
+  "sections/ringraziamenti.tex" 1783595924.56517 1574 8b53841f35e241eb5962d96eb0b1ac48 ""
   "sections/title-page.tex" 1783510876.15548 867 208e70b68da163d680d43d0ce9d0e22d ""
   (generated)
   "main.aux"
