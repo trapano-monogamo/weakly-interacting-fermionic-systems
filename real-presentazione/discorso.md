@@ -42,35 +42,35 @@ interagente nel limite in cui il numero di particelle e' molto grande, cioe' va 
 
 ## Slide 2
 
-Consideriamo l'hamiltoniana del problema a `N` corpi agente sullo spazio degli stati fermionici,
+Consideriamo l'hamiltoniana del problema a $N$ corpi agente sullo spazio degli stati fermionici,
 cioe' completamente antisimmetrici.
 
 - (immagine)
 Se togliamo le interazioni, il sistema diventa un gas libero con relazione di dispersione
-`\epsilon_k = \hbar^2 k^2`, quindi riempiendo gli N stati di singola particella con energia
+$\epsilon_k = \hbar^2 k^2$, quindi riempiendo gli N stati di singola particella con energia
 piu' bassa possibile si riempie una bolla nello spazio dei momenti.
-Il raggio di questa bolla e' il ***momento di Fermi*** e cresce con `N^{1/3}`
+Il raggio di questa bolla e' il ***momento di Fermi*** e cresce con $N^{1/3}$
 
 - (kinetic energy)
-, quindi l'energia al livello di Fermi - cioe' il bordo della bolla - cresce con `N^{2/3}`
-e un'approssimazione integrale mostra che l'energia cinetica crescera' quindi con `N^{5/3}`.
+, quindi l'energia al livello di Fermi - cioe' il bordo della bolla - cresce con $N^{2/3}$
+e un'approssimazione integrale mostra che l'energia cinetica crescera' quindi con $N^{5/3}$.
 
 - (interaction energy)
 Aggiungendo le interazioni il ground state deviera' dalla bolla di Fermi, ma possiamo
 controllare l'ordine di grandezza notando che il numero di interazioni tra coppie di fermioni
-sara' `N(N-1)/2 \sim N^2`.
+sara' $N(N-1)/2 \sim N^2$.
 
 ------
 
 Introduciamo quindi dei ***parametri efficaci*** che riscalino l'energia cinetica e di
 interazione in modo che l'energia ***per particella*** sia sempre di ordine 1, cioe' in modo
-che l'energia `H_N` sia estensiva.
+che l'energia $H_N$ sia estensiva.
 Questo e' il limite di scaling ***di campo medio***.
 
-- Da notare che `\hbar` in questo caso e' da intendersi come un parametro che controlla il
-comportamento semiclassico di questo scaling, mentre `\lambda` rappresenta tutti quei fenomeni
+- Da notare che $\hbar$ in questo caso e' da intendersi come un parametro che controlla il
+comportamento semiclassico di questo scaling, mentre $\lambda$ rappresenta tutti quei fenomeni
 collettivi e di screening che contribuiscono al riscalamento delle interazioni tra singole
-particelle. In questo senso si puo' vedere `V` come un'interazione efficace che "media"
+particelle. In questo senso si puo' vedere $V$ come un'interazione efficace che "media"
 l'effetto delle correlazioni non banali tra singole particelle.
 
 ## Slide 3
@@ -82,9 +82,9 @@ bosonizzazione - nel lavoro del prof. Benedikter e i suoi collaboratori.
 Si e' dimostrato che l'energia del ground state scala nel modo seguente:
 
 - l'approssimazione di Hartree-Fock porta un termine di ordine 1 (il contributo di scambio)
-e un termine di ordine `N` (l'energia cinetica del gas libero piu' il termine diretto);
+e un termine di ordine $N$ (l'energia cinetica del gas libero piu' il termine diretto);
 
-- la Random Phase Approximation invece e' subleading e contribuisce a un ordine `N^{-1/3}`.
+- la Random Phase Approximation invece e' subleading e contribuisce a un ordine $N^{-1/3}$.
 
 Ulteriori contributi saranno subleading rispetto alla RPA, come si vede dall'o-piccolo.
 
@@ -104,31 +104,31 @@ perturbative ordine per ordine rispetto ai metodi di bosonizzazione presenti in 
 
 Per introdurre la teoria perturbativa formale lavoriamo nell'ensemble gran canonico.
 L'operatore hamiltoniano in seconda quantizzazione e' il seguente: nel termine cinetico e'
-stato riassorbito il termine `-\mu N`, mentre nel termine di interazione vediamo che la
+stato riassorbito il termine $-\mu N$, mentre nel termine di interazione vediamo che la
 trasformata di Fourier del potenziale pesa processi di scambio di momenti tra particelle.
 
 - Facciamo naturalmente alcune ipotesi sul sistema: il potenziale chimico e' fissato dal
-numero di particelle, il potenziale dipende solo dalla distanza tra particelle, e `\hat{V}`
+numero di particelle, il potenziale dipende solo dalla distanza tra particelle, e $\hat{V}$
 ha supporto compatto. Quest'ultima condizione e' tecnica e un possibile obiettivo per il
 futuro e' quello di rimuoverla.
 
 Poiche' stiamo seguendo un approccio statistico, ricordiamo che uno stato all'equilibrio termico
 (o stato di Gibbs) e' definito dalla matrice densita' che segue la distribuzione di Boltzmann:
-`\rho = Z^{-1}\exp(-\beta H)` con `Z` la funzione di partizione, e `\beta` e' la temperatura
+$\rho = Z^{-1}\exp(-\beta H)$ con $Z$ la funzione di partizione, e $\beta$ e' la temperatura
 inversa.
 
 ------
 
 La teoria perturbativa si basa interamente sull'analisi di interazioni potenzialmente molto
 complicate che pero' poggiamo su una teoria piu' semplice o meglio compresa. Nel nostro caso
-le aspettazioni di Gibbs saranno fatte rispetto alla parte quadratica `H_0` dell'hamiltoniana.
+le aspettazioni di Gibbs saranno fatte rispetto alla parte quadratica $H_0$ dell'hamiltoniana.
 
 ## Slide 5
 
-L'energia libera e' data da `F = -\beta^{-1}\log(Z)` e l'energia del ground state e' il limite
+L'energia libera e' data da $F = -\beta^{-1}\log(Z)$ e l'energia del ground state e' il limite
 a temperatura nulla dell'energia libera.
 
-- Per calcolare `\log(Z)` facciamo uso dell'espansione perturbativa data dalla ***formula di
+- Per calcolare $\log(Z)$ facciamo uso dell'espansione perturbativa data dalla ***formula di
 Duhamel***,
 
 - e ad ogni ordine si presenteranno aspettazioni di Gibbs del potenziale, e tutte si riducono
@@ -150,17 +150,17 @@ Un'aspettazione calcolata con il teorema di Wick si rappresenta come propagatori
 
 ------
 
-!!!!!!!!!!!!!!!! NEL PEDICE C'E' SOLO `\beta`, AGGIUNGI `H_0` !!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!! NEL PEDICE C'E' SOLO $\beta$, AGGIUNGI $H_0$ !!!!!!!!!!!!!!!!
 
 Dalla formula di Duhamel abbiamo che il primo ordine per l'energa libera e'
-`\lambda\langle V\rangle`, che diagrammaticamente e' dato dalla somma di due termini (tutte
+$\lambda\langle V\rangle$, che diagrammaticamente e' dato dalla somma di due termini (tutte
 le possibili contrazioni di Wick).
 
-Facendo il limite a temperatura nulla e ricordando lo scaling di `\lambda`, si portano avanti
-i conti e si trova che il termine diretto `\hat{V}(0)` contribuisce all'ordine `N`, mentre il
-termine di scambio `\hat{V}(k)` contribuisce all'ordine 1.
+Facendo il limite a temperatura nulla e ricordando lo scaling di $\lambda$, si portano avanti
+i conti e si trova che il termine diretto $\hat{V}(0)$ contribuisce all'ordine $N$, mentre il
+termine di scambio $\hat{V}(k)$ contribuisce all'ordine 1.
 
-Aggiungendo il contributo di ordine `N` dell'energia cinetica, questo porta direttamente al
+Aggiungendo il contributo di ordine $N$ dell'energia cinetica, questo porta direttamente al
 nostro risultato.
 
 ## Slide 7
@@ -193,7 +193,7 @@ questo limite di campo medio.
 Per ottenere una teoria perturbativa ben definita e portare cosi' questa dimostrazione ad ogni
 ordine, questi sono i prossimi passi da prendere:
 
-- l'introduzione degli integrali di Grassmann `\tau`-ordinati. Gli integrali di Grassmann sono
+- l'introduzione degli integrali di Grassmann $\tau$-ordinati. Gli integrali di Grassmann sono
 lo strumento che permette di scrivere la teoria perturbativa formale e sono cio' che abbiamo
 usato per scrivere la formula di Duhamel diagrammaticamente;
 
