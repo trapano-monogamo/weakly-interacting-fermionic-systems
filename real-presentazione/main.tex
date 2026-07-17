@@ -56,7 +56,7 @@ Limit}
 \begin{frame}[t]
 	\frametitle{Mean Field Limit}
 	\small
-	The $N$-body Hamiltonian is
+	The $N$-body Hamiltonian on $L_{\mathrm{a}}^2(\mathbb{T}^{3N})$ is
 	\vspace{-0.5em}
 	\begin{align*}
 		H_N = \sum_{i=1}^N-\hbar^2\Delta_i + \lambda\sum_{1\leq i<j\leq N}V(x_i-x_j)
@@ -65,10 +65,10 @@ Limit}
 	\begin{columns}
 		\begin{column}{.6\textwidth}
 			\begin{itemize}
-				\item<3-> Fermi energy $\epsilon(k_{\mathrm{F}})$ grows as
+				\item<2-> Fermi energy $\epsilon(k_{\mathrm{F}})$ grows as
 					$\mathcal{O}(N^{2/3})$\\
 					$\implies$ \textbf{kinetic energy} grows as $\mathcal{O}(N^{5/3})$;
-				\vfill\item<4-> number of interactions is $N(N-1)/2$\\
+				\vfill\item<3-> number of interactions is $N(N-1)/2$\\
 					$\implies$ \textbf{interaction energy} grows as $\mathcal{O}(N^2)$
 					if $V$ is of order $\mathcal{O}(1)$.
 			\end{itemize}
@@ -107,7 +107,7 @@ Limit}
 			}
 		\end{column}
 	\end{columns}
-	\uncover<5->{
+	\uncover<4->{
 		\begin{block}{Mean field scaling}
 			To have an extensive $H_N$ ($H_N\sim N$) in the limit $N\to\infty$, we define
 			the \textbf{effective parameters}
@@ -119,14 +119,30 @@ Limit}
 			\end{align*}
 		\end{block}
 	}
-	\only<6>{
+	\only<5>{
 		\begin{tikzpicture}[remember picture, overlay]
-			\draw[red, thick] (semiclassical.north west) rectangle (semiclassical.south east);
-			\draw[green, thick] (meanfield.north west) rectangle (meanfield.south east);
-			\node[draw=red, very thick, fill=red!30, above=.5em of semiclassical, xshift=-3.5em, rounded corners]
-				{semiclassical parameter};
-			\node[draw=green, very thick, fill=green!30, above=.5em of meanfield, xshift=5em, rounded corners]
-				{mean field coupling constant};
+			\draw[red, thick]
+				([shift={(-2pt,2pt)}]semiclassical.north west) rectangle
+				([shift={(2pt,-2pt)}]semiclassical.south east);
+			\draw[green, thick]
+				([shift={(-2pt,2pt)}]meanfield.north west) rectangle
+				([shift={(2pt,-2pt)}]meanfield.south east);
+			\node[
+				draw=red,
+				very thick,
+				fill=red!30,
+				above=.7em of semiclassical,
+				xshift=-3.5em,
+				rounded corners
+			] {semiclassical parameter};
+			\node[
+				draw=green,
+				very thick,
+				fill=green!30,
+				above=.7em of meanfield,
+				xshift=5em,
+				rounded corners
+			] {mean field coupling constant};
 		\end{tikzpicture}
 	}
 \end{frame}
@@ -135,9 +151,11 @@ Limit}
 	\frametitle{Main Result}
 	\small
 	With ordinary second order perturbation theory
-	[\href{https://link.springer.com/article/10.1007/s00220-019-03654-7}{Hainzl-Porta-Rexze, 2019}]
+	\href{https://link.springer.com/article/10.1007/s00220-019-03654-7}
+		{\footnotesize\textcolor{blue}{[Hainzl-Porta-Rexze, 2019]}}
 	and then rigorous bosonization methods
-	[\href{https://link.springer.com/article/10.1007/s00222-021-01041-5}{Benedikter-et-al, 2021}]:
+	\href{https://link.springer.com/article/10.1007/s00222-021-01041-5}
+		{\footnotesize\textcolor{blue}{[Benedikter-et-al, 2021]}}:
 	\begin{align*}
 		E^{\mathrm{gs}}_N = E^{\mathrm{HF}}_N + E^{\mathrm{RPA}}_N
 		+ o\left(N^{-1/3}\right)\qquad\text{as}\;N\to\infty
@@ -151,7 +169,7 @@ Limit}
 	\end{itemize}
 	\vspace{-0.4em}
 	\begin{block}<4->{Theorem: leading order contribution}
-		As $N\to\infty$ we have $E^{\mathrm{gs}}_N = E^{\mathrm{HF}}_N + o(1)$, and
+		As $N\to\infty$, the leading order contribution to $E^{\mathrm{gs}}_N$ is
 		\begin{align*}
 			E^{\mathrm{HF}}_N = \mathcal{O}(N) + \mathcal{O}(1).
 		\end{align*}
@@ -167,7 +185,7 @@ Limit}
 \begin{frame}
 	\frametitle{Sketch of the proof: definitions}
 	\textbf{Second quantized} Hamiltonian:
-	\alt<1-3>{
+	\alt<1-5>{
 		\begin{align*}
 			H = \sum_{k\in\mathbb{Z}^3} (\hbar^2\vert k\vert^2 - \mu)a^*_k a_k
 			\vphantom{\underbrace{\sum_{k\in\mathbb{Z}^3} (\hbar^2\vert k\vert^2 - \mu)a^*_k a_k}_{H_0}}
@@ -182,13 +200,13 @@ Limit}
 	\uncover<2->{
 		where
 		\begin{itemize}
-			\item $\mu$ is the chemical potential fixed by $N$;
-			\item $V$ depends only on distances: $V(x_i-x_j)=V(\vert x_i-x_j\vert)$;
-			\item $\hat{V}$ has compact support.
+			\item<2-> $\mu$ is the chemical potential fixed by $N$;
+			\item<3-> $V$ depends only on distances: $V(x_i-x_j)=V(\vert x_i-x_j\vert)$;
+			\item<4-> $\hat{V}$ has compact support.
 		\end{itemize}
 	}
 	\vfill
-	\uncover<3-4>{
+	\uncover<5-6>{
 		A \textbf{thermal equilibrium state} at (inverse) temperature $\beta$ is
 		\begin{align*}
 			\rho = \frac{e^{-\beta H}}{Z}, \quad\text{with}\; Z = \mathrm{Tr}(e^{-\beta H})
@@ -249,8 +267,8 @@ Limit}
 			\begin{tikzpicture}[scale=.6, baseline=(current bounding box.center)]
 				\node (a) at (-1, 1) {} node[scale=0.5] at (-1.1, 0.5) {$p-k$};
 				\node (b) at ( 1, 1) {} node[scale=0.5] at ( 1.1, 0.5) {$q+k$};
-				\node (c) at (-1,-1) {} node[scale=0.5] at (-0.9,-0.5) {$q$};
-				\node (d) at ( 1,-1) {} node[scale=0.5] at ( 0.9,-0.5) {$p$};
+				\node (c) at (-1,-1) {} node[scale=0.5] at (-0.9,-0.5) {$p$};
+				\node (d) at ( 1,-1) {} node[scale=0.5] at ( 0.9,-0.5) {$q$};
 				\begin{scope}[very thick, decoration={
 						markings,
 						mark=at position 0.6 with {\arrow{>}}}
@@ -266,32 +284,43 @@ Limit}
 	\end{gather*}
 	\uncover<4->{
 		The first order contribution is:
-		\begin{align*}
+	}
+	\begin{align*}
+		\uncover<4->{
 			\lim_{\beta\to\infty}\lambda\langle V\rangle_{\beta,H_0}
-			&= \lim_{\beta\to\infty}\lambda\left(\begin{tikzpicture}[scale=.3, baseline=(current bounding box.center)]
+			&=
+		}
+		\uncover<5->{
+			\lim_{\beta\to\infty}\lambda\left(
+			\begin{tikzpicture}[scale=.3, baseline=(current bounding box.center)]
 				\node[shape=coordinate] (a) at (-1, 1) {};
-				\node[shape=coordinate] (b) at ( 1, 1) {};
-				\node[shape=coordinate] (c) at (-1,-1) {};
+				\node[shape=coordinate] (b) at ( 1.1, 1.1) {};
+				\node[shape=coordinate] (c) at (-1.1,-1.1) {};
 				\node[shape=coordinate] (d) at ( 1,-1) {};
-				\draw[thick] (0,0) -- (a);
-				\draw[thick] (0,0) -- (b);
-				\draw[thick] (0,0) -- (c);
-				\draw[thick] (0,0) -- (d);
-				\filldraw[black] (0,0) circle (.1);
+				\coordinate (A) at (-1.2,-1.2);
+				\coordinate (B) at ( 1.5,-1.5);
+				\draw[black, thick] (0,0) -- (a);
+				\draw[black, thick] (0,0) -- (b);
+				\draw[black, thick] (0,0) -- (c);
+				\draw[black, thick] (0,0) -- (d);
+				\filldraw[black] (0,0) circle (2pt);
 				\begin{scope}[very thick, decoration={
 						markings,
-						mark=at position 0.55 with {\arrow{<}}}
+						mark=at position 0.7 with {\arrow{>}}}
 					]
-					\draw[thick, postaction={decorate}] (a) .. controls +(135:1.5) and +(225:1.5) .. (c);
+					\draw[black, thick, postaction={decorate}] (a) .. controls +(135:1) and +(135:1) .. (A);
+					\draw[black, thick]                        (A) .. controls +(315:1) and +(315:1) .. (d);
 				\end{scope}
 				\begin{scope}[very thick, decoration={
 						markings,
-						mark=at position 0.55 with {\arrow{>}}}
+						mark=at position 0.45 with {\arrow{<}}}
 					]
-					\draw[thick, postaction={decorate}] (b) .. controls +( 45:1.5) and +(315:1.5) .. (d);
+					\draw[black, thick]                        (c) .. controls +(225:1) and +(225:1) .. (B);
+					\draw[black, thick, postaction={decorate}] (B) .. controls +( 45:1) and +( 45:1) .. (b);
 				\end{scope}
 			\end{tikzpicture}
-			+ \begin{tikzpicture}[scale=.3, baseline=(current bounding box.center)]
+			+
+			\begin{tikzpicture}[scale=.3, baseline=(current bounding box.center)]
 				\node[shape=coordinate] (a) at (-1, 1) {};
 				\node[shape=coordinate] (b) at ( 1, 1) {};
 				\node[shape=coordinate] (c) at (-1,-1) {};
@@ -310,23 +339,27 @@ Limit}
 				\end{scope}
 			\end{tikzpicture}
 			\right)\\
+		}
+		\uncover<6->{
 			&= N^{-1}\sum_{\substack{k\in\mathbb{Z}^3,\;p\in B_{\mathrm{F}}:\\p-k\in B_{\mathrm{F}}}}
 			\left(\hat{V}(0)-\hat{V}(k)\right)\\
 			&= \mathcal{O}(N) + \mathcal{O}(1).
-		\end{align*}
-	}
+		}
+	\end{align*}
 \end{frame}
 
 \section{Second Order Contributions}
 
 \begin{frame}
 	\frametitle{Future perspective: a first look at second order}
+	\small
 	At second order, the \textbf{connected Feynman diagrams} are split into two possible
 	topologies:
+	\vspace{-1.3em}
 	\begin{figure}[h]
-		\begin{minipage}[t]{.48\textwidth}
-			\centering
-			\begin{tikzpicture}[scale=.6, baseline=(current bounding box.center)]
+		\begin{minipage}[t]{.43\textwidth}
+			\raggedleft
+			\begin{tikzpicture}[scale=.55, baseline=(current bounding box.center)]
 				\node[shape=coordinate] (a) at (-1.1,0) {};
 				\node[shape=coordinate] (b) at ( 1.1,0) {};
 				\begin{scope}[very thick, decoration={
@@ -341,13 +374,10 @@ Limit}
 					\draw[thick, postaction={decorate}] (b) .. controls +(240:0.7) and +(300:0.7) .. (a);
 				\end{scope}
 			\end{tikzpicture}
-
-			\vspace{0.8em}
-			\textbf{No tadpoles}
 		\end{minipage}
 		\hfill
 		\begin{minipage}[t]{.48\textwidth}
-			\centering
+			\raggedright
 			\begin{tikzpicture}[scale=.6, baseline=(current bounding box.center)]
 				\node[shape=coordinate] (a) at (-0.9,0) {};
 				\node[shape=coordinate] (b) at ( 0.9,0) {};
@@ -363,13 +393,13 @@ Limit}
 					\draw[thick, postaction={decorate}] (b) .. controls +(240:1) and +(300:1) .. (a);
 				\end{scope}
 			\end{tikzpicture}
-
-			\textbf{Two tadpoles}
 		\end{minipage}
 	\end{figure}
 	\uncover<2->{
 		However, they contain unphysical results, like the \textbf{tadpole divergence}:
-		\begin{align*}
+	}
+	\begin{align*}
+		\uncover<2->{
 			\lim_{\beta\to\infty}\frac{\beta}{2}\left(
 			\begin{tikzpicture}[scale=.35, baseline=(current bounding box.center)]
 				\node[shape=coordinate] (a) at (-1.4,0) {} node[scale=.6] at (-0.9,0) {$\tau$};
@@ -394,10 +424,31 @@ Limit}
 					\draw[thick, postaction={decorate}] (b) .. controls +(240:1.5) and +(300:1.5) .. (a);
 				\end{scope}
 			\end{tikzpicture}\right)
-			&= \lim_{\beta\to\infty}\left( -\frac{\beta}{2}\sum_{p,q,k}\hat{V}(0)n_q^2n_pn_{k} \right)\\
+		}
+		\uncover<3->{
+			&= \lim_{\beta\to\infty}\left( -\frac{\beta}{2}\sum_{p,q,k}\hat{V}(0)^2n_q^2\tikzmarknode{fermidirac}{n_p}n_{k} \right)\\
+		}
+		\uncover<4->{
 			&= -\infty
-		\end{align*}
+		}
+	\end{align*}
+	\uncover<3->{
+		\begin{tikzpicture}[remember picture, overlay]
+			\node[
+				draw=red,
+				fill=red!0,
+				thick,
+				below=1.5em of fermidirac,
+				rounded corners
+				] (comment) {$n_p = n_{\mathrm{F}}(\epsilon_p)$};
+			\draw[red,thick,->] (comment.north) -- ([shift={(0,-.3em)}]fermidirac.south);
+		\end{tikzpicture}
 	}
+	\vspace{-1em}
+	\begin{block}<5->{Remark}
+		Perturbatively, the RPA is understood as a partial resummation \textbf{at all orders}.
+		Removing divergences might be highly non-trivial!
+	\end{block}
 \end{frame}
 
 \section*{}

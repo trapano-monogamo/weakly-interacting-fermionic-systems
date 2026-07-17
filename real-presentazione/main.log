@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.1)  15 JUL 2026 13:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.1)  17 JUL 2026 11:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1325,10 +1325,10 @@ cannot change to gray  on input line 52.
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 132.
+cannot change to gray  on input line 148.
 
 
-Overfull \vbox (0.61067pt too high) detected at line 132
+Overfull \vbox (1.16623pt too high) detected at line 148
  []
 
 [8
@@ -1336,10 +1336,10 @@ Overfull \vbox (0.61067pt too high) detected at line 132
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 132.
+cannot change to gray  on input line 148.
 
 
-Overfull \vbox (0.61067pt too high) detected at line 132
+Overfull \vbox (1.16623pt too high) detected at line 148
  []
 
 [9
@@ -1347,10 +1347,10 @@ Overfull \vbox (0.61067pt too high) detected at line 132
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 132.
+cannot change to gray  on input line 148.
 
 
-Overfull \vbox (0.61067pt too high) detected at line 132
+Overfull \vbox (1.16623pt too high) detected at line 148
  []
 
 [10
@@ -1358,10 +1358,10 @@ Overfull \vbox (0.61067pt too high) detected at line 132
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 132.
+cannot change to gray  on input line 148.
 
 
-Overfull \vbox (0.61067pt too high) detected at line 132
+Overfull \vbox (1.16623pt too high) detected at line 148
  []
 
 [11
@@ -1369,10 +1369,10 @@ Overfull \vbox (0.61067pt too high) detected at line 132
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 132.
+cannot change to gray  on input line 148.
 
 
-Overfull \vbox (0.61067pt too high) detected at line 132
+Overfull \vbox (13.16623pt too high) detected at line 148
  []
 
 [12
@@ -1380,55 +1380,46 @@ Overfull \vbox (0.61067pt too high) detected at line 132
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 132.
-
-
-Overfull \vbox (12.61067pt too high) detected at line 132
- []
+cannot change to gray  on input line 181.
 
 [13
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 163.
+cannot change to gray  on input line 181.
 
 [14
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 163.
+cannot change to gray  on input line 181.
 
 [15
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 163.
+cannot change to gray  on input line 181.
 
 [16
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 163.
+cannot change to gray  on input line 181.
 
 [17
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 163.
+cannot change to gray  on input line 181.
 
 [18
 
-]
-
-Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 163.
-
-[19
+] [19
 
 ] [20
 
@@ -1438,40 +1429,40 @@ cannot change to gray  on input line 163.
 
 ] [23
 
-]
-
-Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 226.
-
-
-Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 226.
-
-[24
+] [24
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 226.
+cannot change to gray  on input line 244.
 
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 226.
+cannot change to gray  on input line 244.
 
 [25
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 226.
+cannot change to gray  on input line 244.
 
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 226.
+cannot change to gray  on input line 244.
 
 [26
 
-] [27
+]
+
+Package pdfx Warning: Color Model already set for PDF/A,
+cannot change to gray  on input line 244.
+
+
+Package pdfx Warning: Color Model already set for PDF/A,
+cannot change to gray  on input line 244.
+
+[27
 
 ] [28
 
@@ -1483,49 +1474,86 @@ cannot change to gray  on input line 226.
 
 ] [32
 
-]
-
-Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 422.
-
-[33
+] [33
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 422.
+cannot change to gray  on input line 452.
 
 [34
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 422.
+cannot change to gray  on input line 452.
 
 [35
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 422.
+cannot change to gray  on input line 452.
 
 [36
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 422.
+cannot change to gray  on input line 452.
 
 [37
 
 ]
 
 Package pdfx Warning: Color Model already set for PDF/A,
-cannot change to gray  on input line 422.
+cannot change to gray  on input line 452.
 
 [38
 
-] [39
+]
+
+Package pdfx Warning: Color Model already set for PDF/A,
+cannot change to gray  on input line 473.
+
+[39
+
+]
+
+Package pdfx Warning: Color Model already set for PDF/A,
+cannot change to gray  on input line 473.
+
+[40
+
+]
+
+Package pdfx Warning: Color Model already set for PDF/A,
+cannot change to gray  on input line 473.
+
+[41
+
+]
+
+Package pdfx Warning: Color Model already set for PDF/A,
+cannot change to gray  on input line 473.
+
+[42
+
+]
+
+Package pdfx Warning: Color Model already set for PDF/A,
+cannot change to gray  on input line 473.
+
+[43
+
+]
+
+Package pdfx Warning: Color Model already set for PDF/A,
+cannot change to gray  on input line 473.
+
+[44
+
+] [45
 
 ]
 \tf@nav=\write7
@@ -1546,18 +1574,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 252EDCDEEEE638F1DE705350FADC378C;604.
  ) 
 Here is how much of TeX's memory you used:
- 31337 strings out of 469515
- 613446 string characters out of 5470808
- 1114269 words of memory out of 5000000
- 59297 multiletter control sequences out of 15000+600000
- 640136 words of font info for 86 fonts, out of 8000000 for 9000
+ 31529 strings out of 469515
+ 617991 string characters out of 5470808
+ 1116352 words of memory out of 5000000
+ 59476 multiletter control sequences out of 15000+600000
+ 640442 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  128i,21n,123p,522b,2517s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (39 pages, 451623 bytes).
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (45 pages, 488922 bytes).
 PDF statistics:
- 2060 PDF objects out of 2073 (max. 8388607)
- 1638 compressed objects within 17 object streams
- 84 named destinations out of 1000 (max. 500000)
- 1109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2331 PDF objects out of 2487 (max. 8388607)
+ 1878 compressed objects within 19 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 1235 words of extra memory for PDF output out of 10000 (max. 10000000)
 
